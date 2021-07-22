@@ -229,8 +229,8 @@ GameObject:
   - component: {fileID: 181266928}
   - component: {fileID: 181266927}
   m_Layer: 0
-  m_Name: muro costado
-  m_TagString: Untagged
+  m_Name: Muro costado
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,8 +324,8 @@ GameObject:
   - component: {fileID: 333901692}
   - component: {fileID: 333901691}
   m_Layer: 0
-  m_Name: estante
-  m_TagString: ObjetoInteractuableEcenario
+  m_Name: Estante
+  m_TagString: Objeto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 431590119}
   - component: {fileID: 431590118}
   m_Layer: 0
-  m_Name: cuadro
+  m_Name: Cuadro
   m_TagString: ObjetoInteractuableEcenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,8 +514,8 @@ GameObject:
   - component: {fileID: 474037476}
   - component: {fileID: 474037475}
   m_Layer: 0
-  m_Name: lampara
-  m_TagString: ObjetoInteractuableEcenario
+  m_Name: Lampara
+  m_TagString: ObjetoInteractuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 594312549}
   - component: {fileID: 594312548}
   m_Layer: 0
-  m_Name: armario
+  m_Name: Armario
   m_TagString: ObjetoInteractuableEcenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1068,8 +1068,8 @@ GameObject:
   - component: {fileID: 1225089561}
   - component: {fileID: 1225089560}
   m_Layer: 0
-  m_Name: muro fondo
-  m_TagString: Untagged
+  m_Name: Muro fondo
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1163,8 +1163,8 @@ GameObject:
   - component: {fileID: 1241971275}
   - component: {fileID: 1241971274}
   m_Layer: 0
-  m_Name: puerta
-  m_TagString: ObjetoInteractuableEcenario
+  m_Name: Puerta
+  m_TagString: ObjetoInteractuableEscenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 1309536264}
   - component: {fileID: 1309536263}
   m_Layer: 0
-  m_Name: mesa de luz
+  m_Name: Mesa de luz
   m_TagString: ObjetoInteractuableEcenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1353,8 +1353,8 @@ GameObject:
   - component: {fileID: 1774135992}
   - component: {fileID: 1774135991}
   m_Layer: 0
-  m_Name: piso
-  m_TagString: Untagged
+  m_Name: Piso
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1448,8 +1448,8 @@ GameObject:
   - component: {fileID: 1821313509}
   - component: {fileID: 1821313508}
   m_Layer: 0
-  m_Name: cama
-  m_TagString: ObjetoInteractuableEcenario
+  m_Name: Cama
+  m_TagString: ObjetoInteractuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1543,8 +1543,8 @@ GameObject:
   - component: {fileID: 1830425861}
   - component: {fileID: 1830425860}
   m_Layer: 0
-  m_Name: basura
-  m_TagString: ObjetoInteractuableEcenario
+  m_Name: Basura
+  m_TagString: ObjetoInteractuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
