@@ -14,7 +14,7 @@ public class InputPlayer : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        gameManager.PlayerMove((Vector2)value.Get());
+        gameManager.PlayerMove((Vector3)value.Get());
     }
 
     void OnAction()
