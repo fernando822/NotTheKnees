@@ -15,15 +15,15 @@ public class InputPlayerDemolitionRace : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        gameManager.PlayerDemolitionRace_Movement((Vector2)value.Get());
+        gameManager.PlayerDemolitionRaceMovement((Vector2)value.Get());
     }
     void OnHandBrake()
     {
-        gameManager.PlayerDemolitionRace_HandBrake();
+        gameManager.PlayerDemolitionRaceHandBrake();
     }
     void OnTurbo()
     {
-        gameManager.PlayerDemolitionRace_Turbo();
+        gameManager.PlayerDemolitionRaceTurbo();
     }
     void Update()
     {

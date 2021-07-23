@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public void PlayerDemolitionRace_Movement(Vector2 value)
+    public void PlayerDemolitionRaceMovement(Vector2 value)
     {
 
     }
 
-    public void PlayerDemolitionRace_HandBrake()
+    public void PlayerDemolitionRaceHandBrake()
     {
 
     }
 
-    public void PlayerDemolitionRace_Turbo()
+    public void PlayerDemolitionRaceTurbo()
     {
 
     }
