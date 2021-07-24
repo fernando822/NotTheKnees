@@ -12,7 +12,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed * value.x);
 
-        transform.eulerAngles += new Vector3(0, value.y * Time.deltaTime * directionSpeed, 0);
+        transform.eulerAngles += new Vector3(0, value.y * Time.deltaTime * directionSpeed * value.x, 0);
 
     }
     public void PlayerDemolitionRace_HandBrake()
