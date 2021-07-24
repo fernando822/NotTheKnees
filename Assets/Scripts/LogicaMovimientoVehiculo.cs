@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class LogicaMovimientoVehiculo : MonoBehaviour
 {
-    float speed = 1;
+    
     float directionSpeed = 1;
-
+    float aceleration =1;
+    float speedLimit = 10;
 
     public void PlayerDemolitionRace_Movement(Vector2 value)
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * value.x);
+        float speed =+ Time.deltaTime * aceleration * value.x;
+        speed = Mathf.Clamp(speed,-speedLimit * 0.1f, speedLimit);
 
-        transform.eulerAngles += new Vector3(0, value.y * Time.deltaTime * directionSpeed * value.x, 0);
+        transform.Translate(Vector3.forward * speed);
+
+
+        if(speed != 0)
+        transform.eulerAngles += new Vector3(0, value.y * Time.deltaTime * directionSpeed, 0);
 
     }
     public void PlayerDemolitionRace_HandBrake()
