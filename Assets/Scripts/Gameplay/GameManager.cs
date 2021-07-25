@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour{
     public void PlayerMove(Vector2 nuevaPosicion)
     {
         player.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
+        player.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
     }
 
     public void PlayerAction()
@@ -30,6 +31,11 @@ public class GameManager : MonoBehaviour{
     public void PlayerMenu()
     {
         
+    }
+
+    public void ShowDescriptionOfObtainedObject()
+    {
+
     }
 
 }

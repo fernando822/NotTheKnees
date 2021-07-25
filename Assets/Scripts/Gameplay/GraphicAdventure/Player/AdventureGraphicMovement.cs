@@ -6,19 +6,14 @@ using UnityEngine;
 public class AdventureGraphicMovement : MonoBehaviour
 {
     [SerializeField] AdventureGraphicPlayer player;
-    [SerializeField] float walkingSpeed;
+    [SerializeField] float movementSpeed;
 
-    public float movementSpeed = 0;
     float newVerticalPosition;
-    float horizontalVelocity;
-    float verticalVelocity;
+    float newHorizontalPosition;
 
     void start()
     {
         player = GetComponent <AdventureGraphicPlayer> ();
-
-        this.verticalVelocity = 0;
-        this.horizontalVelocity = 0;
 
     }
 
@@ -27,21 +22,23 @@ public class AdventureGraphicMovement : MonoBehaviour
         graphicAdventurePlayerMovement();
     }
 
-    void setMovementVelocity()
-    {
-        horizontalVelocity = newVerticalPosition * walkingSpeed;
-    }
 
     private void graphicAdventurePlayerMovement()
     {
+        player.playerTransform.position += Vector3.right * newHorizontalPosition * movementSpeed * Time.fixedDeltaTime;
+        player.playerTransform.position += Vector3.forward * newVerticalPosition * movementSpeed * Time.fixedDeltaTime;
 
-        var movementVector = new Vector3(horizontalVelocity * Time.fixedDeltaTime, verticalVelocity * Time.fixedDeltaTime);
-        player.playerTransform.Translate(movementVector, Space.World);
 
     }
 
     public void SetNewHorizontalPosition(float position)
     {
+        this.newHorizontalPosition = position;
+    }
+
+    public void SetNewVerticalPosition(float position)
+    {
         this.newVerticalPosition = position;
     }
 }
+
