@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class textocuadro : MonoBehaviour
+public class MostrarTexto : MonoBehaviour
 {
-    public string content_text = "Esta es la llave para abrir la puerta";
-    public Text texto_cuadro;
+    public TextMeshProUGUI texto_cuadro;
     public GameObject cuadro;
     
     void Start()
@@ -15,20 +15,14 @@ public class textocuadro : MonoBehaviour
         
     }
 
-    
-    void Update()
-    {
-        
-    }
     public void ShowText(string texto)
     {
-        texto_cuadro.text texto = content_text;
+        texto_cuadro.text = texto;
         cuadro.SetActive(true);
-        
     }
+
     public void CerrarText()
     {
         cuadro.SetActive(false);
-       
     }
 }
