@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Escenario.unity.meta
 guid: df70c5484b21dc542a467c098b453e5f
 =======
@@ -10,6 +11,10 @@ folderAsset: yes
 guid: fcd6a0f88b47b3243aab661ac91c352b
 folderAsset: yes
 >>>>>>> MostrarDescObjRec
+=======
+guid: a05718f433e2025448dede1a538f270e
+folderAsset: yes
+>>>>>>> LogicaDeInputAventuraGrafica
 DefaultImporter:
   externalObjects: {}
   userData: 
