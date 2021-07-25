@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @Input : IInputActionCollection, IDisposable
+public class @PlayerActionControls : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @Input()
+    public @PlayerActionControls()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""Input"",
@@ -1043,8 +1043,8 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerGraphicAdventure_Menu;
     public struct PlayerGraphicAdventureActions
     {
-        private @Input m_Wrapper;
-        public PlayerGraphicAdventureActions(@Input wrapper) { m_Wrapper = wrapper; }
+        private @PlayerActionControls m_Wrapper;
+        public PlayerGraphicAdventureActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerGraphicAdventure_Movement;
         public InputAction @Action => m_Wrapper.m_PlayerGraphicAdventure_Action;
         public InputAction @Backpack => m_Wrapper.m_PlayerGraphicAdventure_Backpack;
@@ -1106,8 +1106,8 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDemolitionRace_Turbo;
     public struct PlayerDemolitionRaceActions
     {
-        private @Input m_Wrapper;
-        public PlayerDemolitionRaceActions(@Input wrapper) { m_Wrapper = wrapper; }
+        private @PlayerActionControls m_Wrapper;
+        public PlayerDemolitionRaceActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerDemolitionRace_Movement;
         public InputAction @HandBrake => m_Wrapper.m_PlayerDemolitionRace_HandBrake;
         public InputAction @Turbo => m_Wrapper.m_PlayerDemolitionRace_Turbo;
@@ -1155,8 +1155,8 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Backpack_CloseBackpack;
     public struct BackpackActions
     {
-        private @Input m_Wrapper;
-        public BackpackActions(@Input wrapper) { m_Wrapper = wrapper; }
+        private @PlayerActionControls m_Wrapper;
+        public BackpackActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_Backpack_Navigate;
         public InputAction @Action => m_Wrapper.m_Backpack_Action;
         public InputAction @CloseBackpack => m_Wrapper.m_Backpack_CloseBackpack;
@@ -1204,8 +1204,8 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Menú_Back;
     public struct MenúActions
     {
-        private @Input m_Wrapper;
-        public MenúActions(@Input wrapper) { m_Wrapper = wrapper; }
+        private @PlayerActionControls m_Wrapper;
+        public MenúActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_Menú_Navigate;
         public InputAction @Action => m_Wrapper.m_Menú_Action;
         public InputAction @Back => m_Wrapper.m_Menú_Back;

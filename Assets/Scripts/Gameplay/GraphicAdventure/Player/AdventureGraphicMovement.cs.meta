@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Input/Input.cs.meta
+guid: 3fdba188ab89bd048a48d54a7f4f8302
+=======
+guid: 812db9485b0087748ac507d57858ac34
+>>>>>>> LogicaMovimientoPersonajeAventuraGrafica:Assets/Scripts/Gameplay/GraphicAdventure/Player/AdventureGraphicMovement.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
