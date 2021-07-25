@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Objetointeractuable : MonoBehaviour
+public class PuedeInteractuar : MonoBehaviour
 {
     public static bool interactuable = false;
     
@@ -18,6 +18,7 @@ public class Objetointeractuable : MonoBehaviour
     {
 
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "ObjetoInteractuable" || other.gameObject.tag == "ObjetoInteractuableEscenario")
