@@ -4,10 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - ObjetoInteractuable
   - Terrain
   - Objeto
   - ObjetoInteractuableEscenario
+=======
+  - Terrain
+  - Obstacle
+>>>>>>> EscenarioDemolitionRace
   layers:
   - Default
   - TransparentFX
