@@ -52,7 +52,7 @@ public class InputPlayer : MonoBehaviour
 
     private void OnBackpack(InputAction.CallbackContext obj)
     {
-        gameManager.ShowDescriptionOfObtainedObject();
+        //gameManager.ShowDescriptionOfObtainedObject();
     }
 
     void OnShowKeyObjects(InputAction.CallbackContext obj)

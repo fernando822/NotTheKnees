@@ -6,14 +6,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour{
 
     private AdventureGraphicPlayer player;
-    [SerializeField] MostrarTexto mostrarTexto;
-    [SerializeField] ObjetoRecogido objetoRecogido;
+    /*[SerializeField] MostrarTexto mostrarTexto;
+    [SerializeField] ObjetoRecogido objetoRecogido;*/
 
     private void Start()
     {
-        player = GameObject.Find("PlayerGraphicAdventure").GetComponent<AdventureGraphicPlayer>();
-        mostrarTexto = GetComponent<MostrarTexto>();
-        objetoRecogido = GetComponent<ObjetoRecogido>();
+        player = GameObject.Find("Player").GetComponent<AdventureGraphicPlayer>();
+       /* mostrarTexto = GetComponent<MostrarTexto>();
+        objetoRecogido = GetComponent<ObjetoRecogido>();*/
     }
     
     public void PlayerMove(Vector2 nuevaPosicion)
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour{
         
     }
 
-    public void ShowDescriptionOfObtainedObject()
+    /*public void ShowDescriptionOfObtainedObject()
     {
         mostrarTexto.ShowText(ObtenerDescripcion());
     }
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour{
     string ObtenerDescripcion()
     {
         return objetoRecogido.MostrarDescripcion();
-    }
+    }*/
 
     public void PlayerDemolitionRaceMovement(Vector2 value)
     {
