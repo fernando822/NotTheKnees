@@ -3,6 +3,7 @@ fileFormatVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Escenario.unity.meta
 guid: df70c5484b21dc542a467c098b453e5f
 =======
@@ -25,6 +26,10 @@ folderAsset: yes
 guid: ba12429c2f21c184f904809d5c119830
 folderAsset: yes
 >>>>>>> LogicaCambioNivel
+=======
+guid: 4ae64e0129df77e4290248280f97e580
+folderAsset: yes
+>>>>>>> InputPlayerDemolitionRace
 DefaultImporter:
   externalObjects: {}
   userData: 

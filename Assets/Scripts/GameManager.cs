@@ -47,5 +47,19 @@ public class GameManager : MonoBehaviour{
         return objetoRecogido.MostrarDescripcion();
     }
 
+    public void PlayerDemolitionRaceMovement(Vector2 value)
+    {
+
+    }
+
+    public void PlayerDemolitionRaceHandBrake()
+    {
+
+    }
+
+    public void PlayerDemolitionRaceTurbo()
+    {
+
+    }
 
 }
