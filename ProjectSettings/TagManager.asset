@@ -8,6 +8,7 @@ TagManager:
   - Terrain
   - Objeto
   - ObjetoInteractuableEscenario
+  - Enemy
   layers:
   - Default
   - TransparentFX
