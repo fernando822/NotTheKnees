@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour{
 
+    public static bool tieneLlave = false;
     private AdventureGraphicPlayer player;
     /*[SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] ObjetoRecogido objetoRecogido;*/
@@ -24,7 +25,17 @@ public class GameManager : MonoBehaviour{
 
     public void PlayerAction()
     {
-        
+
+        if (test.tag == "NPC" && tieneLlave)
+        {
+            //mostrarTexto.ShowText("Bien wacho, liberame de este sufrimiento por favor.");
+        }
+        if (test.name == "Mesa de luz" && !tieneLlave)
+        {
+            //mostrarTexto.ShowText("Hay una llave dentro de la mesa de luz.");
+            tieneLlave = true;
+        }
+
     }
 
     public void PlayerShowKeyObjects()

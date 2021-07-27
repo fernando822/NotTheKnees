@@ -6,23 +6,19 @@ using TMPro;
 
 public class MostrarTexto : MonoBehaviour
 {
-    public TextMeshProUGUI texto_cuadro;
-    public GameObject cuadro;
+    public TextMeshProUGUI textoCuadro;
+
     
     void Start()
     {
-        cuadro.SetActive(false);
         
     }
 
     public void ShowText(string texto)
     {
-        texto_cuadro.text = texto;
-        cuadro.SetActive(true);
+        textoCuadro.text = texto;
+
     }
 
-    public void CerrarText()
-    {
-        cuadro.SetActive(false);
-    }
+
 }
