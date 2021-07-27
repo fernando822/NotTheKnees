@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour{
 
-    private AdventureGraphicPlayer player;
+    [SerializeField] AdventureGraphicPlayer adventureGraphicPlayer;
     /*[SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] ObjetoRecogido objetoRecogido;*/
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<AdventureGraphicPlayer>();
+        adventureGraphicPlayer = GetComponent<AdventureGraphicPlayer>();
        /* mostrarTexto = GetComponent<MostrarTexto>();
         objetoRecogido = GetComponent<ObjetoRecogido>();*/
     }
     
     public void PlayerMove(Vector2 nuevaPosicion)
     {
-        player.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
-        player.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
+        adventureGraphicPlayer.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
+        adventureGraphicPlayer.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
     }
 
     public void PlayerAction()
