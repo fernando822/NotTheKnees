@@ -5,26 +5,40 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour{
 
-    private AdventureGraphicPlayer player;
-    /*[SerializeField] MostrarTexto mostrarTexto;
-    [SerializeField] ObjetoRecogido objetoRecogido;*/
+    private AdventureGraphicPlayer adventureGraphicPlayer;
+    private GameObject player;
+    private PuedeInteractuar puedeInteractuar;
+    [SerializeField] MostrarTexto mostrarTexto;
+    [SerializeField] ObjetoRecogido objetoRecogido;
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<AdventureGraphicPlayer>();
-       /* mostrarTexto = GetComponent<MostrarTexto>();
-        objetoRecogido = GetComponent<ObjetoRecogido>();*/
+        player = GameObject.Find("Player");
+        puedeInteractuar = player.GetComponent<PuedeInteractuar>();
+        adventureGraphicPlayer = player.GetComponent<AdventureGraphicPlayer>();
+        mostrarTexto = GetComponent<MostrarTexto>();
+        objetoRecogido = GetComponent<ObjetoRecogido>();
     }
-    
+
     public void PlayerMove(Vector2 nuevaPosicion)
     {
-        player.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
-        player.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
+        adventureGraphicPlayer.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
+        adventureGraphicPlayer.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
     }
 
     public void PlayerAction()
     {
         
+        if (PuedeInteractuar.interactuable)
+        {
+            GameObject test = DecidirObjetoInteractuable.ObjetoMasCercano(
+                puedeInteractuar.GetGameObjects(), player);
+            //mostrarTexto.ShowText(test);
+            
+
+        }
+        Debug.Log(puedeInteractuar.GetGameObjects().Count);
+
     }
 
     public void PlayerShowKeyObjects()
@@ -37,7 +51,7 @@ public class GameManager : MonoBehaviour{
         
     }
 
-    /*public void ShowDescriptionOfObtainedObject()
+    public void ShowDescriptionOfObtainedObject()
     {
         mostrarTexto.ShowText(ObtenerDescripcion());
     }
@@ -45,7 +59,7 @@ public class GameManager : MonoBehaviour{
     string ObtenerDescripcion()
     {
         return objetoRecogido.MostrarDescripcion();
-    }*/
+    }
 
     public void PlayerDemolitionRaceMovement(Vector2 value)
     {
