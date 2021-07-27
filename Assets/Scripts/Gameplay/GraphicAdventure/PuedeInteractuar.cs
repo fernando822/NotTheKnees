@@ -5,7 +5,7 @@ using UnityEngine;
 public class PuedeInteractuar : MonoBehaviour
 {
     public static bool interactuable = false;
-    
+   
 
     void Start()
     {
@@ -23,7 +23,9 @@ public class PuedeInteractuar : MonoBehaviour
     {
         if (other.gameObject.tag == "ObjetoInteractuable" || other.gameObject.tag == "ObjetoInteractuableEscenario")
         {
-            interactuable = true;
+            interactuable = true ;
+            DevolverDescripcion( other.gameObject.GetComponent<DescripcionInteractuable>().GetDescripcion());
+            
         }
 
     }
@@ -33,5 +35,9 @@ public class PuedeInteractuar : MonoBehaviour
         {
             interactuable = false;
         }
+    }
+    public string DevolverDescripcion(string desc)
+    {
+        return desc;
     }
 }
