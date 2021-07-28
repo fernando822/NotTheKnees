@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class ContadorVida : MonoBehaviour
 {
+    
     public int vida;
     public int VidaACambiar;
     public Image BarraDeVida;
@@ -14,7 +17,7 @@ public class ContadorVida : MonoBehaviour
      vida = 100;
     }
 
-    public void CambiarVida (int VidaACambiar)
+    public void CambiarVida(int VidaACambiar)
     {
         vida += VidaACambiar;
 
@@ -27,7 +30,7 @@ public class ContadorVida : MonoBehaviour
     }
     private void Update()
     {
-        CambiarVida(0);
+       
     }
 
 
