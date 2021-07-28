@@ -7,13 +7,15 @@ public class GameManager : MonoBehaviour{
 
     private AdventureGraphicPlayer player;
     /*[SerializeField] MostrarTexto mostrarTexto;
-    [SerializeField] ObjetoRecogido objetoRecogido;*/
+    [SerializeField] ObjetoRecogido objetoRecogido;
+    [SerializeField] UIManager uiManager; */
 
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<AdventureGraphicPlayer>();
        /* mostrarTexto = GetComponent<MostrarTexto>();
-        objetoRecogido = GetComponent<ObjetoRecogido>();*/
+          objetoRecogido = GetComponent<ObjetoRecogido>();
+          uiManager = GetComponent<MostrarLLave>();*/
     }
     
     public void PlayerMove(Vector2 nuevaPosicion)
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour{
 
     public void PlayerShowKeyObjects()
     {
-        
+     /* uiManager.MostrarLlave(); */
     }
 
     public void PlayerMenu()
