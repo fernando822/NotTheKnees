@@ -4,22 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
 public class CausarDaño : MonoBehaviour
 {
-    public int VidaACambiar = 3;
+    ContadorVida y;
 
-    
+
+    void Start()
+    {
+        y = GameObject.Find("Player").GetComponent<ContadorVida>();
+
+    }
+
 
     public void OnCollisionEnter(Collision collisionInfo)
     {
-        if (collisionInfo.collider.name == "Player");
+        if (collisionInfo.collider.name == "Player")
         {
-            ContadorVida.CambiarVida(VidaACambiar = 3);
-            (collisionInfo.gameObject).ContadorVida.CambiarVida(VidaACambiar = 3);
+
+
+            y.CambiarVida(-10);
+
 
         }
     }
-
-   
 }

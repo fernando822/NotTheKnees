@@ -15,6 +15,7 @@ public class ContadorVida : MonoBehaviour
     void Start()
     {
      vida = 100;
+       
     }
 
     public void CambiarVida(int VidaACambiar)
@@ -27,6 +28,8 @@ public class ContadorVida : MonoBehaviour
         vida = Mathf.Clamp(vida, 0, 100);
 
         BarraDeVida.fillAmount = vida * 0.01f ;
+
+        
     }
     private void Update()
     {
