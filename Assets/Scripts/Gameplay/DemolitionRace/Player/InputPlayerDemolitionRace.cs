@@ -6,27 +6,53 @@ using UnityEngine.InputSystem;
 
 public class InputPlayerDemolitionRace : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
+    [SerializeField] GameManagerRace gameManager;
+    private PlayerActionControls input;
+    private InputAction movimiento;
 
+    private void Awake()
+    {
+        input = new PlayerActionControls();
+    }
     void Start()
     {
-        gameManager = GetComponent<GameManager>();
+        input.PlayerGraphicAdventure.Disable();
+        input.PlayerDemolitionRace.Enable();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerRace>();
     }
 
-    void OnMove(InputValue value)
+    private void FixedUpdate()
     {
-        gameManager.PlayerDemolitionRaceMovement((Vector2)value.Get());
+        gameManager.PlayerDemolitionRaceMovement(movimiento.ReadValue<Vector2>());
     }
-    void OnHandBrake()
+
+    private void OnEnable()
+    {
+        movimiento = input.PlayerDemolitionRace.Movement;
+        movimiento.Enable();
+        input.PlayerDemolitionRace.HandBrake.performed += OnHandBrake;
+        input.PlayerDemolitionRace.HandBrake.Enable();
+
+        input.PlayerDemolitionRace.Turbo.performed += OnTurbo;
+        input.PlayerDemolitionRace.Turbo.Enable();
+    }
+
+    void OnHandBrake(InputAction.CallbackContext obj)
     {
         gameManager.PlayerDemolitionRaceHandBrake();
     }
-    void OnTurbo()
+    void OnTurbo(InputAction.CallbackContext obj)
     {
         gameManager.PlayerDemolitionRaceTurbo();
     }
-    void Update()
+
+    private void OnDisable()
     {
-        
+        movimiento.Disable();
+        input.PlayerDemolitionRace.HandBrake.performed -= OnHandBrake;
+        input.PlayerDemolitionRace.HandBrake.Disable();
+
+        input.PlayerDemolitionRace.Turbo.performed -= OnTurbo;
+        input.PlayerDemolitionRace.Turbo.Disable();
     }
 }

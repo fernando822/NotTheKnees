@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class InputPlayer : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
+    [SerializeField] GameManagerAventura gameManager;
     private PlayerActionControls input;
     private InputAction movimiento; 
 
@@ -17,7 +17,9 @@ public class InputPlayer : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        input.PlayerGraphicAdventure.Enable();
+        input.PlayerDemolitionRace.Disable();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerAventura>();
        
     }
 
