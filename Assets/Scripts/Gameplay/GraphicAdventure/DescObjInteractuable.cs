@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class DescObjInteractuable : MonoBehaviour
 {
-   public string Descripcion;
+    DescripcionInteractuable descripcion;
 
-    [SerializeField] GameManager gameManager;
-    
-
-    void Start()
+    void Start() {
+        descripcion = GameObject.Find("Player").GetComponent<DescripcionInteractuable>(); 
+    }
+   
+    public string MostrarDescripcionInteractuable()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        return descripcion.GetDescripcion();
+    
     }
 
-  
-    
-        
+
+
 
 
 

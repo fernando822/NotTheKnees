@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour{
     private AdventureGraphicPlayer player;
     [SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] ObjetoRecogido objetoRecogido;
-    [SerializeField] PuedeInteractuar puedeInteractuar;
+    DescObjInteractuable descObjInteractuable;
 
 
 
@@ -17,10 +17,11 @@ public class GameManager : MonoBehaviour{
         player = GameObject.Find("Player").GetComponent<AdventureGraphicPlayer>();
         mostrarTexto = GetComponent<MostrarTexto>();
         objetoRecogido = GetComponent<ObjetoRecogido>();
-        puedeInteractuar = GetComponent<PuedeInteractuar>();
-             
+        descObjInteractuable = GetComponent<DescObjInteractuable>();
+
+
     }
-    
+
     public void PlayerMove(Vector2 nuevaPosicion)
     {
         player.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour{
     public void PlayerAction()
     {
 
-        mostrarTexto.ShowText(player.GetComponent<PuedeInteractuar>().DevolverDescripcion(desc));
+        
     }
 
     public void PlayerShowKeyObjects()
@@ -44,16 +45,18 @@ public class GameManager : MonoBehaviour{
     }
     public void ShowDescriptionOfInteractuableObject()
     {
-        mostrarTexto.ShowText(obtenerDescripcionObjetoInteractuable());
+        
     }
     public void ShowDescriptionOfObtainedObject()
     {
-        mostrarTexto.ShowText(ObtenerDescripcion());
+        
     }
-    string obtenerDescripcionObjetoInteractuable()
+
+    string GetDescriptionOfInteractuableObject()
     {
-        return puedeInteractuar.DevolverDescripcion(desc);
+        return descObjInteractuable.MostrarDescripcionInteractuable();
     }
+   
     string ObtenerDescripcion()
     {
         return objetoRecogido.MostrarDescripcion();
