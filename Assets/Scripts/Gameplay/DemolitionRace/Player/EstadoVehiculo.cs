@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class CausarDaño : MonoBehaviour
+public class EstadoVehiculo : MonoBehaviour
 {
     ControladorVida contadorVida;
 

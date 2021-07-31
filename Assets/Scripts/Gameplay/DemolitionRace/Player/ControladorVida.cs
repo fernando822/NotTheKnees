@@ -11,8 +11,8 @@ public class ControladorVida : MonoBehaviour
 
     VictoriaDerrota victoriaDerrota;
 
-    public CausarDaño causarDañoP;
-    public CausarDaño causarDañoE;
+    public EstadoVehiculo causarDañoP;
+    public EstadoVehiculo causarDañoE;
 
     void Start()
     {
