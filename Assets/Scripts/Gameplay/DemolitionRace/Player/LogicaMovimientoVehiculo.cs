@@ -37,7 +37,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
     void Rotate()
     {
-        float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * direccionInputVertical;
+        float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * speed * 0.1f;
         transform.Rotate(Vector3.up, anguloDeRotacion);
         
     }
