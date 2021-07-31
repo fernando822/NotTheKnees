@@ -5,27 +5,20 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static bool Objrecogido = false;
     public GameObject Llave;
-    public Image ImagenLLave;
+   
     void Start()
     {
         Llave.SetActive(false);
-        
     }
 
-   public void MostrarLLave()
+    public void MostrarLlave()
     {
-        if (Objrecogido == true)
-        {
-            Llave.SetActive(true);
-        }
-        
+        Llave.SetActive(true);   
     }
-    
-    void Update()
+
+    public void OcultarLlave()
     {
-       
-        
+        Llave.SetActive(false);
     }
 }

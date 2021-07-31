@@ -6,16 +6,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour{
 
     private AdventureGraphicPlayer player;
+    private UIManager UIManager;
     /*[SerializeField] MostrarTexto mostrarTexto;
-    [SerializeField] ObjetoRecogido objetoRecogido;
-    [SerializeField] UIManager uiManager; */
+    [SerializeField] ObjetoRecogido objetoRecogido; */
 
     private void Start()
     {
+        UIManager = GetComponent<UIManager>();
         player = GameObject.Find("Player").GetComponent<AdventureGraphicPlayer>();
        /* mostrarTexto = GetComponent<MostrarTexto>();
-          objetoRecogido = GetComponent<ObjetoRecogido>();
-          uiManager = GetComponent<MostrarLLave>();*/
+          objetoRecogido = GetComponent<ObjetoRecogido>();*/
     }
     
     public void PlayerMove(Vector2 nuevaPosicion)
@@ -26,7 +26,10 @@ public class GameManager : MonoBehaviour{
 
     public void PlayerAction()
     {
-        
+        if(objetoAInteractuar.name == "Mesa de luz")
+        {
+            UIManager.MostrarLlave();
+        }
     }
 
     public void PlayerShowKeyObjects()
