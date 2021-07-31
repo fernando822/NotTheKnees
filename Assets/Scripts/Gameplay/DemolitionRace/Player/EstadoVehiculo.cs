@@ -9,23 +9,22 @@ public class EstadoVehiculo : MonoBehaviour
     ControladorVida contadorVida;
 
     public int vida = 100;
-    public int Attacke= -10;
-    public int vueltas;
+    public int attack = 10;
 
     void Start()
     {
-        contadorVida = GameObject.Find("RaceManager").GetComponent<ControladorVida>();
-        int vueltas=0;
+        contadorVida = GameObject.Find("GameManager").GetComponent<ControladorVida>();
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+
+    void OnCollisionEnter(Collision other)
     {
 
-        if(collisionInfo.collider.name=="Player")
-        contadorVida.CambiarVida(Attacke, "Player");
+        if(other.gameObject.tag == "Player")
+        contadorVida.CambiarVida(attack, "Player");
 
-        if(collisionInfo.collider.tag == "Enemy")
-        contadorVida.CambiarVida(Attacke, collisionInfo.collider.name);
+        if(other.gameObject.tag == "Enemy")
+        contadorVida.CambiarVida(attack, other.collider.name);
 
     }
 
