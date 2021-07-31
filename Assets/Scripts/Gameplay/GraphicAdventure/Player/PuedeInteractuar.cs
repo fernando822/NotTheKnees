@@ -5,8 +5,6 @@ using UnityEngine;
 public class PuedeInteractuar : MonoBehaviour
 {
     public static bool interactuable = false;
-    float distanciaObjetoActual;
-    float distanciaObjetoMasCercano;
     List<GameObject> gameObjects = new List<GameObject>();
 
     public List<GameObject> GetGameObjects()

@@ -31,10 +31,10 @@ public class GameManager : MonoBehaviour{
         
         if (PuedeInteractuar.interactuable)
         {
-            GameObject test = DecidirObjetoInteractuable.ObjetoMasCercano(
+            GameObject objetoAInteractuar = DecidirObjetoInteractuable.ObjetoMasCercano(
                 puedeInteractuar.GetGameObjects(), player);
-            //mostrarTexto.ShowText(test);
-            
+            //mostrarTexto.ShowText(objetoAInteractuar);
+
 
         }
         Debug.Log(puedeInteractuar.GetGameObjects().Count);
