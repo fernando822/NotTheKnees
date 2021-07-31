@@ -2,15 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogoNPC : MonoBehaviour
+public static class DialogoNPC
 {
-    public string tieneLlave()
+    public static string DialogoDelNPC(bool tieneLlave)
+    {
+        if (tieneLlave)
+        {
+           return TieneLlave();
+        }
+        else
+        {
+            return NoTieneLlave();
+        }
+    }
+    public static string TieneLlave()
     {
         return "Buen trabajo";
     }
 
-    public string noTieneLlave()
+    public static string NoTieneLlave()
     {
-        return "Mira flaco hace tres meses que estoy encerrado aca, tenes que encontrar la forma de abrir la puerta para participar en la carrera de demolicion que se esta dando afuera wacho";
+        return "Mira flaco hace tres meses que estoy encerrado aca," +
+    " tenes que encontrar la forma de abrir la puerta" +
+    " para participar en la carrera de demolicion que se esta dando afuera wacho";
     }
 }

@@ -24,7 +24,10 @@ public class GameManager : MonoBehaviour{
 
     public void PlayerAction()
     {
-        
+        if (objetoAInteractuar.name == "NPC")
+        {
+            DialogoNPC.DialogoDelNPC(VariableDeLaLlave);
+        }
     }
 
     public void PlayerShowKeyObjects()
