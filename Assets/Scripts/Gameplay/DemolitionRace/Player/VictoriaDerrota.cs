@@ -40,14 +40,12 @@ public class VictoriaDerrota : MonoBehaviour
             {
                 metaOn.SetActive(false);
                 checkpoint1On.SetActive(true);
-                checkpoint2On.SetActive(false);
                 causarDañoP.vueltas++;
                 Debug.Log("meta");
             }
             else 
             if(checkpoint1On.active)
             {
-                metaOn.SetActive(false);
                 checkpoint1On.SetActive(false);
                 checkpoint2On.SetActive(true);
                 Debug.Log("checkpoint");
@@ -55,9 +53,8 @@ public class VictoriaDerrota : MonoBehaviour
             else
             if (checkpoint2On.active)
             {
-                metaOn.SetActive(true);
-                checkpoint1On.SetActive(false);
                 checkpoint2On.SetActive(false);
+                metaOn.SetActive(true);
                 Debug.Log("checkpoint2");
             }
 
