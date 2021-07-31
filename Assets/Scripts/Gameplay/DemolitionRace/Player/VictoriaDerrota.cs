@@ -5,8 +5,8 @@ using UnityEngine;
 public class VictoriaDerrota : MonoBehaviour
 {
 
-    public EstadoVehiculo causarDañoP;
-    public EstadoVehiculo causarDañoE;
+    public EstadoVehiculo EstadoVehiculoP;
+    public EstadoVehiculo EstadoVehiculoE;
 
     public Checkpoints meta;
     public Checkpoints checkpoint1;
@@ -26,10 +26,10 @@ public class VictoriaDerrota : MonoBehaviour
     }
     public void Vidas()
     {
-        if (causarDañoP.vida <= 0)
+        if (EstadoVehiculoP.vida <= 0)
             Debug.Log("Derrota");
 
-        if (causarDañoE.vida <= 0)
+        if (EstadoVehiculoE.vida <= 0)
             Debug.Log("Victoria");
     }
    public void Checkpoints(string CheckpointInfo)
@@ -40,7 +40,7 @@ public class VictoriaDerrota : MonoBehaviour
             {
                 metaOn.SetActive(false);
                 checkpoint1On.SetActive(true);
-                causarDañoP.vueltas++;
+                EstadoVehiculoP.vueltas++;
                 Debug.Log("meta");
             }
             else 

@@ -11,8 +11,8 @@ public class ControladorVida : MonoBehaviour
 
     VictoriaDerrota victoriaDerrota;
 
-    public EstadoVehiculo causarDañoP;
-    public EstadoVehiculo causarDañoE;
+    public EstadoVehiculo EstadoVehiculoP;
+    public EstadoVehiculo EstadoVehiculoE;
 
     void Start()
     {
@@ -22,11 +22,11 @@ public class ControladorVida : MonoBehaviour
     public void CambiarVida(int VidaACambiar, string objetoColision)
     {
         if (objetoColision == "Player")
-            causarDañoP.vida += VidaACambiar;
+            EstadoVehiculoP.vida += VidaACambiar;
            
 
         if (objetoColision =="Enemy")
-            causarDañoE.vida += VidaACambiar;
+            EstadoVehiculoE.vida += VidaACambiar;
 
         victoriaDerrota.Vidas();
 
