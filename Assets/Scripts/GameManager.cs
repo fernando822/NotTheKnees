@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour{
 
     public void PlayerShowKeyObjects()
     {
-        
+        ShowKeyObjects.showObject();
     }
 
     public void PlayerMenu()
