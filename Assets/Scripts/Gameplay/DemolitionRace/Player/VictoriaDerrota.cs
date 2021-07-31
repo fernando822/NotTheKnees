@@ -17,10 +17,10 @@ public class VictoriaDerrota : MonoBehaviour
  
     void Update()
     {
-        if (causarDañoE.vida <= 0)
+        if (causarDañoP.vida <= 0)
             Debug.Log("Derrota");
 
-        if (causarDañoE.vida <=0)
+        if (causarDañoE.vida <= 0)
             Debug.Log("Victoria");
     }
 }
