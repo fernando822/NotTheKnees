@@ -1,36 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 
 public class ContadorVida : MonoBehaviour
 {
-    
-    public int vida;
     public int VidaACambiar;
-    public Image BarraDeVida;
+    public string objetoColision;
+  
+    CausarDaño causarDañoP;
+    CausarDaño causarDañoE;
 
     void Start()
     {
-     vida = 100;
+        causarDañoP = GameObject.Find("Player").GetComponent<CausarDaño>();
+        causarDañoE = GameObject.Find("Enemy").GetComponent<CausarDaño>();
+
+    }
+
+    public void CambiarVida(int VidaACambiar, string objetoColision)
+    {
+        if (objetoColision == "Player")
+            causarDañoP.ControlVida(VidaACambiar);
+
+        if (objetoColision =="Enemy")
+            causarDañoE.ControlVida(VidaACambiar);
+
+       
        
     }
 
-    public void CambiarVida(int VidaACambiar)
-    {
-        vida += VidaACambiar;
+  
 
-        if (vida <= 0)
-            Destroy(gameObject);
-
-        vida = Mathf.Clamp(vida, 0, 100);
-
-        BarraDeVida.fillAmount = vida * 0.01f ;
-
-        
-    }
     private void Update()
     {
        
