@@ -5,23 +5,19 @@ using UnityEngine;
 public class VictoriaDerrota : MonoBehaviour
 {
 
-    CausarDaño causarDañoP;
-    CausarDaño causarDañoE;
+    public CausarDaño causarDañoP;
+    public CausarDaño causarDañoE;
 
-    Checkpoints meta;
+    public Checkpoints meta;
+    public Checkpoints checkpoint1;
 
     public string CheckpointInfo;
 
     void Start()
     {
-        causarDañoP = GameObject.Find("Player").GetComponent<CausarDaño>();
-        causarDañoE = GameObject.Find("Enemy").GetComponent<CausarDaño>();
-
-        meta = GameObject.Find("Meta").GetComponent<Checkpoints>();
+        
     }
-
- 
-    void Update()
+    public void Vidas()
     {
         if (causarDañoP.vida <= 0)
             Debug.Log("Derrota");
@@ -31,10 +27,8 @@ public class VictoriaDerrota : MonoBehaviour
     }
    public void Checkpoints(string CheckpointInfo)
     {
-        Debug.Log("meta");
         if (CheckpointInfo == "Player")
             Debug.Log("meta");
 
     }
-
 }

@@ -5,20 +5,15 @@ using UnityEngine;
 public class Checkpoints : MonoBehaviour
 {
 
-    VictoriaDerrota a;
+    VictoriaDerrota victoriaDerrota;
 
-    public void Start()
+    void Start()
     {
-        a = GameObject.Find("vidas").GetComponent<VictoriaDerrota>();
+        victoriaDerrota = GameObject.Find("RaceManager").GetComponent<VictoriaDerrota>();
     }
-    public void OnTriggerEnter(Collider collisionInfo)
+    void OnTriggerEnter(Collider collisionInfo)
     {
-        a.Checkpoints(collisionInfo.name);
-
-
+        victoriaDerrota.Checkpoints(collisionInfo.name);
     }
-
-
-
 
 }

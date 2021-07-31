@@ -6,19 +6,19 @@ using UnityEngine;
 
 public class CausarDaño : MonoBehaviour
 {
-    ContadorVida contadorVida;
+    ControladorVida contadorVida;
 
     public int vida = 100;
     public int Attacke= -10;
-    int VidaACambiar;
+    public int vueltas;
 
     void Start()
     {
-        contadorVida = GameObject.Find("vidas").GetComponent<ContadorVida>();
+        contadorVida = GameObject.Find("RaceManager").GetComponent<ControladorVida>();
+        int vueltas=0;
     }
 
-
-    public void OnCollisionEnter(Collision collisionInfo)
+    void OnCollisionEnter(Collision collisionInfo)
     {
 
         if(collisionInfo.collider.name=="Player")

@@ -4,39 +4,34 @@ using UnityEngine;
 
 
 
-public class ContadorVida : MonoBehaviour
+public class ControladorVida : MonoBehaviour
 {
-    public int VidaACambiar;
-    public string objetoColision;
-  
-    CausarDaño causarDañoP;
-    CausarDaño causarDañoE;
+    int VidaACambiar;
+    string objetoColision;
+
+    VictoriaDerrota victoriaDerrota;
+
+    public CausarDaño causarDañoP;
+    public CausarDaño causarDañoE;
 
     void Start()
     {
-        causarDañoP = GameObject.Find("Player").GetComponent<CausarDaño>();
-        causarDañoE = GameObject.Find("Enemy").GetComponent<CausarDaño>();
-
+        victoriaDerrota = GameObject.Find("RaceManager").GetComponent<VictoriaDerrota>();
     }
 
     public void CambiarVida(int VidaACambiar, string objetoColision)
     {
         if (objetoColision == "Player")
             causarDañoP.vida += VidaACambiar;
+           
 
         if (objetoColision =="Enemy")
             causarDañoE.vida += VidaACambiar;
 
-
+        victoriaDerrota.Vidas();
 
     }
 
-  
-
-    private void Update()
-    {
-       
-    }
 
 
 
