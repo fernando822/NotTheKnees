@@ -22,13 +22,13 @@ public class ContadorVida : MonoBehaviour
     public void CambiarVida(int VidaACambiar, string objetoColision)
     {
         if (objetoColision == "Player")
-            causarDañoP.ControlVida(VidaACambiar);
+            causarDañoP.vida += VidaACambiar;
 
         if (objetoColision =="Enemy")
-            causarDañoE.ControlVida(VidaACambiar);
+            causarDañoE.vida += VidaACambiar;
 
-       
-       
+
+
     }
 
   

@@ -14,7 +14,7 @@ public class CausarDaño : MonoBehaviour
 
     void Start()
     {
-        contadorVida = GameObject.Find("1").GetComponent<ContadorVida>();
+        contadorVida = GameObject.Find("vidas").GetComponent<ContadorVida>();
     }
 
 
@@ -29,8 +29,4 @@ public class CausarDaño : MonoBehaviour
 
     }
 
-    public void ControlVida(int VidaACambiar)
-    {
-        vida += VidaACambiar;
-    }
 }
