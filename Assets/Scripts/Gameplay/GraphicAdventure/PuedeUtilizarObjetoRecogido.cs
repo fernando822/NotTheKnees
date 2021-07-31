@@ -5,18 +5,8 @@ using UnityEngine;
 public class PuedeUtilizarObjetoRecogido : MonoBehaviour
 {
     public static bool PuedeUsar = false;
-    void Start()
-    {
-       
-    }
-
-    
-    void Update()
-    {
-        
-    }
-    
-    void OnTriggerStay(Collider other)
+   
+     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "ObjetoInteractuableEscenario")
         {
@@ -30,10 +20,6 @@ public class PuedeUtilizarObjetoRecogido : MonoBehaviour
         {
             PuedeUsar = false;
         }
-
     }
-    public  bool PuedeUtilizarObjeto()
-    {
-        return PuedeUsar;
     }
-}
+    

@@ -463,6 +463,51 @@ Transform:
   m_Father: {fileID: 1709264052}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &205934168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205934170}
+  - component: {fileID: 205934169}
+  m_Layer: 0
+  m_Name: Bisagra
+  m_TagString: ObjetoInteractuableEcenario
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &205934169
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205934168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.5, y: 0, z: 0}
+--- !u!4 &205934170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205934168}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.3620002, y: 1.381, z: -2.881867}
+  m_LocalScale: {x: 1.1364591, y: 2.5019605, z: 0.18830527}
+  m_Children:
+  - {fileID: 1241971277}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333901690
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +925,6 @@ Transform:
   - {fileID: 333901694}
   - {fileID: 594312551}
   - {fileID: 1821313511}
-  - {fileID: 1241971277}
   - {fileID: 1830425863}
   - {fileID: 1309536266}
   m_Father: {fileID: 81439145}
@@ -1378,11 +1422,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241971273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4909, y: 0.27380002, z: 0.48070002}
-  m_LocalScale: {x: 1.1364585, y: 2.5019603, z: 0.18830508}
+  m_LocalPosition: {x: 0.51199996, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 923646846}
-  m_RootOrder: 4
+  m_Father: {fileID: 205934170}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1241971278
 MonoBehaviour:
@@ -1393,10 +1437,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241971273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a67df6f82254e144b992ec879a90424e, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  puedeAbrir: 0
 --- !u!1 &1309536262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,7 +1534,7 @@ Transform:
   m_LocalScale: {x: 1.6286743, y: 1.0927501, z: 0.9415253}
   m_Children: []
   m_Father: {fileID: 923646846}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!208 &1309536267
 NavMeshObstacle:
@@ -1930,7 +1973,7 @@ Transform:
   m_LocalScale: {x: 0.86862624, y: 0.7285, z: 0.50214684}
   m_Children: []
   m_Father: {fileID: 923646846}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!208 &1830425864
 NavMeshObstacle:
