@@ -6,18 +6,18 @@ using UnityEngine;
 public class GameManagerAventura : MonoBehaviour{
 
     public static bool tieneLlave = false;
-    private UIManager UIManager;
     private AdventureGraphicPlayer adventureGraphicPlayer;
     private GameObject player;
     private PuedeInteractuar puedeInteractuar;
-    private SceneController cambioDeNivel;
+    [SerializeField] SceneController cambioDeNivel;
     [SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] ObjetoRecogido objetoRecogido;
+    [SerializeField] UIManager UIManager;
 
     private void Start()
     {
-        cambioDeNivel = GetComponent<SceneController>();
-        UIManager = GetComponent<UIManager>();
+        cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
+        UIManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
         player = GameObject.Find("Player");
         puedeInteractuar = player.GetComponent<PuedeInteractuar>();
         adventureGraphicPlayer = player.GetComponent<AdventureGraphicPlayer>();

@@ -12,13 +12,11 @@ public class SceneController : MonoBehaviour
     
     public void CargarEscena(int sceneIndex)
     {
-        Scene escena = SceneManager.GetSceneByBuildIndex(sceneIndex);
-        SceneManager.SetActiveScene(escena);
+        SceneManager.LoadScene(sceneIndex);
     }
     public void CargarEscena(string sceneName)
     {
-        Scene escena = SceneManager.GetSceneByName(sceneName);
-        SceneManager.SetActiveScene(escena);
+        SceneManager.LoadScene(sceneName);
     }
     
 }

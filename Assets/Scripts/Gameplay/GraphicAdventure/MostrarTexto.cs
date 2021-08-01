@@ -16,7 +16,7 @@ public class MostrarTexto : MonoBehaviour
 
     public void ShowText(string texto)
     {
-        textoCuadro.text = texto;
+        //textoCuadro.text = texto;
     }
 
 }
