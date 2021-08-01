@@ -6,12 +6,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour{
 
     private AdventureGraphicPlayer player;
+    private SceneController cambioDeNivel;
     [SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] ObjetoRecogido objetoRecogido;
     
 
     private void Start()
     {
+        cambioDeNivel = GetComponent<SceneController>();
         player = GameObject.Find("Player").GetComponent<AdventureGraphicPlayer>();
         mostrarTexto = GetComponent<MostrarTexto>();
         objetoRecogido = GetComponent<ObjetoRecogido>();
@@ -26,7 +28,10 @@ public class GameManager : MonoBehaviour{
 
     public void PlayerAction()
     {
-        
+        if(objetoAInteractuar.name == "Puerta")
+        {
+            cambioDeNivel.CargarEscena("CarreraDeDemolicion");
+        }
     }
 
     public void PlayerShowKeyObjects()
