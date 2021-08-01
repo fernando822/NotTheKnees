@@ -7,11 +7,11 @@ public class AdventureGraphicPlayer : MonoBehaviour
 {
     public AdventureGraphicMovement movementScript;
     public Transform playerTransform;
-    GameManager gameManager;
+    GameManagerAventura gameManager;
 
     void start()
     {
-        this.gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        this.gameManager = GameObject.Find("GameManager").GetComponent<GameManagerAventura>();
         this.movementScript = GetComponent<AdventureGraphicMovement>();
         this.playerTransform = GetComponent<Transform>();
     }

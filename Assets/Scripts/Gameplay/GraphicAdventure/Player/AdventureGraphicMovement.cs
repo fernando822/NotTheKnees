@@ -13,7 +13,7 @@ public class AdventureGraphicMovement : MonoBehaviour
 
     void start()
     {
-        player = GetComponent <AdventureGraphicPlayer> ();
+        player = GetComponent <AdventureGraphicPlayer>();
 
     }
 

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour{
+public class GameManagerAventura : MonoBehaviour{
 
     public static bool tieneLlave = false;
     private UIManager UIManager;
@@ -69,21 +69,6 @@ public class GameManager : MonoBehaviour{
     string ObtenerDescripcion()
     {
         return objetoRecogido.MostrarDescripcion();
-    }
-
-    public void PlayerDemolitionRaceMovement(Vector2 value)
-    {
-
-    }
-
-    public void PlayerDemolitionRaceHandBrake()
-    {
-
-    }
-
-    public void PlayerDemolitionRaceTurbo()
-    {
-
     }
 
 }

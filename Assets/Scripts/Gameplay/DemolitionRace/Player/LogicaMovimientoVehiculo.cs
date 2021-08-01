@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class LogicaMovimientoVehiculo : MonoBehaviour
 {
-    float directionSpeed = 30f;
-    float aceleration = 30f;
-    float speedLimit = 70f;
+    [SerializeField] DemolitionRacePlayer player;
+    [SerializeField] float directionSpeed = 30f;
+    [SerializeField] float aceleration = 30f;
+    [SerializeField] float speedLimit = 70f;
+    [SerializeField] float drag = 1f; 
+   
     float speed = 0f;
-    float direccionInputHorizontal;
-    float direccionInputVertical;
-    float drag = 1f;
 
     private void Start()
     {
+        player = GetComponent<DemolitionRacePlayer>();
     }
 
     public void PlayerDemolitionRaceMovement()
@@ -22,9 +23,8 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    void SetSpeed()
+    public void SetSpeedAndRotation(float direccionInputHorizontal, float direccionInputVertical)
     {
-        
         if (direccionInputVertical != 0)
         {
             speed += Time.deltaTime * aceleration * direccionInputVertical;
@@ -33,11 +33,8 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, 0, drag * Time.deltaTime);
         }
-    }
 
-    void Rotate()
-    {
-        float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * speed * 0.1f;
+        float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * direccionInputVertical;
         transform.Rotate(Vector3.up, anguloDeRotacion);
         
     }
@@ -56,11 +53,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
     public void FixedUpdate()
     {
-        direccionInputVertical = Input.GetAxis("Vertical");
-        direccionInputHorizontal = Input.GetAxis("Horizontal");
-        SetSpeed();
-        PlayerDemolitionRaceMovement();
-        Rotate();
+        PlayerDemolitionRaceMovement();    
     }
 
 }
