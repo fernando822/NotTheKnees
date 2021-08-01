@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour{
 
+    public static bool tieneLlave = false;
     private UIManager UIManager;
     private AdventureGraphicPlayer adventureGraphicPlayer;
     private GameObject player;
@@ -30,30 +31,29 @@ public class GameManager : MonoBehaviour{
 
     public void PlayerAction()
     {
-        
         if (PuedeInteractuar.interactuable)
         {
             GameObject objetoAInteractuar = DecidirObjetoInteractuable.ObjetoMasCercano(
                 puedeInteractuar.GetGameObjects(), player);
-            //mostrarTexto.ShowText(objetoAInteractuar);
-            
+            mostrarTexto.ShowText(objetoAInteractuar.name);
+
             if (objetoAInteractuar.name == "NPC")
             {
-                DialogoNPC.DialogoDelNPC(tieneLlave);
+                mostrarTexto.ShowText(DialogoNPC.DialogoDelNPC(tieneLlave));
             }
-            if (objetoAInteractuar.name == "Mesa de luz")
+    
+            if (objetoAInteractuar.name == "Mesa de luz" && !tieneLlave)
             {
+                mostrarTexto.ShowText("Hay una llave dentro de la mesa de luz.");
                 UIManager.MostrarLlave();
+                tieneLlave = true;
             }
-
         }
-
-       
+        
     }
 
     public void PlayerShowKeyObjects()
     {
-     /* uiManager.MostrarLlave(); */
     }
 
     public void PlayerMenu()
