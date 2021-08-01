@@ -10,11 +10,13 @@ public class GameManagerAventura : MonoBehaviour{
     private AdventureGraphicPlayer adventureGraphicPlayer;
     private GameObject player;
     private PuedeInteractuar puedeInteractuar;
+    private SceneController cambioDeNivel;
     [SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] ObjetoRecogido objetoRecogido;
 
     private void Start()
     {
+        cambioDeNivel = GetComponent<SceneController>();
         UIManager = GetComponent<UIManager>();
         player = GameObject.Find("Player");
         puedeInteractuar = player.GetComponent<PuedeInteractuar>();
@@ -47,6 +49,11 @@ public class GameManagerAventura : MonoBehaviour{
                 mostrarTexto.ShowText("Hay una llave dentro de la mesa de luz.");
                 UIManager.MostrarLlave();
                 tieneLlave = true;
+            }
+
+            if (objetoAInteractuar.name == "Puerta" && tieneLlave)
+            {
+                cambioDeNivel.CargarEscena("CarreraDeDemolicion");
             }
         }
         
