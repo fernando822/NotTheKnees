@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour{
 
+    private UIManager UIManager;
     private AdventureGraphicPlayer adventureGraphicPlayer;
     private GameObject player;
     private PuedeInteractuar puedeInteractuar;
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour{
 
     private void Start()
     {
+        UIManager = GetComponent<UIManager>();
         player = GameObject.Find("Player");
         puedeInteractuar = player.GetComponent<PuedeInteractuar>();
         adventureGraphicPlayer = player.GetComponent<AdventureGraphicPlayer>();
@@ -34,20 +36,24 @@ public class GameManager : MonoBehaviour{
             GameObject objetoAInteractuar = DecidirObjetoInteractuable.ObjetoMasCercano(
                 puedeInteractuar.GetGameObjects(), player);
             //mostrarTexto.ShowText(objetoAInteractuar);
-
+            
+            if (objetoAInteractuar.name == "NPC")
+            {
+                DialogoNPC.DialogoDelNPC(tieneLlave);
+            }
+            if (objetoAInteractuar.name == "Mesa de luz")
+            {
+                UIManager.MostrarLlave();
+            }
 
         }
-        Debug.Log(puedeInteractuar.GetGameObjects().Count);
 
-        if (objetoAInteractuar.name == "NPC")
-        {
-            DialogoNPC.DialogoDelNPC(VariableDeLaLlave);
-        }
+       
     }
 
     public void PlayerShowKeyObjects()
     {
-        
+     /* uiManager.MostrarLlave(); */
     }
 
     public void PlayerMenu()
