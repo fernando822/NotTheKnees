@@ -6,23 +6,22 @@ using TMPro;
 
 public class MostrarTexto : MonoBehaviour
 {
-    public TextMeshProUGUI texto_cuadro;
-    public GameObject cuadro;
+    [SerializeField] TextMeshProUGUI textoCuadro;
+    [SerializeField] GameObject cuadroDeDialogo;
     
     void Start()
     {
-        cuadro.SetActive(false);
-        
+        cuadroDeDialogo.SetActive(false);
     }
 
     public void ShowText(string texto)
     {
-        texto_cuadro.text = texto;
-        cuadro.SetActive(true);
+        textoCuadro.text = texto;
+        cuadroDeDialogo.SetActive(true);
     }
 
     public void CerrarText()
     {
-        cuadro.SetActive(false);
+        cuadroDeDialogo.SetActive(false);
     }
 }

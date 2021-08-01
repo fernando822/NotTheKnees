@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour{
         }
         Debug.Log(puedeInteractuar.GetGameObjects().Count);
 
+        if (objetoAInteractuar.name == "NPC")
+        {
+            DialogoNPC.DialogoDelNPC(VariableDeLaLlave);
+        }
     }
 
     public void PlayerShowKeyObjects()
