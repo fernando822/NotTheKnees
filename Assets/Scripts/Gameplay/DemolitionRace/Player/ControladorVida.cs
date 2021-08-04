@@ -6,12 +6,17 @@ using UnityEngine.UI;
 
 public class ControladorVida : MonoBehaviour
 {
+
+    VictoriaDerrota victoriaDerrota;
+
     public EstadoVehiculo EstadoVehiculoP;
     public EstadoVehiculo EstadoVehiculoE;
+
     [SerializeField] Slider slider;
 
     void Start()
     {
+        victoriaDerrota = GameObject.Find("GameManager").GetComponent<VictoriaDerrota>();
     }
 
     public void CambiarVida(int vidaACambiar, string objetoCollision)
@@ -19,13 +24,15 @@ public class ControladorVida : MonoBehaviour
         if (objetoCollision == "Player")
         {
             EstadoVehiculoP.vida -= vidaACambiar;
-            slider.value = EstadoVehiculoP.vida;
+            
         }
 
 
         if (objetoCollision == "Enemy")
+        {
             EstadoVehiculoE.vida -= vidaACambiar;
-
+        }
+        victoriaDerrota.victoriaDerrota();
     }
 
 

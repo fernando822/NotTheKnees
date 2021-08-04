@@ -17,14 +17,14 @@ public class EstadoVehiculo : MonoBehaviour
     }
 
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision collisionInfo)
     {
 
-        if(other.gameObject.tag == "Player")
+        if(collisionInfo.gameObject.tag == "Player")
         contadorVida.CambiarVida(attack, "Player");
 
-        if(other.gameObject.tag == "Enemy")
-        contadorVida.CambiarVida(attack, other.collider.name);
+        if(collisionInfo.gameObject.tag == "Enemy")
+        contadorVida.CambiarVida(attack, collisionInfo.collider.name);
 
     }
 

@@ -184,7 +184,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46505916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: 426461977}
   - component: {fileID: 426461976}
   - component: {fileID: 426461978}
+  - component: {fileID: 426461979}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -702,7 +703,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EstadoVehiculoP: {fileID: 1053753159}
   EstadoVehiculoE: {fileID: 46505923}
-  slider: {fileID: 1914239499}
+  slider: {fileID: 0}
+--- !u!114 &426461979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426461975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44a41be700d9614ab30b998a48cbea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EstadoVehiculoP: {fileID: 1053753159}
+  EstadoVehiculoE1: {fileID: 46505923}
 --- !u!1 &482561070
 GameObject:
   m_ObjectHideFlags: 0
