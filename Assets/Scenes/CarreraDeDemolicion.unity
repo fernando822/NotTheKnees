@@ -184,7 +184,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46505916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -1490,7 +1490,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792540574}
-  m_LocalRotation: {x: 0.01180738, y: -0.000000017213578, z: 2.0326148e-10, w: 0.9999303}
+  m_LocalRotation: {x: 0.011807401, y: 0.000000017213576, z: -2.032618e-10, w: 0.9999303}
   m_LocalPosition: {x: -5, y: 7.1, z: 28.900002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1686,7 +1686,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.01180738, y: -0.000000017213578, z: 2.0326148e-10, w: 0.9999303}
+  m_LocalRotation: {x: 0.011807401, y: 0.000000017213576, z: -2.032618e-10, w: 0.9999303}
   m_LocalPosition: {x: -5, y: 7.1, z: 28.900002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 100
-  attack: 10
+  attack: 50
 --- !u!1 &1121147624
 GameObject:
   m_ObjectHideFlags: 0
