@@ -17,13 +17,20 @@ public static class DialogoNPC
     }
     public static string TieneLlave()
     {
-        return "Buen trabajo";
+        return "Creo que esa llave es de la puerta, muchas gracias.";
     }
 
     public static string NoTieneLlave()
     {
-        return "Mira flaco hace tres meses que estoy encerrado aca," +
-    " tenes que encontrar la forma de abrir la puerta" +
-    " para participar en la carrera de demolicion que se esta dando afuera wacho";
+        if (!GameManagerAventura.interactuoConNPC)
+        {
+            return "Mira flaco hace tres meses que estoy encerrado aca," +
+            " tenes que encontrar la forma de abrir la puerta" +
+            " para participar en la carrera de demolicion que se esta dando afuera wacho";
+        }
+        else
+        {
+            return "Te dije que encuentres la forma de abrir la puerta, apurate por favor!";
+        }
     }
 }

@@ -6,19 +6,23 @@ using UnityEngine;
 public class GameManagerAventura : MonoBehaviour{
 
     public static bool tieneLlave = false;
-    private AdventureGraphicPlayer adventureGraphicPlayer;
+    public static bool interactuoConNPC = false;
+
     private GameObject player;
+    private Descripciones descripciones;
+    private AdventureGraphicPlayer adventureGraphicPlayer;
     private PuedeInteractuar puedeInteractuar;
     [SerializeField] SceneController cambioDeNivel;
     [SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] ObjetoRecogido objetoRecogido;
-    [SerializeField] UIManager UIManager;
+    [SerializeField] UIManager uiManager;
 
     private void Start()
     {
         cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
-        UIManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
         player = GameObject.Find("Player");
+        descripciones = GetComponent<Descripciones>();
         puedeInteractuar = player.GetComponent<PuedeInteractuar>();
         adventureGraphicPlayer = player.GetComponent<AdventureGraphicPlayer>();
         mostrarTexto = GetComponent<MostrarTexto>();
@@ -37,24 +41,45 @@ public class GameManagerAventura : MonoBehaviour{
         {
             GameObject objetoAInteractuar = DecidirObjetoInteractuable.ObjetoMasCercano(
                 puedeInteractuar.GetGameObjects(), player);
-            mostrarTexto.ShowText(objetoAInteractuar.name);
 
-            if (objetoAInteractuar.name == "NPC")
+            switch (objetoAInteractuar.name)
             {
-                mostrarTexto.ShowText(DialogoNPC.DialogoDelNPC(tieneLlave));
-            }
-    
-            if (objetoAInteractuar.name == "Mesa de luz" && !tieneLlave)
-            {
-                mostrarTexto.ShowText("Hay una llave dentro de la mesa de luz.");
-                UIManager.MostrarLlave();
-                tieneLlave = true;
+                case "NPC":
+                    mostrarTexto.ShowText(DialogoNPC.DialogoDelNPC(tieneLlave));
+                    interactuoConNPC = true;
+                    mostrarTexto.DefinirTextoDelEmisor("Pedro el NPC perdido");
+                    break;
+
+                case "Mesa de luz":                    
+                    mostrarTexto.ShowText(DescripcionMesaDeLuz.DescripcionDeLaMesaDeLuz(tieneLlave));
+                    if (!tieneLlave && interactuoConNPC)
+                    {
+                        tieneLlave = true;
+                        uiManager.MostrarLlave();
+                    }
+                    break;
+
+                case "Puerta":
+                    if (tieneLlave)
+                    {
+                        cambioDeNivel.CargarEscena("CarreraDeDemolicion");
+                    }
+                    else
+                    {
+                        mostrarTexto.ShowText(DescripcionPuerta.DescripcionDeLaPuerta(tieneLlave));
+                    }
+                    break;
+
+                default:
+                    mostrarTexto.ShowText(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
+                    break;
             }
 
-            if (objetoAInteractuar.name == "Puerta" && tieneLlave)
-            {
-                cambioDeNivel.CargarEscena("CarreraDeDemolicion");
-            }
+
+        }
+        else
+        {
+            mostrarTexto.ClearText();
         }
         
     }
