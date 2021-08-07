@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusVehiculos : MonoBehaviour
+public class HandBreak : MonoBehaviour
 {
     LogicaMovimientoVehiculo logicaMovimientoVehiculo;
 
@@ -17,6 +17,6 @@ public class BonusVehiculos : MonoBehaviour
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            logicaMovimientoVehiculo.speed = Mathf.Lerp(logicaMovimientoVehiculo.speed, 0, handBrake * Time.deltaTime);
+            logicaMovimientoVehiculo.SetSpeed(Mathf.Lerp(logicaMovimientoVehiculo.GetSpeed(), 0, handBrake * Time.deltaTime));
     }
 }

@@ -56,4 +56,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         PlayerDemolitionRaceMovement();    
     }
 
+    public float GetSpeed() => speed;
+
+    public void SetSpeed(float speed) => this.speed = speed;
 }
