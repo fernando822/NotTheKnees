@@ -47,7 +47,7 @@ public class GameManagerAventura : MonoBehaviour{
                 case "NPC":
                     mostrarTexto.ShowText(DialogoNPC.DialogoDelNPC(tieneLlave));
                     interactuoConNPC = true;
-                    mostrarTexto.DefinirTextoDelEmisor("Pedro el NPC perdido");
+                    mostrarTexto.DefinirTextoDelEmisor("Romero, el NPC perdido");
                     break;
 
                 case "Mesa de luz":                    
