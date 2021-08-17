@@ -5,9 +5,12 @@ using UnityEngine;
 public class animaciones : MonoBehaviour
 {
     Transform ai,ad,ti,td;
-    float actual;
-    float r = 20;
+
+    float r = 100;
     float rotacionDireccion = 30;
+
+    float actual;
+
     private void Start()
     {
         ai = transform.Find("Rueda ad");
@@ -17,8 +20,8 @@ public class animaciones : MonoBehaviour
     }
     public void direccion(float deseada)
     {
-        ai.Rotate(Vector3.up, (deseada * rotacionDireccion) - actual);
-        ad.Rotate(Vector3.up, (deseada * rotacionDireccion) - actual);
+        ai.Rotate(Vector3.up, (deseada * rotacionDireccion) - actual, Space.World);
+        ad.Rotate(Vector3.up, (deseada * rotacionDireccion) - actual, Space.World);
 
         actual = deseada * rotacionDireccion;
     }
