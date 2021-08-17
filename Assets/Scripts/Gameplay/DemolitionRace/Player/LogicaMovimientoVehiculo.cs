@@ -5,15 +5,15 @@ using UnityEngine;
 public class LogicaMovimientoVehiculo : MonoBehaviour
 {
     [SerializeField] DemolitionRacePlayer player;
-    [SerializeField] float directionSpeed = 30f;
+    [SerializeField] float directionSpeed = 0.1f;
     [SerializeField] float aceleration = 30f;
     [SerializeField] float speedLimit = 70f;
-    [SerializeField] float drag = 1f; 
-   
-    float speed = 0f;
+    [SerializeField] float drag = 1f;
+
+    float speed;
 
     public animaciones animaciones;
-    public animaciones animaciones2;
+
 
     private void Start()
     {
@@ -24,12 +24,13 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     {
         speed = Mathf.Clamp(speed, -speedLimit * 0.4f, speedLimit);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        animaciones.road(speed);
     }
 
     public void SetSpeedAndRotation(float direccionInputHorizontal, float direccionInputVertical)
     {
         animaciones.direccion(direccionInputHorizontal);
-        animaciones2.direccion(direccionInputHorizontal);
+        
 
         if (direccionInputVertical != 0)
         {

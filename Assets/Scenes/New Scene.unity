@@ -288,7 +288,8 @@ MonoBehaviour:
   aceleration: 30
   speedLimit: 70
   drag: 1
-  direccionInputHorizontal: 0
+  animaciones: {fileID: 798904612}
+  animaciones2: {fileID: 1675181142}
 --- !u!114 &436036384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e06a0e39a3d6694ab2811a8fcd9f7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1514165915}
 --- !u!114 &436036385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +322,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5a5524ed04c2b954aac4a705d22920db, type: 3}
   m_PrefabInstance: {fileID: 436036381}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &798904608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9177858652692925381, guid: 5a5524ed04c2b954aac4a705d22920db, type: 3}
+  m_PrefabInstance: {fileID: 436036381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &798904612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798904608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8717a2d36430464bb6eb792129190f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actual: 0
 --- !u!1 &812751055
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,3 +636,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1675181138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3551652076157750851, guid: 5a5524ed04c2b954aac4a705d22920db, type: 3}
+  m_PrefabInstance: {fileID: 436036381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1675181142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675181138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8717a2d36430464bb6eb792129190f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actual: 0
