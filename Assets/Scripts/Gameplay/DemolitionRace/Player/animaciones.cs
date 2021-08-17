@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class animaciones : MonoBehaviour
 {
-    public LogicaMovimientoVehiculo logicaMovimientoVehiculo;
+    
 
-    float deseada, actual;
+    [SerializeField] float actual=0;
 
     void Update()
     {
-        //direccion();
+        
     }
 
     private void Start()
     {
-        direccion();
+   
     }
-    void direccion()
+    public void direccion(float deseada)
     {
-        //logicaMovimientoVehiculo.direccionInputHorizontal
-
-
-        transform.RotateAround(Vector3.up, 90);
+        transform.Rotate(Vector3.up, (deseada * 30) - actual);
+        actual = deseada * 30;
     }
 
 

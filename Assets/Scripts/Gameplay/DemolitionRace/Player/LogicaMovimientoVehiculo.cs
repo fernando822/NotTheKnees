@@ -11,7 +11,9 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     [SerializeField] float drag = 1f; 
    
     float speed = 0f;
-    public float direccionInputHorizontal;
+
+    public animaciones animaciones;
+    public animaciones animaciones2;
 
     private void Start()
     {
@@ -26,6 +28,9 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
     public void SetSpeedAndRotation(float direccionInputHorizontal, float direccionInputVertical)
     {
+        animaciones.direccion(direccionInputHorizontal);
+        animaciones2.direccion(direccionInputHorizontal);
+
         if (direccionInputVertical != 0)
         {
             speed += Time.deltaTime * aceleration * direccionInputVertical;
@@ -36,7 +41,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         }
 
         float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * speed;
-        transform.Rotate(Vector3.up, anguloDeRotacion);
+        transform.Rotate(Vector3.right, anguloDeRotacion);
         
     }
     public void PlayerDemolitionRaceHandBrake()
