@@ -6,8 +6,8 @@ public class animaciones : MonoBehaviour
 {
     Transform ai,ad,ti,td;
 
-    float r = 100;
-    float rotacionDireccion = 30;
+    [SerializeField] float rodamiento = 100;
+    [SerializeField] float rotacionDireccion = 30;
 
     float actual;
 
@@ -18,16 +18,16 @@ public class animaciones : MonoBehaviour
         ti = transform.Find("Rueda td");
         td = transform.Find("Rueda ti");
     }
-    public void direccion(float deseada)
+    public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, (deseada * rotacionDireccion) - actual, Space.World);
-        ad.Rotate(Vector3.up, (deseada * rotacionDireccion) - actual, Space.World);
+        ai.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
+        ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
 
-        actual = deseada * rotacionDireccion;
+        actual = direccion * rotacionDireccion;
     }
     public void road(float speed)
     {
-        float i = speed * r * Time.deltaTime;
+        float i = speed * rodamiento * Time.deltaTime;
 
         ai.Rotate(Vector3.forward, i);
         ad.Rotate(Vector3.forward, i);
