@@ -11,6 +11,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     [SerializeField] float drag = 1f; 
    
     float speed = 0f;
+    public float direccionInputHorizontal;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
             speed = Mathf.Lerp(speed, 0, drag * Time.deltaTime);
         }
 
-        float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * direccionInputVertical;
+        float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * speed;
         transform.Rotate(Vector3.up, anguloDeRotacion);
         
     }

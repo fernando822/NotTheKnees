@@ -6,9 +6,11 @@ public class animaciones : MonoBehaviour
 {
     public LogicaMovimientoVehiculo logicaMovimientoVehiculo;
 
+    float deseada, actual;
+
     void Update()
     {
-        
+        //direccion();
     }
 
     private void Start()
@@ -17,7 +19,10 @@ public class animaciones : MonoBehaviour
     }
     void direccion()
     {
-        transform.Rotate(Vector3.up, 1);
+        //logicaMovimientoVehiculo.direccionInputHorizontal
+
+
+        transform.RotateAround(Vector3.up, 90);
     }
 
 
