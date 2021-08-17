@@ -27,7 +27,7 @@ public class MostrarTexto : MonoBehaviour
             textoCuadro.text = texto;
         }
         if (textoCuadro.isTextOverflowing) RefreshFontSize();
-        if (!textoEmisor.text.Contains("Pedro"))
+        if (!textoEmisor.text.Contains("Romero"))
         {
             textoEmisor.text = "Protagonista - Amon Gas";
         }
