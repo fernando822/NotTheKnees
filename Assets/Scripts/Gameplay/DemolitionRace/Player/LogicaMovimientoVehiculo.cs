@@ -42,7 +42,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         }
 
         float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * speed;
-        transform.Rotate(Vector3.right, anguloDeRotacion);
+        transform.Rotate(Vector3.up, anguloDeRotacion);
         
     }
     public void PlayerDemolitionRaceHandBrake()
@@ -63,4 +63,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         PlayerDemolitionRaceMovement();    
     }
 
+    public void SetSpeed(float speed) => this.speed = speed;
+
+    public float GetSpeed() => speed;
 }

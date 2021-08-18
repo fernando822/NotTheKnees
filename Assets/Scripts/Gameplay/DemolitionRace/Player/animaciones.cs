@@ -29,10 +29,10 @@ public class animaciones : MonoBehaviour
     {
         float i = speed * rodamiento * Time.deltaTime;
 
-        ai.Rotate(Vector3.forward, i);
-        ad.Rotate(Vector3.forward, i);
-        ti.Rotate(Vector3.forward, i);
-        td.Rotate(Vector3.forward, i);
+        ai.Rotate(Vector3.up, i);
+        ad.Rotate(Vector3.up, i);
+        ti.Rotate(Vector3.up, i);
+        td.Rotate(Vector3.up, i);
     }
 }
 
