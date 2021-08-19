@@ -6,10 +6,11 @@ public class GameManagerRace : MonoBehaviour
 {
     private DemolitionRacePlayer player;
 
-
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<DemolitionRacePlayer>();
+       
+
     }
 
 

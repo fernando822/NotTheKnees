@@ -5,14 +5,15 @@ using UnityEngine;
 public class animaciones : MonoBehaviour
 {
     Transform ai,ad,ti,td;
-
-    [SerializeField] float rodamiento = 100;
+    Rigidbody rb;
+    [SerializeField] float rodamiento = 50;
     [SerializeField] float rotacionDireccion = 30;
 
     float actual;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         ai = transform.Find("Rueda ad");
         ad = transform.Find("Rueda ai");
         ti = transform.Find("Rueda td");
@@ -20,10 +21,11 @@ public class animaciones : MonoBehaviour
     }
     public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
+        ai.Rotate(Vector3.up, Mathf.Clamp(direccion * rotacionDireccion, -45f, 45f) - actual, Space.World);
         ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
+        actual = Mathf.Clamp(direccion * rotacionDireccion, -45f, 45f);
 
-        actual = direccion * rotacionDireccion;
+
     }
     public void road(float speed)
     {
