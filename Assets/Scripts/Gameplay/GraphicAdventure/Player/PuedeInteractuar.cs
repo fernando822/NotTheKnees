@@ -37,9 +37,7 @@ public class PuedeInteractuar : MonoBehaviour
             {
                 interactuable = false;
             }
-
         }
-
     }
 
 

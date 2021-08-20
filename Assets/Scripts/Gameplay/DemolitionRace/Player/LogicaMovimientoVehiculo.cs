@@ -4,63 +4,65 @@ using UnityEngine;
 
 public class LogicaMovimientoVehiculo : MonoBehaviour
 {
-    float directionSpeed = 30f;
-    float aceleration = 30f;
-    float speedLimit = 70f;
-    float speed = 0f;
-    float direccionInputHorizontal;
-    float direccionInputVertical;
-    float drag = 1f;
+    [SerializeField] DemolitionRacePlayer player;
+    [SerializeField] EstadoVehiculo estadoVehiculo;
+    [SerializeField] float directionSpeed = 0.1f;
+    [SerializeField] float aceleration = 30f;
+    [SerializeField] float drag = 2f;
+
+    float speed;
+    float anguloDeRotacion;
+    [SerializeField] WheelCollider ruedaAdelanteIzquierda;
+    [SerializeField] WheelCollider ruedaAdelanteDerecha;
+    [SerializeField] WheelCollider ruedaAtrasIzquierda;
+    [SerializeField] WheelCollider ruedaAtrasDerecha;
+    public animaciones animaciones;
+
 
     private void Start()
     {
+        player = GetComponent<DemolitionRacePlayer>();
+        estadoVehiculo = GetComponent<EstadoVehiculo>();
     }
 
     public void PlayerDemolitionRaceMovement()
     {
-        speed = Mathf.Clamp(speed, -speedLimit * 0.4f, speedLimit);
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        ruedaAdelanteDerecha.motorTorque = speed;
+        ruedaAdelanteIzquierda.motorTorque = speed;
+        ruedaAtrasDerecha.motorTorque = speed;
+        ruedaAtrasIzquierda.motorTorque = speed;
+
+        ruedaAdelanteDerecha.steerAngle = anguloDeRotacion;
+        ruedaAdelanteIzquierda.steerAngle = anguloDeRotacion;
+       
     }
 
-    void SetSpeed()
+    public void Accelerate(float valorInputVertical)
     {
-        
-        if (direccionInputVertical != 0)
+        if (valorInputVertical != 0 && 
+            (ruedaAdelanteDerecha.isGrounded || ruedaAdelanteIzquierda.isGrounded) 
+            && !GameManager.isHandBraking)
         {
-            speed += Time.deltaTime * aceleration * direccionInputVertical;
+            speed = aceleration * valorInputVertical;
         }
         else
         {
-            speed = Mathf.Lerp(speed, 0, drag * Time.deltaTime);
+            speed = Mathf.Lerp(speed, 0, drag);
         }
-    }
-
-    void Rotate()
-    {
-        float anguloDeRotacion = direccionInputHorizontal * Time.deltaTime * directionSpeed * direccionInputVertical;
-        transform.Rotate(Vector3.up, anguloDeRotacion);
-        
-    }
-    public void PlayerDemolitionRaceHandBrake()
-    {
 
     }
-
-    public void PlayerDemolitionRaceTurbo()
+    public void SetRotation(float valorInputHorizontal)
     {
-        
-
-
-
+        animaciones.direccion(valorInputHorizontal);
+        anguloDeRotacion = valorInputHorizontal * directionSpeed;
     }
 
     public void FixedUpdate()
     {
-        direccionInputVertical = Input.GetAxis("Vertical");
-        direccionInputHorizontal = Input.GetAxis("Horizontal");
-        SetSpeed();
         PlayerDemolitionRaceMovement();
-        Rotate();
     }
 
+    public void SetSpeed(float speed) => this.speed = speed; 
+
+    public float GetSpeed() => speed;
 }

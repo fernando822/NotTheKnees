@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Principal.unity
-    guid: b06ea0afa41afa340b222b6db4f512a1
+    path: Assets/Scenes/AventuraGrafica.unity
+    guid: d8d9febbcdf9ba145be0d93ba66e81aa
+  - enabled: 1
+    path: Assets/Scenes/CarreraDeDemolicion.unity
+    guid: 84d7d0a4d51107b4ca8224888ae4eab9
   m_configObjects: {}
