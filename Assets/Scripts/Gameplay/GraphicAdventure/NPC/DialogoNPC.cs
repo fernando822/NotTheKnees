@@ -22,7 +22,7 @@ public static class DialogoNPC
 
     public static string NoTieneLlave()
     {
-        if (!GameManagerAventura.interactuoConNPC)
+        if (!GameManager.interactuoConNPC)
         {
             return "Mira flaco hace tres meses que estoy encerrado aca," +
             " tenes que encontrar la forma de abrir la puerta" +

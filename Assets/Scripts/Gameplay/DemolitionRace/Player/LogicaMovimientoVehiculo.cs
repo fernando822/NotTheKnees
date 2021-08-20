@@ -8,14 +8,14 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     [SerializeField] EstadoVehiculo estadoVehiculo;
     [SerializeField] float directionSpeed = 0.1f;
     [SerializeField] float aceleration = 30f;
-    [SerializeField] float speedLimit = 70f;
-    [SerializeField] float drag = 1f;
+    [SerializeField] float drag = 2f;
 
     float speed;
-    Quaternion anguloDeRotacionEuler;
-    Rigidbody rb;
-    private RuedaIsGrounded ruedaAdelanteIzq;
-    private RuedaIsGrounded ruedaAdelanteDer;
+    float anguloDeRotacion;
+    [SerializeField] WheelCollider ruedaAdelanteIzquierda;
+    [SerializeField] WheelCollider ruedaAdelanteDerecha;
+    [SerializeField] WheelCollider ruedaAtrasIzquierda;
+    [SerializeField] WheelCollider ruedaAtrasDerecha;
     public animaciones animaciones;
 
 
@@ -23,45 +23,38 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     {
         player = GetComponent<DemolitionRacePlayer>();
         estadoVehiculo = GetComponent<EstadoVehiculo>();
-        ruedaAdelanteIzq = GameObject.Find("Rueda ai").GetComponent<RuedaIsGrounded>();
-        ruedaAdelanteDer = GameObject.Find("Rueda ad").GetComponent<RuedaIsGrounded>();
-        rb = GetComponent<Rigidbody>();
     }
 
     public void PlayerDemolitionRaceMovement()
     {
-        animaciones.road(speed);
-        rb.AddForce(transform.forward * speed, ForceMode.Acceleration);
-        rb.MoveRotation(rb.rotation * anguloDeRotacionEuler);
+        ruedaAdelanteDerecha.motorTorque = speed;
+        ruedaAdelanteIzquierda.motorTorque = speed;
+        ruedaAtrasDerecha.motorTorque = speed;
+        ruedaAtrasIzquierda.motorTorque = speed;
+
+        ruedaAdelanteDerecha.steerAngle = anguloDeRotacion;
+        ruedaAdelanteIzquierda.steerAngle = anguloDeRotacion;
+       
     }
 
-    public void SetSpeedAndRotation(float direccionInputHorizontal, float direccionInputVertical)
+    public void Accelerate(float valorInputVertical)
     {
-        animaciones.direccion(direccionInputHorizontal);
-
-        if (direccionInputVertical != 0 && (ruedaAdelanteDer.GetIsTouchingGroundStatus() || ruedaAdelanteIzq.GetIsTouchingGroundStatus()))
+        if (valorInputVertical != 0 && 
+            (ruedaAdelanteDerecha.isGrounded || ruedaAdelanteIzquierda.isGrounded) 
+            && !GameManager.isHandBraking)
         {
-            speed = aceleration * direccionInputVertical;
+            speed = aceleration * valorInputVertical;
+        }
+        else
+        {
+            speed = Mathf.Lerp(speed, 0, drag);
         }
 
-
-        Vector3 anguloDeRotacion = new Vector3(0, direccionInputHorizontal * directionSpeed * rb.velocity.magnitude, 0);
-        anguloDeRotacionEuler = Quaternion.Euler(anguloDeRotacion * Time.deltaTime);
-        
-        
     }
-
-    public void PlayerDemolitionRaceHandBrake()
+    public void SetRotation(float valorInputHorizontal)
     {
-
-    }
-
-    public void PlayerDemolitionRaceTurbo()
-    {
-        
-
-
-
+        animaciones.direccion(valorInputHorizontal);
+        anguloDeRotacion = valorInputHorizontal * directionSpeed;
     }
 
     public void FixedUpdate()
@@ -69,7 +62,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         PlayerDemolitionRaceMovement();
     }
 
-    public void SetSpeed(float speed) => this.speed = speed;
+    public void SetSpeed(float speed) => this.speed = speed; 
 
     public float GetSpeed() => speed;
 }

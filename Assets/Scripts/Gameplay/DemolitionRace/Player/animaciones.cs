@@ -21,9 +21,9 @@ public class animaciones : MonoBehaviour
     }
     public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, Mathf.Clamp(direccion * rotacionDireccion, -45f, 45f) - actual, Space.World);
+        ai.Rotate(Vector3.up, Mathf.Clamp(direccion * rotacionDireccion, -60f, 60f) - actual, Space.World);
         ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
-        actual = Mathf.Clamp(direccion * rotacionDireccion, -45f, 45f);
+        actual = Mathf.Clamp(direccion * rotacionDireccion, -60f, 60f);
 
 
     }
@@ -31,10 +31,10 @@ public class animaciones : MonoBehaviour
     {
         float i = speed * rodamiento * Time.deltaTime;
 
-        ai.Rotate(Vector3.up, i);
-        ad.Rotate(Vector3.up, i);
-        ti.Rotate(Vector3.up, i);
-        td.Rotate(Vector3.up, i);
+        ai.Rotate(Vector3.forward, i);
+        ad.Rotate(Vector3.forward, i);
+        ti.Rotate(Vector3.forward, i);
+        td.Rotate(Vector3.forward, i);
     }
 }
 

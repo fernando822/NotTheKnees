@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Input/Input.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input/InputMaster.inputactions'
 
 using System;
 using System.Collections;
@@ -12,7 +12,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     public @PlayerActionControls()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""Input"",
+    ""name"": ""InputMaster"",
     ""maps"": [
         {
             ""name"": ""PlayerGraphicAdventure"",
@@ -20,7 +20,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""00a9abb4-1892-4d1a-9580-8103558e4208"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -105,7 +105,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""ArrowKeys"",
+                    ""name"": ""WASD"",
                     ""id"": ""43bbff13-d72c-4e3a-8420-cc8bcc9a4c80"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -160,8 +160,8 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Stick"",
-                    ""id"": ""22857853-ac9c-487b-a6a3-a01a33b6625f"",
+                    ""name"": ""ArrowKeys"",
+                    ""id"": ""e0d7c4a7-5fe4-4629-9d62-75dc6137fe7a"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -172,52 +172,63 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""664a2cf4-5c04-418e-9aae-f3d5588811ce"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""id"": ""cbe9582d-2055-4c3c-aed5-bfd746caa4a0"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""5ca0e571-e789-4106-9156-98781ca8528e"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""id"": ""a22fdd10-597d-4110-9949-6d79d3672fd2"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""e2ff7f8e-e8e4-413a-81ae-d74a98173738"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""id"": ""0c9c06d6-0a2d-4bad-9123-57d54412450b"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""4a62e890-ca90-4d3d-8856-1efc1867362e"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""id"": ""09e995e6-911f-4f24-9968-9e18c7264e4d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
+                    ""id"": ""5ece5b82-19d1-4e8c-859e-5e6b9f837dd6"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""798a041f-a2c7-48e2-82f6-a74c5d9963c3"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -238,22 +249,22 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1675dbb5-7f29-419c-839c-ca4a6a4f4407"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""id"": ""bfda9dc6-84d7-471d-add0-56a380bf1cef"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bfda9dc6-84d7-471d-add0-56a380bf1cef"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""1675dbb5-7f29-419c-839c-ca4a6a4f4407"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -266,7 +277,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""c17a45a7-a504-412f-881f-3c5cc54f7a9c"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -281,9 +292,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Turbo"",
-                    ""type"": ""Button"",
-                    ""id"": ""0c1b6d1e-e358-4db2-aca2-9fa3b5c1e0a5"",
+                    ""name"": ""Accelerate"",
+                    ""type"": ""Value"",
+                    ""id"": ""90032980-8093-4612-941d-23ac66f9e77f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -291,7 +302,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""ArrowKeys"",
+                    ""name"": ""WASD"",
                     ""id"": ""8ea4cb58-7061-4b33-8433-125b34db60d8"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -313,9 +324,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""468cb992-3547-4001-803c-4f3f31e9c9ac"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""name"": ""left"",
+                    ""id"": ""c302d895-4723-4513-ba5b-540dd8a68b14"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -324,9 +335,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""c302d895-4723-4513-ba5b-540dd8a68b14"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""name"": ""down"",
+                    ""id"": ""468cb992-3547-4001-803c-4f3f31e9c9ac"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -346,65 +357,21 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Stick"",
-                    ""id"": ""8e8ab7fe-190f-4cd8-aba9-413fa229cd65"",
-                    ""path"": ""2DVector"",
+                    ""name"": """",
+                    ""id"": ""d03b027f-4e53-4ac6-9b03-65d6117bb6a3"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Movement"",
-                    ""isComposite"": true,
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""f87016b9-1df2-4359-9784-798b3ccd70e0"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""3532152f-51a8-4bf3-b97c-ffe57b9228b1"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""22a42a4a-cdf3-405b-a619-78207b6e8f72"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""d0927cf6-b0fd-42d5-8d54-90366bee3ea7"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
                     ""id"": ""d6d452a1-289b-4311-bffe-20db29a955c7"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""HandBrake"",
@@ -414,6 +381,17 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""41dd0d9a-6345-4b0b-ac66-56d1c702bee2"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""HandBrake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""870efe80-74f0-4fe0-bee9-291a5ac1f7d6"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -424,23 +402,23 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""68826f83-e8ce-4781-92c5-348bd53d56db"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""id"": ""2aeadd1c-dc67-465a-9870-4a2cdd17e156"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Turbo"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a04ada2f-775e-4709-8bc7-9ccba3eba6da"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""id"": ""65150d85-0d7b-4bf7-8bb0-cca4c1af0366"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Turbo"",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -976,7 +954,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_PlayerDemolitionRace = asset.FindActionMap("PlayerDemolitionRace", throwIfNotFound: true);
         m_PlayerDemolitionRace_Movement = m_PlayerDemolitionRace.FindAction("Movement", throwIfNotFound: true);
         m_PlayerDemolitionRace_HandBrake = m_PlayerDemolitionRace.FindAction("HandBrake", throwIfNotFound: true);
-        m_PlayerDemolitionRace_Turbo = m_PlayerDemolitionRace.FindAction("Turbo", throwIfNotFound: true);
+        m_PlayerDemolitionRace_Accelerate = m_PlayerDemolitionRace.FindAction("Accelerate", throwIfNotFound: true);
         // Backpack
         m_Backpack = asset.FindActionMap("Backpack", throwIfNotFound: true);
         m_Backpack_Navigate = m_Backpack.FindAction("Navigate", throwIfNotFound: true);
@@ -1103,14 +1081,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private IPlayerDemolitionRaceActions m_PlayerDemolitionRaceActionsCallbackInterface;
     private readonly InputAction m_PlayerDemolitionRace_Movement;
     private readonly InputAction m_PlayerDemolitionRace_HandBrake;
-    private readonly InputAction m_PlayerDemolitionRace_Turbo;
+    private readonly InputAction m_PlayerDemolitionRace_Accelerate;
     public struct PlayerDemolitionRaceActions
     {
         private @PlayerActionControls m_Wrapper;
         public PlayerDemolitionRaceActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerDemolitionRace_Movement;
         public InputAction @HandBrake => m_Wrapper.m_PlayerDemolitionRace_HandBrake;
-        public InputAction @Turbo => m_Wrapper.m_PlayerDemolitionRace_Turbo;
+        public InputAction @Accelerate => m_Wrapper.m_PlayerDemolitionRace_Accelerate;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDemolitionRace; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1126,9 +1104,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @HandBrake.started -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnHandBrake;
                 @HandBrake.performed -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnHandBrake;
                 @HandBrake.canceled -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnHandBrake;
-                @Turbo.started -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnTurbo;
-                @Turbo.performed -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnTurbo;
-                @Turbo.canceled -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnTurbo;
+                @Accelerate.started -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnAccelerate;
+                @Accelerate.performed -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnAccelerate;
+                @Accelerate.canceled -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnAccelerate;
             }
             m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface = instance;
             if (instance != null)
@@ -1139,9 +1117,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @HandBrake.started += instance.OnHandBrake;
                 @HandBrake.performed += instance.OnHandBrake;
                 @HandBrake.canceled += instance.OnHandBrake;
-                @Turbo.started += instance.OnTurbo;
-                @Turbo.performed += instance.OnTurbo;
-                @Turbo.canceled += instance.OnTurbo;
+                @Accelerate.started += instance.OnAccelerate;
+                @Accelerate.performed += instance.OnAccelerate;
+                @Accelerate.canceled += instance.OnAccelerate;
             }
         }
     }
@@ -1274,7 +1252,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnHandBrake(InputAction.CallbackContext context);
-        void OnTurbo(InputAction.CallbackContext context);
+        void OnAccelerate(InputAction.CallbackContext context);
     }
     public interface IBackpackActions
     {

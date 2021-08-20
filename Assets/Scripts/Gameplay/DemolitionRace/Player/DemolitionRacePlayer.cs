@@ -6,12 +6,12 @@ public class DemolitionRacePlayer : MonoBehaviour
 {
     public LogicaMovimientoVehiculo movementScript;
     public Transform playerTransform;
-    GameManagerRace gameManager;
+    public HandBreak handBreak;
 
-    void start()
+    void Start()
     {
-        this.gameManager = GameObject.Find("GameManager").GetComponent<GameManagerRace>();
-        this.movementScript = GetComponent<LogicaMovimientoVehiculo>();
-        this.playerTransform = GetComponent<Transform>();
+        movementScript = GetComponent<LogicaMovimientoVehiculo>();
+        playerTransform = GetComponent<Transform>();
+        handBreak = GetComponent<HandBreak>();
     }
 }

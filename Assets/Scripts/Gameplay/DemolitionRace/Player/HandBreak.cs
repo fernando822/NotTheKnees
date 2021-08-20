@@ -6,17 +6,15 @@ public class HandBreak : MonoBehaviour
 {
     LogicaMovimientoVehiculo logicaMovimientoVehiculo;
 
-    [SerializeField] float handBrake = 50;
 
     
     private void Start()
     {
-        logicaMovimientoVehiculo = GameObject.Find("Player").GetComponent<LogicaMovimientoVehiculo>();
+        logicaMovimientoVehiculo = GetComponent<LogicaMovimientoVehiculo>();
     }
 
-    void FixedUpdate()
+    public void HandBrake()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            logicaMovimientoVehiculo.SetSpeed(Mathf.Lerp(logicaMovimientoVehiculo.GetSpeed(), 0, handBrake * Time.deltaTime));
+        logicaMovimientoVehiculo.SetSpeed(0);
     }
 }
