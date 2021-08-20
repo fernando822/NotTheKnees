@@ -35,8 +35,8 @@ public class InputPlayer : MonoBehaviour
         input.PlayerGraphicAdventure.Backpack.performed += OnBackpack;
         input.PlayerGraphicAdventure.Backpack.Enable();
 
-        input.PlayerGraphicAdventure.ShowKeyObjects.performed += OnShowKeyObjects;
-        input.PlayerGraphicAdventure.ShowKeyObjects.Enable();
+        input.PlayerGraphicAdventure.ShowControls.performed += OnShowControls;
+        input.PlayerGraphicAdventure.ShowControls.Enable();
 
         input.PlayerGraphicAdventure.Menu.performed += OnMenu;
         input.PlayerGraphicAdventure.Menu.Enable();
@@ -54,9 +54,9 @@ public class InputPlayer : MonoBehaviour
         GameManager.GM.ShowDescriptionOfObtainedObject();
     }
 
-    void OnShowKeyObjects(InputAction.CallbackContext obj)
+    void OnShowControls(InputAction.CallbackContext obj)
     {
-        GameManager.GM.PlayerShowKeyObjects();
+        GameManager.GM.PlayerShowControls();
     }
 
     void OnMenu(InputAction.CallbackContext obj)
@@ -73,8 +73,8 @@ public class InputPlayer : MonoBehaviour
         input.PlayerGraphicAdventure.Backpack.performed -= OnBackpack;
         input.PlayerGraphicAdventure.Backpack.Disable();
 
-        input.PlayerGraphicAdventure.ShowKeyObjects.performed -= OnShowKeyObjects;
-        input.PlayerGraphicAdventure.ShowKeyObjects.Disable();
+        input.PlayerGraphicAdventure.ShowControls.performed -= OnShowControls;
+        input.PlayerGraphicAdventure.ShowControls.Disable();
 
         input.PlayerGraphicAdventure.Menu.performed -= OnMenu;
         input.PlayerGraphicAdventure.Menu.Disable();

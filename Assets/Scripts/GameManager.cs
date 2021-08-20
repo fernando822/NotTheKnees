@@ -34,10 +34,11 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+
         if (SceneManager.GetActiveScene().name == "CarreraDeDemolicion")
         {
             playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
-            
+            uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         }
 
         if(SceneManager.GetActiveScene().name == "AventuraGrafica")
@@ -108,9 +109,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void PlayerShowKeyObjects()
+    public void PlayerShowControls()
     {
-
+        uiManager.TogglePanel();
     }
 
     public void PlayerMenu()
@@ -151,7 +152,6 @@ public class GameManager : MonoBehaviour
     {
         playerDemolitionRace.handBreak.HandBrake();
         GameManager.isHandBraking = true;
-        Debug.Log("Omg " + isHandBraking);
     }
 
 }

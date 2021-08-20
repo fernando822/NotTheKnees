@@ -3,7 +3,22 @@ guid: a2949c477b1e9b142926cd7288b22b7a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cama-Colchon
+    second: {fileID: 2100000, guid: 3f242466546b91f4cb551b31c502e163, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cama-Sabana
+    second: {fileID: 2100000, guid: 79033429fb1a1b3468c6cab8f5b2bbe7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cama-Soporte
+    second: {fileID: 2100000, guid: caa10bad6c60b074b8ebaa5ca9c521c7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -41,8 +56,8 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0

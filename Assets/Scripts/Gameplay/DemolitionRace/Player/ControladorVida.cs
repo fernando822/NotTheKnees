@@ -6,25 +6,38 @@ using UnityEngine.UI;
 
 public class ControladorVida : MonoBehaviour
 {
-    public EstadoVehiculo EstadoVehiculoP;
-    public EstadoVehiculo EstadoVehiculoE;
+    public EstadoVehiculo estadoVehiculoP;
+    public EstadoVehiculo estadoVehiculoE;
     [SerializeField] Slider slider;
 
+    private void Update()
+    {
+        if (estadoVehiculoP.vida <= 0)
+        {
+            Destroy(estadoVehiculoP.gameObject);
+
+        }
+        if(estadoVehiculoE.vida <= 0)
+        {
+            Destroy(estadoVehiculoE.gameObject);
+        }
+    }
     void Start()
     {
     }
 
     public void CambiarVida(int vidaACambiar, string objetoCollision)
     {
+
         if (objetoCollision == "Player")
         {
-            EstadoVehiculoP.vida -= vidaACambiar;
-            slider.value = EstadoVehiculoP.vida;
+            estadoVehiculoP.vida -= vidaACambiar;
+            slider.value = estadoVehiculoP.vida;
         }
 
 
         if (objetoCollision == "Enemy")
-            EstadoVehiculoE.vida -= vidaACambiar;
+            estadoVehiculoE.vida -= vidaACambiar;
 
     }
 

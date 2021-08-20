@@ -39,13 +39,20 @@ public class InputPlayerDemolitionRace : MonoBehaviour
         input.PlayerDemolitionRace.HandBrake.canceled += OnHandBrakeEnded;
         input.PlayerDemolitionRace.HandBrake.Enable();
 
+        input.PlayerDemolitionRace.ShowControls.performed += OnShowControls;
+        input.PlayerDemolitionRace.ShowControls.Enable();
 
+
+    }
+
+    private void OnShowControls(InputAction.CallbackContext obj)
+    {
+        GameManager.GM.PlayerShowControls();
     }
 
     private void OnHandBrakeEnded(InputAction.CallbackContext obj)
     {
         GameManager.isHandBraking = false;
-        Debug.Log("Finished" + GameManager.isHandBraking);
     }
 
     void OnHandBrake(InputAction.CallbackContext obj)
@@ -63,5 +70,7 @@ public class InputPlayerDemolitionRace : MonoBehaviour
         input.PlayerDemolitionRace.HandBrake.performed -= OnHandBrake;
         input.PlayerDemolitionRace.HandBrake.Disable();
 
+        input.PlayerDemolitionRace.ShowControls.performed -= OnShowControls;
+        input.PlayerDemolitionRace.ShowControls.Disable();
     }
 }

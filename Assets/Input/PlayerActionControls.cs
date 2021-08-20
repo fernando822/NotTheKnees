@@ -43,7 +43,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ShowKeyObjects"",
+                    ""name"": ""ShowControls"",
                     ""type"": ""Button"",
                     ""id"": ""dd6b0008-db66-4129-abf9-6cd5e161eafa"",
                     ""expectedControlType"": ""Button"",
@@ -228,22 +228,22 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""798a041f-a2c7-48e2-82f6-a74c5d9963c3"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/f1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""ShowKeyObjects"",
+                    ""action"": ""ShowControls"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""f0dd9a1e-4aaf-4286-bb46-e6a4122a83ab"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""ShowKeyObjects"",
+                    ""action"": ""ShowControls"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -295,6 +295,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""name"": ""Accelerate"",
                     ""type"": ""Value"",
                     ""id"": ""90032980-8093-4612-941d-23ac66f9e77f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ShowControls"",
+                    ""type"": ""Button"",
+                    ""id"": ""50ef60b0-7e1f-48d2-a5a2-af22970c4cf7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -419,6 +427,28 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1628f22-85c1-4252-8a20-21ded5911af6"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ShowControls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e226e4c-ea61-4d7f-8320-ab7ab84b1d34"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShowControls"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -948,13 +978,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_PlayerGraphicAdventure_Movement = m_PlayerGraphicAdventure.FindAction("Movement", throwIfNotFound: true);
         m_PlayerGraphicAdventure_Action = m_PlayerGraphicAdventure.FindAction("Action", throwIfNotFound: true);
         m_PlayerGraphicAdventure_Backpack = m_PlayerGraphicAdventure.FindAction("Backpack", throwIfNotFound: true);
-        m_PlayerGraphicAdventure_ShowKeyObjects = m_PlayerGraphicAdventure.FindAction("ShowKeyObjects", throwIfNotFound: true);
+        m_PlayerGraphicAdventure_ShowControls = m_PlayerGraphicAdventure.FindAction("ShowControls", throwIfNotFound: true);
         m_PlayerGraphicAdventure_Menu = m_PlayerGraphicAdventure.FindAction("Menu", throwIfNotFound: true);
         // PlayerDemolitionRace
         m_PlayerDemolitionRace = asset.FindActionMap("PlayerDemolitionRace", throwIfNotFound: true);
         m_PlayerDemolitionRace_Movement = m_PlayerDemolitionRace.FindAction("Movement", throwIfNotFound: true);
         m_PlayerDemolitionRace_HandBrake = m_PlayerDemolitionRace.FindAction("HandBrake", throwIfNotFound: true);
         m_PlayerDemolitionRace_Accelerate = m_PlayerDemolitionRace.FindAction("Accelerate", throwIfNotFound: true);
+        m_PlayerDemolitionRace_ShowControls = m_PlayerDemolitionRace.FindAction("ShowControls", throwIfNotFound: true);
         // Backpack
         m_Backpack = asset.FindActionMap("Backpack", throwIfNotFound: true);
         m_Backpack_Navigate = m_Backpack.FindAction("Navigate", throwIfNotFound: true);
@@ -1017,7 +1048,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerGraphicAdventure_Movement;
     private readonly InputAction m_PlayerGraphicAdventure_Action;
     private readonly InputAction m_PlayerGraphicAdventure_Backpack;
-    private readonly InputAction m_PlayerGraphicAdventure_ShowKeyObjects;
+    private readonly InputAction m_PlayerGraphicAdventure_ShowControls;
     private readonly InputAction m_PlayerGraphicAdventure_Menu;
     public struct PlayerGraphicAdventureActions
     {
@@ -1026,7 +1057,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerGraphicAdventure_Movement;
         public InputAction @Action => m_Wrapper.m_PlayerGraphicAdventure_Action;
         public InputAction @Backpack => m_Wrapper.m_PlayerGraphicAdventure_Backpack;
-        public InputAction @ShowKeyObjects => m_Wrapper.m_PlayerGraphicAdventure_ShowKeyObjects;
+        public InputAction @ShowControls => m_Wrapper.m_PlayerGraphicAdventure_ShowControls;
         public InputAction @Menu => m_Wrapper.m_PlayerGraphicAdventure_Menu;
         public InputActionMap Get() { return m_Wrapper.m_PlayerGraphicAdventure; }
         public void Enable() { Get().Enable(); }
@@ -1046,9 +1077,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Backpack.started -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnBackpack;
                 @Backpack.performed -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnBackpack;
                 @Backpack.canceled -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnBackpack;
-                @ShowKeyObjects.started -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowKeyObjects;
-                @ShowKeyObjects.performed -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowKeyObjects;
-                @ShowKeyObjects.canceled -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowKeyObjects;
+                @ShowControls.started -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowControls;
+                @ShowControls.performed -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowControls;
+                @ShowControls.canceled -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowControls;
                 @Menu.started -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnMenu;
@@ -1065,9 +1096,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Backpack.started += instance.OnBackpack;
                 @Backpack.performed += instance.OnBackpack;
                 @Backpack.canceled += instance.OnBackpack;
-                @ShowKeyObjects.started += instance.OnShowKeyObjects;
-                @ShowKeyObjects.performed += instance.OnShowKeyObjects;
-                @ShowKeyObjects.canceled += instance.OnShowKeyObjects;
+                @ShowControls.started += instance.OnShowControls;
+                @ShowControls.performed += instance.OnShowControls;
+                @ShowControls.canceled += instance.OnShowControls;
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
@@ -1082,6 +1113,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDemolitionRace_Movement;
     private readonly InputAction m_PlayerDemolitionRace_HandBrake;
     private readonly InputAction m_PlayerDemolitionRace_Accelerate;
+    private readonly InputAction m_PlayerDemolitionRace_ShowControls;
     public struct PlayerDemolitionRaceActions
     {
         private @PlayerActionControls m_Wrapper;
@@ -1089,6 +1121,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerDemolitionRace_Movement;
         public InputAction @HandBrake => m_Wrapper.m_PlayerDemolitionRace_HandBrake;
         public InputAction @Accelerate => m_Wrapper.m_PlayerDemolitionRace_Accelerate;
+        public InputAction @ShowControls => m_Wrapper.m_PlayerDemolitionRace_ShowControls;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDemolitionRace; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1107,6 +1140,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Accelerate.started -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnAccelerate;
                 @Accelerate.performed -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnAccelerate;
                 @Accelerate.canceled -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnAccelerate;
+                @ShowControls.started -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnShowControls;
+                @ShowControls.performed -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnShowControls;
+                @ShowControls.canceled -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnShowControls;
             }
             m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface = instance;
             if (instance != null)
@@ -1120,6 +1156,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Accelerate.started += instance.OnAccelerate;
                 @Accelerate.performed += instance.OnAccelerate;
                 @Accelerate.canceled += instance.OnAccelerate;
+                @ShowControls.started += instance.OnShowControls;
+                @ShowControls.performed += instance.OnShowControls;
+                @ShowControls.canceled += instance.OnShowControls;
             }
         }
     }
@@ -1245,7 +1284,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
         void OnBackpack(InputAction.CallbackContext context);
-        void OnShowKeyObjects(InputAction.CallbackContext context);
+        void OnShowControls(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
     }
     public interface IPlayerDemolitionRaceActions
@@ -1253,6 +1292,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnHandBrake(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
+        void OnShowControls(InputAction.CallbackContext context);
     }
     public interface IBackpackActions
     {

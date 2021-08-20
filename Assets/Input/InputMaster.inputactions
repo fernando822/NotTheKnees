@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ShowKeyObjects",
+                    "name": "ShowControls",
                     "type": "Button",
                     "id": "dd6b0008-db66-4129-abf9-6cd5e161eafa",
                     "expectedControlType": "Button",
@@ -215,22 +215,22 @@
                 {
                     "name": "",
                     "id": "798a041f-a2c7-48e2-82f6-a74c5d9963c3",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Keyboard>/f1",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "ShowKeyObjects",
+                    "action": "ShowControls",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "f0dd9a1e-4aaf-4286-bb46-e6a4122a83ab",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "ShowKeyObjects",
+                    "action": "ShowControls",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -282,6 +282,14 @@
                     "name": "Accelerate",
                     "type": "Value",
                     "id": "90032980-8093-4612-941d-23ac66f9e77f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ShowControls",
+                    "type": "Button",
+                    "id": "50ef60b0-7e1f-48d2-a5a2-af22970c4cf7",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -406,6 +414,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Accelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1628f22-85c1-4252-8a20-21ded5911af6",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ShowControls",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e226e4c-ea61-4d7f-8320-ab7ab84b1d34",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ShowControls",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
