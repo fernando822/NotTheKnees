@@ -21,8 +21,8 @@ public class animaciones : MonoBehaviour
     }
     public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
-        ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
+        ai.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.Self);
+        ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.Self);
         actual = direccion * rotacionDireccion;
 
 
