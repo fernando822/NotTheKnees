@@ -6,7 +6,7 @@ public class animaciones : MonoBehaviour
 {
     Transform ai, ad, ti, td;
 
-    [SerializeField] float rodamiento = 50;
+   // [SerializeField] float rodamiento = 50;
     [SerializeField] float rotacionDireccion = 30;
 
     float actual;
@@ -27,14 +27,14 @@ public class animaciones : MonoBehaviour
 
 
     }
-    public void road(float speed)
-    {
-        float i = speed * rodamiento * Time.deltaTime;
+   // public void road(float speed)
+   // {
+      //  float i = speed * rodamiento * Time.deltaTime;
 
-        ai.Rotate(Vector3.forward, i);
-        ad.Rotate(Vector3.forward, i);
-        ti.Rotate(Vector3.forward, i);
-        td.Rotate(Vector3.forward, i);
-    }
+      //  ai.Rotate(Vector3.forward, i);
+     //   ad.Rotate(Vector3.forward, i);
+     //   ti.Rotate(Vector3.forward, i);
+     //   td.Rotate(Vector3.forward, i);
+  //  }
 }
 
