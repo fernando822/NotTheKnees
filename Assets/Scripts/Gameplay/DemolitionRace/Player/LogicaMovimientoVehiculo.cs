@@ -18,11 +18,11 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     [SerializeField] WheelCollider ruedaAtrasDerecha;
     public animaciones animaciones;
 
-
     private void Start()
     {
         player = GetComponent<DemolitionRacePlayer>();
         estadoVehiculo = GetComponent<EstadoVehiculo>();
+        
     }
 
     public void PlayerDemolitionRaceMovement()
@@ -34,7 +34,9 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
         ruedaAdelanteDerecha.steerAngle = anguloDeRotacion;
         ruedaAdelanteIzquierda.steerAngle = anguloDeRotacion;
-       
+
+        float angleX = transform.eulerAngles.y;
+        angleX = 20;
     }
 
     public void Accelerate(float valorInputVertical)
