@@ -35,8 +35,6 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         ruedaAdelanteDerecha.steerAngle = anguloDeRotacion;
         ruedaAdelanteIzquierda.steerAngle = anguloDeRotacion;
 
-        float angleX = transform.eulerAngles.y;
-        angleX = 20;
     }
 
     public void Accelerate(float valorInputVertical)
@@ -59,9 +57,31 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         anguloDeRotacion = valorInputHorizontal * directionSpeed;
     }
 
+    public void antibuelco()
+    {
+        Vector3 eulerAngles = transform.rotation.eulerAngles;
+
+        if (eulerAngles.x < 315 & eulerAngles.x > 45)
+        {
+            if (eulerAngles.x < 180)
+                transform.Rotate(Vector3.right, 45 - eulerAngles.x);
+            else
+                transform.Rotate(Vector3.right, 315 - eulerAngles.x);
+        }
+
+        if (eulerAngles.z < 315 & eulerAngles.z > 45)
+        {
+            if (eulerAngles.z < 180)
+                transform.Rotate(Vector3.forward, 45 - eulerAngles.z);
+            else
+                transform.Rotate(Vector3.forward, 315 - eulerAngles.z);
+        }
+
+    }
     public void FixedUpdate()
     {
         PlayerDemolitionRaceMovement();
+        antibuelco();
     }
 
     public void SetSpeed(float speed) => this.speed = speed; 
