@@ -78,7 +78,6 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
             else
                 transform.Rotate(Vector3.forward, 360-tolZ - eulerAngles.z);
         }
-
     }
     public void FixedUpdate()
     {

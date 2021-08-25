@@ -2464,6 +2464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1569918631}
   movementSpeed: 6
+  suavidadRotacion: 0.1
   animator: {fileID: 1569918633}
 --- !u!95 &1569918633 stripped
 Animator:

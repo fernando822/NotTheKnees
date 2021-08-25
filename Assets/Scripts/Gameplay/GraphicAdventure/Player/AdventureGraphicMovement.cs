@@ -7,15 +7,17 @@ public class AdventureGraphicMovement : MonoBehaviour
 {
     [SerializeField] AdventureGraphicPlayer player;
     [SerializeField] float movementSpeed;
+    [SerializeField] float suavidadRotacion;
     [SerializeField] Animator animator;
 
     float newVerticalPosition;
     float newHorizontalPosition;
-
+    Vector3 newPositionLerp = new Vector3(0, 0, 0);
     void start()
     {
         player = GetComponent<AdventureGraphicPlayer>();
         animator = GetComponent<Animator>();
+             
     }
 
     void FixedUpdate()
@@ -27,7 +29,7 @@ public class AdventureGraphicMovement : MonoBehaviour
 
     private void graphicAdventurePlayerMovement()
     {
-        if (newHorizontalPosition != 0 || newVerticalPosition != 0)
+        if (newHorizontalPosition != 0f|| newVerticalPosition != 0f)
         {
             animator.SetBool("isWalking", true);
         }
@@ -46,10 +48,15 @@ public class AdventureGraphicMovement : MonoBehaviour
 
         Vector3 newPosition = new Vector3(newHorizontalPosition, 0, newVerticalPosition);
         newPosition.Normalize();
-        Vector3 positionToLookAt = currentPosition + newPosition;
-        if(newHorizontalPosition != 0 || newVerticalPosition != 0)
+
+        if (newHorizontalPosition != 0 || newVerticalPosition != 0)
         {
-            transform.forward = newPosition;
+            newPositionLerp.x = Mathf.Lerp(newPositionLerp.x, newPosition.x, suavidadRotacion);
+            newPositionLerp.z = Mathf.Lerp(newPositionLerp.z, newPosition.z, suavidadRotacion);
+
+            Vector3 positionToLookAt = currentPosition + newPositionLerp;
+
+            transform.forward = newPositionLerp;
         }
     }
 
