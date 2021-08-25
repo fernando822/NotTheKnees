@@ -9,6 +9,8 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     [SerializeField] float directionSpeed = 0.1f;
     [SerializeField] float aceleration = 30f;
     [SerializeField] float drag = 2f;
+    [SerializeField] float tolX = 45;
+    [SerializeField] float tolZ = 45;
 
     float speed;
     float anguloDeRotacion;
@@ -61,20 +63,20 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     {
         Vector3 eulerAngles = transform.rotation.eulerAngles;
 
-        if (eulerAngles.x < 315 & eulerAngles.x > 45)
+        if (eulerAngles.x < 360-tolX & eulerAngles.x > tolX)
         {
             if (eulerAngles.x < 180)
-                transform.Rotate(Vector3.right, 45 - eulerAngles.x);
+                transform.Rotate(Vector3.right, tolX - eulerAngles.x);
             else
-                transform.Rotate(Vector3.right, 315 - eulerAngles.x);
+                transform.Rotate(Vector3.right, 360-tolX - eulerAngles.x);
         }
 
-        if (eulerAngles.z < 315 & eulerAngles.z > 45)
+        if (eulerAngles.z < 360-tolZ & eulerAngles.z > tolZ)
         {
             if (eulerAngles.z < 180)
-                transform.Rotate(Vector3.forward, 45 - eulerAngles.z);
+                transform.Rotate(Vector3.forward, tolZ - eulerAngles.z);
             else
-                transform.Rotate(Vector3.forward, 315 - eulerAngles.z);
+                transform.Rotate(Vector3.forward, 360-tolZ - eulerAngles.z);
         }
 
     }

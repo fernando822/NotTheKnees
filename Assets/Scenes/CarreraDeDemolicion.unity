@@ -1924,8 +1924,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792540574}
-  m_LocalRotation: {x: 0.25416157, y: -0.0008246197, z: 0.00021670287, w: 0.9671614}
-  m_LocalPosition: {x: -10.9, y: 9.59, z: -1.3999977}
+  m_LocalRotation: {x: 0.25415954, y: -0.003925115, z: 0.0010314857, w: 0.96715385}
+  m_LocalPosition: {x: -11, y: 9.1, z: -1.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 791393116}
@@ -2500,8 +2500,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.25416157, y: -0.0008246197, z: 0.00021670287, w: 0.9671614}
-  m_LocalPosition: {x: -10.9, y: 9.59, z: -1.3999977}
+  m_LocalRotation: {x: 0.25415954, y: -0.003925115, z: 0.0010314857, w: 0.96715385}
+  m_LocalPosition: {x: -11, y: 9.1, z: -1.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 30959345}
@@ -4171,6 +4171,8 @@ MonoBehaviour:
   directionSpeed: 35
   aceleration: 600
   drag: 2
+  tolX: 45
+  tolZ: 45
   ruedaAdelanteIzquierda: {fileID: 490084357}
   ruedaAdelanteDerecha: {fileID: 540547327}
   ruedaAtrasIzquierda: {fileID: 1826884057}
@@ -5308,7 +5310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148514610999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.9, y: 2.49, z: -31.8}
+  m_LocalPosition: {x: -6, y: 2, z: -32}
   m_LocalScale: {x: 0.7, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 540547324}

@@ -25,7 +25,6 @@ public class animaciones : MonoBehaviour
         ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.Self);
         actual = direccion * rotacionDireccion;
 
-      
     }
    // public void road(float speed)
    // {
