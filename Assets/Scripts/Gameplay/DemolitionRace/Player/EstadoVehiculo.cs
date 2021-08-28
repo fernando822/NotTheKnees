@@ -31,6 +31,7 @@ public class EstadoVehiculo : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
             contadorVida.CambiarVida(attack, other.collider.name);
 
+
     }
 
    

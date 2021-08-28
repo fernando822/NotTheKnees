@@ -63,22 +63,17 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     {
         Vector3 eulerAngles = transform.rotation.eulerAngles;
 
-        if (eulerAngles.x < 360-tolX & eulerAngles.x > tolX)
-        {
-            if (eulerAngles.x < 180)
-                transform.Rotate(Vector3.right, tolX - eulerAngles.x);
-            else
-                transform.Rotate(Vector3.right, 360-tolX - eulerAngles.x);
-        }
+        eulerAngles.x = (eulerAngles.x > 180) ? eulerAngles.x - 360 : eulerAngles.x;
+        eulerAngles.z = (eulerAngles.z > 180) ? eulerAngles.z - 360 : eulerAngles.z;
 
-        if (eulerAngles.z < 360-tolZ & eulerAngles.z > tolZ)
+        if ((eulerAngles.x < -tolX || eulerAngles.x > tolX) || (eulerAngles.z < -tolZ || eulerAngles.z > tolZ))
         {
-            if (eulerAngles.z < 180)
-                transform.Rotate(Vector3.forward, tolZ - eulerAngles.z);
-            else
-                transform.Rotate(Vector3.forward, 360-tolZ - eulerAngles.z);
+            eulerAngles.x = Mathf.Clamp(eulerAngles.x, -tolX, tolX);
+            eulerAngles.z = Mathf.Clamp(eulerAngles.z, -tolZ, tolZ);
+
+            transform.rotation = Quaternion.Euler(eulerAngles);
         }
-    }
+    } 
     public void FixedUpdate()
     {
         PlayerDemolitionRaceMovement();
