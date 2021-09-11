@@ -51,7 +51,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, 0, drag);
         }
-        //animaciones.road(speed);
+        
     }
     public void SetRotation(float valorInputHorizontal)
     {

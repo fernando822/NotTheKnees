@@ -4,36 +4,47 @@ using UnityEngine;
 
 public class animaciones : MonoBehaviour
 {
-    Transform ai, ad, ti, td;
-
-   // [SerializeField] float rodamiento = 50;
+    [SerializeField] float rodamiento = 180;
     [SerializeField] float rotacionDireccion = 30;
 
+    [SerializeField] Transform ai;
+    [SerializeField] Transform ad;
+    [SerializeField] Transform ti;
+    [SerializeField] Transform td;
+
+    Rigidbody rb;
+    
     float actual;
 
+    float speed ;
+
+    Vector3 speedV3;
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+    }
 
-        ai = transform.Find("Rueda ad");
-        ad = transform.Find("Rueda ai");
-        ti = transform.Find("Rueda td");
-        td = transform.Find("Rueda ti");
+    private void Update()
+    {
+       speedV3 = rb.velocity;
+       speed = speedV3.magnitude;
+        road();
+        Debug.Log(speed);
     }
     public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.Self);
-        ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.Self);
+        ai.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
+        ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
         actual = direccion * rotacionDireccion;
-
     }
-   // public void road(float speed)
-   // {
-      //  float i = speed * rodamiento * Time.deltaTime;
+    public void road()
+    {
+        float i = speed * rodamiento * Time.deltaTime;
 
-      //  ai.Rotate(Vector3.forward, i);
-     //   ad.Rotate(Vector3.forward, i);
-     //   ti.Rotate(Vector3.forward, i);
-     //   td.Rotate(Vector3.forward, i);
-  //  }
+       ai.Rotate(Vector3.forward, i);
+       ad.Rotate(Vector3.forward, i);
+       ti.Rotate(Vector3.forward, i);
+       td.Rotate(Vector3.forward, i);
+    }
 }
 
