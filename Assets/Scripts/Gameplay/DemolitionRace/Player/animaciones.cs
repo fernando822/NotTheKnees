@@ -5,7 +5,7 @@ using UnityEngine;
 public class animaciones : MonoBehaviour
 {
     [SerializeField] float rodamiento = 180;
-    [SerializeField] float rotacionDireccion = 30;
+
 
     [SerializeField] Transform ai;
     [SerializeField] Transform ad;
@@ -29,13 +29,12 @@ public class animaciones : MonoBehaviour
        speedV3 = rb.velocity;
        speed = speedV3.magnitude;
         road();
-        Debug.Log(speed);
     }
     public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
-        ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
-        actual = direccion * rotacionDireccion;
+        ai.Rotate(Vector3.up, (direccion) - actual, Space.World);
+        ad.Rotate(Vector3.up, (direccion) - actual, Space.World);
+        actual = direccion;
     }
     public void road()
     {

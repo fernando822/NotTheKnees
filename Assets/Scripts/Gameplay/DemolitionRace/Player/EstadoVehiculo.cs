@@ -8,8 +8,11 @@ public class EstadoVehiculo : MonoBehaviour
 {
     ControladorVida contadorVida;
 
+    Rigidbody rb;
+
     public int vida = 100;
     public int attack = 10;
+    public Vector3 speedV3;
 
     private void Awake()
     {
@@ -18,18 +21,20 @@ public class EstadoVehiculo : MonoBehaviour
     void Start()
     {
         contadorVida = GameObject.Find("GameManager").GetComponent<ControladorVida>();
-        
+        rb = GetComponent<Rigidbody>();
     }
 
 
     void OnCollisionEnter(Collision other)
     {
+        speedV3 = rb.velocity;
 
         if (other.gameObject.tag == "Player")
-            contadorVida.CambiarVida(attack, "Player");
+            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.name);
+
 
         if (other.gameObject.tag == "Enemy")
-            contadorVida.CambiarVida(attack, other.collider.name);
+            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.name);
 
 
     }

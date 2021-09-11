@@ -6,25 +6,27 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 {
     [SerializeField] DemolitionRacePlayer player;
     [SerializeField] EstadoVehiculo estadoVehiculo;
-    [SerializeField] float directionSpeed = 0.1f;
-    [SerializeField] float aceleration = 30f;
-    [SerializeField] float drag = 2f;
+    [SerializeField] public float directionSpeed = 30f;
+    [SerializeField] float aceleration = 300f;
+    [SerializeField] float frenado = 10f;
     [SerializeField] float tolX = 45;
     [SerializeField] float tolZ = 45;
 
     float speed;
+    float freno;
     float anguloDeRotacion;
+
     [SerializeField] WheelCollider ruedaAdelanteIzquierda;
     [SerializeField] WheelCollider ruedaAdelanteDerecha;
     [SerializeField] WheelCollider ruedaAtrasIzquierda;
     [SerializeField] WheelCollider ruedaAtrasDerecha;
+
     public animaciones animaciones;
 
     private void Start()
     {
         player = GetComponent<DemolitionRacePlayer>();
         estadoVehiculo = GetComponent<EstadoVehiculo>();
-        
     }
 
     public void PlayerDemolitionRaceMovement()
@@ -34,29 +36,28 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         ruedaAtrasDerecha.motorTorque = speed;
         ruedaAtrasIzquierda.motorTorque = speed;
 
+        ruedaAdelanteDerecha.brakeTorque = freno;
+        ruedaAdelanteIzquierda.brakeTorque = freno;
+        ruedaAtrasDerecha.brakeTorque = freno;
+        ruedaAtrasIzquierda.brakeTorque = freno;
+
         ruedaAdelanteDerecha.steerAngle = anguloDeRotacion;
         ruedaAdelanteIzquierda.steerAngle = anguloDeRotacion;
-
     }
 
     public void Accelerate(float valorInputVertical)
     {
-        if (valorInputVertical != 0 && 
-            (ruedaAdelanteDerecha.isGrounded || ruedaAdelanteIzquierda.isGrounded) 
-            && !GameManager.isHandBraking)
-        {
             speed = aceleration * valorInputVertical;
-        }
+
+        if (valorInputVertical == 0)
+            freno = frenado;
         else
-        {
-            speed = Mathf.Lerp(speed, 0, drag);
-        }
-        
+            freno = 0;
     }
     public void SetRotation(float valorInputHorizontal)
     {
-        animaciones.direccion(valorInputHorizontal);
         anguloDeRotacion = valorInputHorizontal * directionSpeed;
+        animaciones.direccion(anguloDeRotacion);
     }
 
     public void antibuelco()

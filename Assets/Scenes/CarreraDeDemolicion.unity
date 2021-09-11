@@ -170,7 +170,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.2
   m_ForceAppPointDistance: 1.5
-  m_Mass: 10
+  m_Mass: 1
   m_WheelDampingRate: 0.2
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -1328,7 +1328,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.2
   m_ForceAppPointDistance: 1.5
-  m_Mass: 10
+  m_Mass: 1
   m_WheelDampingRate: 0.2
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -1914,7 +1914,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.2
   m_ForceAppPointDistance: 1.5
-  m_Mass: 10
+  m_Mass: 1
   m_WheelDampingRate: 0.2
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -3838,7 +3838,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.2
   m_ForceAppPointDistance: 1.5
-  m_Mass: 10
+  m_Mass: 1
   m_WheelDampingRate: 0.2
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -4052,14 +4052,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492350181}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!64 &1492350184
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4072,7 +4072,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 30
+  m_CookingOptions: 0
   m_Mesh: {fileID: -5142963077157278155, guid: ab591424c25daae46b8f27f51adc916f, type: 3}
 --- !u!195 &1492350185
 NavMeshAgent:
@@ -4084,7 +4084,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2.3
-  m_Speed: 8
+  m_Speed: 15
   m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -4110,6 +4110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 100
   attack: 10
+  speedV3: {x: 0, y: 0, z: 0}
 --- !u!1 &1501507644
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,7 +4378,7 @@ MonoBehaviour:
   estadoVehiculo: {fileID: 1535828732}
   directionSpeed: 35
   aceleration: 600
-  drag: 2
+  frenado: 10
   tolX: 35
   tolZ: 35
   ruedaAdelanteIzquierda: {fileID: 763825199}
@@ -4399,6 +4400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 100
   attack: 10
+  speedV3: {x: 0, y: 0, z: 0}
 --- !u!1001 &1587249085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5513,7 +5515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rodamiento: 180
-  rotacionDireccion: 30
   ai: {fileID: 540547324}
   ad: {fileID: 490084354}
   ti: {fileID: 1685288475}

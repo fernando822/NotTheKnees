@@ -10,6 +10,9 @@ public class ControladorVida : MonoBehaviour
     public EstadoVehiculo estadoVehiculoE;
     [SerializeField] Slider slider;
 
+    float at, bt, ct;
+    Vector3 c;
+
     private void Update()
     {
         if (estadoVehiculoP.vida <= 0)
@@ -26,19 +29,30 @@ public class ControladorVida : MonoBehaviour
     {
     }
 
-    public void CambiarVida(int vidaACambiar, string objetoCollision)
+    public void CambiarVida(Vector3 a, Vector3 b, string objetoCollision)
     {
+        at = a.magnitude;
+        bt = b.magnitude;
 
-        if (objetoCollision == "Player")
+        if (at > bt)
         {
-            estadoVehiculoP.vida -= vidaACambiar;
-            slider.value = estadoVehiculoP.vida;
+            c = a - b;
+            ct = c.magnitude;
+
+            if (objetoCollision == "Player")
+            {
+                estadoVehiculoP.vida -= (int)ct;
+                slider.value = estadoVehiculoP.vida;
+            }
+
+
+            if (objetoCollision == "Enemy")
+            {
+                estadoVehiculoE.vida -= (int)ct;
+            }
+
+
         }
-
-
-        if (objetoCollision == "Enemy")
-            estadoVehiculoE.vida -= vidaACambiar;
-
     }
 
 
