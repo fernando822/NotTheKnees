@@ -30,11 +30,11 @@ public class EstadoVehiculo : MonoBehaviour
         speedV3 = rb.velocity;
 
         if (other.gameObject.tag == "Player")
-            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.name);
+            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.tag);
 
 
         if (other.gameObject.tag == "Enemy")
-            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.name);
+            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.tag);
 
 
     }
