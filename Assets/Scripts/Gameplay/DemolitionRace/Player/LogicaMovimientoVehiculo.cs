@@ -58,6 +58,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     {
         anguloDeRotacion = valorInputHorizontal * directionSpeed;
         animaciones.direccion(anguloDeRotacion);
+        Debug.Log(valorInputHorizontal);
     }
 
     public void antibuelco()

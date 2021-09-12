@@ -4376,9 +4376,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1535828728}
   estadoVehiculo: {fileID: 1535828732}
-  directionSpeed: 35
+  directionSpeed: 30
   aceleration: 600
-  frenado: 10
+  frenado: 5
   tolX: 35
   tolZ: 35
   ruedaAdelanteIzquierda: {fileID: 763825199}

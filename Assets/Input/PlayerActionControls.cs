@@ -312,7 +312,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""WASD"",
                     ""id"": ""8ea4cb58-7061-4b33-8433-125b34db60d8"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
