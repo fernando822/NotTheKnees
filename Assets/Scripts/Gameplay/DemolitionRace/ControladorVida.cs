@@ -50,12 +50,6 @@ public class ControladorVida : MonoBehaviour
             {
                 estadoVehiculoE.vida -= (int)ct;
             }
-
-
         }
     }
-
-
-
-
 }

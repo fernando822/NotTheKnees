@@ -14,10 +14,6 @@ public class EstadoVehiculo : MonoBehaviour
     public int attack = 10;
     public Vector3 speedV3;
 
-    private void Awake()
-    {
-        
-    }
     void Start()
     {
         contadorVida = GameObject.Find("GameManager").GetComponent<ControladorVida>();
@@ -35,9 +31,5 @@ public class EstadoVehiculo : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
             contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.tag);
-
-
     }
-
-   
 }

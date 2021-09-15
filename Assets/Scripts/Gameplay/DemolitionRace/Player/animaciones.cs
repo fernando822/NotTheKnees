@@ -4,31 +4,23 @@ using UnityEngine;
 
 public class animaciones : MonoBehaviour
 {
-    [SerializeField] float rodamiento = 180;
-
+    [SerializeField] DemolitionRacePlayer player;
 
     [SerializeField] Transform ai;
     [SerializeField] Transform ad;
     [SerializeField] Transform ti;
     [SerializeField] Transform td;
 
-    Rigidbody rb;
-    
     float actual;
+    float b;
 
-    float speed ;
-
-    Vector3 speedV3;
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        player = GetComponent<DemolitionRacePlayer>();
     }
 
     private void Update()
     {
-       speedV3 = rb.velocity;
-       speed = speedV3.magnitude;
-        road();
     }
     public void direccion(float direccion)
     {
@@ -36,14 +28,14 @@ public class animaciones : MonoBehaviour
         ad.Rotate(Vector3.up, (direccion) - actual, Space.World);
         actual = direccion;
     }
-    public void road()
+    public void road(float rpm)
     {
-        float i = speed * rodamiento * Time.deltaTime;
+        b = rpm * 6 * Time.deltaTime;
 
-       ai.Rotate(Vector3.forward, i);
-       ad.Rotate(Vector3.forward, i);
-       ti.Rotate(Vector3.forward, i);
-       td.Rotate(Vector3.forward, i);
+        ai.Rotate(Vector3.forward, b);
+        ad.Rotate(Vector3.forward, b);
+        ti.Rotate(Vector3.forward, b);
+        td.Rotate(Vector3.forward, b);
     }
 }
 
