@@ -29,7 +29,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         player = GetComponent<DemolitionRacePlayer>();
     }
 
-    public void PlayerDemolitionRaceMovement()
+    public void ControlRuedas()
     {
         ruedaAdelanteDerecha.motorTorque = torque;
         ruedaAdelanteIzquierda.motorTorque = torque;
@@ -59,7 +59,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         c = ruedaAtrasDerecha.rpm;
         d = ruedaAtrasIzquierda.rpm;
         rpm = (float)(a + b + c + d) / 4;
-        player.animaciones.road(rpm);
+        player.animaciones.rotacion(rpm);
     }
     public void SetRotation(float valorInputHorizontal)
     {
@@ -84,7 +84,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     } 
     public void FixedUpdate()
     {
-        PlayerDemolitionRaceMovement();
+        ControlRuedas();
         antibuelco();
     }
 

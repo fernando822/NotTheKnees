@@ -28,7 +28,7 @@ public class animaciones : MonoBehaviour
         ad.Rotate(Vector3.up, (direccion) - actual, Space.World);
         actual = direccion;
     }
-    public void road(float rpm)
+    public void rotacion(float rpm)
     {
         b = rpm * 6 * Time.deltaTime;
 
