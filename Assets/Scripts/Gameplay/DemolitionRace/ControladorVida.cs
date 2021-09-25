@@ -47,7 +47,7 @@ public class ControladorVida : MonoBehaviour
             {
                 estadoVehiculoP.vida -= (int)ct;
                 sliderP.value = estadoVehiculoP.vida;
-                textP.text = "" + -(int)ct;
+                textP.text = ""+-(int)ct;
             }
 
 
