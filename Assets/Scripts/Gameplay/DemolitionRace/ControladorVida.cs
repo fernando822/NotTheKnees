@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class ControladorVida : MonoBehaviour
@@ -10,6 +11,8 @@ public class ControladorVida : MonoBehaviour
     public EstadoVehiculo estadoVehiculoE;
     [SerializeField] Slider sliderP;
     [SerializeField] Slider sliderE;
+    [SerializeField] TextMeshProUGUI textP;
+    [SerializeField] TextMeshProUGUI textE;
 
     float at, bt, ct;
     Vector3 c;
@@ -44,6 +47,7 @@ public class ControladorVida : MonoBehaviour
             {
                 estadoVehiculoP.vida -= (int)ct;
                 sliderP.value = estadoVehiculoP.vida;
+                textP.text = "" + -(int)ct;
             }
 
 
@@ -51,6 +55,7 @@ public class ControladorVida : MonoBehaviour
             {
                 estadoVehiculoE.vida -= (int)ct;
                 sliderE.value = estadoVehiculoE.vida;
+                textE.text =""+-(int)ct;
             }
         }
     }
