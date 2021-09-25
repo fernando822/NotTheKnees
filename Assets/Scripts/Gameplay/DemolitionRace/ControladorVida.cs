@@ -8,7 +8,8 @@ public class ControladorVida : MonoBehaviour
 {
     public EstadoVehiculo estadoVehiculoP;
     public EstadoVehiculo estadoVehiculoE;
-    [SerializeField] Slider slider;
+    [SerializeField] Slider sliderP;
+    [SerializeField] Slider sliderE;
 
     float at, bt, ct;
     Vector3 c;
@@ -42,13 +43,14 @@ public class ControladorVida : MonoBehaviour
             if (objetoCollision == "Player")
             {
                 estadoVehiculoP.vida -= (int)ct;
-                slider.value = estadoVehiculoP.vida;
+                sliderP.value = estadoVehiculoP.vida;
             }
 
 
             if (objetoCollision == "Enemy")
             {
                 estadoVehiculoE.vida -= (int)ct;
+                sliderE.value = estadoVehiculoE.vida;
             }
         }
     }
