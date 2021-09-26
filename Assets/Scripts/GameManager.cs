@@ -51,8 +51,18 @@ public class GameManager : MonoBehaviour
             mostrarTexto = GetComponent<MostrarTexto>();
             objetoRecogido = GetComponent<ObjetoRecogido>();
         }
-           
-       
+        if (SceneManager.GetActiveScene().name == "Taller")
+        {
+            cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
+            playerAdventureGraphic = GameObject.Find("Player");
+            descripciones = GetComponent<Descripciones>();
+            scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
+            mostrarTexto = GetComponent<MostrarTexto>();
+            objetoRecogido = GetComponent<ObjetoRecogido>();
+        }
+
+
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
