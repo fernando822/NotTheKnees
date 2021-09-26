@@ -51,7 +51,7 @@ public class InputPlayer : MonoBehaviour
 
     private void OnBackpack(InputAction.CallbackContext obj)
     {
-        GameManager.GM.ShowDescriptionOfObtainedObject();
+        GameManager.GM.OpenMochila();
     }
 
     void OnShowControls(InputAction.CallbackContext obj)

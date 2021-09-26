@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] ObjetoRecogido objetoRecogido;
     [SerializeField] UIManager uiManager;
+    [SerializeField] MochilaManager mochilaManager;
 
     private void Awake()
     {
@@ -45,12 +46,14 @@ public class GameManager : MonoBehaviour
         {
             cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
+            mochilaManager = GameObject.Find("MochilaManager").GetComponent<MochilaManager>();
             playerAdventureGraphic = GameObject.Find("Player");
             descripciones = GetComponent<Descripciones>();
             scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
             mostrarTexto = GetComponent<MostrarTexto>();
             objetoRecogido = GetComponent<ObjetoRecogido>();
         }
+        
            
        
     }
@@ -152,6 +155,11 @@ public class GameManager : MonoBehaviour
     {
         playerDemolitionRace.handBreak.HandBrake();
         GameManager.isHandBraking = true;
+    }
+
+    public void OpenMochila()
+    {
+        mochilaManager.TogglePanel();
     }
 
 }
