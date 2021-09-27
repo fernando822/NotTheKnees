@@ -41,7 +41,13 @@ public class GameManager : MonoBehaviour
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         }
 
-        if(SceneManager.GetActiveScene().name == "AventuraGrafica")
+        if (SceneManager.GetActiveScene().name == "2°CarreraDeDemolicion")
+        {
+            playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
+            uiManager = GameObject.Find("UI").GetComponent<UIManager>();
+        }
+
+        if (SceneManager.GetActiveScene().name == "AventuraGrafica")
         {
             cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
@@ -143,10 +149,7 @@ public class GameManager : MonoBehaviour
         playerDemolitionRace.movementScript.Accelerate(value.y);
         playerDemolitionRace.movementScript.SetRotation(value.x);
     }
-    public void PlayerDemolitionRaceVerticalMovement(float value)
-    {
-        playerDemolitionRace.movementScript.Accelerate(value);
-    }
+
 
     public void PlayerDemolitionRaceHandBrake()
     {

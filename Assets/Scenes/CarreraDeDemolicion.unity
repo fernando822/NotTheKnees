@@ -1910,6 +1910,7 @@ GameObject:
   - component: {fileID: 672909292}
   - component: {fileID: 672909291}
   - component: {fileID: 672909290}
+  - component: {fileID: 672909293}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1988,7 +1989,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 963194227}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -1999,6 +2000,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &672909293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672909288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c26f347318992547ac6aff944613015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &679249750
 GameObject:
   m_ObjectHideFlags: 0
@@ -4239,10 +4252,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   estadoVehiculoP: {fileID: 1535828732}
   estadoVehiculoE: {fileID: 1492350189}
-  sliderP: {fileID: 1914239499}
-  sliderE: {fileID: 590869952}
-  textP: {fileID: 390054024}
-  textE: {fileID: 583601749}
 --- !u!82 &1473065727
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4426,8 +4435,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a045da87311b88942ae327f99648a74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 590869952}
+  text: {fileID: 583601749}
   vida: 100
   attack: 10
+  "esperaDa\xF1o": 1
   speedV3: {x: 0, y: 0, z: 0}
 --- !u!1 &1501507644
 GameObject:
@@ -4716,8 +4728,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a045da87311b88942ae327f99648a74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 1914239499}
+  text: {fileID: 390054024}
   vida: 100
   attack: 10
+  "esperaDa\xF1o": 1
   speedV3: {x: 0, y: 0, z: 0}
 --- !u!1001 &1587249085
 PrefabInstance:

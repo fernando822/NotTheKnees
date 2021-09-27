@@ -1,19 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+
 
 
 public class ControladorVida : MonoBehaviour
 {
     public EstadoVehiculo estadoVehiculoP;
     public EstadoVehiculo estadoVehiculoE;
-    [SerializeField] Slider sliderP;
-    [SerializeField] Slider sliderE;
-    [SerializeField] TextMeshProUGUI textP;
-    [SerializeField] TextMeshProUGUI textE;
 
+
+    int daño;
     float at, bt, ct;
     Vector3 c;
 
@@ -22,8 +19,8 @@ public class ControladorVida : MonoBehaviour
         if (estadoVehiculoP.vida <= 0)
         {
             Destroy(estadoVehiculoP.gameObject);
-
         }
+
         if(estadoVehiculoE.vida <= 0)
         {
             Destroy(estadoVehiculoE.gameObject);
@@ -33,7 +30,7 @@ public class ControladorVida : MonoBehaviour
     {
     }
 
-    public void CambiarVida(Vector3 a, Vector3 b, string objetoCollision)
+    public void CambiarVida(Vector3 a, Vector3 b, string objetoCollision, int attack)
     {
         at = a.magnitude;
         bt = b.magnitude;
@@ -43,19 +40,17 @@ public class ControladorVida : MonoBehaviour
             c = a - b;
             ct = c.magnitude;
 
-            if (objetoCollision == "Player")
+            daño = (int)ct * attack;
+
+            if (objetoCollision == estadoVehiculoP.tag)
             {
-                estadoVehiculoP.vida -= (int)ct;
-                sliderP.value = estadoVehiculoP.vida;
-                textP.text = ""+-(int)ct;
+                estadoVehiculoP.RecibirDaño(daño);
             }
 
 
-            if (objetoCollision == "Enemy")
+            if (objetoCollision == estadoVehiculoE.name)
             {
-                estadoVehiculoE.vida -= (int)ct;
-                sliderE.value = estadoVehiculoE.vida;
-                textE.text =""+-(int)ct;
+                estadoVehiculoE.RecibirDaño(daño);
             }
         }
     }

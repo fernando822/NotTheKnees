@@ -23,7 +23,6 @@ public class InputPlayerDemolitionRace : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GameManager.GM.PlayerDemolitionRaceVerticalMovement(acceleracion.ReadValue<float>());
         GameManager.GM.PlayerDemolitionRaceMovement(movimiento.ReadValue<Vector2>());
     }
 
