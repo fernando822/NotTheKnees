@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 65dc9b58a8ff70c4991ef406993cea3f, type: 2}
 --- !u!1 &23237533
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,10 +641,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   estadoVehiculoP: {fileID: 1611082974}
   estadoVehiculoE: {fileID: 1447264593}
-  sliderP: {fileID: 178776538}
-  sliderE: {fileID: 2122073478}
-  textP: {fileID: 1952213751}
-  textE: {fileID: 1594382087}
 --- !u!114 &286896455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2148,7 +2144,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282475210}
-  m_LocalRotation: {x: 0.2541587, y: -0.004647049, z: 0.0012212036, w: 0.9671506}
+  m_LocalRotation: {x: 0.25415868, y: -0.004649306, z: 0.0012217967, w: 0.9671506}
   m_LocalPosition: {x: -11, y: 9.1, z: -1.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2371,8 +2367,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a045da87311b88942ae327f99648a74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 2122073478}
+  text: {fileID: 1594382087}
   vida: 100
   attack: 10
+  "esperaDa\xF1o": 1
   speedV3: {x: 0, y: 0, z: 0}
 --- !u!195 &1447264594
 NavMeshAgent:
@@ -2778,8 +2777,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a045da87311b88942ae327f99648a74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 178776538}
+  text: {fileID: 954822686}
   vida: 100
   attack: 10
+  "esperaDa\xF1o": 1
   speedV3: {x: 0, y: 0, z: 0}
 --- !u!114 &1611082975
 MonoBehaviour:
@@ -2816,7 +2818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8717a2d36430464bb6eb792129190f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1611082978}
   ai: {fileID: 1225690047}
   ad: {fileID: 839447382}
   ti: {fileID: 1997913714}
@@ -3411,8 +3413,8 @@ GameObject:
   m_Name: Cilindro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &2028071577
 MeshCollider:
@@ -3635,7 +3637,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048078628}
-  m_LocalRotation: {x: 0.2541587, y: -0.004647049, z: 0.0012212036, w: 0.9671506}
+  m_LocalRotation: {x: 0.25415868, y: -0.004649306, z: 0.0012217967, w: 0.9671506}
   m_LocalPosition: {x: -11, y: 9.1, z: -1.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
