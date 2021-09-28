@@ -161,5 +161,4 @@ public class GameManager : MonoBehaviour
     {
         mochilaManager.TogglePanel();
     }
-
 }

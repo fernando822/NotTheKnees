@@ -17,7 +17,6 @@ public class InputPlayer : MonoBehaviour
     {
         input.PlayerGraphicAdventure.Enable();
         input.PlayerDemolitionRace.Disable();
-       
     }
 
     private void FixedUpdate()
