@@ -129,17 +129,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ShowDescriptionOfObtainedObject()
-    {
-        if (tieneLlave)
-        {
-            mostrarTexto.ShowTextProtagonista(ObtenerDescripcion());
-        }
-        else
-        {
-            mostrarTexto.ShowTextProtagonista("No tengo ningún objeto aún.");
-        }
+    public void ToggleBackpack()
+    { 
+        uiManager.TogglePanel();
     }
+    public void ToggleMap()
+    {
+        uiManager.ToggleMap();
+    }
+
+
 
     string ObtenerDescripcion()
     {

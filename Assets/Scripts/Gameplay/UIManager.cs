@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject llave;
     [SerializeField] GameObject panelControles;
+    [SerializeField] GameObject mochila;
+    [SerializeField] GameObject map;
 
     public void TogglePanel()
     {
@@ -16,6 +18,20 @@ public class UIManager : MonoBehaviour
             panelControles.SetActive(true);
     }
 
+    public void ToggleBackpack()
+    {
+        if (mochila.activeSelf)
+            mochila.SetActive(false);
+        else
+            mochila.SetActive(true);
+    }
+    public void ToggleMap()
+    {
+        if (map.activeSelf)
+            map.SetActive(false);
+        else
+            map.SetActive(true);
+    }
     void Start()
     {
         llave.SetActive(false);

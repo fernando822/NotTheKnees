@@ -10,11 +10,6 @@ public class MostrarTexto : MonoBehaviour
     [SerializeField] TextMeshProUGUI textoEmisor;
 
 
-
-    void Update()
-    {
-       
-    }
     public void ShowTextProtagonista(string texto)
     {
         textoCuadro.enableAutoSizing = true;
@@ -40,6 +35,7 @@ public class MostrarTexto : MonoBehaviour
         {
             textoCuadro.text = texto;
         }
+
         if (textoCuadro.isTextOverflowing) RefreshFontSize();
 
         DefinirTextoDelEmisor(emisor);

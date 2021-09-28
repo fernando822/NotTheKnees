@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Combustible-Negro
-    second: {fileID: 2100000, guid: c2f6545f5f7b19443b87ee5b3bb78c94, type: 2}
+    second: {fileID: 2100000, guid: 23f7c64c85323db41937ab3bb8718944, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

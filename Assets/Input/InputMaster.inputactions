@@ -30,6 +30,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Map",
+                    "type": "Button",
+                    "id": "ef4513d6-bef5-4675-a532-721a51011de5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "ShowControls",
                     "type": "Button",
                     "id": "dd6b0008-db66-4129-abf9-6cd5e161eafa",
@@ -253,6 +261,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "167dce1b-55e6-4d30-8438-dded86738205",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Map",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd29d1bc-a446-4ba7-8081-49e2ed612729",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
