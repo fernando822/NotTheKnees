@@ -34,14 +34,14 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
-        if (SceneManager.GetActiveScene().name == "CarreraDeDemolicion")
+        string nombreDeEscena = SceneManager.GetActiveScene().name;
+        if (nombreDeEscena == "CarreraDeDemolicion")
         {
             playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         }
 
-        if(SceneManager.GetActiveScene().name == "AventuraGrafica")
+        if(nombreDeEscena == "AventuraGrafica" || nombreDeEscena == "Taller" || nombreDeEscena == "Torneo")
         {
             cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
@@ -51,16 +51,7 @@ public class GameManager : MonoBehaviour
             mostrarTexto = GetComponent<MostrarTexto>();
             objetoRecogido = GetComponent<ObjetoRecogido>();
         }
-        if (SceneManager.GetActiveScene().name == "Taller")
-        {
-            cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
-            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
-            playerAdventureGraphic = GameObject.Find("Player");
-            descripciones = GetComponent<Descripciones>();
-            scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
-            mostrarTexto = GetComponent<MostrarTexto>();
-            objetoRecogido = GetComponent<ObjetoRecogido>();
-        }
+        
 
 
     }
