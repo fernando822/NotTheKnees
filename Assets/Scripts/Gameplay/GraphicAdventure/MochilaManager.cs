@@ -32,7 +32,7 @@ public class MochilaManager : MonoBehaviour
     {
         llaveDeGarage.SetActive(true);
     }
-    public void MostrarCajaDeHerramienta()
+    public void MostrarCajaDeHerramientas()
     {
         llaveDeGarage.SetActive(true);
     }
