@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         }
 
-        if (SceneManager.GetActiveScene().name == "2°CarreraDeDemolicion")
+        if (SceneManager.GetActiveScene().name == "SegundaCarreraDemolicion")
         {
             playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
