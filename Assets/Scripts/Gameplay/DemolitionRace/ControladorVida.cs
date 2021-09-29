@@ -14,7 +14,7 @@ public class ControladorVida : MonoBehaviour
     float at, bt, ct;
     Vector3 c;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (estadoVehiculoP.vida <= 0)
         {

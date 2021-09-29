@@ -28,8 +28,7 @@ public class EstadoVehiculo : MonoBehaviour
 
     private void Update()
     {
-        if (tiempoDaño > 0)
-            cartelDaño();
+       cartelDaño();
     }
 
     void OnCollisionEnter(Collision other)
@@ -54,8 +53,12 @@ public class EstadoVehiculo : MonoBehaviour
 
     void cartelDaño()
     {
-        tiempoDaño -= Time.deltaTime;
-        if (tiempoDaño <= 0)
-            text.text = "";
+        if (tiempoDaño > 0) 
+        { 
+            tiempoDaño -= Time.deltaTime;
+
+            if (tiempoDaño <= 0)
+                text.text = "";
+        }
     }
 }

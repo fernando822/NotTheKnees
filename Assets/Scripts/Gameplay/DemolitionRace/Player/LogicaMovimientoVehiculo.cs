@@ -10,12 +10,15 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     [SerializeField] float frenado = 10f;
     [SerializeField] float tolX = 45;
     [SerializeField] float tolZ = 45;
+    [SerializeField] float turboBoost = 2;
 
     float torque;
     float direccion;
     float freno;
     float rpm, a, b, c, d;
 
+    public bool Turbo;
+    float turboActual;
 
     [SerializeField] WheelCollider ruedaAdelanteIzquierda;
     [SerializeField] WheelCollider ruedaAdelanteDerecha;
@@ -26,7 +29,6 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
     private void Start()
     {
-        player = GetComponent<DemolitionRacePlayer>();
     }
 
     public void ControlRuedas()
@@ -47,7 +49,11 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
     public void Accelerate(float valorInputVertical)
     {
-            torque = aceleration * valorInputVertical;
+        turboActual = (Turbo == true) ? turboActual = turboBoost : turboActual = 1;
+
+            torque = aceleration * valorInputVertical * turboActual;
+
+        Debug.Log(torque);
 
         if (valorInputVertical == 0)
             freno = frenado;

@@ -16,7 +16,6 @@ public class animaciones : MonoBehaviour
 
     private void Start()
     {
-        player = GetComponent<DemolitionRacePlayer>();
     }
 
     private void Update()
