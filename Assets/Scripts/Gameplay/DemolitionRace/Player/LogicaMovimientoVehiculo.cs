@@ -53,8 +53,6 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
             torque = aceleration * valorInputVertical * turboActual;
 
-        Debug.Log(torque);
-
         if (valorInputVertical == 0)
             freno = frenado;
         else

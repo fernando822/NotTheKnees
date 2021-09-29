@@ -21,8 +21,11 @@ public class Turbo : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Turbo")
+        if (other.gameObject.tag == "Turbo")
+        {
             turboRestante += 20;
+            Destroy(other.gameObject);
+        }
     }
 
    void p()
