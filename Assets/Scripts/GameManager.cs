@@ -12,11 +12,12 @@ public class GameManager : MonoBehaviour
 
     public static bool isHandBraking = false;
     public static bool isUiOpen = false;
+    public static bool isSomethingSelected = false;
 
 
     private Descripciones descripciones;
     private AdventureGraphicPlayer scriptPlayerAdventureGraphic;
-    [SerializeField] SceneController cambioDeNivel;
+    [SerializeField] SceneController sceneController;
     [SerializeField] MostrarTexto mostrarTexto;
     [SerializeField] UIManager uiManager;
 
@@ -32,12 +33,10 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    
     private void Awake()
     {
         GM = this;
-    }
-    private void Start()
-    {
         string nombreDeEscena = SceneManager.GetActiveScene().name;
        
         if (nombreDeEscena == "CarreraDeDemolicion" || nombreDeEscena == "SegundaCarreraDemolicion")
@@ -48,7 +47,7 @@ public class GameManager : MonoBehaviour
 
         if(nombreDeEscena == "AventuraGrafica" || nombreDeEscena == "Taller" || nombreDeEscena == "Torneo")
         {
-            cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
+            sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
             playerAdventureGraphic = GameObject.Find("Player");
             descripciones = GetComponent<Descripciones>();
@@ -65,27 +64,34 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAction()
     {
-        if (PuedeInteractuar.interactuable)
+        if (isUiOpen)
         {
-            GameObject objetoAInteractuar = DecidirObjetoInteractuable.ObjetoMasCercano(
-            scriptPlayerAdventureGraphic.puedeInteractuar.GetGameObjects(), playerAdventureGraphic);
 
-            switch (objetoAInteractuar.name)
-            {
-                case "Puerta":
-                        cambioDeNivel.CargarEscena("CarreraDeDemolicion");
-                    break;
-
-                default:
-                    mostrarTexto.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
-                    break;
-            }
         }
         else
         {
-            mostrarTexto.ClearText();
-        }
+            if (PuedeInteractuar.interactuable)
+            {
+                GameObject objetoAInteractuar = DecidirObjetoInteractuable.ObjetoMasCercano(
+                scriptPlayerAdventureGraphic.puedeInteractuar.GetGameObjects(), playerAdventureGraphic);
 
+                switch (objetoAInteractuar.name)
+                {
+                    case "Puerta":
+                        sceneController.CargarEscena("CarreraDeDemolicion");
+                        break;
+
+                    default:
+                        mostrarTexto.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
+                        break;
+                }
+            }
+            else
+            {
+                mostrarTexto.ClearText();
+            }
+        }
+       
     }
 
     public void PlayerShowControls()
@@ -99,8 +105,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void ToggleBackpack()
-    { 
-        uiManager.TogglePanel();
+    {
+        uiManager.ToggleBackpack();
     }
     public void ToggleMap()
     {

@@ -9,50 +9,43 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject mochila;
     [SerializeField] GameObject map;
 
+
+   
+    void Start()
+    {
+        map.SetActive(false);
+        mochila.SetActive(false);
+    }
     public void TogglePanel()
     {
-        if (panelControles.activeSelf)
-        { 
-            GameManager.isUiOpen = false;
-            panelControles.SetActive(false);
-        }
-        else
-        {
-            GameManager.isUiOpen = true;
-            panelControles.SetActive(true);
-        }
-            
+        ToggleUI(panelControles);
     }
 
     public void ToggleBackpack()
     {
-        if (mochila.activeSelf) 
-        {
-            GameManager.isUiOpen = false;
-            mochila.SetActive(false);
-        }
-        else
-        {
-            GameManager.isUiOpen = true;
-            mochila.SetActive(true);
-        }
+        ToggleUI(mochila);
+
     }
     public void ToggleMap()
     {
-        if (map.activeSelf)
-        { 
+        ToggleUI(map);
+    }
+    
+
+    void ToggleUI(GameObject ui)
+    {
+        if (ui.activeSelf)
+        {
             GameManager.isUiOpen = false;
-            map.SetActive(false);
+            ui.SetActive(false);
         }
         else
         {
-            GameManager.isUiOpen = true;
-            map.SetActive(true);
+            if (!GameManager.isUiOpen)
+            {
+                GameManager.isUiOpen = true;
+                ui.SetActive(true);
+            }
         }
-            
     }
-    void Start()
-    {
-    }
-
 }

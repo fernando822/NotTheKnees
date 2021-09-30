@@ -6,23 +6,15 @@ public class MochilaManager : MonoBehaviour
 {
     [SerializeField] GameObject llaveDeGarage;
     [SerializeField] GameObject paseDeCarrera;
-    [SerializeField] GameObject cajaDeHerramienta;
-    [SerializeField] GameObject Panel;
+    [SerializeField] GameObject cajaDeHerramientas;
 
     void Start()
     {
         llaveDeGarage.SetActive(false);
         paseDeCarrera.SetActive(false);
-        cajaDeHerramienta.SetActive(false);
+        cajaDeHerramientas.SetActive(false);
     }
 
-    public void TogglePanel()
-    {
-        if (Panel.activeSelf)
-            Panel.SetActive(false);
-        else
-            Panel.SetActive(true);
-    }
 
     public void MostrarLlaveDeGarage()
     {
@@ -30,10 +22,10 @@ public class MochilaManager : MonoBehaviour
     }
     public void MostrarPaseDeCarrera()
     {
-        llaveDeGarage.SetActive(true);
+        paseDeCarrera.SetActive(true);
     }
     public void MostrarCajaDeHerramientas()
     {
-        llaveDeGarage.SetActive(true);
+        cajaDeHerramientas.SetActive(true);
     }
 }
