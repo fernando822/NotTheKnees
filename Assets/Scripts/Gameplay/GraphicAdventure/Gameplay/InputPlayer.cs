@@ -57,11 +57,11 @@ public class InputPlayer : MonoBehaviour
         GameManager.GM.ToggleMap();
         if (GameManager.isUiOpen)
         {
-            movimiento.Enable();
+            movimiento.Disable();
         }
         else
         {
-            movimiento.Disable();
+            movimiento.Enable();
         }
     }
 
