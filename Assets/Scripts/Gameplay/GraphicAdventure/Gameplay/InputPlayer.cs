@@ -17,8 +17,11 @@ public class InputPlayer : MonoBehaviour
     {
         input.PlayerGraphicAdventure.Enable();
         input.PlayerDemolitionRace.Disable();
-        movimiento.Disable();
-       
+        if(GameManager.nombreDeEscenaActual == "AventuraGrafica" && GameManager.primeraVezEnPrimeraEscena)
+        {
+            movimiento.Disable();
+        }
+
     }
 
     private void FixedUpdate()

@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DescripcionesObjetosClave : MonoBehaviour
+public class DescripcionesObjetosClave
 {
-    private string DescripcionLlaveDeGarage = "Con esta llave puedo abrir el garage donde se encuentra mi auto para participar en la carrera de demolicion.";
+    private string DescripcionLlaveDeGarage = "La llave del taller que me dio mi tio.";
     private string DescripcionPaseDeCarrera = "Un certificado que me permite ingresar al torneo.";
-    private string DescripcionCajaDeHerramienta = "Con esta caja puedo arreglar o desarreglar algun que otro componente.";
+    private string DescripcionCajaDeHerramienta = "Podria usar estas herramientas para algo...";
 
 
-    public string MostrarDescripcionLlaveDeGarage()
+    public string GetDescripcionLlaveDeGarage()
     {
         return DescripcionLlaveDeGarage;
     }
-    public string MostrarDescripcionPaseDeCarrera()
+    public string GetDescripcionPaseDeCarrera()
     {
         return DescripcionPaseDeCarrera;
     }
-    public string MostrarDescripcionCajaDeHerramienta()
+    public string GetDescripcionCajaDeHerramienta()
     {
         return DescripcionCajaDeHerramienta;
     }
