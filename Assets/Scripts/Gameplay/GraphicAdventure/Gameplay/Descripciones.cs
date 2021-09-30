@@ -13,6 +13,10 @@ public class Descripciones : MonoBehaviour
         nombreYDescripcion.Add("Armario", "Aca guardo mi ropa, aunque todas son exactamente iguales.");
         nombreYDescripcion.Add("Basura", "No quiero ni mirar lo que hay ahí adentro.");
         nombreYDescripcion.Add("Cama", "Ahora no es el momento de dormir.");
+        nombreYDescripcion.Add("Gasolina", ".");
+        nombreYDescripcion.Add("Elevador", ".");
+        nombreYDescripcion.Add("EstanteTaller", "Veo que ya no queda practicamente nada en este viejo taller.");
+        nombreYDescripcion.Add("CajaHerramientas", ".");
 
     }
     

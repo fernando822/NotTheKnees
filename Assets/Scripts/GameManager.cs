@@ -34,14 +34,14 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
-        if (SceneManager.GetActiveScene().name == "CarreraDeDemolicion")
+        string nombreDeEscena = SceneManager.GetActiveScene().name;
+        if (nombreDeEscena == "CarreraDeDemolicion")
         {
             playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         }
 
-        if(SceneManager.GetActiveScene().name == "AventuraGrafica")
+        if(nombreDeEscena == "AventuraGrafica" || nombreDeEscena == "Taller" || nombreDeEscena == "Torneo")
         {
             cambioDeNivel = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
@@ -51,8 +51,9 @@ public class GameManager : MonoBehaviour
             mostrarTexto = GetComponent<MostrarTexto>();
             objetoRecogido = GetComponent<ObjetoRecogido>();
         }
-           
-       
+        
+
+
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
@@ -119,17 +120,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ShowDescriptionOfObtainedObject()
-    {
-        if (tieneLlave)
-        {
-            mostrarTexto.ShowTextProtagonista(ObtenerDescripcion());
-        }
-        else
-        {
-            mostrarTexto.ShowTextProtagonista("No tengo ningún objeto aún.");
-        }
+    public void ToggleBackpack()
+    { 
+        uiManager.TogglePanel();
     }
+    public void ToggleMap()
+    {
+        uiManager.ToggleMap();
+    }
+
+
 
     string ObtenerDescripcion()
     {
