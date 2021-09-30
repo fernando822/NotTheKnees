@@ -16,7 +16,7 @@ public class Turbo : MonoBehaviour
 
     void FixedUpdate()
     {
-        p();
+        aplicate();
     }
 
     void OnTriggerEnter(Collider other)
@@ -28,7 +28,7 @@ public class Turbo : MonoBehaviour
         }
     }
 
-   void p()
+   void aplicate()
    {
         if (turboRestante > 0)
         {

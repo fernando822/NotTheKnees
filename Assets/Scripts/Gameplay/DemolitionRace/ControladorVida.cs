@@ -9,6 +9,8 @@ public class ControladorVida : MonoBehaviour
     public EstadoVehiculo estadoVehiculoP;
     public EstadoVehiculo estadoVehiculoE;
 
+    public bool VidaE = true;
+    public bool VidaP = true;
 
     int daño;
     float at, bt, ct;
@@ -18,12 +20,14 @@ public class ControladorVida : MonoBehaviour
     {
         if (estadoVehiculoP.vida <= 0)
         {
-            Destroy(estadoVehiculoP.gameObject);
+            VidaP = false;
+            //Destroy(estadoVehiculoP.gameObject);
         }
 
         if(estadoVehiculoE.vida <= 0)
         {
-            Destroy(estadoVehiculoE.gameObject);
+            VidaE = false;
+            //Destroy(estadoVehiculoE.gameObject);
         }
     }
     void Start()
