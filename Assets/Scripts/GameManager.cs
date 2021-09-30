@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
+    public string CurrentScene;
 
     private DemolitionRacePlayer playerDemolitionRace;
     private GameObject playerAdventureGraphic;
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
     {
         string nombreDeEscena = SceneManager.GetActiveScene().name;
         if (nombreDeEscena == "CarreraDeDemolicion")
+         CurrentScene = "MainMenu";
+        if (SceneManager.GetActiveScene().name == "CarreraDeDemolicion")
         {
             playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
