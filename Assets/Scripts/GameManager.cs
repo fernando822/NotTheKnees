@@ -6,39 +6,41 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
-    public string CurrentScene;
 
     private DemolitionRacePlayer playerDemolitionRace;
     private GameObject playerAdventureGraphic;
 
-    public static bool tieneLlave = false;
-    public static bool interactuoConNPC = false;
     public static bool isHandBraking = false;
+    public static bool isUiOpen = false;
 
 
     private Descripciones descripciones;
     private AdventureGraphicPlayer scriptPlayerAdventureGraphic;
     [SerializeField] SceneController cambioDeNivel;
     [SerializeField] MostrarTexto mostrarTexto;
-    [SerializeField] ObjetoRecogido objetoRecogido;
     [SerializeField] UIManager uiManager;
 
+    public static GameManager GetGameManager
+    {
+        get
+        {
+            if (GM == null)
+            {
+                Debug.Log("GameManager is null");
+            }
+            return GM;
+        }
+    }
+    
     private void Awake()
     {
-        if (GM != null)
-            GameObject.Destroy(GM);
-        else
-            GM = this;
-            DontDestroyOnLoad(this);
-       
-            
+        GM = this;
     }
     private void Start()
     {
         string nombreDeEscena = SceneManager.GetActiveScene().name;
+       
         if (nombreDeEscena == "CarreraDeDemolicion")
-         CurrentScene = "MainMenu";
-        if (SceneManager.GetActiveScene().name == "CarreraDeDemolicion")
         {
             playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
@@ -52,11 +54,8 @@ public class GameManager : MonoBehaviour
             descripciones = GetComponent<Descripciones>();
             scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
             mostrarTexto = GetComponent<MostrarTexto>();
-            objetoRecogido = GetComponent<ObjetoRecogido>();
         }
         
-
-
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
@@ -73,38 +72,14 @@ public class GameManager : MonoBehaviour
 
             switch (objetoAInteractuar.name)
             {
-                case "NPC":
-                    mostrarTexto.ShowText("Romero, el NPC perdido", DialogoNPC.DialogoDelNPC(tieneLlave));
-                    interactuoConNPC = true;
-                    break;
-
-                case "Mesa de luz":
-                    mostrarTexto.ShowTextProtagonista(DescripcionMesaDeLuz.DescripcionDeLaMesaDeLuz(tieneLlave));
-                    if (!tieneLlave && interactuoConNPC)
-                    {
-                        tieneLlave = true;
-                        uiManager.MostrarLlave();
-                    }
-                    break;
-
                 case "Puerta":
-                    if (tieneLlave)
-                    {
                         cambioDeNivel.CargarEscena("CarreraDeDemolicion");
-                        Destroy(this.gameObject);
-                    }
-                    else
-                    {
-                        mostrarTexto.ShowTextProtagonista(DescripcionPuerta.DescripcionDeLaPuerta(tieneLlave));
-                    }
                     break;
 
                 default:
                     mostrarTexto.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
                     break;
             }
-
-
         }
         else
         {
@@ -134,12 +109,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    string ObtenerDescripcion()
-    {
-        return objetoRecogido.MostrarDescripcion();
-    }
-
-
+    
 
     public void PlayerDemolitionRaceMovement(Vector2 value)
     {

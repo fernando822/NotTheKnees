@@ -8,12 +8,13 @@ using TMPro;
 
 public class OptionMenu : MonoBehaviour
 {
-    
+    [SerializeField] SceneController sceneController;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] TMP_Dropdown resolutionDropDown;
     Resolution[] resolutions;
 
     void Start(){
+        sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
         loadResolutionDropDown();
     }
 
@@ -67,7 +68,7 @@ public class OptionMenu : MonoBehaviour
         Screen.fullScreen = fullscreen;
     }
     public void ExitMenu(){
-        SceneManager.UnloadSceneAsync("OptionsMenu");
+        sceneController.CargarEscena("MainMenu");
 
     }
 }

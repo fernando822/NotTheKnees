@@ -4,17 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] SceneController sceneController;
+
+    private void Start()
+    {
+        sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
+    }
     public void StartGameButton(){
-        GameManager.GM.CurrentScene = "Aventura Grafica";
-        SceneManager.LoadScene("AventuraGrafica", LoadSceneMode.Single);
-        
+        sceneController.CargarEscena("AventuraGrafica");
     }
     public void OptionsButton(){
-        SceneManager.LoadScene("OptionMenu", LoadSceneMode.Additive);
-      
+        sceneController.CargarEscena("OptionMenu");
     }
     public void CreditsButton(){
-        SceneManager.LoadScene("Creditos", LoadSceneMode.Additive);
+        sceneController.CargarEscena("Creditos");
     }
      public void QuitGameButton(){
         Application.Quit();

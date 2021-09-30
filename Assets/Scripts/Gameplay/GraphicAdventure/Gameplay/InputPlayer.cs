@@ -17,6 +17,7 @@ public class InputPlayer : MonoBehaviour
     {
         input.PlayerGraphicAdventure.Enable();
         input.PlayerDemolitionRace.Disable();
+        movimiento.Disable();
        
     }
 
@@ -54,16 +55,40 @@ public class InputPlayer : MonoBehaviour
     private void OnMap(InputAction.CallbackContext obj)
     {
         GameManager.GM.ToggleMap();
+        if (GameManager.isUiOpen)
+        {
+            movimiento.Enable();
+        }
+        else
+        {
+            movimiento.Disable();
+        }
     }
 
     private void OnBackpack(InputAction.CallbackContext obj)
     {
         GameManager.GM.ToggleBackpack();
+        if (GameManager.isUiOpen)
+        {
+            movimiento.Disable();
+        }
+        else
+        {
+            movimiento.Enable();
+        }
     }
 
     void OnShowControls(InputAction.CallbackContext obj)
     {
         GameManager.GM.PlayerShowControls();
+        if (GameManager.isUiOpen)
+        {
+            movimiento.Disable();
+        }
+        else
+        {
+            movimiento.Enable();
+        }
     }
 
     void OnMenu(InputAction.CallbackContext obj)

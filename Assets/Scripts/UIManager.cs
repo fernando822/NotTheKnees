@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject llave;
     [SerializeField] GameObject panelControles;
     [SerializeField] GameObject mochila;
     [SerializeField] GameObject map;
@@ -13,37 +12,47 @@ public class UIManager : MonoBehaviour
     public void TogglePanel()
     {
         if (panelControles.activeSelf)
+        { 
+            GameManager.isUiOpen = false;
             panelControles.SetActive(false);
+        }
         else
+        {
+            GameManager.isUiOpen = true;
             panelControles.SetActive(true);
+        }
+            
     }
 
     public void ToggleBackpack()
     {
-        if (mochila.activeSelf)
+        if (mochila.activeSelf) 
+        {
+            GameManager.isUiOpen = false;
             mochila.SetActive(false);
+        }
         else
+        {
+            GameManager.isUiOpen = true;
             mochila.SetActive(true);
+        }
     }
     public void ToggleMap()
     {
         if (map.activeSelf)
+        { 
+            GameManager.isUiOpen = false;
             map.SetActive(false);
+        }
         else
+        {
+            GameManager.isUiOpen = true;
             map.SetActive(true);
+        }
+            
     }
     void Start()
     {
-        llave.SetActive(false);
     }
 
-    public void MostrarLlave()
-    {
-        llave.SetActive(true);   
-    }
-
-    public void OcultarLlave()
-    {
-        llave.SetActive(false);
-    }
 }
