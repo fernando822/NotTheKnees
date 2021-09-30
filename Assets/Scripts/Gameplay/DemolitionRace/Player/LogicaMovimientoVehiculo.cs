@@ -5,63 +5,75 @@ using UnityEngine;
 public class LogicaMovimientoVehiculo : MonoBehaviour
 {
     [SerializeField] DemolitionRacePlayer player;
-    [SerializeField] EstadoVehiculo estadoVehiculo;
-    [SerializeField] float directionSpeed = 0.1f;
-    [SerializeField] float aceleration = 30f;
-    [SerializeField] float drag = 2f;
+    [SerializeField] public float anguloDireccion = 30f;
+    [SerializeField] float aceleration = 300f;
+    [SerializeField] float frenado = 10f;
     [SerializeField] float tolX = 45;
     [SerializeField] float tolZ = 45;
+    [SerializeField] float turboBoost = 2;
 
-    float speed;
-    float anguloDeRotacion;
+    float torque;
+    float direccion;
+    float freno;
+    float rpm, a, b, c, d;
+
+    public bool Turbo;
+    float turboActual;
+
     [SerializeField] WheelCollider ruedaAdelanteIzquierda;
     [SerializeField] WheelCollider ruedaAdelanteDerecha;
     [SerializeField] WheelCollider ruedaAtrasIzquierda;
     [SerializeField] WheelCollider ruedaAtrasDerecha;
+
     public animaciones animaciones;
 
     private void Start()
     {
-        player = GetComponent<DemolitionRacePlayer>();
-        estadoVehiculo = GetComponent<EstadoVehiculo>();
-        
     }
 
-    public void PlayerDemolitionRaceMovement()
+    public void ControlRuedas()
     {
-        ruedaAdelanteDerecha.motorTorque = speed;
-        ruedaAdelanteIzquierda.motorTorque = speed;
-        ruedaAtrasDerecha.motorTorque = speed;
-        ruedaAtrasIzquierda.motorTorque = speed;
+        ruedaAdelanteDerecha.motorTorque = torque;
+        ruedaAdelanteIzquierda.motorTorque = torque;
+        ruedaAtrasDerecha.motorTorque = torque;
+        ruedaAtrasIzquierda.motorTorque = torque;
 
-        ruedaAdelanteDerecha.steerAngle = anguloDeRotacion;
-        ruedaAdelanteIzquierda.steerAngle = anguloDeRotacion;
+        ruedaAdelanteDerecha.brakeTorque = freno;
+        ruedaAdelanteIzquierda.brakeTorque = freno;
+        ruedaAtrasDerecha.brakeTorque = freno;
+        ruedaAtrasIzquierda.brakeTorque = freno;
 
+        ruedaAdelanteDerecha.steerAngle = direccion;
+        ruedaAdelanteIzquierda.steerAngle = direccion;
     }
 
     public void Accelerate(float valorInputVertical)
     {
-        if (valorInputVertical != 0 && 
-            (ruedaAdelanteDerecha.isGrounded || ruedaAdelanteIzquierda.isGrounded) 
-            && !GameManager.isHandBraking)
-        {
-            speed = aceleration * valorInputVertical;
-        }
+        turboActual = (Turbo == true) ? turboActual = turboBoost : turboActual = 1;
+
+            torque = aceleration * valorInputVertical * turboActual;
+
+        if (valorInputVertical == 0)
+            freno = frenado;
         else
-        {
-            speed = Mathf.Lerp(speed, 0, drag);
-        }
-        //animaciones.road(speed);
+            freno = 0;
+
+        a = ruedaAdelanteDerecha.rpm;
+        b = ruedaAdelanteIzquierda.rpm;
+        c = ruedaAtrasDerecha.rpm;
+        d = ruedaAtrasIzquierda.rpm;
+        rpm = (float)(a + b + c + d) / 4;
+        player.animaciones.rotacion(rpm);
     }
     public void SetRotation(float valorInputHorizontal)
     {
-        animaciones.direccion(valorInputHorizontal);
-        anguloDeRotacion = valorInputHorizontal * directionSpeed;
+        direccion = valorInputHorizontal * anguloDireccion;
+        player.animaciones.direccion(direccion);
     }
 
     public void antibuelco()
     {
-        Vector3 eulerAngles = transform.rotation.eulerAngles;
+        Vector3 eulerAngles = player.transform.rotation.eulerAngles;
 
         eulerAngles.x = (eulerAngles.x > 180) ? eulerAngles.x - 360 : eulerAngles.x;
         eulerAngles.z = (eulerAngles.z > 180) ? eulerAngles.z - 360 : eulerAngles.z;
@@ -71,16 +83,16 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
             eulerAngles.x = Mathf.Clamp(eulerAngles.x, -tolX, tolX);
             eulerAngles.z = Mathf.Clamp(eulerAngles.z, -tolZ, tolZ);
 
-            transform.rotation = Quaternion.Euler(eulerAngles);
+            player.transform.rotation = Quaternion.Euler(eulerAngles);
         }
     } 
     public void FixedUpdate()
     {
-        PlayerDemolitionRaceMovement();
+        ControlRuedas();
         antibuelco();
     }
 
-    public void SetSpeed(float speed) => this.speed = speed; 
+    public void SetSpeed(float speed) => this.torque = speed; 
 
-    public float GetSpeed() => speed;
+    public float GetSpeed() => torque;
 }

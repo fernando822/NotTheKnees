@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         string nombreDeEscena = SceneManager.GetActiveScene().name;
        
-        if (nombreDeEscena == "CarreraDeDemolicion")
+        if (nombreDeEscena == "CarreraDeDemolicion" || nombreDeEscena == "SegundaCarreraDemolicion")
         {
             playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
@@ -116,10 +116,7 @@ public class GameManager : MonoBehaviour
         playerDemolitionRace.movementScript.Accelerate(value.y);
         playerDemolitionRace.movementScript.SetRotation(value.x);
     }
-    public void PlayerDemolitionRaceVerticalMovement(float value)
-    {
-        playerDemolitionRace.movementScript.Accelerate(value);
-    }
+
 
     public void PlayerDemolitionRaceHandBrake()
     {

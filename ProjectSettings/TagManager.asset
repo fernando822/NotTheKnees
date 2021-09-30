@@ -9,6 +9,8 @@ TagManager:
   - NPC
   - ObjetoInteractuableEscenario
   - ObjetoInteractuable
+  - Enemy
+  - Turbo
   layers:
   - Default
   - TransparentFX
