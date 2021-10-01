@@ -4,37 +4,37 @@ using UnityEngine;
 
 public class animaciones : MonoBehaviour
 {
-    Transform ai, ad, ti, td;
+    [SerializeField] DemolitionRacePlayer player;
 
-    [SerializeField] float rodamiento = 50;
-    [SerializeField] float rotacionDireccion = 30;
+    [SerializeField] Transform ai;
+    [SerializeField] Transform ad;
+    [SerializeField] Transform ti;
+    [SerializeField] Transform td;
 
     float actual;
+    float b;
 
     private void Start()
     {
+    }
 
-        ai = transform.Find("Rueda ad");
-        ad = transform.Find("Rueda ai");
-        ti = transform.Find("Rueda td");
-        td = transform.Find("Rueda ti");
+    private void Update()
+    {
     }
     public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
-        ad.Rotate(Vector3.up, (direccion * rotacionDireccion) - actual, Space.World);
-        actual = direccion * rotacionDireccion;
-
-
+        ai.Rotate(Vector3.up, (direccion) - actual, Space.World);
+        ad.Rotate(Vector3.up, (direccion) - actual, Space.World);
+        actual = direccion;
     }
-    public void road(float speed)
+    public void rotacion(float rpm)
     {
-        float i = speed * rodamiento * Time.deltaTime;
+        b = rpm * 6 * Time.deltaTime;
 
-        ai.Rotate(Vector3.forward, i);
-        ad.Rotate(Vector3.forward, i);
-        ti.Rotate(Vector3.forward, i);
-        td.Rotate(Vector3.forward, i);
+        ai.Rotate(Vector3.forward, b);
+        ad.Rotate(Vector3.forward, b);
+        ti.Rotate(Vector3.forward, b);
+        td.Rotate(Vector3.forward, b);
     }
 }
 
