@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ce288ece1d357354e98135ef54c8a040, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1047,7 +1047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &475371757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1784,7 +1784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1063351433
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2452,6 +2452,7 @@ MonoBehaviour:
   sceneController: {fileID: 1878132179}
   dialogueManager: {fileID: 100973262}
   uiManager: {fileID: 2067165188}
+  mochilaManager: {fileID: 1683128586}
 --- !u!4 &1307351104
 Transform:
   m_ObjectHideFlags: 0
@@ -3500,7 +3501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1587229585
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3613,13 +3614,14 @@ GameObject:
   - component: {fileID: 1683128583}
   - component: {fileID: 1683128585}
   - component: {fileID: 1683128584}
+  - component: {fileID: 1683128586}
   m_Layer: 5
   m_Name: Mochila
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1683128583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3680,6 +3682,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683128582}
   m_CullTransparentMesh: 1
+--- !u!114 &1683128586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683128582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cd1ab33ea975f47b820cde5e3e9a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  llaveDeGarage: {fileID: 475371756}
+  paseDeCarrera: {fileID: 1587229584}
+  cajaDeHerramientas: {fileID: 1063351432}
 --- !u!4 &1746013023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a2949c477b1e9b142926cd7288b22b7a, type: 3}
@@ -4357,7 +4374,6 @@ GameObject:
   - component: {fileID: 2067165185}
   - component: {fileID: 2067165184}
   - component: {fileID: 2067165188}
-  - component: {fileID: 2067165189}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -4466,21 +4482,6 @@ MonoBehaviour:
   panelControles: {fileID: 845519242}
   mochila: {fileID: 1683128582}
   map: {fileID: 1936462198}
---- !u!114 &2067165189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067165183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4cd1ab33ea975f47b820cde5e3e9a95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  llaveDeGarage: {fileID: 475371756}
-  paseDeCarrera: {fileID: 1587229584}
-  cajaDeHerramientas: {fileID: 1063351432}
 --- !u!4 &2073084278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53a9c3afa96a02941a0ca550ab6a04a0, type: 3}

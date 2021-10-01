@@ -10,12 +10,40 @@ public class MochilaManager : MonoBehaviour
 
     void Start()
     {
-        llaveDeGarage.SetActive(false);
-        paseDeCarrera.SetActive(false);
-        cajaDeHerramientas.SetActive(false);
+        ActualizarMochila();
     }
 
+    public void ActualizarMochila()
+    {
+        Debug.Log("La llave " + Estados.DevolverEstado("haveKey"));
+        if (Estados.DevolverEstado("haveKey"))
+        {
+            llaveDeGarage.SetActive(true);
+        }
+        else
+        {
+            llaveDeGarage.SetActive(false);
+        }
 
+        if (Estados.DevolverEstado("haveCertificate"))
+        {
+            paseDeCarrera.SetActive(true);
+        }
+        else
+        {
+            paseDeCarrera.SetActive(false);
+        }
+
+        if (Estados.DevolverEstado("haveToolBox"))
+        {
+            cajaDeHerramientas.SetActive(true);
+        }
+        else
+        {
+            cajaDeHerramientas.SetActive(false);
+        }
+    }
+        
     public void MostrarLlaveDeGarage()
     {
         llaveDeGarage.SetActive(true);

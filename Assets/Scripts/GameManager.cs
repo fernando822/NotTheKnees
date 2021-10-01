@@ -10,16 +10,7 @@ public class GameManager : MonoBehaviour
     private DemolitionRacePlayer playerDemolitionRace;
     private GameObject playerAdventureGraphic;
 
-    public static bool isHandBraking = false;
-    public static bool isUiOpen = false;
-    public static bool isSomethingSelected = false;
-    public static bool dialogueOngoing = false;
-    public static int cantidadObjetosObtenidos = 0;
-    public static bool haveKey = false;
-    public static bool haveCertificate = false;
-    public static bool haveToolBox = false;
-    public static bool primeraCarreraTerminada = false;
-    public static bool primeraVezEnPrimeraEscena = true;
+    
 
 
     private Descripciones descripciones;
@@ -28,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] SceneController sceneController;
     [SerializeField] DialogueManager dialogueManager;
     [SerializeField] UIManager uiManager;
+    [SerializeField] MochilaManager mochilaManager;
 
     public static GameManager GetGameManager
     {
@@ -58,11 +50,27 @@ public class GameManager : MonoBehaviour
             sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
             dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>(); //Idem linea anterior.
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
+            mochilaManager = GameObject.Find("Mochila").GetComponent<MochilaManager>();
             playerAdventureGraphic = GameObject.Find("Player");
             descripciones = GetComponent<Descripciones>();
             scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
         }
+
         
+
+    }
+    private void Start()
+    {
+        Estados.estados = new Dictionary<string, bool>();
+        Estados.AgregarEstado("isHandBraking", false);
+        Estados.AgregarEstado("isUiOpen", false);
+        Estados.AgregarEstado("isSomethingSelected", false);
+        Estados.AgregarEstado("dialogueOngoing", false);
+        Estados.AgregarEstado("haveKey", false);
+        Estados.AgregarEstado("haveCertificate", false);
+        Estados.AgregarEstado("haveToolBox", false);
+        Estados.AgregarEstado("primeraCarreraTerminada", false);
+        Estados.AgregarEstado("primeraVezEnPrimeraEscena", true);
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
@@ -72,7 +80,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAction()
     {
-        if (isUiOpen)
+        
+        if (Estados.DevolverEstado("isUiOpen"))
         {
 
         }
@@ -85,7 +94,7 @@ public class GameManager : MonoBehaviour
 
                 if(objetoAInteractuar.tag == "NPC")
                 {
-                    if (!dialogueOngoing)
+                    if (!Estados.DevolverEstado("dialogueOngoing"))
                     {
                         dialogueManager.IniciarDialogo(objetoAInteractuar.GetComponent<DialogoTrigger>().dialogos);
                     }
@@ -96,10 +105,16 @@ public class GameManager : MonoBehaviour
                     switch (objetoAInteractuar.name)
                     {
                         case "Tio":
-                            haveKey = true;
+                            Estados.ModificarEstado("haveKey",true);
+                            mochilaManager.ActualizarMochila();
                             break;
                         case "Recepcion":
-                            haveCertificate = true;
+                            Estados.ModificarEstado("haveCertificate", true);
+                            mochilaManager.ActualizarMochila();
+                            break;
+                        case "CajaHerramientas":
+                            Estados.ModificarEstado("haveToolBox", true);
+                            mochilaManager.ActualizarMochila();
                             break;
                     }
                     
@@ -109,7 +124,7 @@ public class GameManager : MonoBehaviour
                     switch (objetoAInteractuar.name)
                     {
                         case "PuertaCasa":
-                            if (haveKey)
+                            if (Estados.DevolverEstado("haveKey"))
                             {
                                 uiManager.ToggleMap();
                                 break;
@@ -121,9 +136,9 @@ public class GameManager : MonoBehaviour
                             }
 
                         case "PuertaEmpezarCarrera":
-                            if (haveCertificate)
+                            if (Estados.DevolverEstado("haveCertificate"))
                             {
-                                if (!primeraCarreraTerminada)
+                                if (!Estados.DevolverEstado("primeraCarreraTerminada"))
                                 {
 
                                     sceneController.CargarEscena("CarreraDeDemolicion");
@@ -145,7 +160,9 @@ public class GameManager : MonoBehaviour
                         case "PuertaEntradaTorneo":
                             uiManager.ToggleMap();
                             break;
-
+                        case "PuertaTaller":
+                            uiManager.ToggleMap();
+                            break;
                         default:
                             dialogueManager.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
                             break;
@@ -194,7 +211,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDemolitionRaceHandBrake()
     {
         playerDemolitionRace.handBreak.HandBrake();
-        GameManager.isHandBraking = true;
+        Estados.ModificarEstado("isHandbrakin", true);
     }
 
 }

@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
             lineasDeTexto.Enqueue(frase);
         }
         MostrarSiguienteFrase();
-        GameManager.dialogueOngoing = true;
+        Estados.ModificarEstado("dialogueOngoing", true);
         
     }
 
@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
     {
         textoCuadro.text = "";
         textoEmisor.text = "";
-        GameManager.dialogueOngoing = false;
+        Estados.ModificarEstado("dialogueOngoing", false);
     }
 
     public void DefinirTextoDelEmisor(string emisor)

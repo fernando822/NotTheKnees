@@ -17,7 +17,7 @@ public class InputPlayer : MonoBehaviour
     {
         input.PlayerGraphicAdventure.Enable();
         input.PlayerDemolitionRace.Disable();
-        if(GameManager.nombreDeEscenaActual == "AventuraGrafica" && GameManager.primeraVezEnPrimeraEscena)
+        if(GameManager.nombreDeEscenaActual == "AventuraGrafica" && Estados.DevolverEstado("primeraVezEnPrimeraEscena"))
         {
             movimiento.Disable();
         }
@@ -58,33 +58,26 @@ public class InputPlayer : MonoBehaviour
     private void OnMap(InputAction.CallbackContext obj)
     {
         GameManager.GM.ToggleMap();
-        if (GameManager.isUiOpen)
-        {
-            movimiento.Disable();
-        }
-        else
-        {
-            movimiento.Enable();
-        }
+        ToggleMovimiento();
+
     }
 
     private void OnBackpack(InputAction.CallbackContext obj)
     {
         GameManager.GM.ToggleBackpack();
-        if (GameManager.isUiOpen)
-        {
-            movimiento.Disable();
-        }
-        else
-        {
-            movimiento.Enable();
-        }
+        ToggleMovimiento();
+
     }
 
     void OnShowControls(InputAction.CallbackContext obj)
     {
         GameManager.GM.PlayerShowControls();
-        if (GameManager.isUiOpen)
+        ToggleMovimiento();
+    }
+
+    void ToggleMovimiento()
+    {
+        if (Estados.DevolverEstado("isUiOpen"))
         {
             movimiento.Disable();
         }
@@ -93,7 +86,6 @@ public class InputPlayer : MonoBehaviour
             movimiento.Enable();
         }
     }
-
     void OnMenu(InputAction.CallbackContext obj)
     {
         GameManager.GM.PlayerMenu();

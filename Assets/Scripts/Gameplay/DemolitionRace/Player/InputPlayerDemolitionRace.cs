@@ -51,7 +51,7 @@ public class InputPlayerDemolitionRace : MonoBehaviour
 
     private void OnHandBrakeEnded(InputAction.CallbackContext obj)
     {
-        GameManager.isHandBraking = false;
+        Estados.ModificarEstado("isHandBraking",false);
     }
 
     void OnHandBrake(InputAction.CallbackContext obj)

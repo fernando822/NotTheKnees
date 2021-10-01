@@ -136,15 +136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2681865485118498655, guid: 1fecdce28b63ff549a4fa78b18e875d8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.59510756
+      value: 0.7032981
       objectReference: {fileID: 0}
     - target: {fileID: 2681865485118498655, guid: 1fecdce28b63ff549a4fa78b18e875d8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4626238
+      value: 0.5467288
       objectReference: {fileID: 0}
     - target: {fileID: 2681865485118498655, guid: 1fecdce28b63ff549a4fa78b18e875d8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.46396643
+      value: 0.5483155
       objectReference: {fileID: 0}
     - target: {fileID: 2681865485118498655, guid: 1fecdce28b63ff549a4fa78b18e875d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2263,13 +2263,14 @@ GameObject:
   - component: {fileID: 1347871803}
   - component: {fileID: 1347871805}
   - component: {fileID: 1347871804}
+  - component: {fileID: 1347871806}
   m_Layer: 5
   m_Name: Mochila
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1347871803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2330,6 +2331,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347871802}
   m_CullTransparentMesh: 1
+--- !u!114 &1347871806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347871802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cd1ab33ea975f47b820cde5e3e9a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  llaveDeGarage: {fileID: 1583127304}
+  paseDeCarrera: {fileID: 350879339}
+  cajaDeHerramientas: {fileID: 862473273}
 --- !u!1 &1354584422
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,7 +2624,6 @@ GameObject:
   - component: {fileID: 1518590158}
   - component: {fileID: 1518590157}
   - component: {fileID: 1518590156}
-  - component: {fileID: 1518590155}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -2616,21 +2631,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1518590155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518590154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4cd1ab33ea975f47b820cde5e3e9a95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  llaveDeGarage: {fileID: 1583127304}
-  paseDeCarrera: {fileID: 350879339}
-  cajaDeHerramientas: {fileID: 862473273}
 --- !u!114 &1518590156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3164,15 +3164,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2681865485118498655, guid: 1fecdce28b63ff549a4fa78b18e875d8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2079964
+      value: 1.4412605
       objectReference: {fileID: 0}
     - target: {fileID: 2681865485118498655, guid: 1fecdce28b63ff549a4fa78b18e875d8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2079958
+      value: 1.4412597
       objectReference: {fileID: 0}
     - target: {fileID: 2681865485118498655, guid: 1fecdce28b63ff549a4fa78b18e875d8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2079961
+      value: 1.4412601
       objectReference: {fileID: 0}
     - target: {fileID: 2681865485118498655, guid: 1fecdce28b63ff549a4fa78b18e875d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3877,6 +3877,7 @@ MonoBehaviour:
   sceneController: {fileID: 1578160507}
   dialogueManager: {fileID: 141240661}
   uiManager: {fileID: 1518590156}
+  mochilaManager: {fileID: 0}
 --- !u!4 &1806716728
 Transform:
   m_ObjectHideFlags: 0
