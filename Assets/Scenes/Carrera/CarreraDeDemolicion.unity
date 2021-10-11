@@ -4445,6 +4445,8 @@ GameObject:
   - component: {fileID: 1473065726}
   - component: {fileID: 1473065728}
   - component: {fileID: 1473065727}
+  - component: {fileID: 1473065730}
+  - component: {fileID: 1473065729}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4625,6 +4627,39 @@ MonoBehaviour:
   X: {x: -30, y: 15}
   Z: {x: -30, y: 30}
   delay: 5
+--- !u!114 &1473065729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473065722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50b22714ff692547b343d4c89092ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1473065730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473065722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f54c388cde0d74281675d9fc2ddc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1473065727}
+  CarreraDeDemolicion: {fileID: 0}
+  SegundaCarreraDemolicion: {fileID: 0}
+  AventuraGrafica: {fileID: 0}
+  Taller: {fileID: 0}
+  Torneo: {fileID: 0}
+  MainMenu: {fileID: 0}
+  Mochila: {fileID: 0}
+  OpcionMenu: {fileID: 0}
 --- !u!1 &1492350181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ab591424c25daae46b8f27f51adc916f, type: 3}
@@ -4680,7 +4715,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492350181}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 15
@@ -4702,7 +4737,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492350181}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -6010,7 +6045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab591424c25daae46b8f27f51adc916f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.27
+      value: -6.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab591424c25daae46b8f27f51adc916f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6018,7 +6053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab591424c25daae46b8f27f51adc916f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.19
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab591424c25daae46b8f27f51adc916f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6479,13 +6514,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148514610999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10b77bcb0bcdfbb47ab35089d599cc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LogicaMovimientoVehiculo: {fileID: 1535828731}
-  AudioSource: {fileID: 0}
+  audioSource: {fileID: 0}
   impact: {fileID: 0}
   motorClip: {fileID: 0}
 --- !u!82 &919132148514611004
@@ -6495,7 +6530,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148514610999}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
