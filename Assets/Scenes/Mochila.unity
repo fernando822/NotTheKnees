@@ -2340,8 +2340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   llaveDeGarage: {fileID: 475371756}
   paseDeCarrera: {fileID: 1587229584}
-  cajaDeHerramienta: {fileID: 1063351432}
-  Panel: {fileID: 1683128582}
+  cajaDeHerramientas: {fileID: 0}
 --- !u!1001 &1221370759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2476,6 +2475,7 @@ GameObject:
   - component: {fileID: 1307351105}
   - component: {fileID: 1307351106}
   - component: {fileID: 1307351107}
+  - component: {fileID: 1307351108}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2522,9 +2522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010ea85982d958438fc907a41a0ba52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cambioDeNivel: {fileID: 1878132179}
-  mostrarTexto: {fileID: 1307351102}
-  objetoRecogido: {fileID: 1307351101}
+  sceneController: {fileID: 0}
+  dialogueManager: {fileID: 0}
   uiManager: {fileID: 2067165188}
   mochilaManager: {fileID: 1217787259}
 --- !u!4 &1307351104
@@ -2575,8 +2574,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8ec2b27c2e957c48a1ae9a9f2859f72, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -2661,6 +2660,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1307351108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307351100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f54c388cde0d74281675d9fc2ddc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1307351107}
+  CarreraDeDemolicion: {fileID: 0}
+  SegundaCarreraDemolicion: {fileID: 0}
+  AventuraGrafica: {fileID: 0}
+  Taller: {fileID: 0}
+  Torneo: {fileID: 0}
+  MainMenu: {fileID: 0}
+  Mochila: {fileID: 0}
+  OpcionMenu: {fileID: 0}
 --- !u!1001 &1326499849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2916,6 +2936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1569918631}
   movementSpeed: 6
+  suavidadRotacion: 0
   animator: {fileID: 1569918633}
 --- !u!95 &1569918633 stripped
 Animator:
@@ -3750,8 +3771,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bf9c941b573f74caaa6aa15438a398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  llave: {fileID: 544818750}
   panelControles: {fileID: 845519242}
+  mochila: {fileID: 0}
+  map: {fileID: 0}
 --- !u!4 &2073084278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53a9c3afa96a02941a0ca550ab6a04a0, type: 3}

@@ -2430,6 +2430,7 @@ GameObject:
   - component: {fileID: 1307351105}
   - component: {fileID: 1307351106}
   - component: {fileID: 1307351107}
+  - component: {fileID: 1307351101}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2437,6 +2438,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1307351101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307351100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f54c388cde0d74281675d9fc2ddc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1307351107}
+  CarreraDeDemolicion: {fileID: 0}
+  SegundaCarreraDemolicion: {fileID: 0}
+  AventuraGrafica: {fileID: 0}
+  Taller: {fileID: 0}
+  Torneo: {fileID: 0}
+  MainMenu: {fileID: 0}
+  Mochila: {fileID: 0}
+  OpcionMenu: {fileID: 0}
 --- !u!114 &1307351103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2501,7 +2523,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8ec2b27c2e957c48a1ae9a9f2859f72, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

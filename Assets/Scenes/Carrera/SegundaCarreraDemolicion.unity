@@ -976,6 +976,7 @@ MonoBehaviour:
   tolX: 35
   tolZ: 35
   turboBoost: 2
+  torque: 0
   Turbo: 0
   ruedaAdelanteIzquierda: {fileID: 1110456293}
   ruedaAdelanteDerecha: {fileID: 345563055}
@@ -1145,7 +1146,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499885491}
-  m_LocalRotation: {x: 0.25415868, y: -0.004649306, z: 0.0012217967, w: 0.9671506}
+  m_LocalRotation: {x: 0.25415742, y: -0.0055665956, z: 0.0014628526, w: 0.96714574}
   m_LocalPosition: {x: -11, y: 9.1, z: -1.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3509,6 +3510,7 @@ GameObject:
   - component: {fileID: 1643635273}
   - component: {fileID: 1643635272}
   - component: {fileID: 1643635271}
+  - component: {fileID: 1643635276}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3526,7 +3528,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8ec2b27c2e957c48a1ae9a9f2859f72, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3673,6 +3675,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643635276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643635270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f54c388cde0d74281675d9fc2ddc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1643635271}
+  CarreraDeDemolicion: {fileID: 0}
+  SegundaCarreraDemolicion: {fileID: 0}
+  AventuraGrafica: {fileID: 0}
+  Taller: {fileID: 0}
+  Torneo: {fileID: 0}
+  MainMenu: {fileID: 0}
+  Mochila: {fileID: 0}
+  OpcionMenu: {fileID: 0}
 --- !u!1 &1648574613
 GameObject:
   m_ObjectHideFlags: 0
@@ -4144,7 +4167,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051340727}
-  m_LocalRotation: {x: 0.25415868, y: -0.004649306, z: 0.0012217967, w: 0.9671506}
+  m_LocalRotation: {x: 0.25415742, y: -0.0055665956, z: 0.0014628526, w: 0.96714574}
   m_LocalPosition: {x: -11, y: 9.1, z: -1.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

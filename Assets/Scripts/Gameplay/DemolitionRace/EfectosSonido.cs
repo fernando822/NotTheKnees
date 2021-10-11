@@ -12,6 +12,11 @@ public class EfectosSonido : MonoBehaviour
 
     float motor,choque;
 
+    private void Start()
+    {
+        audioSource.clip = motorClip;
+        audioSource.Play();
+    }
     void Update()
     {
         Motor();
@@ -21,15 +26,15 @@ public class EfectosSonido : MonoBehaviour
 
     void Motor()
     {
-        motor = Mathf.Sqrt(LogicaMovimientoVehiculo.torque);
-        audioSource.clip = motorClip;
-        audioSource.Play();
+        motor = Mathf.Sqrt((float)LogicaMovimientoVehiculo.torque/600);
         audioSource.volume = motor;
+        
+        
     }
 
     void OnCollisionEnter(Collision other)
     {
-        choque = Mathf.Sqrt(other.relativeVelocity.magnitude);
+        choque = Mathf.Sqrt(other.relativeVelocity.magnitude*5);
         audioSource.PlayOneShot(impact, choque);
     }
 }
