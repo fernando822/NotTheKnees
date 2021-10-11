@@ -18,7 +18,6 @@ public class MapController : MonoBehaviour
 
                 if (EventSystem.current.currentSelectedGameObject != null)
                 {
-                    Debug.Log("Entra");
                     if (EventSystem.current.currentSelectedGameObject != lugarDelMapa)
                     {
                         lugarDelMapa.GetComponent<Button>().Select();

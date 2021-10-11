@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    void Start()
+    private void OnLevelWasLoaded(int level)
     {
-        
+        GameManager.GM.ActualizarReferencias();
     }
-    
+
     public void CargarEscena(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);

@@ -20,44 +20,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] DialogueManager dialogueManager;
     [SerializeField] UIManager uiManager;
     [SerializeField] MochilaManager mochilaManager;
+    
 
-    public static GameManager GetGameManager
-    {
-        get
-        {
-            if (GM == null)
-            {
-                Debug.Log("GameManager is null");
-            }
-            return GM;
-        }
-    }
     
     
     private void Awake()
     {
-        GM = this;
-        nombreDeEscenaActual = SceneManager.GetActiveScene().name;
-       
-        if (nombreDeEscenaActual == "CarreraDeDemolicion" || nombreDeEscenaActual == "SegundaCarreraDemolicion")
-        {
-            playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
-            uiManager = GameObject.Find("UI").GetComponent<UIManager>();
-        }
-
-        if(nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
-        {
-            sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
-            dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>(); //Idem linea anterior.
-            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
-            mochilaManager = GameObject.Find("Mochila").GetComponent<MochilaManager>();
-            playerAdventureGraphic = GameObject.Find("Player");
-            descripciones = GetComponent<Descripciones>();
-            scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
-        }
-
-        
-
+        if (GM != null)
+            GameObject.Destroy(GM);
+        else
+            GM = this;
+        DontDestroyOnLoad(this);
+        ActualizarReferencias();
     }
     private void Start()
     {
@@ -74,8 +48,11 @@ public class GameManager : MonoBehaviour
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
-        scriptPlayerAdventureGraphic.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
-        scriptPlayerAdventureGraphic.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
+        if (!Estados.DevolverEstado("dialogueOngoing"))
+        {
+            scriptPlayerAdventureGraphic.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
+            scriptPlayerAdventureGraphic.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
+        }
     }
 
     public void PlayerAction()
@@ -192,14 +169,12 @@ public class GameManager : MonoBehaviour
     {
         uiManager.ToggleBackpack();
     }
+
     public void ToggleMap()
     {
         uiManager.ToggleMap();
     }
 
-
-
-    
 
     public void PlayerDemolitionRaceMovement(Vector2 value)
     {
@@ -214,4 +189,25 @@ public class GameManager : MonoBehaviour
         Estados.ModificarEstado("isHandbrakin", true);
     }
 
+    public void ActualizarReferencias()
+    {
+        nombreDeEscenaActual = SceneManager.GetActiveScene().name;
+
+        if (nombreDeEscenaActual == "CarreraDeDemolicion" || nombreDeEscenaActual == "SegundaCarreraDemolicion")
+        {
+            playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
+            uiManager = GameObject.Find("UI").GetComponent<UIManager>();
+        }
+
+        if (nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
+        {
+            sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
+            dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>(); //Idem linea anterior.
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
+            mochilaManager = GameObject.Find("Mochila").GetComponent<MochilaManager>();
+            playerAdventureGraphic = GameObject.Find("Player");
+            descripciones = GetComponent<Descripciones>();
+            scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
+        }
+    }
 }

@@ -9,17 +9,23 @@ public static class Estados
 
     public static void AgregarEstado(string nombre, bool status)
     {
-        estados.Add(nombre,status);
+        estados.Add(nombre, status);
     }
 
     public static bool DevolverEstado(string nombre)
     {
-        bool estado = estados[nombre];
-        return estado;
+        if (estados.ContainsKey(nombre) && estados[nombre])
+        {
+            return true;
+        }
+        return false;
     }
 
     public static void ModificarEstado(string nombre, bool status)
     {
-        estados[nombre] = status;
+        if (estados.ContainsKey(nombre))
+        {
+            estados[nombre] = status;
+        }
     }
 }

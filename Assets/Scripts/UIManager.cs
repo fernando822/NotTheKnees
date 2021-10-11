@@ -36,15 +36,15 @@ public class UIManager : MonoBehaviour
     {
         if (ui.activeSelf)
         {
-            Estados.ModificarEstado("isUiOpen",false);
             ui.SetActive(false);
+            Estados.ModificarEstado("isUiOpen",false);
         }
         else
         {
             if (!Estados.DevolverEstado("isUiOpen"))
             {
-                Estados.ModificarEstado("isUiOpen", true);
                 ui.SetActive(true);
+                Estados.ModificarEstado("isUiOpen", true);
             }
         }
     }
