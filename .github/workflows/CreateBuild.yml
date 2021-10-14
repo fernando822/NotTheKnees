@@ -32,8 +32,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build Windows 32 bits
         run: |
-          $env:VERSION = "0.$env:GITHUB_RUN_ID"
-          Start-Process -Wait 'C:
+          echo Add other actions to build
 
       # Runs a set of commands using the runners shell
       - name: Build Windows 64 bits
