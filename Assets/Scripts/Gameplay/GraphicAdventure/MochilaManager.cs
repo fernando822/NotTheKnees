@@ -24,13 +24,7 @@ public class MochilaManager : MonoBehaviour
                         slotDeLaMochila.GetComponent<Button>().Select();
                         i = 100;
                     }
-                    /*else
-                    {
-                        slotDeLaMochila.SetActive(false);
-                        slotDeLaMochila.SetActive(true);
-                        slotDeLaMochila.GetComponent<Button>().Select();
-                        i = 100;
-                    }*/
+                    
                 }
                 else
                 {

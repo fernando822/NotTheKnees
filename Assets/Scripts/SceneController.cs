@@ -8,6 +8,7 @@ public class SceneController : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         GameManager.GM.ActualizarReferencias();
+        Estados.ModificarEstado("isUiOpen", false);
     }
 
     public void CargarEscena(int sceneIndex)
