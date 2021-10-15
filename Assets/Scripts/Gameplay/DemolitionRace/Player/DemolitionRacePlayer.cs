@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class DemolitionRacePlayer : MonoBehaviour
 {
-    public LogicaMovimientoVehiculo movementScript;
     public Transform playerTransform;
+    public LogicaMovimientoVehiculo movementScript;
     public HandBreak handBreak;
+    public animaciones animaciones;
 
     void Start()
     {
-        movementScript = GetComponent<LogicaMovimientoVehiculo>();
         playerTransform = GetComponent<Transform>();
+        movementScript = GetComponent<LogicaMovimientoVehiculo>();
         handBreak = GetComponent<HandBreak>();
+        animaciones = GetComponent<animaciones>();
     }
 }

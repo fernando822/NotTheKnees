@@ -17,7 +17,11 @@ public class InputPlayer : MonoBehaviour
     {
         input.PlayerGraphicAdventure.Enable();
         input.PlayerDemolitionRace.Disable();
-       
+        if(GameManager.nombreDeEscenaActual == "AventuraGrafica" && Estados.DevolverEstado("primeraVezEnPrimeraEscena"))
+        {
+            movimiento.Disable();
+        }
+
     }
 
     private void FixedUpdate()
@@ -35,6 +39,9 @@ public class InputPlayer : MonoBehaviour
         input.PlayerGraphicAdventure.Backpack.performed += OnBackpack;
         input.PlayerGraphicAdventure.Backpack.Enable();
 
+        input.PlayerGraphicAdventure.Map.performed += OnMap;
+        input.PlayerGraphicAdventure.Map.Enable();
+
         input.PlayerGraphicAdventure.ShowControls.performed += OnShowControls;
         input.PlayerGraphicAdventure.ShowControls.Enable();
 
@@ -48,17 +55,37 @@ public class InputPlayer : MonoBehaviour
         GameManager.GM.PlayerAction();
     }
 
+    private void OnMap(InputAction.CallbackContext obj)
+    {
+        GameManager.GM.ToggleMap();
+        ToggleMovimiento();
+
+    }
 
     private void OnBackpack(InputAction.CallbackContext obj)
     {
-        GameManager.GM.ShowDescriptionOfObtainedObject();
+        GameManager.GM.ToggleBackpack();
+        ToggleMovimiento();
+
     }
 
     void OnShowControls(InputAction.CallbackContext obj)
     {
         GameManager.GM.PlayerShowControls();
+        ToggleMovimiento();
     }
 
+    void ToggleMovimiento()
+    {
+        if (Estados.DevolverEstado("isUiOpen"))
+        {
+            movimiento.Disable();
+        }
+        else
+        {
+            movimiento.Enable();
+        }
+    }
     void OnMenu(InputAction.CallbackContext obj)
     {
         GameManager.GM.PlayerMenu();
@@ -72,6 +99,9 @@ public class InputPlayer : MonoBehaviour
 
         input.PlayerGraphicAdventure.Backpack.performed -= OnBackpack;
         input.PlayerGraphicAdventure.Backpack.Disable();
+
+        input.PlayerGraphicAdventure.Map.performed -= OnMap;
+        input.PlayerGraphicAdventure.Map.Disable();
 
         input.PlayerGraphicAdventure.ShowControls.performed -= OnShowControls;
         input.PlayerGraphicAdventure.ShowControls.Disable();

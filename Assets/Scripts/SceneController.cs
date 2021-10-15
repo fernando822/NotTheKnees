@@ -18,5 +18,12 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-    
+    public void CargarEscenaSinRepetir(string sceneName)
+    {
+        if(SceneManager.GetActiveScene().name != sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
 }

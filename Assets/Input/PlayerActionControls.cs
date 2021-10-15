@@ -43,6 +43,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef4513d6-bef5-4675-a532-721a51011de5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""ShowControls"",
                     ""type"": ""Button"",
                     ""id"": ""dd6b0008-db66-4129-abf9-6cd5e161eafa"",
@@ -268,6 +276,28 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""167dce1b-55e6-4d30-8438-dded86738205"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd29d1bc-a446-4ba7-8081-49e2ed612729"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -312,7 +342,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""WASD"",
                     ""id"": ""8ea4cb58-7061-4b33-8433-125b34db60d8"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -904,7 +934,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0b108a66-06f1-4861-b6c0-4d3a32744557"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -915,7 +945,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""25683673-8d15-4a6f-893b-e261013d32c4"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -978,6 +1008,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_PlayerGraphicAdventure_Movement = m_PlayerGraphicAdventure.FindAction("Movement", throwIfNotFound: true);
         m_PlayerGraphicAdventure_Action = m_PlayerGraphicAdventure.FindAction("Action", throwIfNotFound: true);
         m_PlayerGraphicAdventure_Backpack = m_PlayerGraphicAdventure.FindAction("Backpack", throwIfNotFound: true);
+        m_PlayerGraphicAdventure_Map = m_PlayerGraphicAdventure.FindAction("Map", throwIfNotFound: true);
         m_PlayerGraphicAdventure_ShowControls = m_PlayerGraphicAdventure.FindAction("ShowControls", throwIfNotFound: true);
         m_PlayerGraphicAdventure_Menu = m_PlayerGraphicAdventure.FindAction("Menu", throwIfNotFound: true);
         // PlayerDemolitionRace
@@ -1048,6 +1079,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerGraphicAdventure_Movement;
     private readonly InputAction m_PlayerGraphicAdventure_Action;
     private readonly InputAction m_PlayerGraphicAdventure_Backpack;
+    private readonly InputAction m_PlayerGraphicAdventure_Map;
     private readonly InputAction m_PlayerGraphicAdventure_ShowControls;
     private readonly InputAction m_PlayerGraphicAdventure_Menu;
     public struct PlayerGraphicAdventureActions
@@ -1057,6 +1089,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerGraphicAdventure_Movement;
         public InputAction @Action => m_Wrapper.m_PlayerGraphicAdventure_Action;
         public InputAction @Backpack => m_Wrapper.m_PlayerGraphicAdventure_Backpack;
+        public InputAction @Map => m_Wrapper.m_PlayerGraphicAdventure_Map;
         public InputAction @ShowControls => m_Wrapper.m_PlayerGraphicAdventure_ShowControls;
         public InputAction @Menu => m_Wrapper.m_PlayerGraphicAdventure_Menu;
         public InputActionMap Get() { return m_Wrapper.m_PlayerGraphicAdventure; }
@@ -1077,6 +1110,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Backpack.started -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnBackpack;
                 @Backpack.performed -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnBackpack;
                 @Backpack.canceled -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnBackpack;
+                @Map.started -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnMap;
                 @ShowControls.started -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowControls;
                 @ShowControls.performed -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowControls;
                 @ShowControls.canceled -= m_Wrapper.m_PlayerGraphicAdventureActionsCallbackInterface.OnShowControls;
@@ -1096,6 +1132,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Backpack.started += instance.OnBackpack;
                 @Backpack.performed += instance.OnBackpack;
                 @Backpack.canceled += instance.OnBackpack;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
                 @ShowControls.started += instance.OnShowControls;
                 @ShowControls.performed += instance.OnShowControls;
                 @ShowControls.canceled += instance.OnShowControls;
@@ -1284,6 +1323,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
         void OnBackpack(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
         void OnShowControls(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
     }
