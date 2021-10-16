@@ -13,5 +13,4 @@ public class DialogueSounds : MonoBehaviour
         audioSource.clip = audioClip;
         audioSource.Play();
     }
-
 }
