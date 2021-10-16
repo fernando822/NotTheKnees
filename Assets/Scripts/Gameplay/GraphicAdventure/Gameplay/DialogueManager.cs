@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textoEmisor;
     string emisor;
 
+    [SerializeField] DialogueSounds dialogueSounds;
+
     private void Start()
     {
         lineasDeTexto = new Queue<string>();
@@ -49,6 +51,7 @@ public class DialogueManager : MonoBehaviour
     {
         SetText(texto);
         DefinirTextoDelEmisor(emisor);
+        Sounds();
     }
     void SetText(string texto)
     {
@@ -89,5 +92,10 @@ public class DialogueManager : MonoBehaviour
     public void DefinirTextoDelEmisor(string emisor)
     {
         textoEmisor.text = emisor;
+    }
+
+    public void Sounds()
+    {
+        dialogueSounds.Sound();
     }
 }
