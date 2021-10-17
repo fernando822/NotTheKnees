@@ -19,11 +19,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: self-hosted
     env: 
-      PROJECT_PATH: ".\\"
-      BUILD_WIN64: "BuildProject.BuildWindows64"
-      BUILD_WIN32: "BuildProject.BuildWindows32"
+      PATH: ".\\"
+      BUILD_W32: "CreateBuild.BuildWindows32"
+      BUILD_W64: "CreateBuild.BuildWindows64"
       GAME_NAME: "Not The Knees"
-      VERSION:  
+      VERSION: "" 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -32,10 +32,15 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build Windows 32 bits
         run: |
-          echo Add other actions to build
+            $env:VERSION = "0.$env:GITHUB_RUN_ID"
+            Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PATH -executeMethod $env:BUILD_W32 -quit"
 
       # Runs a set of commands using the runners shell
       - name: Build Windows 64 bits
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          $env:VERSION = "0.$env:GITHUB_RUN_ID"
+          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PATH -executeMethod $env:BUILD_W64 -quit"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Ejecutable
+          path: Versiones/*
