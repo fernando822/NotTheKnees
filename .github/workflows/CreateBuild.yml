@@ -16,7 +16,7 @@ jobs:
         BUILD_WIN32: "BuildProject.BuildWindows32"
         BUILD_WIN64: "BuildProject.BuildWindows64"
         GAME_NAME: "Not The Knees"
-        VERSION: 
+        VERSION: "Hola"
     steps:
       - uses: actions/checkout@v2
       - name: Build For Windows 32 bits
