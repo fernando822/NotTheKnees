@@ -1,7 +1,5 @@
-# This is a basic workflow to help you get started with Actions
-name: CreateBuild
+name: Build
 
-# Controls when the workflow will run
 on:
   push:
     branches: [ main ]
@@ -12,24 +10,22 @@ jobs:
   build:
     runs-on: [self-hosted]
     env:
-        PATH: ".\\"
-        BUILD_WIN32: "BuildProject.BuildWindows32"
-        BUILD_WIN64: "BuildProject.BuildWindows64"
-        GAME_NAME: "Not The Knees"
-        VERSION: "Hola"
+        PROJECT_PATH: ".\\"
+        BUILD_METHOD_WIN64: "BuildProject.BuildWindows64"
+        BUILD_METHOD_WIN32: "BuildProject.BuildWindows32"
+        gameName: "Haste"
+        projectVersion: 
     steps:
       - uses: actions/checkout@v2
-      - name: Build For Windows 32 bits
-        run: |
-          $env:VERSION = "0.1.$env:GITHUB_RUN_ID"
-          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PATH -executeMethod $env:BUILD_WIN32 -quit"
       - name: Build For Windows 64 bits
         run: |
           $env:projectVersion = "0.1.$env:GITHUB_RUN_ID"
-          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PATH -executeMethod $env:BUILD_WIN64 -quit"
+          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PROJECT_PATH -executeMethod $env:BUILD_METHOD_WIN64 -quit"
+      - name: Build For Windows 32 bits
+        run: |
+          $env:projectVersion = "0.1.$env:GITHUB_RUN_ID"
+          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PROJECT_PATH -executeMethod $env:BUILD_METHOD_WIN32 -quit"
       - uses: actions/upload-artifact@v2
         with:
-          name: Ejecutable
+          name: executable
           path: Builds/*
-
-
