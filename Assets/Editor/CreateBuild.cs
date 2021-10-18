@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class CreateBuild : MonoBehaviour
 {
+    public static string nombreDelJuego = System.Environment.GetEnvironmentVariable("GAME_NAME");
     public static string version = System.Environment.GetEnvironmentVariable("VERSION");
-    public static string gameName = System.Environment.GetEnvironmentVariable("GAME_NAME");
     public static void BuildWindows32(){
-        string path = ".\\Builds\\" + version + "\\Windows32\\" + gameName + ".exe";
+        string ruta = ".\\Versiones\\" + version + "\\Windows32\\" + nombreDelJuego + ".exe";
 
         BuildPipeline.BuildPlayer(
             new string[]{
@@ -24,7 +24,7 @@ public class CreateBuild : MonoBehaviour
         );
     }
     public static void BuildWindows64(){
-        string path = ".\\Builds\\" + version + "\\Windows64\\" + gameName + ".exe";
+        string ruta = ".\\Versiones\\" + version + "\\Windows64\\" + nombreDelJuego + ".exe";
 
         BuildPipeline.BuildPlayer(
             new string[]{
