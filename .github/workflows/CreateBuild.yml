@@ -27,6 +27,6 @@ jobs:
           Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:ROUTE -executeMethod $env:BUILD_WIN64 -quit"
       - uses: actions/upload-artifact@v2
         with:
-          path: NotTheKnees
+          path: NotTheKnees/*
           if-no-files-found: error 
           retention-days: 90
