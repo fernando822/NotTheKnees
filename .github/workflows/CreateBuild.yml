@@ -11,8 +11,8 @@ jobs:
     runs-on: [self-hosted]
     env:
         ROUTE: ".\\"
-        BUILD_WIN32: "CreateBuild.BuildWindows64"
-        BUILD_WIN64: "CreateBuild.BuildWindows32"
+        BUILD_WIN32: "CreateBuild.BuildWindows32"
+        BUILD_WIN64: "CreateBuild.BuildWindows64"
         GAME_NAME: "NotTheKnees"
         VERSION: 
     steps:
@@ -28,4 +28,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: ejecutable
-          path: Builds/*
+          path: Versiones/*
