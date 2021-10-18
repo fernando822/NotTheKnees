@@ -1,4 +1,4 @@
-name: Build
+name: CreateBuild
 
 on:
   push:
@@ -10,22 +10,22 @@ jobs:
   build:
     runs-on: [self-hosted]
     env:
-        PATH: ".\\"
-        BUILD_METHOD_WIN64: "BuildProject.BuildWindows64"
-        BUILD_METHOD_WIN32: "BuildProject.BuildWindows32"
+        ROUTE: ".\\"
+        BUILD_WIN32: "CreateBuild.BuildWindows64"
+        BUILD_WIN64: "CreateBuild.BuildWindows32"
         gameName: "Haste"
-        projectVersion: 
+        VERSION: 
     steps:
       - uses: actions/checkout@v2
-      - name: Build For Windows 64 bits
-        run: |
-          $env:projectVersion = "0.1.$env:GITHUB_RUN_ID"
-          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PATH -executeMethod $env:BUILD_METHOD_WIN64 -quit"
       - name: Build For Windows 32 bits
         run: |
-          $env:projectVersion = "0.1.$env:GITHUB_RUN_ID"
-          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PATH -executeMethod $env:BUILD_METHOD_WIN32 -quit"
+          $env:VERSION = "0.$env:GITHUB_RUN_ID"
+          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:ROUTE -executeMethod $env:BUILD_WIN32 -quit"
+      - name: Build For Windows 64 bits
+        run: |
+          $env:VERSION = "0.$env:GITHUB_RUN_ID"
+          Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:ROUTE -executeMethod $env:BUILD_WIN64 -quit"
       - uses: actions/upload-artifact@v2
         with:
-          name: executable
+          name: ejecutable
           path: Builds/*
