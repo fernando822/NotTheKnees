@@ -19,11 +19,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build For Windows 32 bits
         run: |
-          $env:projectVersion = "0.1.$env:GITHUB_RUN_ID"
+          $env:VERSION = "0.1.$env:GITHUB_RUN_ID"
           Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PATH -executeMethod $env:BUILD_WIN32 -quit"
       - name: Build For Windows 64 bits
         run: |
-          $env:projectVersion = "0.1.$env:GITHUB_RUN_ID"
+          $env:VERSION = "0.1.$env:GITHUB_RUN_ID"
           Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $env:PATH -executeMethod $env:BUILD_WIN64 -quit"
       - uses: actions/upload-artifact@v2
         with:
