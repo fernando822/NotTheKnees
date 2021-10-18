@@ -13,7 +13,7 @@ jobs:
         ROUTE: ".\\"
         BUILD_WIN32: "CreateBuild.BuildWindows64"
         BUILD_WIN64: "CreateBuild.BuildWindows32"
-        gameName: "Haste"
+        GAME_NAME: "NotTheKnees"
         VERSION: 
     steps:
       - uses: actions/checkout@v2
