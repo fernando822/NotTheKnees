@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: [self-hosted]
     env:
-        PROJECT_PATH: ".\\"
+        PATH: ".\\"
         BUILD_WIN32: "CreateBuild.BuildWindows32"
         BUILD_WIN64: "CreateBuild.BuildWindows64"
         GAME_NAME: "NotTheKnees"
