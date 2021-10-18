@@ -18,7 +18,7 @@ public class CreateBuild : MonoBehaviour
                 "Assets\\Scenes\\Carrera\\CarreraDeDemolicion.unity",
                 "Assets\\Scenes\\Carrera\\SegundaCarreraDemolicion.unity"
             },
-            path,
+            ruta,
             BuildTarget.StandaloneWindows,
             BuildOptions.None
         );
@@ -36,7 +36,7 @@ public class CreateBuild : MonoBehaviour
                 "Assets\\Scenes\\Carrera\\CarreraDeDemolicion.unity",
                 "Assets\\Scenes\\Carrera\\SegundaCarreraDemolicion.unity"
             },
-            path,
+            ruta,
             BuildTarget.StandaloneWindows64,
             BuildOptions.None
         );
