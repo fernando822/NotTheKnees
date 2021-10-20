@@ -6,7 +6,8 @@ public class EfectosSonido : MonoBehaviour
 {
     [SerializeField] LogicaMovimientoVehiculo LogicaMovimientoVehiculo;
 
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource audioSourceImpact;
+    [SerializeField] AudioSource audioSourceMotor;
     [SerializeField] AudioClip impact;
     [SerializeField] AudioClip motorClip;
 
@@ -14,27 +15,24 @@ public class EfectosSonido : MonoBehaviour
 
     private void Start()
     {
-        audioSource.clip = motorClip;
-        audioSource.Play();
+        audioSourceMotor.clip = motorClip;
+        audioSourceMotor.Play();
     }
     void Update()
     {
         Motor();
-        Debug.Log(motor);
-        Debug.Log(choque);
     }
 
     void Motor()
     {
-        motor = Mathf.Sqrt((float)LogicaMovimientoVehiculo.torque/600);
-        audioSource.volume = motor;
-        
-        
+        motor = Mathf.Sqrt(((float)Mathf.Abs(LogicaMovimientoVehiculo.torque * 0.9f) + LogicaMovimientoVehiculo.aceleration * 0.1f) / (LogicaMovimientoVehiculo.aceleration * LogicaMovimientoVehiculo.turboBoost));
+
+        audioSourceMotor.volume = motor;
     }
 
     void OnCollisionEnter(Collision other)
     {
         choque = Mathf.Sqrt(other.relativeVelocity.magnitude*5);
-        audioSource.PlayOneShot(impact, choque);
+        audioSourceImpact.PlayOneShot(impact, choque);
     }
 }
