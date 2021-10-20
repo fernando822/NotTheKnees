@@ -23,8 +23,9 @@ public class animaciones : MonoBehaviour
     }
     public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, (direccion) - actual, Space.World);
-        ad.Rotate(Vector3.up, (direccion) - actual, Space.World);
+        ai.RotateAround(player.playerTransform.up, (direccion) - actual);
+        ad.RotateAround(player.playerTransform.up, (direccion) - actual);
+
         actual = direccion;
     }
     public void rotacion(float rpm)
