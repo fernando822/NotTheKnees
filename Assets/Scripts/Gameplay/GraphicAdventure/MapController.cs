@@ -6,42 +6,44 @@ using UnityEngine.UI;
 
 public class MapController : MonoBehaviour
 {
+    [SerializeField] GameObject casa;
+    [SerializeField] GameObject taller;
+    [SerializeField] GameObject torneo;
 
     private void OnEnable()
     {
-        GameObject lugarDelMapa;
-        for(int i = 0; i < 3; i++)
+        ActualizarMapa();
+        GameObject primerObjeto = transform.GetChild(0).gameObject;
+        if (EventSystem.current.currentSelectedGameObject == primerObjeto && primerObjeto.activeSelf)
         {
-            lugarDelMapa = transform.GetChild(i).gameObject;
-            if (lugarDelMapa.activeSelf)
-            {
-
-                if (EventSystem.current.currentSelectedGameObject != null)
-                {
-                    if (EventSystem.current.currentSelectedGameObject != lugarDelMapa)
-                    {
-                        lugarDelMapa.GetComponent<Button>().Select();
-                        i = 100;
-                    }
-                    else
-                    {
-                        lugarDelMapa.SetActive(false);
-                        lugarDelMapa.SetActive(true);
-                        lugarDelMapa.GetComponent<Button>().Select();
-                        i = 100;
-                    }
-                }
-                else
-                {
-                    lugarDelMapa.GetComponent<Button>().Select();
-                }
-            }
+            primerObjeto.GetComponent<Button>().interactable = false;
+            primerObjeto.GetComponent<Button>().interactable = true;
+            primerObjeto.GetComponent<Button>().Select();
         }
+        else
+        {
+            primerObjeto.GetComponent<Button>().Select();
+        }
+        
+    }
+
+    public void ActualizarMapa()
+    {
+        if(Estados.DevolverEstado("haveKey"))
+            taller.GetComponent<Button>().interactable = true;
+        else
+            taller.GetComponent<Button>().interactable = false;
+
+        if(Estados.DevolverEstado("checkedCar"))
+            torneo.GetComponent<Button>().interactable = true;
+        else
+            torneo.GetComponent<Button>().interactable = false;
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        ActualizarMapa();
     }
 
     // Update is called once per frame

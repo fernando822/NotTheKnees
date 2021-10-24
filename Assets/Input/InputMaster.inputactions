@@ -492,7 +492,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "CloseBackpack",
+                    "name": "Cancel",
                     "type": "Button",
                     "id": "48a0ada0-80a1-45f5-a8e6-c86a312268cc",
                     "expectedControlType": "Button",
@@ -669,7 +669,7 @@
                 {
                     "name": "",
                     "id": "41ef6f5b-b618-4155-850b-b0bba70ec22b",
-                    "path": "<Gamepad>/start",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -690,12 +690,23 @@
                 },
                 {
                     "name": "",
+                    "id": "8a6b782f-ecf8-4294-aa0c-edc730f05e36",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f3481385-63ff-41f6-98bf-33e12da0ef3f",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "CloseBackpack",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -706,18 +717,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "CloseBackpack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "105b3cbd-849e-4009-a017-60f5acd10aeb",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "CloseBackpack",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

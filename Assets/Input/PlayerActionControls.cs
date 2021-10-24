@@ -505,7 +505,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""CloseBackpack"",
+                    ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""48a0ada0-80a1-45f5-a8e6-c86a312268cc"",
                     ""expectedControlType"": ""Button"",
@@ -682,7 +682,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""41ef6f5b-b618-4155-850b-b0bba70ec22b"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -703,12 +703,23 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8a6b782f-ecf8-4294-aa0c-edc730f05e36"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f3481385-63ff-41f6-98bf-33e12da0ef3f"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""CloseBackpack"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -719,18 +730,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""CloseBackpack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""105b3cbd-849e-4009-a017-60f5acd10aeb"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""CloseBackpack"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -780,7 +780,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
         m_Menu_Action = m_Menu.FindAction("Action", throwIfNotFound: true);
-        m_Menu_CloseBackpack = m_Menu.FindAction("CloseBackpack", throwIfNotFound: true);
+        m_Menu_Cancel = m_Menu.FindAction("Cancel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -962,14 +962,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Navigate;
     private readonly InputAction m_Menu_Action;
-    private readonly InputAction m_Menu_CloseBackpack;
+    private readonly InputAction m_Menu_Cancel;
     public struct MenuActions
     {
         private @PlayerActionControls m_Wrapper;
         public MenuActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_Menu_Navigate;
         public InputAction @Action => m_Wrapper.m_Menu_Action;
-        public InputAction @CloseBackpack => m_Wrapper.m_Menu_CloseBackpack;
+        public InputAction @Cancel => m_Wrapper.m_Menu_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -985,9 +985,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Action.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnAction;
                 @Action.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnAction;
                 @Action.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnAction;
-                @CloseBackpack.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnCloseBackpack;
-                @CloseBackpack.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnCloseBackpack;
-                @CloseBackpack.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnCloseBackpack;
+                @Cancel.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnCancel;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -998,9 +998,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Action.started += instance.OnAction;
                 @Action.performed += instance.OnAction;
                 @Action.canceled += instance.OnAction;
-                @CloseBackpack.started += instance.OnCloseBackpack;
-                @CloseBackpack.performed += instance.OnCloseBackpack;
-                @CloseBackpack.canceled += instance.OnCloseBackpack;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
             }
         }
     }
@@ -1043,6 +1043,6 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     {
         void OnNavigate(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
-        void OnCloseBackpack(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
 }

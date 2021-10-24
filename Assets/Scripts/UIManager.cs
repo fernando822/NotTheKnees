@@ -34,18 +34,22 @@ public class UIManager : MonoBehaviour
 
     void ToggleUI(GameObject ui)
     {
-        if (ui.activeSelf)
+        if (!Estados.DevolverEstado("dialogueOngoing"))
         {
-            ui.SetActive(false);
-            Estados.ModificarEstado("isUiOpen",false);
-        }
-        else
-        {
-            if (!Estados.DevolverEstado("isUiOpen"))
+            if (ui.activeSelf)
             {
-                ui.SetActive(true);
-                Estados.ModificarEstado("isUiOpen", true);
+                ui.SetActive(false);
+                Estados.ModificarEstado("isUiOpen", false);
+            }
+            else
+            {
+                if (!Estados.DevolverEstado("isUiOpen"))
+                {
+                    ui.SetActive(true);
+                    Estados.ModificarEstado("isUiOpen", true);
+                }
             }
         }
+        
     }
 }

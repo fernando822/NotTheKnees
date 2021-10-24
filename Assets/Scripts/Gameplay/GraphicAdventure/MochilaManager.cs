@@ -6,79 +6,68 @@ using UnityEngine.EventSystems;
 
 public class MochilaManager : MonoBehaviour
 {
-    [SerializeField] GameObject llaveDeGarage;
-    [SerializeField] GameObject paseDeCarrera;
-    [SerializeField] GameObject cajaDeHerramientas;
+    [SerializeField] GameObject llave;
+    [SerializeField] GameObject pase;
+    [SerializeField] GameObject herramientas;
+    Button llaveDeGarage;
+    Button paseDeCarrera;
+    Button cajaDeHerramientas;
+
     private void OnEnable()
     {
-        GameObject slotDeLaMochila;
-        for (int i = 0; i < 3; i++)
+        ActualizarMochila();
+        if (EventSystem.current.currentSelectedGameObject == llave && llave.activeSelf)
         {
-            slotDeLaMochila = transform.GetChild(i).gameObject;
-            if (slotDeLaMochila.activeSelf)
-            {
-                if (EventSystem.current.currentSelectedGameObject != null)
-                {
-                    if (EventSystem.current.currentSelectedGameObject != slotDeLaMochila)
-                    {
-                        slotDeLaMochila.GetComponent<Button>().Select();
-                        i = 100;
-                    }
-                    
-                }
-                else
-                {
-                    slotDeLaMochila.GetComponent<Button>().Select();
-                }
-            }
+            llaveDeGarage.interactable = false;
+            llaveDeGarage.interactable = true;
+            llaveDeGarage.Select();
         }
+        else
+        {
+            llaveDeGarage.Select();
+        }
+        
     }
     void Start()
     {
+        llaveDeGarage = llave.GetComponent<Button>();
+        paseDeCarrera = pase.GetComponent<Button>();
+        cajaDeHerramientas = herramientas.GetComponent<Button>();
         ActualizarMochila();
+
     }
 
     public void ActualizarMochila()
     {
-        Debug.Log("La llave " + Estados.DevolverEstado("haveKey"));
         if (Estados.DevolverEstado("haveKey"))
-        {
-            MostrarLlaveDeGarage();
-        }
+            ToggleLlaveDeGarage(true);
         else
-        {
-            llaveDeGarage.SetActive(false);
-        }
+            ToggleLlaveDeGarage(false);
 
         if (Estados.DevolverEstado("haveCertificate"))
-        {
-            MostrarPaseDeCarrera();
-        }
+            TogglePaseDeCarrera(true);
         else
-        {
-            paseDeCarrera.SetActive(false);
-        }
+            TogglePaseDeCarrera(false);
 
         if (Estados.DevolverEstado("haveToolBox"))
-        {
-            MostrarCajaDeHerramientas();
-        }
+            ToggleCajaDeHerramientas(true);
         else
-        {
-            cajaDeHerramientas.SetActive(false);
-        }
+            ToggleCajaDeHerramientas(false);
     }
         
-    public void MostrarLlaveDeGarage()
+    public void ToggleLlaveDeGarage(bool estado)
     {
-        llaveDeGarage.SetActive(true);
+        llaveDeGarage.interactable = estado;
     }
-    public void MostrarPaseDeCarrera()
+    
+    public void TogglePaseDeCarrera(bool estado)
     {
-        paseDeCarrera.SetActive(true);
+        paseDeCarrera.interactable = estado;
     }
-    public void MostrarCajaDeHerramientas()
+   
+    public void ToggleCajaDeHerramientas(bool estado)
     {
-        cajaDeHerramientas.SetActive(true);
+        cajaDeHerramientas.interactable = estado;
     }
+   
 }

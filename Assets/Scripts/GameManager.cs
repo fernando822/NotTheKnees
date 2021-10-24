@@ -20,16 +20,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] DialogueManager dialogueManager;
     [SerializeField] UIManager uiManager;
     [SerializeField] MochilaManager mochilaManager;
-    
 
-    
-    
+
     private void Awake()
     {
         if (GM != null)
             GameObject.Destroy(GM);
         else
             GM = this;
+
         DontDestroyOnLoad(this);
         ActualizarReferencias();
     }
@@ -38,31 +37,25 @@ public class GameManager : MonoBehaviour
         Estados.estados = new Dictionary<string, bool>();
         Estados.AgregarEstado("isHandBraking", false);
         Estados.AgregarEstado("isUiOpen", false);
-        Estados.AgregarEstado("isSomethingSelected", false);
         Estados.AgregarEstado("dialogueOngoing", false);
         Estados.AgregarEstado("haveKey", false);
         Estados.AgregarEstado("haveCertificate", false);
         Estados.AgregarEstado("haveToolBox", false);
+        Estados.AgregarEstado("checkedCar", false);
         Estados.AgregarEstado("primeraCarreraTerminada", false);
         Estados.AgregarEstado("primeraVezEnPrimeraEscena", true);
+        Estados.AgregarEstado("inMenu", true);
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
-        if (!Estados.DevolverEstado("dialogueOngoing"))
-        {
-            scriptPlayerAdventureGraphic.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
-            scriptPlayerAdventureGraphic.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
-        }
+        scriptPlayerAdventureGraphic.movementScript.SetNewHorizontalPosition(nuevaPosicion.x);
+        scriptPlayerAdventureGraphic.movementScript.SetNewVerticalPosition(nuevaPosicion.y);
     }
 
     public void PlayerAction()
     {
         
-        if (Estados.DevolverEstado("isUiOpen"))
-        {
-
-        }
-        else
+        if (!Estados.DevolverEstado("isUiOpen"))
         {
             if (PuedeInteractuar.interactuable)
             {
@@ -89,10 +82,7 @@ public class GameManager : MonoBehaviour
                             Estados.ModificarEstado("haveCertificate", true);
                             mochilaManager.ActualizarMochila();
                             break;
-                        case "CajaHerramientas":
-                            Estados.ModificarEstado("haveToolBox", true);
-                            mochilaManager.ActualizarMochila();
-                            break;
+                        
                     }
                     
                 }
@@ -140,6 +130,15 @@ public class GameManager : MonoBehaviour
                         case "PuertaTaller":
                             uiManager.ToggleMap();
                             break;
+                        case "CajaHerramientas":
+                            Estados.ModificarEstado("haveToolBox", true);
+                            dialogueManager.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
+                            mochilaManager.ActualizarMochila();
+                            break;
+                        case "Elevador":
+                            Estados.ModificarEstado("checkedCar", true);
+                            dialogueManager.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
+                            break;
                         default:
                             dialogueManager.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
                             break;
@@ -148,8 +147,9 @@ public class GameManager : MonoBehaviour
                
             }
             else
-            {
-                dialogueManager.ClearText();
+            {   
+                if(!Estados.DevolverEstado("inMenu"))
+                    dialogueManager.ClearText();
             }
         }
        
@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDemolitionRaceHandBrake()
     {
         playerDemolitionRace.handBreak.HandBrake();
-        Estados.ModificarEstado("isHandbrakin", true);
+        Estados.ModificarEstado("isHandbraking", true);
     }
 
     public void ActualizarReferencias()
