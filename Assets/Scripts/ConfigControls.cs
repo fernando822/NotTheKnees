@@ -44,6 +44,8 @@ public class ConfigControls : MonoBehaviour
     {
         rebindingOperation.Dispose();
         button.SetActive(true);
+
+        
     }
 
 }

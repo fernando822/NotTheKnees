@@ -28,12 +28,12 @@ public class EfectosSonido : MonoBehaviour
         motor = Mathf.Sqrt(((float)Mathf.Abs(LogicaMovimientoVehiculo.torque * 0.9f) + LogicaMovimientoVehiculo.aceleration * 0.1f) /
             (LogicaMovimientoVehiculo.aceleration * LogicaMovimientoVehiculo.turboBoost));
 
-        audioSourceMotor.volume = motor;
+       // audioSourceMotor.volume = motor;
     }
 
     void OnCollisionEnter(Collision other)
     {
         choque = Mathf.Sqrt(other.relativeVelocity.magnitude * 5);
-        audioSourceImpact.PlayOneShot(impact, choque);
+        //audioSourceImpact.PlayOneShot(impact, choque);
     }
 }
