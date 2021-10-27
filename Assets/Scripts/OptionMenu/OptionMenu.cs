@@ -68,8 +68,7 @@ public class OptionMenu : MonoBehaviour
         Screen.fullScreen = fullscreen;
     }
     public void ExitMenu(){
-        sceneController.CargarEscena("MainMenu");
-
+       SceneManager.UnloadSceneAsync(OptionMenu);
     }
 }
 
