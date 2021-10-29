@@ -1,0 +1,3 @@
+$salida "ruta_rar"
+$entrada "ruta_target"
+Start-Process -Wait 'ruta winrar' -ArgumentList "a -sfx $salida $entrada"
