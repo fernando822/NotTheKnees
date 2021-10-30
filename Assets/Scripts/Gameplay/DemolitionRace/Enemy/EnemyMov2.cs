@@ -55,6 +55,9 @@ public class EnemyMov2 : MonoBehaviour
 
         ruedaAdelanteDerecha.steerAngle = direccion;
         ruedaAdelanteIzquierda.steerAngle = direccion;
+
+        animaciones.direccion(direccion);
+        animaciones.rotacion(rpm);
     }
 
     public void Accelerate()
