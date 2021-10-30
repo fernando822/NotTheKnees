@@ -15,17 +15,13 @@ public static class Estados
     public static bool DevolverEstado(string nombre)
     {
         if (estados.ContainsKey(nombre) && estados[nombre])
-        {
             return true;
-        }
         return false;
     }
 
     public static void ModificarEstado(string nombre, bool status)
     {
         if (estados.ContainsKey(nombre))
-        {
             estados[nombre] = status;
-        }
     }
 }

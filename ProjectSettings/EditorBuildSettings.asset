@@ -11,20 +11,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OptionMenu.unity
     guid: a016a099abe68d544a83ae2c844c4490
-  - enabled: 0
-    path: Assets/Scenes/AventuraGrafica/AventuraGrafica(old).unity
-    guid: d8d9febbcdf9ba145be0d93ba66e81aa
   - enabled: 1
     path: Assets/Scenes/AventuraGrafica/AventuraGrafica.unity
-    guid: ea287b735e9a50c4893ea47943cdd562
+    guid: d8d9febbcdf9ba145be0d93ba66e81aa
   - enabled: 1
     path: Assets/Scenes/Carrera/CarreraDeDemolicion.unity
     guid: 84d7d0a4d51107b4ca8224888ae4eab9
   - enabled: 1
     path: Assets/Scenes/AventuraGrafica/Taller.unity
-    guid: cb02e1ecab757d34db6f0b75dc7b554d
-  - enabled: 0
-    path: Assets/Scenes/AventuraGrafica/Taller(old).unity
     guid: 1b9f3b9eaf0d42046adab81e51c5c0be
   - enabled: 1
     path: Assets/Scenes/AventuraGrafica/Torneo.unity

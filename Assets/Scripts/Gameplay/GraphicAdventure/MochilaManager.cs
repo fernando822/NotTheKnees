@@ -34,7 +34,6 @@ public class MochilaManager : MonoBehaviour
         paseDeCarrera = pase.GetComponent<Button>();
         cajaDeHerramientas = herramientas.GetComponent<Button>();
         ActualizarMochila();
-
     }
 
     public void ActualizarMochila()

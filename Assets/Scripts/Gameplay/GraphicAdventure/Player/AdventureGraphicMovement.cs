@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class AdventureGraphicMovement : MonoBehaviour
 {
-    [SerializeField] AdventureGraphicPlayer player;
+    AdventureGraphicPlayer player;
     [SerializeField] float movementSpeed;
     [SerializeField] float suavidadRotacion;
-    [SerializeField] Animator animator;
+    Animator animator;
 
     float newVerticalPosition;
     float newHorizontalPosition;
