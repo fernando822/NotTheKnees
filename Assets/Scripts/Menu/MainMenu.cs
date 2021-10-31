@@ -13,6 +13,9 @@ public class MainMenu : MonoBehaviour
     public void StartGameButton(){
         sceneController.CargarEscena("AventuraGrafica");
     }
+    public void LoadGameButton(){
+        sceneController.CargarEscena("LoadgGame");
+    }
     public void OptionsButton(){
         sceneController.CargarEscena("OptionMenu");
     }
