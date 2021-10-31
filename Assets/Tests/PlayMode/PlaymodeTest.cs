@@ -5,27 +5,28 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
-public class PlayerTest
+public class PlaymodeTest
 {
     [OneTimeSetUp]
     public void LoadScene()
     {
-        SceneManager.LoadScene("AventuraGrafica");
+        SceneManager.LoadScene("AventuraGrafica nueva");
+        GameObject gameManager = new GameObject();
+        GameManager GM = gameManager.AddComponent<GameManager>();
     }
-    
+
     [UnityTest]
-    public IEnumerator TestPlayerMovementX()
+    public IEnumerator PlayerMoveX()
     {
         GameObject player = GameObject.Find("Player");
         AdventureGraphicMovement script = player.GetComponent<AdventureGraphicMovement>();
         float initialXPos = player.transform.position.x;
-        float initialZPos = player.transform.position.z;
         script.SetNewHorizontalPosition(1f);
         yield return new WaitForSeconds(0.5f);
         Assert.Greater(player.transform.position.x, initialXPos);
     }
     [UnityTest]
-    public IEnumerator TestPlayerMovementZ()
+    public IEnumerator PlayerMoveZ()
     {
         GameObject player = GameObject.Find("Player");
         AdventureGraphicMovement script = player.GetComponent<AdventureGraphicMovement>();
@@ -34,5 +35,4 @@ public class PlayerTest
         yield return new WaitForSeconds(0.5f);
         Assert.Greater(player.transform.position.z, initialZPos);
     }
-    
 }

@@ -28,7 +28,7 @@ public class MochilaManager : MonoBehaviour
         }
         
     }
-    void Start()
+    void Awake()
     {
         llaveDeGarage = llave.GetComponent<Button>();
         paseDeCarrera = pase.GetComponent<Button>();

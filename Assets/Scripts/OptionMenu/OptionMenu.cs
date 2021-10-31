@@ -81,8 +81,8 @@ public class OptionMenu : MonoBehaviour
         Screen.fullScreen = fullscreen;
     }
     public void ExitMenu(){
-       SceneManager.UnloadSceneAsync(OptionMenu);
-    }
+       SceneManager.UnloadSceneAsync("OptionMenu");
+    }   
     public int GetqualityIndex()
     {
         return this.qualityDropDown.value;

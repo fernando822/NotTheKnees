@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
         ActualizarReferencias();
+       
     }
     public void Start()
     {
@@ -82,9 +83,7 @@ public class GameManager : MonoBehaviour
                             Estados.ModificarEstado("haveCertificate", true);
                             mochilaManager.ActualizarMochila();
                             break;
-                        
                     }
-                    
                 }
                 else
                 {
@@ -199,7 +198,7 @@ public class GameManager : MonoBehaviour
             uiManager = GameObject.Find("UI").GetComponent<UIManager>();
         }
 
-        if (nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
+        if (nombreDeEscenaActual == "AventuraGrafica nueva" || nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
         {
             sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
             dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>(); //Idem linea anterior.
