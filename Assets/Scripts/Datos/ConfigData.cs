@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConfigData : MonoBehaviour
+[System.Serializable] public class ConfigData 
 {
-
+int resolutionIndex;
+int qualityIndex;
+bool fullScreen;
 public ConfigData(OptionMenu settings){
-    settings = new OptionMenu();
+resolutionIndex = settings.GetresolutionIndex();
+        qualityIndex = settings.GetqualityIndex();
+        fullScreen = settings.Getfullscreen();
+       
 
 }
 

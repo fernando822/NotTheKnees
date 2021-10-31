@@ -11,11 +11,13 @@ public class OptionMenu : MonoBehaviour
     [SerializeField] SceneController sceneController;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] TMP_Dropdown resolutionDropDown;
+    [SerializeField] TMP_Dropdown qualityDropDown;
     Resolution[] resolutions;
 
     void Start(){
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
         loadResolutionDropDown();
+        
     }
 
     void loadResolutionDropDown(){
@@ -54,12 +56,23 @@ public class OptionMenu : MonoBehaviour
             );
     }
 
-    public void SetVolume(float volume) {
-        
-
-        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20); 
+   void LoadqualityDropDown()
+    {
+        qualityDropDown.ClearOptions();
+        qualityDropDown.AddOptions(GetScreenQualities());
+        qualityDropDown.value = 5;
+        qualityDropDown.RefreshShownValue();
     }
-
+    List<string> GetScreenQualities(){
+        List<string> options = new List<string>();
+                options.Add("VeryLowQuality");
+                options.Add("LowQuality");
+                options.Add("MediumQuality");
+                options.Add("HighQuality");
+                options.Add("VeryHighQuality");
+                options.Add("UltraQuality");
+                return options;
+    }
     public void SetQuality(int qualityIndex){
         QualitySettings.SetQualityLevel(qualityIndex);
     }
@@ -71,5 +84,18 @@ public class OptionMenu : MonoBehaviour
         sceneController.CargarEscena("MainMenu");
 
     }
+    public int GetqualityIndex()
+    {
+        return this.qualityDropDown.value;
+    }
+    public int GetresolutionIndex()
+    {
+        return this.resolutionDropDown.value;
+    }
+    public bool Getfullscreen()
+    {
+        return Screen.fullScreen;
+    }
+
 }
 
