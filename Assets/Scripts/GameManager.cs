@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
         ActualizarReferencias();
     }
-    private void Start()
+    public void Start()
     {
         Estados.estados = new Dictionary<string, bool>();
         Estados.AgregarEstado("isHandBraking", false);

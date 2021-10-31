@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public static class Estados
 {
@@ -23,5 +24,13 @@ public static class Estados
     {
         if (estados.ContainsKey(nombre))
             estados[nombre] = status;
+    }
+    public static int CantEstados(){
+        return estados.Count;
+
+    }
+    public static bool DevolverEstado(int indice){
+        return estados.Values.ElementAt(indice);
+
     }
 }
