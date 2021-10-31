@@ -9,6 +9,7 @@ public class MusicaFondo : MonoBehaviour
 
     [SerializeField] AudioClip CarreraDeDemolicion;
     [SerializeField] AudioClip SegundaCarreraDemolicion;
+    [SerializeField] AudioClip TerceraCarreraDemolicion;
     [SerializeField] AudioClip AventuraGrafica;
     [SerializeField] AudioClip Taller;
     [SerializeField] AudioClip Torneo;
@@ -33,6 +34,12 @@ public class MusicaFondo : MonoBehaviour
             case "SegundaCarreraDemolicion":
                 audioSource.Stop();
                 audioSource.clip = SegundaCarreraDemolicion;
+                audioSource.Play();
+                break;
+
+            case "TerceraCarreraDemolicion":
+                audioSource.Stop();
+                audioSource.clip = TerceraCarreraDemolicion;
                 audioSource.Play();
                 break;
 
