@@ -19,10 +19,6 @@ public class ConfigControls : MonoBehaviour
     [SerializeField] int bindingIndex;
     private InputBinding inputBinding;
 
-    private void Start()
-    {
-       
-    }
     private void Rebinding()
     {
 
