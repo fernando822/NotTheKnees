@@ -244,7 +244,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68969461}
-  m_LocalRotation: {x: 0.0012212034, y: 0.9671506, z: -0.25415862, w: 0.0046470496}
+  m_LocalRotation: {x: 0.0012212035, y: 0.9671506, z: -0.25415865, w: 0.004647049}
   m_LocalPosition: {x: -11, y: 20.4, z: 111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2923,7 +2923,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427492160}
-  m_LocalRotation: {x: 0.0012212034, y: 0.9671506, z: -0.25415862, w: 0.0046470496}
+  m_LocalRotation: {x: 0.0012212035, y: 0.9671506, z: -0.25415865, w: 0.004647049}
   m_LocalPosition: {x: -11, y: 20.4, z: 111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3967,7 +3967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1457520061}
-  text: {fileID: 0}
+  text: {fileID: 1333374787}
   vida: 100
   attack: 1
   "esperaDa\xF1o": 1
