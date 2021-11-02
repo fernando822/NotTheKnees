@@ -80,5 +80,13 @@ MonoBehaviour:
     m_Localized: "Quiz\xE1s podr\xEDa utilizar estas herramientas para algo..."
     m_Metadata:
       m_Items: []
+  - m_Id: 315218377277440
+    m_Localized: Ganaste!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 315359083593728
+    m_Localized: Perdiste!
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

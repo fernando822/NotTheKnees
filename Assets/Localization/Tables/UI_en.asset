@@ -78,5 +78,13 @@ MonoBehaviour:
     m_Localized: Maybe I could use these tools for something...
     m_Metadata:
       m_Items: []
+  - m_Id: 315218377277440
+    m_Localized: You win!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 315359083593728
+    m_Localized: You lose!
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

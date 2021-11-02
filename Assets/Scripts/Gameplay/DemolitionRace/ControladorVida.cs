@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Localization;
 
 
 
@@ -12,10 +13,10 @@ public class ControladorVida : MonoBehaviour
     [SerializeField] TextMeshProUGUI mensajeVictoria;
     [SerializeField] GameObject panelVictoria;
     [SerializeField] SceneController sceneController;
+    [SerializeField] LocalizedStringTable traduccionesUI;
 
-    public bool VidaE = true;
-    public bool VidaP = true;
-    bool gameOver = false;
+    /*public bool VidaE = true;
+    public bool VidaP = true;*/
 
     int daño;
     float at, bt, ct;
@@ -29,33 +30,28 @@ public class ControladorVida : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (estadoVehiculoP.vida <= 0 && !gameOver)
+        if (estadoVehiculoP.vida <= 0 && !Estados.DevolverEstado("gameOver"))
         {
-            mensajeVictoria.text = "YOU LOSE!";
-            VidaP = false;
+            mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraDerrota"].Value;
+            Estados.ModificarEstado("gameOver", true);
             panelVictoria.SetActive(true);
-            StartCoroutine("esperarTresSeg");
-            sceneController.CargarEscena("CarreraDeDemolicion");
-
-
+            StartCoroutine(cargarEscenaDespuesDe3Segundos("CarreraDeDemolicion"));
+            
         }
 
-        if (estadoVehiculoE.vida <= 0 && !gameOver)
+        if (estadoVehiculoE.vida <= 0 && !Estados.DevolverEstado("gameOver"))
         {
-            mensajeVictoria.text = "YOU WIN!";
-            VidaE = false;
+            mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraVictoria"].Value;
             panelVictoria.SetActive(true);
             Estados.ModificarEstado("primeraCarreraTerminada", true);
-            StartCoroutine("esperarTresSeg");
-            sceneController.CargarEscena("Taller");
-
-
+            StartCoroutine(cargarEscenaDespuesDe3Segundos("Taller nueva"));
+            
         }
     }
-    IEnumerator esperarTresSeg()
+    IEnumerator cargarEscenaDespuesDe3Segundos(string sceneName)
     {
-        gameOver = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3);
+        sceneController.CargarEscena(sceneName);
     }
 
     public void CambiarVida(Vector3 a, Vector3 b, string objetoCollision, int attack)

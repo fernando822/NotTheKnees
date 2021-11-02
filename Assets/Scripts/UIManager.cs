@@ -8,13 +8,27 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject panelControles;
     [SerializeField] GameObject mochila;
     [SerializeField] GameObject map;
+    [SerializeField] GameObject turboEffect;
 
 
-   
+    
     void Start()
     {
         map.SetActive(false);
         mochila.SetActive(false);
+    }
+    private void Update()
+    {
+        if(Turbo.turboRestante > 0)
+        {
+            if (!turboEffect.activeSelf)
+                turboEffect.SetActive(true);
+        }
+        else
+        {
+            if (turboEffect.activeSelf)
+                turboEffect.SetActive(false);
+        }
     }
     public void TogglePanel()
     {
@@ -24,7 +38,6 @@ public class UIManager : MonoBehaviour
     public void ToggleBackpack()
     {
         ToggleUI(mochila);
-
     }
     public void ToggleMap()
     {
@@ -51,6 +64,5 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
-        
     }
 }

@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         Estados.AgregarEstado("primeraCarreraTerminada", false);
         Estados.AgregarEstado("primeraVezEnPrimeraEscena", true);
         Estados.AgregarEstado("inMenu", false);
+        Estados.AgregarEstado("gameOver", false);
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
