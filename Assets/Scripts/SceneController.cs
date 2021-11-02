@@ -5,11 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    void Start()
+    private void OnLevelWasLoaded()
     {
-        
+        GameManager.GM.ActualizarReferencias();
+        Estados.ModificarEstado("isUiOpen", false);
+        Estados.ModificarEstado("dialogueOngoing", false);
+        GameManager.nombreDeEscenaActual = SceneManager.GetActiveScene().name;
+        CheckearMenu(GameManager.nombreDeEscenaActual);
     }
-    
+
     public void CargarEscena(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
@@ -22,8 +26,21 @@ public class SceneController : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name != sceneName)
         {
+            CheckearMenu(sceneName);
             SceneManager.LoadScene(sceneName);
         }
+        else
+        {
+            GameManager.GM.ToggleMap();
+        }
+    }
+
+    void CheckearMenu(string sceneName)
+    {
+        if (sceneName != "MainMenu" && sceneName != "OptionMenu")
+            Estados.ModificarEstado("inMenu", false);
+        else
+            Estados.ModificarEstado("inMenu", true);
     }
 
 }

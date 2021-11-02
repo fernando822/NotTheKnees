@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DescripcionesObjetosClave
 {
-    private string DescripcionLlaveDeGarage = "La llave del taller que me dio mi tio.";
-    private string DescripcionPaseDeCarrera = "Un certificado que me permite ingresar al torneo.";
-    private string DescripcionCajaDeHerramienta = "Podria usar estas herramientas para algo...";
+    private string DescripcionLlaveDeGarage = "La llave del garaje que me dio mi tío. The garage key that my uncle gave me";
+    private string DescripcionPaseDeCarrera = "Un certificado que me permite participar en el torneo. A certificate that allows me to participate in the tournament.";
+    private string DescripcionCajaDeHerramienta = "Podría usar estas herramientas para algo... I could use these tools for something ...";
 
 
     public string GetDescripcionLlaveDeGarage()

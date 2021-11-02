@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class AdventureGraphicMovement : MonoBehaviour
 {
-    [SerializeField] AdventureGraphicPlayer player;
+    AdventureGraphicPlayer player;
     [SerializeField] float movementSpeed;
     [SerializeField] float suavidadRotacion;
-    [SerializeField] Animator animator;
+    Animator animator;
 
     float newVerticalPosition;
     float newHorizontalPosition;
     Vector3 newPositionLerp = new Vector3(0, 0, 0);
-    void start()
+    void Start()
     {
         player = GetComponent<AdventureGraphicPlayer>();
         animator = GetComponent<Animator>();

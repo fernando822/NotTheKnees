@@ -5,7 +5,7 @@ using UnityEngine;
 public class Turbo : MonoBehaviour
 {
     [SerializeField] LogicaMovimientoVehiculo logicaMovimientoVehiculo;
-    public float turboRestante;
+    public static float turboRestante;
     Rigidbody rb;
 
     void Start()
@@ -16,19 +16,20 @@ public class Turbo : MonoBehaviour
 
     void FixedUpdate()
     {
-        aplicate();
+        Aplicate();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Turbo")
         {
-            turboRestante += 20;
+            turboRestante = 20;
             Destroy(other.gameObject);
+            SpawnTurbo.contadorTurbos--;
         }
     }
 
-   void aplicate()
+   void Aplicate()
    {
         if (turboRestante > 0)
         {

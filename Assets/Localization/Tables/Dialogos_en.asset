@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogos_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 35abdac0421c8494aa6b273287f63f72, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 44709675008
+    m_Localized: Hey Amon, here is the key to the garage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160870924288
+    m_Localized: Go check your vehicle before entering the tournament
+    m_Metadata:
+      m_Items: []
+  - m_Id: 191237685248
+    m_Localized: "Gotta go fast! \xA1Good luck!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2772886323200
+    m_Localized: It's a poster of my favorite game, "Green Mario's mansion"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33577574563840
+    m_Localized: A shelf full of junk things
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33612869632000
+    m_Localized: Here I keep my clothes, although they are all exactly the same.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33637532139520
+    m_Localized: Now is not the time to sleep, but I would like to.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33660378513408
+    m_Localized: I don't even want to look at what's in there
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33685712109568
+    m_Localized: The only one who keeps me company at night...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39055453028352
+    m_Localized: I'm not really sure, but I don't think I should have a drink of
+      this
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39850873421824
+    m_Localized: So this will be my trusty steed, it's full of cobwebs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40171079172096
+    m_Localized: I see that there is practically nothing left in this old garage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33743597699072
+    m_Localized: Although I don't like it, I should talk to my uncle first
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46028319850496
+    m_Localized: I should sign up for the tournament first
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

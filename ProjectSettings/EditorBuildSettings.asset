@@ -6,24 +6,35 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 17290259a982d034f9479179a0ede80c
+    path: Assets/Scenes/Cinematicas/CinematicaInicial.unity
+    guid: 62b3cb5f50cbae0479416d543fc63f4d
   - enabled: 1
-    path: Assets/Scenes/OptionMenu.unity
-    guid: a016a099abe68d544a83ae2c844c4490
+    path: Assets/Scenes/MainMenu nuevo.unity
+    guid: 2159755c146386e41bcd9c4ab4304d6f
   - enabled: 1
-    path: Assets/Scenes/AventuraGrafica/AventuraGrafica.unity
-    guid: d8d9febbcdf9ba145be0d93ba66e81aa
+    path: Assets/Scenes/OptionMenu nuevo.unity
+    guid: d0a0f512b09d77545a437e15617aa61e
+  - enabled: 1
+    path: Assets/Scenes/PauseMenu.unity
+    guid: d96fed541bb8b10468c18aaa31564bd6
   - enabled: 1
     path: Assets/Scenes/Carrera/CarreraDeDemolicion.unity
     guid: 84d7d0a4d51107b4ca8224888ae4eab9
   - enabled: 1
-    path: Assets/Scenes/AventuraGrafica/Taller.unity
-    guid: 1b9f3b9eaf0d42046adab81e51c5c0be
+    path: Assets/Scenes/AventuraGrafica/AventuraGrafica nueva.unity
+    guid: 639a8a1a6dad00e45949f38432451b3b
   - enabled: 1
-    path: Assets/Scenes/AventuraGrafica/Torneo.unity
-    guid: 58d2749d754f5b34da18d781221fcec4
+    path: Assets/Scenes/AventuraGrafica/Taller nueva.unity
+    guid: cb02e1ecab757d34db6f0b75dc7b554d
+  - enabled: 1
+    path: Assets/Scenes/AventuraGrafica/Torneo nueva.unity
+    guid: 62dc72a589e8ce24d9655abad38cb189
   - enabled: 1
     path: Assets/Scenes/Carrera/SegundaCarreraDemolicion.unity
     guid: f5ecd8c3b499b47499ff6f4ffb7d89a2
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Carrera/TerceraCarreraDemolicion.unity
+    guid: 603e244f62de8c94fb6c49171809d411
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 8dad587503480c149910a036bd249d7b, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: eb12435d3e277f5499001cb2a2b7a5b0, type: 2}
