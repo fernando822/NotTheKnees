@@ -19,6 +19,13 @@ public class ConfigControls : MonoBehaviour
     [SerializeField] int bindingIndex;
     private InputBinding inputBinding;
 
+<<<<<<< HEAD
+=======
+    private void Start()
+    {
+       
+    }
+>>>>>>> RamaDePruebas
     private void Rebinding()
     {
 
