@@ -13,33 +13,28 @@ public class MapController : MonoBehaviour
     private void OnEnable()
     {
         ActualizarMapa();
-        GameObject primerObjeto = transform.GetChild(0).gameObject;
-        if (EventSystem.current.currentSelectedGameObject == primerObjeto && primerObjeto.activeSelf)
+        Button primerObjeto = transform.GetChild(0).GetComponent<Button>();
+        if (primerObjeto.interactable)
         {
-            primerObjeto.GetComponent<Button>().interactable = false;
-            primerObjeto.GetComponent<Button>().interactable = true;
-            primerObjeto.GetComponent<Button>().Select();
+            if (EventSystem.current.currentSelectedGameObject == primerObjeto.GetComponent<Selectable>())
+            {
+                primerObjeto.interactable = false;
+                primerObjeto.interactable = true;
+                primerObjeto.Select();
+            }
+            else
+            {
+                primerObjeto.Select();
+            }
         }
-        else
-        {
-            primerObjeto.GetComponent<Button>().Select();
-        }
-        
     }
 
     public void ActualizarMapa()
     {
-        if(Estados.DevolverEstado("haveKey"))
-            taller.GetComponent<Button>().interactable = true;
-        else
-            taller.GetComponent<Button>().interactable = false;
-
-        if(Estados.DevolverEstado("checkedCar"))
-            torneo.GetComponent<Button>().interactable = true;
-        else
-            torneo.GetComponent<Button>().interactable = false;
-
+        taller.GetComponent<Button>().interactable = Estados.DevolverEstado("haveKey");
+        torneo.GetComponent<Button>().interactable = Estados.DevolverEstado("checkedCar");
     }
+    
     // Start is called before the first frame update
     void Start()
     {

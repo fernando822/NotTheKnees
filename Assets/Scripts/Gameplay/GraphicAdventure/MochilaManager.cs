@@ -16,17 +16,19 @@ public class MochilaManager : MonoBehaviour
     private void OnEnable()
     {
         ActualizarMochila();
-        if (EventSystem.current.currentSelectedGameObject == llave && llave.activeSelf)
+        if (llave.activeSelf)
         {
-            llaveDeGarage.interactable = false;
-            llaveDeGarage.interactable = true;
-            llaveDeGarage.Select();
+            if (EventSystem.current.currentSelectedGameObject == llave.GetComponent<Selectable>())
+            {
+                llaveDeGarage.interactable = false;
+                llaveDeGarage.interactable = true;
+                llaveDeGarage.Select();
+            }
+            else
+            {
+                llaveDeGarage.Select();
+            }
         }
-        else
-        {
-            llaveDeGarage.Select();
-        }
-        
     }
     void Awake()
     {
@@ -38,20 +40,9 @@ public class MochilaManager : MonoBehaviour
 
     public void ActualizarMochila()
     {
-        if (Estados.DevolverEstado("haveKey"))
-            ToggleLlaveDeGarage(true);
-        else
-            ToggleLlaveDeGarage(false);
-
-        if (Estados.DevolverEstado("haveCertificate"))
-            TogglePaseDeCarrera(true);
-        else
-            TogglePaseDeCarrera(false);
-
-        if (Estados.DevolverEstado("haveToolBox"))
-            ToggleCajaDeHerramientas(true);
-        else
-            ToggleCajaDeHerramientas(false);
+        ToggleLlaveDeGarage(Estados.DevolverEstado("haveKey"));
+        TogglePaseDeCarrera(Estados.DevolverEstado("haveCertificate"));
+        ToggleCajaDeHerramientas(Estados.DevolverEstado("haveToolBox"));
     }
         
     public void ToggleLlaveDeGarage(bool estado)

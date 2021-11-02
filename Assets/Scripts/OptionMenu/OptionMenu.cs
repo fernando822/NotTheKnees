@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization.Settings;
 
 public class OptionMenu : MonoBehaviour
 {
@@ -17,9 +18,15 @@ public class OptionMenu : MonoBehaviour
     void Start(){
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
         loadResolutionDropDown();
-        
+        LocalizationSettings.SelectedLocaleChanged += LocalizationSettings_SelectedLocaleChanged; ;
     }
 
+    private void LocalizationSettings_SelectedLocaleChanged(UnityEngine.Localization.Locale obj)
+    {
+        LoadqualityDropDown();
+    }
+
+   
     void loadResolutionDropDown(){
         resolutionDropDown.ClearOptions();
         resolutionDropDown.AddOptions(getScreenResolutions());
@@ -65,13 +72,24 @@ public class OptionMenu : MonoBehaviour
     }
     List<string> GetScreenQualities(){
         List<string> options = new List<string>();
-                options.Add("VeryLowQuality");
-                options.Add("LowQuality");
-                options.Add("MediumQuality");
-                options.Add("HighQuality");
-                options.Add("VeryHighQuality");
-                options.Add("UltraQuality");
-                return options;
+        if (LocalizationSettings.SelectedLocale.name == "en"){
+            options.Add("Very Low");
+            options.Add("Low");
+            options.Add("Medium");
+            options.Add("High");
+            options.Add("Very High");
+            options.Add("Ultra");
+        }
+        else
+        {
+            options.Add("Muy bajaaaaaa");
+            options.Add("Baja");
+            options.Add("Media");
+            options.Add("Alta");
+            options.Add("Muy alta");
+            options.Add("Ultra");
+        }
+        return options;
     }
     public void SetQuality(int qualityIndex){
         QualitySettings.SetQualityLevel(qualityIndex);

@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] DialogueManager dialogueManager;
     [SerializeField] UIManager uiManager;
     [SerializeField] MochilaManager mochilaManager;
+    [SerializeField] MapController mapController;
+
 
 
     private void Awake()
@@ -31,13 +33,18 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
         ActualizarReferencias();
-       
+        AgregarEstados();
+
     }
     public void Start()
     {
+        
+    }
+    private void AgregarEstados()
+    {
         Estados.estados = new Dictionary<string, bool>();
         Estados.AgregarEstado("isHandBraking", false);
-        Estados.AgregarEstado("isUiOpen", false);
+        Estados.AgregarEstado("isUiOpen", true);
         Estados.AgregarEstado("dialogueOngoing", false);
         Estados.AgregarEstado("haveKey", false);
         Estados.AgregarEstado("haveCertificate", false);
@@ -45,7 +52,7 @@ public class GameManager : MonoBehaviour
         Estados.AgregarEstado("checkedCar", false);
         Estados.AgregarEstado("primeraCarreraTerminada", false);
         Estados.AgregarEstado("primeraVezEnPrimeraEscena", true);
-        Estados.AgregarEstado("inMenu", true);
+        Estados.AgregarEstado("inMenu", false);
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
@@ -55,7 +62,6 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAction()
     {
-        
         if (!Estados.DevolverEstado("isUiOpen"))
         {
             if (PuedeInteractuar.interactuable)
@@ -63,99 +69,78 @@ public class GameManager : MonoBehaviour
                 GameObject objetoAInteractuar = DecidirObjetoInteractuable.ObjetoMasCercano(
                 scriptPlayerAdventureGraphic.puedeInteractuar.GetGameObjects(), playerAdventureGraphic);
 
-                if(objetoAInteractuar.tag == "NPC")
+                if (!Estados.DevolverEstado("dialogueOngoing"))
                 {
-                    if (!Estados.DevolverEstado("dialogueOngoing"))
-                    {
-                        dialogueManager.IniciarDialogo(objetoAInteractuar.GetComponent<DialogoTrigger>().dialogos);
-                    }
-                    else
-                    {
-                        dialogueManager.MostrarSiguienteFrase();
-                    }
-                    switch (objetoAInteractuar.name)
-                    {
-                        case "Tio":
-                            Estados.ModificarEstado("haveKey",true);
-                            mochilaManager.ActualizarMochila();
-                            break;
-                        case "Recepcion":
-                            Estados.ModificarEstado("haveCertificate", true);
-                            mochilaManager.ActualizarMochila();
-                            break;
-                    }
+                    dialogueManager.IniciarDialogo(objetoAInteractuar.GetComponent<DialogoTrigger>().dialogos);
                 }
                 else
                 {
-                    switch (objetoAInteractuar.name)
-                    {
-                        case "PuertaCasa":
-                            if (Estados.DevolverEstado("haveKey"))
-                            {
-                                uiManager.ToggleMap();
-                                break;
-                            }
-                            else
-                            {
-                                dialogueManager.ShowTextProtagonista("Aunque no me guste, deberia hablar con mi tio primero.");
-                                break;
-                            }
-
-                        case "PuertaEmpezarCarrera":
-                            if (Estados.DevolverEstado("haveCertificate"))
-                            {
-                                if (!Estados.DevolverEstado("primeraCarreraTerminada"))
-                                {
-
-                                    sceneController.CargarEscena("CarreraDeDemolicion");
-                                    break;
-
-                                }
-                                else
-                                {
-                                    sceneController.CargarEscena("SegundaCarreraDemolicion");
-                                    break;
-
-                                }
-                            }
-                            else
-                            {
-                                dialogueManager.ShowTextProtagonista("Deberia inscribirme en el torneo primero.");
-                                break;
-                            }
-                        case "PuertaEntradaTorneo":
-                            uiManager.ToggleMap();
-                            break;
-                        case "PuertaTaller":
-                            uiManager.ToggleMap();
-                            break;
-                        case "CajaHerramientas":
-                            Estados.ModificarEstado("haveToolBox", true);
-                            dialogueManager.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
-                            mochilaManager.ActualizarMochila();
-                            break;
-                        case "Elevador":
-                            Estados.ModificarEstado("checkedCar", true);
-                            dialogueManager.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
-                            break;
-                        default:
-                            dialogueManager.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
-                            break;
-                    }
+                    dialogueManager.MostrarSiguienteFrase();
                 }
-               
+
+                switch (objetoAInteractuar.name)
+                {
+                    case "Tio":
+                        Estados.ModificarEstado("haveKey",true);
+                        mochilaManager.ActualizarMochila();
+                        break;
+                    case "Recepcion":
+                        Estados.ModificarEstado("haveCertificate", true);
+                        mochilaManager.ActualizarMochila();
+                        break;
+                    case "PuertaCasa":
+                        if (Estados.DevolverEstado("haveKey"))
+                        {
+                            dialogueManager.ClearText();
+                            ToggleMap();
+                            break;
+                        }
+                        break;
+                    case "PuertaEmpezarCarrera":
+                        if (Estados.DevolverEstado("haveCertificate"))
+                        {
+                            dialogueManager.ClearText();
+                            if (!Estados.DevolverEstado("primeraCarreraTerminada"))
+                            {
+                                sceneController.CargarEscena("CarreraDeDemolicion");
+                                break;
+                            }
+                            else
+                            {
+                                sceneController.CargarEscena("SegundaCarreraDemolicion");
+                                break;
+                            }
+                        }
+                        break;
+                    case "PuertaEntradaTorneo":
+                        ToggleMap();
+                        break;
+                    case "PuertaTaller":
+                        ToggleMap();
+                        break;
+                    case "CajaHerramientas":
+                        Estados.ModificarEstado("haveToolBox", true);
+                        mochilaManager.ActualizarMochila();
+                        break;
+                    case "Elevador":
+                        Estados.ModificarEstado("checkedCar", true);
+                        break;
+                    default:
+                        
+                        break;
+                }
             }
             else
-            {   
-                if(!Estados.DevolverEstado("inMenu"))
+            {
+                if (!Estados.DevolverEstado("inMenu"))
                     dialogueManager.ClearText();
             }
         }
-       
     }
 
     public void PlayerShowControls()
     {
+        Debug.Log("Apretaste F1");
         uiManager.TogglePanel();
     }
 
@@ -204,6 +189,7 @@ public class GameManager : MonoBehaviour
             dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>(); //Idem linea anterior.
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
             mochilaManager = GameObject.Find("Mochila").GetComponent<MochilaManager>();
+            mapController = GameObject.Find("Map").GetComponent<MapController>();
             playerAdventureGraphic = GameObject.Find("Player");
             descripciones = GetComponent<Descripciones>();
             scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();

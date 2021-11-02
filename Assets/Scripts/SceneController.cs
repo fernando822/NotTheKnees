@@ -10,6 +10,8 @@ public class SceneController : MonoBehaviour
         GameManager.GM.ActualizarReferencias();
         Estados.ModificarEstado("isUiOpen", false);
         Estados.ModificarEstado("dialogueOngoing", false);
+        GameManager.nombreDeEscenaActual = SceneManager.GetActiveScene().name;
+        CheckearMenu(GameManager.nombreDeEscenaActual);
     }
 
     public void CargarEscena(int sceneIndex)
@@ -18,7 +20,6 @@ public class SceneController : MonoBehaviour
     }
     public void CargarEscena(string sceneName)
     {
-        CheckearMenu(sceneName);
         SceneManager.LoadScene(sceneName);
     }
     public void CargarEscenaSinRepetir(string sceneName)
@@ -27,6 +28,10 @@ public class SceneController : MonoBehaviour
         {
             CheckearMenu(sceneName);
             SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            GameManager.GM.ToggleMap();
         }
     }
 

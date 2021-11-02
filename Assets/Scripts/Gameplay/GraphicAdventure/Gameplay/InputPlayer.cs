@@ -11,21 +11,21 @@ public class InputPlayer : MonoBehaviour
     private void Awake()
     {
         input = new PlayerActionControls();
+        
     }
 
     void Start()
     {
         input.PlayerGraphicAdventure.Enable();
         input.PlayerDemolitionRace.Disable();
-        if(GameManager.nombreDeEscenaActual == "AventuraGrafica" && Estados.DevolverEstado("primeraVezEnPrimeraEscena"))
-        {
-            movimiento.Disable();
-        }
-
     }
 
     private void FixedUpdate()
     {
+        if (Estados.DevolverEstado("isUiOpen") || Estados.DevolverEstado("dialogueOngoing") || Estados.DevolverEstado("inMenu"))
+            movimiento.Disable();
+        else
+            movimiento.Enable();
         GameManager.GM.PlayerMove(movimiento.ReadValue<Vector2>());
     }
 
@@ -33,6 +33,7 @@ public class InputPlayer : MonoBehaviour
     {
         movimiento = input.PlayerGraphicAdventure.Movement;
         movimiento.Enable();
+
         input.PlayerGraphicAdventure.Action.performed += OnAction;
         input.PlayerGraphicAdventure.Action.Enable();
 

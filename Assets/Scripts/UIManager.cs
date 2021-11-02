@@ -45,8 +45,9 @@ public class UIManager : MonoBehaviour
             {
                 if (!Estados.DevolverEstado("isUiOpen"))
                 {
-                    ui.SetActive(true);
                     Estados.ModificarEstado("isUiOpen", true);
+                    ui.SetActive(true);
+                    Debug.Log(Estados.DevolverEstado("isUiOpen"));
                 }
             }
         }

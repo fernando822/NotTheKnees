@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 3c29ff9a6ebb6214f93d69d64460a282, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 13780877312
+    m_Localized: "Teclado:\nMovimiento: Flechas direcci\xF3n - WASD \nInteractuar:
+      F\nConfirmar en men\xFA: Espacio\nAbrir/Cerrar mochila: E\nAbrir/Cerrar mapa:
+      Q\nPausa: Escape\n------------------------------------\nJoystick:\nMovimiento:
+      Stick izquierdo\nInteractuar: Boton sur\nAbrir/Cerrar mochila: Boton este\nAbrir/Cerrar
+      mapa: Boton oeste\nPausa: Start\n\nPreciosa F1 o Select para Abrir/Cerrar este
+      mensaje"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2471424917504
+    m_Localized: Empezar Juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2775532929024
+    m_Localized: Opciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3087031304192
+    m_Localized: Creditos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3212289998848
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3539223412736
+    m_Localized: "Resoluci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3952425271296
+    m_Localized: "Gr\xE1ficos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4073720348672
+    m_Localized: Volumen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4233909207040
+    m_Localized: Pantalla completa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4368022077440
+    m_Localized: Volver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013417500672
+    m_Localized: Prueba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83366160859136
+    m_Localized: "Es la llave del taller que me regal\xF3 mi t\xEDo, ah\xED est\xE1
+      mi nuevo veh\xEDculo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83394803761152
+    m_Localized: Con este certificado puedo competir en el torneo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83431914962944
+    m_Localized: "Quiz\xE1s podr\xEDa utilizar estas herramientas para algo..."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

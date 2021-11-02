@@ -10,7 +10,7 @@ public class PlaymodeTest
     [OneTimeSetUp]
     public void LoadScene()
     {
-        SceneManager.LoadScene("AventuraGrafica nueva");
+        SceneManager.LoadScene("AventuraGrafica");
         GameObject gameManager = new GameObject();
         GameManager GM = gameManager.AddComponent<GameManager>();
     }

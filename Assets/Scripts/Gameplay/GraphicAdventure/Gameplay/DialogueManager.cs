@@ -3,31 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization;
 
 public class DialogueManager : MonoBehaviour
 {
+    //traduciones.GetTable()[keyWord].Value
     private Queue<string> lineasDeTexto;
     [SerializeField] TextMeshProUGUI textoCuadro;
     [SerializeField] TextMeshProUGUI textoEmisor;
+    [SerializeField] LocalizedStringTable traducciones;
+    [SerializeField] LocalizedStringTable traduccionesUI;
     string emisor;
 
     private void Start()
     {
         lineasDeTexto = new Queue<string>();
     }
-
+    
     public void IniciarDialogo(Dialogos dialogos)
     {
         emisor = dialogos.nombre;
         lineasDeTexto.Clear();
-
-        foreach (string frase in dialogos.frases)
+        foreach (string frase in dialogos.keyWords)
         {
             lineasDeTexto.Enqueue(frase);
         }
         MostrarSiguienteFrase();
         Estados.ModificarEstado("dialogueOngoing", true);
-        
     }
 
     public void MostrarSiguienteFrase()
@@ -37,13 +39,12 @@ public class DialogueManager : MonoBehaviour
             ClearText();
             return;
         }
-        string frase = lineasDeTexto.Dequeue();
-        ShowText(emisor,frase);
+        string keyWord = lineasDeTexto.Dequeue();
+        ShowText(emisor, traducciones.GetTable()[keyWord].Value);
     }
-    public void ShowTextProtagonista(string texto)
+    public void ShowTextUI(string keyWord)
     {
-        SetText(texto);
-        DefinirTextoDelEmisor("Protagonista - Amon Gas");
+        ShowText("Amon Gas", traduccionesUI.GetTable()[keyWord].Value);
     }
     public void ShowText(string emisor, string texto)
     {

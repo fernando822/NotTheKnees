@@ -703,17 +703,6 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8a6b782f-ecf8-4294-aa0c-edc730f05e36"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""f3481385-63ff-41f6-98bf-33e12da0ef3f"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",

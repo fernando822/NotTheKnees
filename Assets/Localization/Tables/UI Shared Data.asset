@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: 3c29ff9a6ebb6214f93d69d64460a282
+  m_Entries:
+  - m_Id: 13780877312
+    m_Key: UI.Controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2471424917504
+    m_Key: UI.Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2775532929024
+    m_Key: UI.Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3087031304192
+    m_Key: UI.Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3212289998848
+    m_Key: UI.Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3539223412736
+    m_Key: UI.Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3952425271296
+    m_Key: UI.Graphics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4073720348672
+    m_Key: UI.Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4233909207040
+    m_Key: UI.FullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4368022077440
+    m_Key: UI.Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013417500672
+    m_Key: test
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83366160859136
+    m_Key: UI.Llave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83394803761152
+    m_Key: UI.PaseCarrera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83431914962944
+    m_Key: UI.CajaHerramientas
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1635798521888

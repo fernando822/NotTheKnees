@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogos_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 35abdac0421c8494aa6b273287f63f72, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 44709675008
+    m_Localized: "Hey Amon, aqu\xED tienes la llave del taller."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160870924288
+    m_Localized: "Ve a revisar tu veh\xEDculo antes de ingresar al torneo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 191237685248
+    m_Localized: "Gotta go fast! \xA1Buena suerte!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2772886323200
+    m_Localized: "Es un p\xF3ster de mi juego favorito, \"La mansi\xF3n del Mario
+      verde\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33577574563840
+    m_Localized: Un estante lleno de cosas basura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33612869632000
+    m_Localized: "Ac\xE1 guardo mi ropa, aunque es toda exactamente igual."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33637532139520
+    m_Localized: "Ahora no es el momento de dormir, pero me gustar\xEDa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33660378513408
+    m_Localized: "No quiero ni mirar lo que hay ah\xED adentro"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33685712109568
+    m_Localized: "El \xFAnico que me hace compa\xF1\xEDa por las noches..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39055453028352
+    m_Localized: No estoy muy seguro, pero no creo que deba tomarme un trago de esto.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39850873421824
+    m_Localized: "As\xED que este ser\xE1 mi fiel corcel, est\xE1 lleno de telara\xF1as"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40171079172096
+    m_Localized: "Veo que ya no queda pr\xE1cticamente nada en este viejo taller"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33743597699072
+    m_Localized: "Aunque no me gusta, primero deber\xEDa hablar con mi t\xEDo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46028319850496
+    m_Localized: "Deber\xEDa inscribirme en el torneo primero"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

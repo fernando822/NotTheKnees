@@ -10,7 +10,7 @@ public static class Estados
 
     public static void AgregarEstado(string nombre, bool status)
     {
-        estados.Add(nombre, status);
+        estados.Add(nombre,status);
     }
 
     public static bool DevolverEstado(string nombre)
