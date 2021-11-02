@@ -1397,7 +1397,7 @@ MonoBehaviour:
   slider: {fileID: 754510221}
   text: {fileID: 1145236902}
   vida: 100
-  attack: 2
+  attack: 1
   "esperaDa\xF1o": 1
   speedV3: {x: 0, y: 0, z: 0}
 --- !u!114 &491427747
@@ -5516,7 +5516,7 @@ MonoBehaviour:
   slider: {fileID: 1914239499}
   text: {fileID: 390054024}
   vida: 100
-  attack: 10
+  attack: 1
   "esperaDa\xF1o": 1
   speedV3: {x: 0, y: 0, z: 0}
 --- !u!1001 &1587249085
