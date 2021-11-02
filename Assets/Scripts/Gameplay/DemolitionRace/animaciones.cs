@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class animaciones : MonoBehaviour
 {
-    [SerializeField] DemolitionRacePlayer player;
+    [SerializeField] Transform Chasis;
 
     [SerializeField] Transform ai;
     [SerializeField] Transform ad;
@@ -23,8 +23,7 @@ public class animaciones : MonoBehaviour
     }
     public void direccion(float direccion)
     {
-        ai.Rotate(Vector3.up, (direccion) - actual, Space.World);
-        ad.Rotate(Vector3.up, (direccion) - actual, Space.World);
+      
         actual = direccion;
     }
     public void rotacion(float rpm)
@@ -35,6 +34,8 @@ public class animaciones : MonoBehaviour
         ad.Rotate(Vector3.forward, b);
         ti.Rotate(Vector3.forward, b);
         td.Rotate(Vector3.forward, b);
+
+
     }
 }
 

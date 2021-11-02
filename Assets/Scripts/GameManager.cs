@@ -140,7 +140,6 @@ public class GameManager : MonoBehaviour
 
     public void PlayerShowControls()
     {
-        Debug.Log("Apretaste F1");
         uiManager.TogglePanel();
     }
 
@@ -153,7 +152,6 @@ public class GameManager : MonoBehaviour
     {
         uiManager.ToggleBackpack();
     }
-
     public void ToggleMap()
     {
         uiManager.ToggleMap();

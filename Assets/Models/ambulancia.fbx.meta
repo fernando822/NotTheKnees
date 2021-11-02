@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 5a5524ed04c2b954aac4a705d22920db
+guid: f07ba737b1d56da46827bd9ba4b9e847
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rueda-VehiculoBomba
-    second: {fileID: 2100000, guid: ceb0753a147fa9242bbda384af420eac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RuedaAdentro-VehiculoBomba
-    second: {fileID: 2100000, guid: 57d70097415b082449d1518a472e0d10, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

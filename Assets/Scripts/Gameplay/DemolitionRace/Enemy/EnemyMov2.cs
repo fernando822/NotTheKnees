@@ -2,23 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicaMovimientoVehiculo : MonoBehaviour
+public class EnemyMov2 : MonoBehaviour
 {
-    [SerializeField] DemolitionRacePlayer player;
+    [SerializeField] Transform playerTransform;
+
+    Vector3 vector;
+    float angle;
+
     public float anguloDireccion = 30f;
+    public float multiplicador = 1f;
     public float aceleration = 300f;
     public float frenado = 10f;
-    public float turboBoost = 2;
+
     [SerializeField] float tolX = 45;
     [SerializeField] float tolZ = 45;
-    
+
     public float torque;
     float direccion;
     float freno;
+    float delanteatras;
     float rpm, a, b, c, d;
 
-    public bool Turbo;
-    float turboActual;
+ 
+
 
     [SerializeField] WheelCollider ruedaAdelanteIzquierda;
     [SerializeField] WheelCollider ruedaAdelanteDerecha;
@@ -27,8 +33,12 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
     public animaciones animaciones;
 
-    private void Start()
+    public void FixedUpdate()
     {
+        ControlRuedas();
+        antibuelco();
+        Accelerate();
+        ApuntarPlayer();
     }
 
     public void ControlRuedas()
@@ -45,35 +55,36 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
         ruedaAdelanteDerecha.steerAngle = direccion;
         ruedaAdelanteIzquierda.steerAngle = direccion;
+
+        animaciones.direccion(direccion);
+        animaciones.rotacion(rpm);
     }
 
-    public void Accelerate(float valorInputVertical)
+    public void Accelerate()
     {
-        turboActual = (Turbo == true) ? turboActual = turboBoost : turboActual = 1;
+        delanteatras = (-90 < angle & angle < 90) ? delanteatras = 1 : delanteatras = -1;
 
-            torque = aceleration * valorInputVertical * turboActual;
-
-        if (valorInputVertical == 0)
-            freno = frenado;
-        else
-            freno = 0;
+        torque = aceleration * delanteatras;
 
         a = ruedaAdelanteDerecha.rpm;
         b = ruedaAdelanteIzquierda.rpm;
         c = ruedaAtrasDerecha.rpm;
         d = ruedaAtrasIzquierda.rpm;
         rpm = (float)(a + b + c + d) / 4;
-        player.animaciones.rotacion(rpm);
+        //animaciones.rotacion(rpm);
     }
-    public void SetRotation(float valorInputHorizontal)
+
+    void ApuntarPlayer()
     {
-        direccion = valorInputHorizontal * anguloDireccion;
-        player.animaciones.direccion(direccion);
+        vector =  playerTransform.position - transform.position;
+        angle = Vector3.SignedAngle(transform.forward,vector , Vector3.up);
+       
+        direccion = Mathf.Clamp(angle * multiplicador * delanteatras, - anguloDireccion , anguloDireccion);
     }
 
     public void antibuelco()
     {
-        Vector3 eulerAngles = player.transform.rotation.eulerAngles;
+        Vector3 eulerAngles = transform.rotation.eulerAngles;
 
         eulerAngles.x = (eulerAngles.x > 180) ? eulerAngles.x - 360 : eulerAngles.x;
         eulerAngles.z = (eulerAngles.z > 180) ? eulerAngles.z - 360 : eulerAngles.z;
@@ -83,16 +94,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
             eulerAngles.x = Mathf.Clamp(eulerAngles.x, -tolX, tolX);
             eulerAngles.z = Mathf.Clamp(eulerAngles.z, -tolZ, tolZ);
 
-            player.transform.rotation = Quaternion.Euler(eulerAngles);
+            transform.rotation = Quaternion.Euler(eulerAngles);
         }
-    } 
-    public void FixedUpdate()
-    {
-        ControlRuedas();
-        antibuelco();
     }
-
-    public void SetSpeed(float speed) => this.torque = speed; 
-
-    public float GetSpeed() => torque;
 }
