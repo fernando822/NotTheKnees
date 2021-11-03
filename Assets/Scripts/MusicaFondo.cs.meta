@@ -3,7 +3,17 @@ guid: e6f54c388cde0d74281675d9fc2ddc5b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - CarreraDeDemolicion: {fileID: 8300000, guid: 92756534f10adcc4cbdfd374d8755bff, type: 3}
+  - SegundaCarreraDemolicion: {fileID: 8300000, guid: 92756534f10adcc4cbdfd374d8755bff, type: 3}
+  - TerceraCarreraDemolicion: {fileID: 8300000, guid: 92756534f10adcc4cbdfd374d8755bff, type: 3}
+  - AventuraGrafica: {fileID: 8300000, guid: f6bffe12ea53b694c867ab0e989de534, type: 3}
+  - Taller: {fileID: 8300000, guid: f6bffe12ea53b694c867ab0e989de534, type: 3}
+  - Torneo: {fileID: 8300000, guid: f6bffe12ea53b694c867ab0e989de534, type: 3}
+  - MainMenu: {fileID: 8300000, guid: c8ec2b27c2e957c48a1ae9a9f2859f72, type: 3}
+  - Mochila: {fileID: 8300000, guid: c8ec2b27c2e957c48a1ae9a9f2859f72, type: 3}
+  - OpcionMenu: {fileID: 8300000, guid: c8ec2b27c2e957c48a1ae9a9f2859f72, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
