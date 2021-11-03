@@ -9,68 +9,50 @@ public class GameManager : MonoBehaviour
 
     private DemolitionRacePlayer playerDemolitionRace;
     private GameObject playerAdventureGraphic;
-
-    
-
-
-    private Descripciones descripciones;
     public static string nombreDeEscenaActual;
     private AdventureGraphicPlayer scriptPlayerAdventureGraphic;
     [SerializeField] SceneController sceneController;
     [SerializeField] DialogueManager dialogueManager;
     [SerializeField] UIManager uiManager;
     [SerializeField] MochilaManager mochilaManager;
+    [SerializeField] MapController mapController;
+    ControladorVida controladorVida;
+    SpawnTurbo spawnTurbo;
+    InputPlayerDemolitionRace inputPlayerDemolitionRace;
+    InputPlayer inputPlayer;
 
-    public static GameManager GetGameManager
-    {
-        get
-        {
-            if (GM == null)
-            {
-                Debug.Log("GameManager is null");
-            }
-            return GM;
-        }
-    }
-    
-    
+
     private void Awake()
     {
-        GM = this;
-        nombreDeEscenaActual = SceneManager.GetActiveScene().name;
-       
-        if (nombreDeEscenaActual == "CarreraDeDemolicion" || nombreDeEscenaActual == "SegundaCarreraDemolicion")
-        {
-            playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
-            uiManager = GameObject.Find("UI").GetComponent<UIManager>();
-        }
+        if (GM != null)
+            GameObject.Destroy(GM);
+        else
+            GM = this;
 
-        if(nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
-        {
-            sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
-            dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>(); //Idem linea anterior.
-            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
-            mochilaManager = GameObject.Find("Mochila").GetComponent<MochilaManager>();
-            playerAdventureGraphic = GameObject.Find("Player");
-            descripciones = GetComponent<Descripciones>();
-            scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
-        }
-
-        
+        DontDestroyOnLoad(this);
+        ActualizarReferencias();
+        AgregarEstados();
 
     }
-    private void Start()
+    public void Start()
+    {
+        
+    }
+    private void AgregarEstados()
     {
         Estados.estados = new Dictionary<string, bool>();
         Estados.AgregarEstado("isHandBraking", false);
-        Estados.AgregarEstado("isUiOpen", false);
-        Estados.AgregarEstado("isSomethingSelected", false);
+        Estados.AgregarEstado("isUiOpen", true);
         Estados.AgregarEstado("dialogueOngoing", false);
         Estados.AgregarEstado("haveKey", false);
         Estados.AgregarEstado("haveCertificate", false);
         Estados.AgregarEstado("haveToolBox", false);
+        Estados.AgregarEstado("checkedCar", false);
         Estados.AgregarEstado("primeraCarreraTerminada", false);
+        Estados.AgregarEstado("segundaCarreraTerminada", false);
         Estados.AgregarEstado("primeraVezEnPrimeraEscena", true);
+        Estados.AgregarEstado("inMenu", true);
+        Estados.AgregarEstado("gameOver", false);
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
@@ -80,102 +62,31 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAction()
     {
-        
-        if (Estados.DevolverEstado("isUiOpen"))
-        {
-
-        }
-        else
+        if (!Estados.DevolverEstado("isUiOpen"))
         {
             if (PuedeInteractuar.interactuable)
             {
                 GameObject objetoAInteractuar = DecidirObjetoInteractuable.ObjetoMasCercano(
                 scriptPlayerAdventureGraphic.puedeInteractuar.GetGameObjects(), playerAdventureGraphic);
 
-                if(objetoAInteractuar.tag == "NPC")
+                if (!Estados.DevolverEstado("dialogueOngoing"))
                 {
-                    if (!Estados.DevolverEstado("dialogueOngoing"))
-                    {
-                        dialogueManager.IniciarDialogo(objetoAInteractuar.GetComponent<DialogoTrigger>().dialogos);
-                    }
-                    else
-                    {
-                        dialogueManager.MostrarSiguienteFrase();
-                    }
-                    switch (objetoAInteractuar.name)
-                    {
-                        case "Tio":
-                            Estados.ModificarEstado("haveKey",true);
-                            mochilaManager.ActualizarMochila();
-                            break;
-                        case "Recepcion":
-                            Estados.ModificarEstado("haveCertificate", true);
-                            mochilaManager.ActualizarMochila();
-                            break;
-                        case "CajaHerramientas":
-                            Estados.ModificarEstado("haveToolBox", true);
-                            mochilaManager.ActualizarMochila();
-                            break;
-                    }
-                    
+                    dialogueManager.IniciarDialogo(objetoAInteractuar.GetComponent<DialogoTrigger>().dialogos);
                 }
                 else
                 {
-                    switch (objetoAInteractuar.name)
-                    {
-                        case "PuertaCasa":
-                            if (Estados.DevolverEstado("haveKey"))
-                            {
-                                uiManager.ToggleMap();
-                                break;
-                            }
-                            else
-                            {
-                                dialogueManager.ShowTextProtagonista("Aunque no me guste, deberia hablar con mi tio primero.");
-                                break;
-                            }
-
-                        case "PuertaEmpezarCarrera":
-                            if (Estados.DevolverEstado("haveCertificate"))
-                            {
-                                if (!Estados.DevolverEstado("primeraCarreraTerminada"))
-                                {
-
-                                    sceneController.CargarEscena("CarreraDeDemolicion");
-                                    break;
-
-                                }
-                                else
-                                {
-                                    sceneController.CargarEscena("SegundaCarreraDemolicion");
-                                    break;
-
-                                }
-                            }
-                            else
-                            {
-                                dialogueManager.ShowTextProtagonista("Deberia inscribirme en el torneo primero.");
-                                break;
-                            }
-                        case "PuertaEntradaTorneo":
-                            uiManager.ToggleMap();
-                            break;
-                        case "PuertaTaller":
-                            uiManager.ToggleMap();
-                            break;
-                        default:
-                            dialogueManager.ShowTextProtagonista(descripciones.GetNombreYDescripcion()[objetoAInteractuar.name]);
-                            break;
-                    }
+                    dialogueManager.MostrarSiguienteFrase();
                 }
-               
+
+                dialogueManager.Controlador(objetoAInteractuar.name);
+                
             }
             else
             {
-                dialogueManager.ClearText();
+                if (!Estados.DevolverEstado("inMenu"))
+                    dialogueManager.ClearText();
             }
         }
-       
     }
 
     public void PlayerShowControls()
@@ -196,11 +107,18 @@ public class GameManager : MonoBehaviour
     {
         uiManager.ToggleMap();
     }
-
-
-
-    
-
+    public void ActualizarMochila()
+    {
+        mochilaManager.ActualizarMochila();
+    }
+    public void LimpiarTexto()
+    {
+        dialogueManager.ClearText();
+    }
+    public void CargarEscena(string sceneName)
+    {
+        sceneController.CargarEscena(sceneName);
+    }
     public void PlayerDemolitionRaceMovement(Vector2 value)
     {
         playerDemolitionRace.movementScript.Accelerate(value.y);
@@ -211,7 +129,40 @@ public class GameManager : MonoBehaviour
     public void PlayerDemolitionRaceHandBrake()
     {
         playerDemolitionRace.handBreak.HandBrake();
-        Estados.ModificarEstado("isHandbrakin", true);
+        Estados.ModificarEstado("isHandbraking", true);
     }
 
+    public void ActualizarReferencias()
+    {
+        nombreDeEscenaActual = SceneManager.GetActiveScene().name;
+        sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        inputPlayer = GetComponent<InputPlayer>();
+        inputPlayerDemolitionRace = GetComponent<InputPlayerDemolitionRace>();
+
+        if (nombreDeEscenaActual.Contains("Carrera"))
+        {
+            playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
+            controladorVida = GameObject.Find("LifeController").GetComponent<ControladorVida>();
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+
+            controladorVida.ActualizarControladorVida();
+            inputPlayerDemolitionRace.enabled = true;
+            inputPlayer.enabled = false;
+        }
+        else
+        {
+            inputPlayerDemolitionRace.enabled = false;
+            inputPlayer.enabled = true;
+        }
+
+        if (nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
+        {
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+            dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+            mochilaManager = GameObject.Find("Mochila").GetComponent<MochilaManager>();
+            mapController = GameObject.Find("Map").GetComponent<MapController>();
+            playerAdventureGraphic = GameObject.Find("Player");
+            scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
+        }
+    }
 }

@@ -5,19 +5,31 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization.Settings;
 
 public class OptionMenu : MonoBehaviour
 {
     [SerializeField] SceneController sceneController;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] TMP_Dropdown resolutionDropDown;
+    [SerializeField] TMP_Dropdown qualityDropDown;
     Resolution[] resolutions;
 
+    private void Awake()
+    {
+        LocalizationSettings.SelectedLocaleChanged += LocalizationSettings_SelectedLocaleChanged;
+    }
     void Start(){
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
         loadResolutionDropDown();
     }
 
+    private void LocalizationSettings_SelectedLocaleChanged(UnityEngine.Localization.Locale obj)
+    {
+        LoadqualityDropDown();
+    }
+
+   
     void loadResolutionDropDown(){
         resolutionDropDown.ClearOptions();
         resolutionDropDown.AddOptions(getScreenResolutions());
@@ -54,12 +66,34 @@ public class OptionMenu : MonoBehaviour
             );
     }
 
-    public void SetVolume(float volume) {
-        
-
-        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20); 
+   void LoadqualityDropDown()
+    {
+        qualityDropDown.ClearOptions();
+        qualityDropDown.AddOptions(GetScreenQualities());
+        qualityDropDown.value = 5;
+        qualityDropDown.RefreshShownValue();
     }
-
+    List<string> GetScreenQualities(){
+        List<string> options = new List<string>();
+        if (LocalizationSettings.SelectedLocale.name == "en"){
+            options.Add("Very Low");
+            options.Add("Low");
+            options.Add("Medium");
+            options.Add("High");
+            options.Add("Very High");
+            options.Add("Ultra");
+        }
+        else
+        {
+            options.Add("Muy baja");
+            options.Add("Baja");
+            options.Add("Media");
+            options.Add("Alta");
+            options.Add("Muy alta");
+            options.Add("Ultra");
+        }
+        return options;
+    }
     public void SetQuality(int qualityIndex){
         QualitySettings.SetQualityLevel(qualityIndex);
     }
@@ -68,8 +102,20 @@ public class OptionMenu : MonoBehaviour
         Screen.fullScreen = fullscreen;
     }
     public void ExitMenu(){
-        sceneController.CargarEscena("MainMenu");
-
+       SceneManager.UnloadSceneAsync("OptionMenu");
+    }   
+    public int GetqualityIndex()
+    {
+        return this.qualityDropDown.value;
     }
+    public int GetresolutionIndex()
+    {
+        return this.resolutionDropDown.value;
+    }
+    public bool Getfullscreen()
+    {
+        return Screen.fullScreen;
+    }
+
 }
 

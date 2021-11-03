@@ -1,0 +1,22 @@
+name: AutomaticTest
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: [self-hosted]
+    env:
+      ROUTE: ".\\"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pruebas unitarias PlayMode
+        run: Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-runTests -batchmode -testPlatform PlayMode -projectPath $env:ROUTE -testResults ./resultados-playmode.xml"
+      - name: Pruebas unitarias EditMode
+        run: Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe' -ArgumentList "-runTests -batchmode -testPlatform EditMode -projectPath $env:ROUTE -testResults ./resultados-editmode.xml"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: resultados
+          path: resultados*.xml

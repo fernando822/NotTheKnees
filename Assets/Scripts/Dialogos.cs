@@ -8,6 +8,6 @@ public class Dialogos
     public string nombre;
 
     [TextArea(3,10)]
-    public string[] frases;
+    public string[] keyWords;
 }
     

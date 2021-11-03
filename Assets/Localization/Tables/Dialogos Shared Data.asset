@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Dialogos Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Dialogos
+  m_TableCollectionNameGuidString: 35abdac0421c8494aa6b273287f63f72
+  m_Entries:
+  - m_Id: 44709675008
+    m_Key: Dialogo.Tio001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160870924288
+    m_Key: Dialogo.Tio002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 191237685248
+    m_Key: Dialogo.Tio003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2772886323200
+    m_Key: Dialogo.Cuadro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33577574563840
+    m_Key: Dialogo.Estante
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33612869632000
+    m_Key: Dialogo.Armario
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33637532139520
+    m_Key: Dialogo.Cama
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33660378513408
+    m_Key: Dialogo.Basura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33685712109568
+    m_Key: Dialogo.MesaDeLuz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33743597699072
+    m_Key: Dialogo.PuertaCasa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39055453028352
+    m_Key: Dialogo.Gasolina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39850873421824
+    m_Key: Dialogo.Elevador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40171079172096
+    m_Key: Dialogo.EstanteTaller
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46028319850496
+    m_Key: Dialogo.PuertaEmpezarCarrera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347145436102656
+    m_Key: Dialogo.Oponente1001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347435841323008
+    m_Key: Dialogo.Oponente1002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347438425014272
+    m_Key: Dialogo.Oponente1003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347440069181440
+    m_Key: Dialogo.Oponente1004
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348254393303040
+    m_Key: Dialogo.Recepcionista001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348324081664000
+    m_Key: Dialogo.Recepcionista002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348326094929920
+    m_Key: Dialogo.Recepcionista003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348327873314816
+    m_Key: Dialogo.Recepcionista004
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348329886580736
+    m_Key: Dialogo.Recepcionista005
+    m_Metadata:
+      m_Items: []
+  - m_Id: 362699450449920
+    m_Key: Dialogo.Vehiculo1001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 362770845892608
+    m_Key: Dialogo.Vehiculo1002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363079039156224
+    m_Key: Dialogo.Vehiculo2001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363082327490560
+    m_Key: Dialogo.Vehiculo2002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364976919773184
+    m_Key: Dialogo.Vehiculo3001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364979033702400
+    m_Key: Dialogo.Vehiculo3002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 370775222091776
+    m_Key: Dialogo.CajaHerramientas001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680696480235520
+    m_Key: Dialogo.PuertaTaller
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683345908826112
+    m_Key: Dialogo.CajaHerramientas002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683522967175168
+    m_Key: Dialogo.Recepcionista006
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1635805758660

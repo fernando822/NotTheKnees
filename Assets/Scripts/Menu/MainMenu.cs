@@ -13,11 +13,14 @@ public class MainMenu : MonoBehaviour
     public void StartGameButton(){
         sceneController.CargarEscena("AventuraGrafica");
     }
+    public void LoadGameButton(){
+        sceneController.CargarEscena("LoadGame");
+    }
     public void OptionsButton(){
         sceneController.CargarEscena("OptionMenu");
     }
     public void CreditsButton(){
-        sceneController.CargarEscena("Creditos");
+        sceneController.CargarEscena("CinematicaInicial");
     }
      public void QuitGameButton(){
         Application.Quit();

@@ -9,7 +9,7 @@ public class DialogoTrigger : MonoBehaviour
 
     private void Start()
     {
-        dialogueManager = GetComponent<DialogueManager>();
+        dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
 
     public void IniciarDialogoNPC()

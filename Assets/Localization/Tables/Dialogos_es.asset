@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogos_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 35abdac0421c8494aa6b273287f63f72, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 44709675008
+    m_Localized: "Hey Amon, aqu\xED tienes la llave del taller."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160870924288
+    m_Localized: "Ve a revisar tu veh\xEDculo antes de ingresar al torneo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 191237685248
+    m_Localized: "Gotta go fast! \xA1Buena suerte!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2772886323200
+    m_Localized: "Es un p\xF3ster de mi juego favorito, \"La mansi\xF3n del Mario
+      verde\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33577574563840
+    m_Localized: Un estante lleno de cosas basura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33612869632000
+    m_Localized: "Ac\xE1 guardo mi ropa, aunque es toda exactamente igual."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33637532139520
+    m_Localized: "Ahora no es el momento de dormir, pero me gustar\xEDa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33660378513408
+    m_Localized: "No quiero ni mirar lo que hay ah\xED adentro"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33685712109568
+    m_Localized: "El \xFAnico que me hace compa\xF1\xEDa por las noches..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39055453028352
+    m_Localized: No estoy muy seguro, pero no creo que deba tomarme un trago de esto.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39850873421824
+    m_Localized: "As\xED que este ser\xE1 mi fiel corcel, est\xE1 lleno de telara\xF1as"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40171079172096
+    m_Localized: "Veo que ya no queda pr\xE1cticamente nada en este viejo taller"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33743597699072
+    m_Localized: "Aunque no me gusta, primero deber\xEDa hablar con mi t\xEDo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46028319850496
+    m_Localized: "Deber\xEDa inscribirme en el torneo primero"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347145436102656
+    m_Localized: "\xBFAs\xED que t\xFA ser\xE1s mi primer oponente eh?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347435841323008
+    m_Localized: "Esto ser\xE1 pan comido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347438425014272
+    m_Localized: "\xA1Ganar\xE9 este torneo r\xE1pidamente para poder comprar todos
+      los VBucks que quiera!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347440069181440
+    m_Localized: '*Baile predeterminado de Fortnite*'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348254393303040
+    m_Localized: "Bienvenido al torneo de carreras de demolici\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348324081664000
+    m_Localized: "Tome este certificado de participaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348326094929920
+    m_Localized: "\xBFPor qu\xE9?... Bueno, porque sino el juego terminar\xEDa aqu\xED,
+      por supuesto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348327873314816
+    m_Localized: Y nadie quiere eso, verdad?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348329886580736
+    m_Localized: "\xA1Buena suerte!, supongo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 362699450449920
+    m_Localized: "As\xED que primero me enfrentar\xE9 a esto, eh?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 362770845892608
+    m_Localized: "Parece ser m\xE1s robusto que mi veh\xEDculo, tendr\xE9 que tener
+      cuidado."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363079039156224
+    m_Localized: "As\xED que ahora me enfrentar\xE9 a esto, eh?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363082327490560
+    m_Localized: Solo espero que Elon Musk no se enoje cuando lo destruya por completo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364976919773184
+    m_Localized: "As\xED que ahora me enfrentar\xE9 a esto, eh?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364979033702400
+    m_Localized: "Es un poco ir\xF3nico enfrentarse a esto pero al menos podran atenderme
+      r\xE1pidamente si llego a salir herido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 370775222091776
+    m_Localized: "Quiz\xE1s podr\xEDa utilizar estas herramientas para algo..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680696480235520
+    m_Localized: "Deber\xEDa revisar mi veh\xEDculo primero"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683345908826112
+    m_Localized: Recoges caja de herramientas!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683522967175168
+    m_Localized: Recibes certificado de ingreso al torneo
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

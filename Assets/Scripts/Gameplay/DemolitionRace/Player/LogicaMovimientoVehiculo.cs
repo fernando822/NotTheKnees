@@ -5,14 +5,14 @@ using UnityEngine;
 public class LogicaMovimientoVehiculo : MonoBehaviour
 {
     [SerializeField] DemolitionRacePlayer player;
-    [SerializeField] public float anguloDireccion = 30f;
-    [SerializeField] float aceleration = 300f;
-    [SerializeField] float frenado = 10f;
+    public float anguloDireccion = 30f;
+    public float aceleration = 300f;
+    public float frenado = 10f;
+    public float turboBoost = 2;
     [SerializeField] float tolX = 45;
     [SerializeField] float tolZ = 45;
-    [SerializeField] float turboBoost = 2;
-
-    float torque;
+    
+    public float torque;
     float direccion;
     float freno;
     float rpm, a, b, c, d;

@@ -6,43 +6,39 @@ using UnityEngine.UI;
 
 public class MapController : MonoBehaviour
 {
+    [SerializeField] GameObject casa;
+    [SerializeField] GameObject taller;
+    [SerializeField] GameObject torneo;
 
     private void OnEnable()
     {
-        GameObject lugarDelMapa;
-        for(int i = 0; i < 3; i++)
+        ActualizarMapa();
+        Button primerObjeto = transform.GetChild(0).GetComponent<Button>();
+        if (primerObjeto.interactable)
         {
-            lugarDelMapa = transform.GetChild(i).gameObject;
-            if (lugarDelMapa.activeSelf)
+            if (EventSystem.current.currentSelectedGameObject == primerObjeto.GetComponent<Selectable>())
             {
-
-                if (EventSystem.current.currentSelectedGameObject != null)
-                {
-                    Debug.Log("Entra");
-                    if (EventSystem.current.currentSelectedGameObject != lugarDelMapa)
-                    {
-                        lugarDelMapa.GetComponent<Button>().Select();
-                        i = 100;
-                    }
-                    else
-                    {
-                        lugarDelMapa.SetActive(false);
-                        lugarDelMapa.SetActive(true);
-                        lugarDelMapa.GetComponent<Button>().Select();
-                        i = 100;
-                    }
-                }
-                else
-                {
-                    lugarDelMapa.GetComponent<Button>().Select();
-                }
+                primerObjeto.interactable = false;
+                primerObjeto.interactable = true;
+                primerObjeto.Select();
+            }
+            else
+            {
+                primerObjeto.Select();
             }
         }
     }
+
+    public void ActualizarMapa()
+    {
+        taller.GetComponent<Button>().interactable = Estados.DevolverEstado("haveKey");
+        torneo.GetComponent<Button>().interactable = Estados.DevolverEstado("checkedCar");
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        ActualizarMapa();
     }
 
     // Update is called once per frame

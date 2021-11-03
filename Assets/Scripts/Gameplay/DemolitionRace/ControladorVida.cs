@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Localization;
+using UnityEngine.UI;
 
 
 
@@ -9,53 +11,66 @@ public class ControladorVida : MonoBehaviour
 {
     public EstadoVehiculo estadoVehiculoP;
     public EstadoVehiculo estadoVehiculoE;
+    Slider barraSaludPlayer;
+    Slider barraSaludEnemigo;
     [SerializeField] TextMeshProUGUI mensajeVictoria;
     [SerializeField] GameObject panelVictoria;
     [SerializeField] SceneController sceneController;
+    [SerializeField] LocalizedStringTable traduccionesUI;
 
-    public bool VidaE = true;
-    public bool VidaP = true;
-    bool gameOver = false;
+    
 
     int daño;
     float at, bt, ct;
     Vector3 c;
-    void Start()
+    void Awake()
     {
-        mensajeVictoria = GameObject.Find("VictoriaText").GetComponent<TextMeshProUGUI>();
+        ActualizarControladorVida();
+    }
+    public void ActualizarControladorVida()
+    {
+        estadoVehiculoP = GameObject.FindGameObjectWithTag("Player").GetComponent<EstadoVehiculo>();
+        estadoVehiculoE = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EstadoVehiculo>();
+        barraSaludPlayer = GameObject.Find("BarraDeVida").GetComponent<Slider>();
+        barraSaludEnemigo = GameObject.Find("BarraVidaEnemigo").GetComponent<Slider>();
         panelVictoria = GameObject.Find("Fin");
+        mensajeVictoria = GameObject.Find("VictoriaText").GetComponent<TextMeshProUGUI>();
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        barraSaludPlayer.value = estadoVehiculoP.vida;
+        barraSaludEnemigo.value = estadoVehiculoE.vida;
+    }
+    private void Start()
+    {
         panelVictoria.SetActive(false);
+
     }
     private void FixedUpdate()
     {
-        if (estadoVehiculoP.vida <= 0 && !gameOver)
+        if (GameManager.nombreDeEscenaActual.Contains("Carrera"))
         {
-            mensajeVictoria.text = "YOU LOSE!";
-            VidaP = false;
-            panelVictoria.SetActive(true);
-            StartCoroutine("esperarTresSeg");
-            sceneController.CargarEscena("CarreraDeDemolicion");
+            if (estadoVehiculoP.vida <= 0 && !Estados.DevolverEstado("gameOver"))
+            {
+                mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraDerrota"].Value;
+                Estados.ModificarEstado("gameOver", true);
+                panelVictoria.SetActive(true);
+                StartCoroutine(cargarEscenaDespuesDe3Segundos("CarreraDeDemolicion"));
 
+            }
 
+            if (estadoVehiculoE.vida <= 0 && !Estados.DevolverEstado("gameOver"))
+            {
+                mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraVictoria"].Value;
+                panelVictoria.SetActive(true);
+                Estados.ModificarEstado("primeraCarreraTerminada", true);
+                StartCoroutine(cargarEscenaDespuesDe3Segundos("Taller"));
+            }
         }
-
-        if (estadoVehiculoE.vida <= 0 && !gameOver)
-        {
-            mensajeVictoria.text = "YOU WIN!";
-            VidaE = false;
-            panelVictoria.SetActive(true);
-            Estados.ModificarEstado("primeraCarreraTerminada", true);
-            StartCoroutine("esperarTresSeg");
-            sceneController.CargarEscena("Taller");
-
-
-        }
+        
     }
-    IEnumerator esperarTresSeg()
+    IEnumerator cargarEscenaDespuesDe3Segundos(string sceneName)
     {
-        gameOver = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3);
+        sceneController.CargarEscena(sceneName);
     }
 
     public void CambiarVida(Vector3 a, Vector3 b, string objetoCollision, int attack)
@@ -73,12 +88,14 @@ public class ControladorVida : MonoBehaviour
             if (objetoCollision == estadoVehiculoP.tag)
             {
                 estadoVehiculoP.RecibirDaño(daño);
+                barraSaludPlayer.value = estadoVehiculoP.vida;
             }
 
 
             if (objetoCollision == estadoVehiculoE.name)
             {
                 estadoVehiculoE.RecibirDaño(daño);
+                barraSaludEnemigo.value = estadoVehiculoE.vida;
             }
         }
     }

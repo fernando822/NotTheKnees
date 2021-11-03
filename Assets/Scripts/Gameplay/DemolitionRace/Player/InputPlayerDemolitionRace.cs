@@ -56,7 +56,8 @@ public class InputPlayerDemolitionRace : MonoBehaviour
 
     void OnHandBrake(InputAction.CallbackContext obj)
     {
-        GameManager.GM.PlayerDemolitionRaceHandBrake();
+        if(GameManager.nombreDeEscenaActual.Contains("Carrera"))
+            GameManager.GM.PlayerDemolitionRaceHandBrake();
     }
    
 

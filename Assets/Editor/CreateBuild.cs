@@ -10,13 +10,14 @@ public class CreateBuild : MonoBehaviour
 
         BuildPipeline.BuildPlayer(
             new string[]{
-                "Assets\\Scenes\\MainMenu.unity",
-                "Assets\\Scenes\\OptionMenu.unity",
+                "Assets\\Scenes\\Menu\\MainMenu.unity",
+                "Assets\\Scenes\\Menu\\OptionMenu.unity",
                 "Assets\\Scenes\\AventuraGrafica\\AventuraGrafica.unity",
                 "Assets\\Scenes\\AventuraGrafica\\Taller.unity",
                 "Assets\\Scenes\\AventuraGrafica\\Torneo.unity",
                 "Assets\\Scenes\\Carrera\\CarreraDeDemolicion.unity",
-                "Assets\\Scenes\\Carrera\\SegundaCarreraDemolicion.unity"
+                "Assets\\Scenes\\Carrera\\SegundaCarreraDemolicion.unity",
+                "Assets\\Scenes\\Carrera\\TerceraCarreraDemolicion.unity"
             },
             ruta,
             BuildTarget.StandaloneWindows,
@@ -28,13 +29,14 @@ public class CreateBuild : MonoBehaviour
 
         BuildPipeline.BuildPlayer(
             new string[]{
-                "Assets\\Scenes\\MainMenu.unity",
-                "Assets\\Scenes\\OptionMenu.unity",
+                "Assets\\Scenes\\Menu\\MainMenu.unity",
+                "Assets\\Scenes\\Menu\\OptionMenu.unity",
                 "Assets\\Scenes\\AventuraGrafica\\AventuraGrafica.unity",
                 "Assets\\Scenes\\AventuraGrafica\\Taller.unity",
                 "Assets\\Scenes\\AventuraGrafica\\Torneo.unity",
                 "Assets\\Scenes\\Carrera\\CarreraDeDemolicion.unity",
-                "Assets\\Scenes\\Carrera\\SegundaCarreraDemolicion.unity"
+                "Assets\\Scenes\\Carrera\\SegundaCarreraDemolicion.unity",
+                "Assets\\Scenes\\Carrera\\TerceraCarreraDemolicion.unity"
             },
             ruta,
             BuildTarget.StandaloneWindows64,
