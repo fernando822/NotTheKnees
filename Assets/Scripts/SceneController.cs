@@ -7,10 +7,12 @@ public class SceneController : MonoBehaviour
 {
     private void OnLevelWasLoaded()
     {
+        GameManager.nombreDeEscenaActual = SceneManager.GetActiveScene().name;
         GameManager.GM.ActualizarReferencias();
         Estados.ModificarEstado("isUiOpen", false);
         Estados.ModificarEstado("dialogueOngoing", false);
-        GameManager.nombreDeEscenaActual = SceneManager.GetActiveScene().name;
+        if(!GameManager.nombreDeEscenaActual.Contains("Menu"))
+            Estados.ModificarEstado("inMenu", false);
         CheckearMenu(GameManager.nombreDeEscenaActual);
     }
 

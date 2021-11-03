@@ -7,7 +7,6 @@ using UnityEngine.Localization;
 
 public class DialogueManager : MonoBehaviour
 {
-    //traduciones.GetTable()[keyWord].Value
     private Queue<string> lineasDeTexto;
     [SerializeField] TextMeshProUGUI textoCuadro;
     [SerializeField] TextMeshProUGUI textoEmisor;
@@ -15,7 +14,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] LocalizedStringTable traduccionesUI;
     string emisor;
 
-    [SerializeField] DialogueSounds dialogueSounds;
+    //[SerializeField] DialogueSounds dialogueSounds;
 
     private void Start()
     {
@@ -52,7 +51,7 @@ public class DialogueManager : MonoBehaviour
     {
         SetText(texto);
         DefinirTextoDelEmisor(emisor);
-        Sounds();
+        //Sounds();
     }
     void SetText(string texto)
     {
@@ -95,8 +94,8 @@ public class DialogueManager : MonoBehaviour
         textoEmisor.text = emisor;
     }
 
-    public void Sounds()
+    /*public void Sounds()
     {
         dialogueSounds.Sound();
-    }
+    }*/
 }

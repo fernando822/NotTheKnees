@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Cinematicas/CinematicaInicial.unity
     guid: 62b3cb5f50cbae0479416d543fc63f4d
   - enabled: 1
-    path: Assets/Scenes/MainMenu nuevo.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 2159755c146386e41bcd9c4ab4304d6f
   - enabled: 1
-    path: Assets/Scenes/OptionMenu nuevo.unity
+    path: Assets/Scenes/OptionMenu.unity
     guid: d0a0f512b09d77545a437e15617aa61e
   - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
@@ -21,13 +21,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Carrera/CarreraDeDemolicion.unity
     guid: 84d7d0a4d51107b4ca8224888ae4eab9
   - enabled: 1
-    path: Assets/Scenes/AventuraGrafica/AventuraGrafica nueva.unity
+    path: Assets/Scenes/AventuraGrafica/AventuraGrafica.unity
     guid: 639a8a1a6dad00e45949f38432451b3b
   - enabled: 1
-    path: Assets/Scenes/AventuraGrafica/Taller nueva.unity
+    path: Assets/Scenes/AventuraGrafica/Taller.unity
     guid: cb02e1ecab757d34db6f0b75dc7b554d
   - enabled: 1
-    path: Assets/Scenes/AventuraGrafica/Torneo nueva.unity
+    path: Assets/Scenes/AventuraGrafica/Torneo.unity
     guid: 62dc72a589e8ce24d9655abad38cb189
   - enabled: 1
     path: Assets/Scenes/Carrera/SegundaCarreraDemolicion.unity

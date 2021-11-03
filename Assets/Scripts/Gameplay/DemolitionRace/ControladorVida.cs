@@ -15,38 +15,49 @@ public class ControladorVida : MonoBehaviour
     [SerializeField] SceneController sceneController;
     [SerializeField] LocalizedStringTable traduccionesUI;
 
-    /*public bool VidaE = true;
-    public bool VidaP = true;*/
+    
 
     int daño;
     float at, bt, ct;
     Vector3 c;
-    void Start()
+    void Awake()
     {
-        mensajeVictoria = GameObject.Find("VictoriaText").GetComponent<TextMeshProUGUI>();
+        ActualizarControladorVida();
+    }
+    public void ActualizarControladorVida()
+    {
+        estadoVehiculoP = GameObject.FindGameObjectWithTag("Player").GetComponent<EstadoVehiculo>();
+        estadoVehiculoE = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EstadoVehiculo>();
         panelVictoria = GameObject.Find("Fin");
+        mensajeVictoria = GameObject.Find("VictoriaText").GetComponent<TextMeshProUGUI>();
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
+    }
+    private void Start()
+    {
         panelVictoria.SetActive(false);
     }
     private void FixedUpdate()
     {
-        if (estadoVehiculoP.vida <= 0 && !Estados.DevolverEstado("gameOver"))
+        if (GameManager.nombreDeEscenaActual.Contains("Carrera"))
         {
-            mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraDerrota"].Value;
-            Estados.ModificarEstado("gameOver", true);
-            panelVictoria.SetActive(true);
-            StartCoroutine(cargarEscenaDespuesDe3Segundos("CarreraDeDemolicion"));
-            
-        }
+            if (estadoVehiculoP.vida <= 0 && !Estados.DevolverEstado("gameOver"))
+            {
+                mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraDerrota"].Value;
+                Estados.ModificarEstado("gameOver", true);
+                panelVictoria.SetActive(true);
+                StartCoroutine(cargarEscenaDespuesDe3Segundos("CarreraDeDemolicion"));
 
-        if (estadoVehiculoE.vida <= 0 && !Estados.DevolverEstado("gameOver"))
-        {
-            mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraVictoria"].Value;
-            panelVictoria.SetActive(true);
-            Estados.ModificarEstado("primeraCarreraTerminada", true);
-            StartCoroutine(cargarEscenaDespuesDe3Segundos("Taller nueva"));
-            
+            }
+
+            if (estadoVehiculoE.vida <= 0 && !Estados.DevolverEstado("gameOver"))
+            {
+                mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraVictoria"].Value;
+                panelVictoria.SetActive(true);
+                Estados.ModificarEstado("primeraCarreraTerminada", true);
+                StartCoroutine(cargarEscenaDespuesDe3Segundos("Taller"));
+            }
         }
+        
     }
     IEnumerator cargarEscenaDespuesDe3Segundos(string sceneName)
     {

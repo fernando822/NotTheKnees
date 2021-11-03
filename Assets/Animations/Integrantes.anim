@@ -116,7 +116,7 @@ AnimationClip:
   m_Events:
   - time: 2.75
     functionName: CargarEscena
-    data: MainMenu nuevo
+    data: MainMenu
     objectReferenceParameter: {fileID: 11500000, guid: 5956aaf56adccad4db7dd6a6ddef36d6, type: 3}
     floatParameter: 0
     intParameter: 0

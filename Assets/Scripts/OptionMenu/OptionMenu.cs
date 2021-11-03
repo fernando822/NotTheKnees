@@ -15,10 +15,13 @@ public class OptionMenu : MonoBehaviour
     [SerializeField] TMP_Dropdown qualityDropDown;
     Resolution[] resolutions;
 
+    private void Awake()
+    {
+        LocalizationSettings.SelectedLocaleChanged += LocalizationSettings_SelectedLocaleChanged;
+    }
     void Start(){
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
         loadResolutionDropDown();
-        LocalizationSettings.SelectedLocaleChanged += LocalizationSettings_SelectedLocaleChanged; ;
     }
 
     private void LocalizationSettings_SelectedLocaleChanged(UnityEngine.Localization.Locale obj)
@@ -82,7 +85,7 @@ public class OptionMenu : MonoBehaviour
         }
         else
         {
-            options.Add("Muy bajaaaaaa");
+            options.Add("Muy baja");
             options.Add("Baja");
             options.Add("Media");
             options.Add("Alta");

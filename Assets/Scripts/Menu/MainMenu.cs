@@ -11,13 +11,13 @@ public class MainMenu : MonoBehaviour
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
     }
     public void StartGameButton(){
-        sceneController.CargarEscena("AventuraGrafica nueva");
+        sceneController.CargarEscena("AventuraGrafica");
     }
     public void LoadGameButton(){
         sceneController.CargarEscena("LoadGame");
     }
     public void OptionsButton(){
-        sceneController.CargarEscena("OptionMenu nuevo");
+        sceneController.CargarEscena("OptionMenu");
     }
     public void CreditsButton(){
         sceneController.CargarEscena("CinematicaInicial");

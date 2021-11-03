@@ -14,18 +14,22 @@ public class EstadoVehiculo : MonoBehaviour
 
     Rigidbody rb;
 
-    public int vida = 100;
+    public int vida;
     public int attack = 2;
     float tiempoDaño;
     [SerializeField] float esperaDaño = 1;
-    public Vector3 speedV3;
+    [HideInInspector]public Vector3 speedV3;
 
-    void Start()
+    void Awake()
     {
-        contadorVida = GameObject.Find("GameManager").GetComponent<ControladorVida>();
+        contadorVida = GameObject.Find("LifeController").GetComponent<ControladorVida>();
         rb = GetComponent<Rigidbody>(); 
     }
-
+    private void Start()
+    {
+        vida = 100;
+        Estados.ModificarEstado("gameOver", false);
+    }
     private void Update()
     {
        cartelDaño();
@@ -41,6 +45,8 @@ public class EstadoVehiculo : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
             contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.name, attack);
+
+        Debug.Log("Vida de " +this.name +": "+ vida);
     }
 
     public void RecibirDaño(int daño)

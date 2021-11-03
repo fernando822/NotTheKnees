@@ -75,5 +75,73 @@ MonoBehaviour:
     m_Localized: "Deber\xEDa inscribirme en el torneo primero"
     m_Metadata:
       m_Items: []
+  - m_Id: 347145436102656
+    m_Localized: "\xBFAs\xED que t\xFA ser\xE1s mi primer oponente eh?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347435841323008
+    m_Localized: "Esto ser\xE1 pan comido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347438425014272
+    m_Localized: "\xA1Ganar\xE9 este torneo r\xE1pidamente para poder comprar todos
+      los VBucks que quiera!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347440069181440
+    m_Localized: '*Baile predeterminado de Fortnite*'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348254393303040
+    m_Localized: "Bienvenido al torneo de carreras de demolici\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348324081664000
+    m_Localized: "Tome este certificado de participaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348326094929920
+    m_Localized: "\xBFPor qu\xE9?... Bueno, porque sino el juego terminar\xEDa aqu\xED,
+      por supuesto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348327873314816
+    m_Localized: Y nadie quiere eso, verdad?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348329886580736
+    m_Localized: "\xA1Buena suerte!, supongo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 362699450449920
+    m_Localized: "As\xED que primero me enfrentar\xE9 a esto, eh?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 362770845892608
+    m_Localized: "Parece ser m\xE1s robusto que mi veh\xEDculo, tendr\xE9 que tener
+      cuidado."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363079039156224
+    m_Localized: "As\xED que ahora me enfrentar\xE9 a esto, eh?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363082327490560
+    m_Localized: Solo espero que Elon Musk no se enoje cuando lo destruya por completo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364976919773184
+    m_Localized: "As\xED que ahora me enfrentar\xE9 a esto, eh?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364979033702400
+    m_Localized: "Es un poco ir\xF3nico enfrentarse a esto pero al menos podran atenderme
+      r\xE1pidamente si llego a salir herido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 370775222091776
+    m_Localized: "Quiz\xE1s podr\xEDa utilizar estas herramientas para algo..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

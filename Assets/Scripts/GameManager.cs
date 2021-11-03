@@ -9,11 +9,6 @@ public class GameManager : MonoBehaviour
 
     private DemolitionRacePlayer playerDemolitionRace;
     private GameObject playerAdventureGraphic;
-
-    
-
-
-    private Descripciones descripciones;
     public static string nombreDeEscenaActual;
     private AdventureGraphicPlayer scriptPlayerAdventureGraphic;
     [SerializeField] SceneController sceneController;
@@ -21,7 +16,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] UIManager uiManager;
     [SerializeField] MochilaManager mochilaManager;
     [SerializeField] MapController mapController;
-
+    ControladorVida controladorVida;
+    SpawnTurbo spawnTurbo;
+    InputPlayerDemolitionRace inputPlayerDemolitionRace;
+    InputPlayer inputPlayer;
 
 
     private void Awake()
@@ -51,8 +49,9 @@ public class GameManager : MonoBehaviour
         Estados.AgregarEstado("haveToolBox", false);
         Estados.AgregarEstado("checkedCar", false);
         Estados.AgregarEstado("primeraCarreraTerminada", false);
+        Estados.AgregarEstado("segundaCarreraTerminada", false);
         Estados.AgregarEstado("primeraVezEnPrimeraEscena", true);
-        Estados.AgregarEstado("inMenu", false);
+        Estados.AgregarEstado("inMenu", true);
         Estados.AgregarEstado("gameOver", false);
     }
     public void PlayerMove(Vector2 nuevaPosicion)
@@ -106,22 +105,28 @@ public class GameManager : MonoBehaviour
                                 sceneController.CargarEscena("CarreraDeDemolicion");
                                 break;
                             }
-                            else
+                            if(!Estados.DevolverEstado("segundaCarreraTerminada"))
                             {
                                 sceneController.CargarEscena("SegundaCarreraDemolicion");
+                                break;
+                            }
+                            else
+                            {
+                                sceneController.CargarEscena("TerceraCarreraDemolicion");
                                 break;
                             }
                         }
                         break;
                     case "PuertaEntradaTorneo":
+                        dialogueManager.ClearText();
                         ToggleMap();
                         break;
                     case "PuertaTaller":
+                        dialogueManager.ClearText();
                         ToggleMap();
                         break;
                     case "CajaHerramientas":
                         Estados.ModificarEstado("haveToolBox", true);
-                        mochilaManager.ActualizarMochila();
                         break;
                     case "Elevador":
                         Estados.ModificarEstado("checkedCar", true);
@@ -175,22 +180,33 @@ public class GameManager : MonoBehaviour
     public void ActualizarReferencias()
     {
         nombreDeEscenaActual = SceneManager.GetActiveScene().name;
+        sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        inputPlayer = GetComponent<InputPlayer>();
+        inputPlayerDemolitionRace = GetComponent<InputPlayerDemolitionRace>();
 
-        if (nombreDeEscenaActual == "CarreraDeDemolicion" || nombreDeEscenaActual == "SegundaCarreraDemolicion")
+        if (nombreDeEscenaActual.Contains("Carrera"))
         {
             playerDemolitionRace = GameObject.Find("PlayerDemolitionRace").GetComponent<DemolitionRacePlayer>();
-            uiManager = GameObject.Find("UI").GetComponent<UIManager>();
+            controladorVida = GameObject.Find("LifeController").GetComponent<ControladorVida>();
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+
+            controladorVida.ActualizarControladorVida();
+            inputPlayerDemolitionRace.enabled = true;
+            inputPlayer.enabled = false;
+        }
+        else
+        {
+            inputPlayerDemolitionRace.enabled = false;
+            inputPlayer.enabled = true;
         }
 
-        if (nombreDeEscenaActual == "AventuraGrafica nueva" || nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
+        if (nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
         {
-            sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>(); //Si no se busca asi, no funciona.
-            dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>(); //Idem linea anterior.
-            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>(); //Idem linea anterior.
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+            dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
             mochilaManager = GameObject.Find("Mochila").GetComponent<MochilaManager>();
             mapController = GameObject.Find("Map").GetComponent<MapController>();
             playerAdventureGraphic = GameObject.Find("Player");
-            descripciones = GetComponent<Descripciones>();
             scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
         }
     }

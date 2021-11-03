@@ -14,21 +14,17 @@ public class UIManager : MonoBehaviour
     
     void Start()
     {
-        map.SetActive(false);
-        mochila.SetActive(false);
+        if(!GameManager.nombreDeEscenaActual.Contains("Carrera") && !GameManager.nombreDeEscenaActual.Contains("Menu"))
+        {
+            map.SetActive(false);
+            mochila.SetActive(false);
+        }
     }
     private void Update()
     {
-        if(Turbo.turboRestante > 0)
-        {
-            if (!turboEffect.activeSelf)
-                turboEffect.SetActive(true);
-        }
-        else
-        {
-            if (turboEffect.activeSelf)
-                turboEffect.SetActive(false);
-        }
+        ActualizarEfectoTurbo();
+
+
     }
     public void TogglePanel()
     {
@@ -44,6 +40,22 @@ public class UIManager : MonoBehaviour
         ToggleUI(map);
     }
     
+    void ActualizarEfectoTurbo()
+    {
+        if (GameManager.nombreDeEscenaActual.Contains("Carrera"))
+        {
+            if (Turbo.turboRestante > 0)
+            {
+                if (!turboEffect.activeSelf)
+                    turboEffect.SetActive(true);
+            }
+            else
+            {
+                if (turboEffect.activeSelf)
+                    turboEffect.SetActive(false);
+            }
+        }
+    }
 
     void ToggleUI(GameObject ui)
     {
