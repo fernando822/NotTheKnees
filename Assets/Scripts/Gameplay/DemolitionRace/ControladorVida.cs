@@ -13,6 +13,7 @@ public class ControladorVida : MonoBehaviour
     public EstadoVehiculo estadoVehiculoE;
     Slider barraSaludPlayer;
     Slider barraSaludEnemigo;
+    int carreraCompletada;
     [SerializeField] TextMeshProUGUI mensajeVictoria;
     [SerializeField] GameObject panelVictoria;
     [SerializeField] SceneController sceneController;
@@ -48,30 +49,57 @@ public class ControladorVida : MonoBehaviour
     {
         if (GameManager.nombreDeEscenaActual.Contains("Carrera"))
         {
-            if (estadoVehiculoP.vida <= 0 && !Estados.DevolverEstado("gameOver"))
+            switch (GameManager.nombreDeEscenaActual)
             {
-                mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraDerrota"].Value;
-                Estados.ModificarEstado("gameOver", true);
-                panelVictoria.SetActive(true);
-                StartCoroutine(cargarEscenaDespuesDe3Segundos("CarreraDeDemolicion"));
-
-            }
-
-            if (estadoVehiculoE.vida <= 0 && !Estados.DevolverEstado("gameOver"))
-            {
-                mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraVictoria"].Value;
-                panelVictoria.SetActive(true);
-                Estados.ModificarEstado("primeraCarreraTerminada", true);
-                StartCoroutine(cargarEscenaDespuesDe3Segundos("Taller"));
+                case "CarreraDeDemolicion":
+                    Derrota("CarreraDeDemolicion");
+                    Victoria("Torneo");
+                    break;
+                case "SegundaCarreraDemolicion":
+                    Derrota("SegundaCarreraDemolicion");
+                    Victoria("Torneo");
+                    break;
+                case "TerceraCarreraDemolicion":
+                    Derrota("TerceraCarreraDemolicion");
+                    Victoria("Torneo");
+                    break;
             }
         }
-        
     }
     IEnumerator cargarEscenaDespuesDe3Segundos(string sceneName)
     {
         yield return new WaitForSeconds(3);
         sceneController.CargarEscena(sceneName);
     }
+    public void Derrota(string sceneName)
+    {
+        if (estadoVehiculoP.vida <= 0 && !Estados.DevolverEstado("gameOver"))
+        {
+            mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraDerrota"].Value;
+            Estados.ModificarEstado("gameOver", true);
+            panelVictoria.SetActive(true);
+            StartCoroutine(cargarEscenaDespuesDe3Segundos(sceneName));
+        }
+    }
+    public void Victoria(string sceneName)
+    {
+        if (estadoVehiculoE.vida <= 0 && !Estados.DevolverEstado("gameOver"))
+        {
+            mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraVictoria"].Value;
+            panelVictoria.SetActive(true);
+            switch (GameManager.nombreDeEscenaActual)
+            {
+                case "CarreraDeDemolicion":
+                    Estados.ModificarEstado("primeraCarreraTerminada", true);
+                    break;
+                case "SegundaCarreraDemolicion":
+                    Estados.ModificarEstado("segundaCarreraTerminada", true);
+                    break;
+            }
+            StartCoroutine(cargarEscenaDespuesDe3Segundos(sceneName));
+        }
+    }
+
 
     public void CambiarVida(Vector3 a, Vector3 b, string objetoCollision, int attack)
     {

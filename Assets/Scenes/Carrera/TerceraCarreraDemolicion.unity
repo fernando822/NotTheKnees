@@ -2262,7 +2262,7 @@ GameObject:
   - component: {fileID: 919197951}
   - component: {fileID: 919197950}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: "NumeroDa\xF1oEnemigo"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4613,7 +4613,7 @@ GameObject:
   - component: {fileID: 1880157947}
   - component: {fileID: 1880157946}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: "NumeroDa\xF1o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

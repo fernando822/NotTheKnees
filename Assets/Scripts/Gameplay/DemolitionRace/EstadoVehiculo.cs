@@ -22,11 +22,15 @@ public class EstadoVehiculo : MonoBehaviour
     void Awake()
     {
         contadorVida = GameObject.Find("LifeController").GetComponent<ControladorVida>();
+        if(this.gameObject.tag == "Player")
+            text = GameObject.Find("NumeroDaño").GetComponent<TextMeshProUGUI>();
+        else
+            this.text = GameObject.Find("NumeroDañoEnemigo").GetComponent<TextMeshProUGUI>();
         rb = GetComponent<Rigidbody>(); 
     }
     private void Start()
     {
-        vida = 100;
+        this.vida = 100;
         Estados.ModificarEstado("gameOver", false);
     }
     private void Update()
@@ -36,33 +40,33 @@ public class EstadoVehiculo : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        speedV3 = rb.velocity;
+        this.speedV3 = this.rb.velocity;
 
         if (other.gameObject.tag == "Player")
-            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.tag, attack);
+            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.tag, this.attack);
 
 
         if (other.gameObject.tag == "Enemy")
-            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.name, attack);
+            contadorVida.CambiarVida(speedV3, other.rigidbody.velocity, other.collider.name, this.attack);
 
-        Debug.Log("Vida de " +this.name +": "+ vida);
+        Debug.Log("Vida de " +this.name +": "+ this.vida);
     }
 
     public void RecibirDaño(int daño)
     {
-        vida -= daño;
-        text.text = "" + -daño;
-        tiempoDaño = esperaDaño;
+        this.vida -= daño;
+        this.text.text = "" + -daño;
+        this.tiempoDaño = this.esperaDaño;
     }
 
     void cartelDaño()
     {
-        if (tiempoDaño > 0) 
-        { 
-            tiempoDaño -= Time.deltaTime;
+        if (this.tiempoDaño > 0) 
+        {
+            this.tiempoDaño -= Time.deltaTime;
 
-            if (tiempoDaño <= 0)
-                text.text = "";
+            if (this.tiempoDaño <= 0)
+                this.text.text = "";
         }
     }
 }

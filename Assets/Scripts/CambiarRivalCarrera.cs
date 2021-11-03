@@ -14,7 +14,9 @@ public class CambiarRivalCarrera : MonoBehaviour
     [SerializeField] GameObject oponenteVehiculoSpawn;
     void Start()
     {
-        if(!Estados.DevolverEstado("primeraCarreraTerminada"))
+        Debug.Log("Primera carrera: " + Estados.DevolverEstado("primeraCarreraTerminada"));
+        Debug.Log("Segunda carrera: " + Estados.DevolverEstado("segundaCarreraTerminada"));
+        if (!Estados.DevolverEstado("primeraCarreraTerminada"))
         {
             Instantiate(oponente1, oponenteSpawn.transform.position, Quaternion.identity);
             Instantiate(oponenteVehiculo1, oponenteVehiculoSpawn.transform.position, Quaternion.identity);
@@ -25,6 +27,7 @@ public class CambiarRivalCarrera : MonoBehaviour
             {
                 Instantiate(oponente2, oponenteSpawn.transform.position, Quaternion.identity);
                 Instantiate(oponenteVehiculo2, oponenteVehiculoSpawn.transform.position, Quaternion.identity);
+                
             }
             else
             {
