@@ -142,5 +142,17 @@ MonoBehaviour:
     m_Localized: Maybe I could use these tools for something...
     m_Metadata:
       m_Items: []
+  - m_Id: 680696480235520
+    m_Localized: I should check my vehicle first
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683345908826112
+    m_Localized: You collect toolbox!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683522967175168
+    m_Localized: You receive a certificate of entry to the tournament
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

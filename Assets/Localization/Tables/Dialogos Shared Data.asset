@@ -132,7 +132,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 370775222091776
-    m_Key: Dialogo.CajaHerramientas
+    m_Key: Dialogo.CajaHerramientas001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 680696480235520
+    m_Key: Dialogo.PuertaTaller
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683345908826112
+    m_Key: Dialogo.CajaHerramientas002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683522967175168
+    m_Key: Dialogo.Recepcionista006
     m_Metadata:
       m_Items: []
   m_Metadata:

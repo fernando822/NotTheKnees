@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Localization;
+using UnityEngine.UI;
 
 
 
@@ -10,6 +11,8 @@ public class ControladorVida : MonoBehaviour
 {
     public EstadoVehiculo estadoVehiculoP;
     public EstadoVehiculo estadoVehiculoE;
+    Slider barraSaludPlayer;
+    Slider barraSaludEnemigo;
     [SerializeField] TextMeshProUGUI mensajeVictoria;
     [SerializeField] GameObject panelVictoria;
     [SerializeField] SceneController sceneController;
@@ -28,13 +31,18 @@ public class ControladorVida : MonoBehaviour
     {
         estadoVehiculoP = GameObject.FindGameObjectWithTag("Player").GetComponent<EstadoVehiculo>();
         estadoVehiculoE = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EstadoVehiculo>();
+        barraSaludPlayer = GameObject.Find("BarraDeVida").GetComponent<Slider>();
+        barraSaludEnemigo = GameObject.Find("BarraVidaEnemigo").GetComponent<Slider>();
         panelVictoria = GameObject.Find("Fin");
         mensajeVictoria = GameObject.Find("VictoriaText").GetComponent<TextMeshProUGUI>();
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        barraSaludPlayer.value = estadoVehiculoP.vida;
+        barraSaludEnemigo.value = estadoVehiculoE.vida;
     }
     private void Start()
     {
         panelVictoria.SetActive(false);
+
     }
     private void FixedUpdate()
     {
@@ -80,12 +88,14 @@ public class ControladorVida : MonoBehaviour
             if (objetoCollision == estadoVehiculoP.tag)
             {
                 estadoVehiculoP.RecibirDaño(daño);
+                barraSaludPlayer.value = estadoVehiculoP.vida;
             }
 
 
             if (objetoCollision == estadoVehiculoE.name)
             {
                 estadoVehiculoE.RecibirDaño(daño);
+                barraSaludEnemigo.value = estadoVehiculoE.vida;
             }
         }
     }

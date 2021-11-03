@@ -9,6 +9,8 @@ public class SceneController : MonoBehaviour
     {
         GameManager.nombreDeEscenaActual = SceneManager.GetActiveScene().name;
         GameManager.GM.ActualizarReferencias();
+        if (!GameManager.nombreDeEscenaActual.Equals("AventuraGrafica") && !GameManager.nombreDeEscenaActual.Contains("Menu"))
+            GameManager.GM.PlayerShowControls();
         Estados.ModificarEstado("isUiOpen", false);
         Estados.ModificarEstado("dialogueOngoing", false);
         if(!GameManager.nombreDeEscenaActual.Contains("Menu"))

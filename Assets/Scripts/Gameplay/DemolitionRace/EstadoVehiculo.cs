@@ -9,7 +9,6 @@ using TMPro;
 public class EstadoVehiculo : MonoBehaviour
 {
     ControladorVida contadorVida;
-    [SerializeField] Slider slider;
     [SerializeField] TextMeshProUGUI text;
 
     Rigidbody rb;
@@ -52,7 +51,6 @@ public class EstadoVehiculo : MonoBehaviour
     public void RecibirDaño(int daño)
     {
         vida -= daño;
-        slider.value = vida;
         text.text = "" + -daño;
         tiempoDaño = esperaDaño;
     }

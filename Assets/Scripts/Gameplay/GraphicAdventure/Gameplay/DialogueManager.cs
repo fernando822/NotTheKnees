@@ -88,12 +88,79 @@ public class DialogueManager : MonoBehaviour
         textoEmisor.text = "";
         Estados.ModificarEstado("dialogueOngoing", false);
     }
-
+    public void EndDialogue()
+    {
+        lineasDeTexto.Clear();
+        ClearText();
+    }
     public void DefinirTextoDelEmisor(string emisor)
     {
         textoEmisor.text = emisor;
     }
 
+    public void Controlador(string nombreObjeto)
+    {
+        switch (nombreObjeto)
+        {
+            case "Tio":
+                Estados.ModificarEstado("haveKey", true);
+                GameManager.GM.ActualizarMochila();
+                break;
+            case "Recepcion":
+                Estados.ModificarEstado("haveCertificate", true);
+                GameManager.GM.ActualizarMochila();
+                break;
+            case "PuertaCasa":
+                if (Estados.DevolverEstado("haveKey"))
+                {
+                    GameManager.GM.LimpiarTexto();
+                    GameManager.GM.ToggleMap();
+                    break;
+                }
+                break;
+            case "PuertaEmpezarCarrera":
+                if (Estados.DevolverEstado("haveCertificate"))
+                {
+                    GameManager.GM.LimpiarTexto();
+                    if (!Estados.DevolverEstado("primeraCarreraTerminada"))
+                    {
+                        GameManager.GM.CargarEscena("CarreraDeDemolicion");
+                        break;
+                    }
+                    if (!Estados.DevolverEstado("segundaCarreraTerminada"))
+                    {
+                        GameManager.GM.CargarEscena("SegundaCarreraDemolicion");
+                        break;
+                    }
+                    else
+                    {
+                        GameManager.GM.CargarEscena("TerceraCarreraDemolicion");
+                        break;
+                    }
+                }
+                break;
+            case "PuertaEntradaTorneo":
+                GameManager.GM.LimpiarTexto();
+                GameManager.GM.ToggleMap();
+                break;
+            case "PuertaTaller":
+                if (Estados.DevolverEstado("checkedCar"))
+                {
+                    GameManager.GM.LimpiarTexto();
+                    GameManager.GM.ToggleMap();
+                }
+                break;
+            case "CajaHerramientas":
+                Estados.ModificarEstado("haveToolBox", true);
+                break;
+            case "Elevador":
+                Estados.ModificarEstado("checkedCar", true);
+                break;
+            default:
+
+                break;
+        }
+    }
     /*public void Sounds()
     {
         dialogueSounds.Sound();

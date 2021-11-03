@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Cinematicas/CinematicaInicial.unity
     guid: 62b3cb5f50cbae0479416d543fc63f4d
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Menu/MainMenu.unity
     guid: 2159755c146386e41bcd9c4ab4304d6f
   - enabled: 1
-    path: Assets/Scenes/OptionMenu.unity
+    path: Assets/Scenes/Menu/OptionMenu.unity
     guid: d0a0f512b09d77545a437e15617aa61e
   - enabled: 1
-    path: Assets/Scenes/PauseMenu.unity
+    path: Assets/Scenes/Menu/PauseMenu.unity
     guid: d96fed541bb8b10468c18aaa31564bd6
   - enabled: 1
     path: Assets/Scenes/Carrera/CarreraDeDemolicion.unity

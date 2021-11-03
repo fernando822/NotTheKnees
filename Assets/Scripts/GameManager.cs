@@ -78,63 +78,8 @@ public class GameManager : MonoBehaviour
                     dialogueManager.MostrarSiguienteFrase();
                 }
 
-                switch (objetoAInteractuar.name)
-                {
-                    case "Tio":
-                        Estados.ModificarEstado("haveKey",true);
-                        mochilaManager.ActualizarMochila();
-                        break;
-                    case "Recepcion":
-                        Estados.ModificarEstado("haveCertificate", true);
-                        mochilaManager.ActualizarMochila();
-                        break;
-                    case "PuertaCasa":
-                        if (Estados.DevolverEstado("haveKey"))
-                        {
-                            dialogueManager.ClearText();
-                            ToggleMap();
-                            break;
-                        }
-                        break;
-                    case "PuertaEmpezarCarrera":
-                        if (Estados.DevolverEstado("haveCertificate"))
-                        {
-                            dialogueManager.ClearText();
-                            if (!Estados.DevolverEstado("primeraCarreraTerminada"))
-                            {
-                                sceneController.CargarEscena("CarreraDeDemolicion");
-                                break;
-                            }
-                            if(!Estados.DevolverEstado("segundaCarreraTerminada"))
-                            {
-                                sceneController.CargarEscena("SegundaCarreraDemolicion");
-                                break;
-                            }
-                            else
-                            {
-                                sceneController.CargarEscena("TerceraCarreraDemolicion");
-                                break;
-                            }
-                        }
-                        break;
-                    case "PuertaEntradaTorneo":
-                        dialogueManager.ClearText();
-                        ToggleMap();
-                        break;
-                    case "PuertaTaller":
-                        dialogueManager.ClearText();
-                        ToggleMap();
-                        break;
-                    case "CajaHerramientas":
-                        Estados.ModificarEstado("haveToolBox", true);
-                        break;
-                    case "Elevador":
-                        Estados.ModificarEstado("checkedCar", true);
-                        break;
-                    default:
-                        
-                        break;
-                }
+                dialogueManager.Controlador(objetoAInteractuar.name);
+                
             }
             else
             {
@@ -162,8 +107,18 @@ public class GameManager : MonoBehaviour
     {
         uiManager.ToggleMap();
     }
-
-
+    public void ActualizarMochila()
+    {
+        mochilaManager.ActualizarMochila();
+    }
+    public void LimpiarTexto()
+    {
+        dialogueManager.ClearText();
+    }
+    public void CargarEscena(string sceneName)
+    {
+        sceneController.CargarEscena(sceneName);
+    }
     public void PlayerDemolitionRaceMovement(Vector2 value)
     {
         playerDemolitionRace.movementScript.Accelerate(value.y);

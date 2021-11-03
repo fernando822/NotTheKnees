@@ -143,5 +143,17 @@ MonoBehaviour:
     m_Localized: "Quiz\xE1s podr\xEDa utilizar estas herramientas para algo..."
     m_Metadata:
       m_Items: []
+  - m_Id: 680696480235520
+    m_Localized: "Deber\xEDa revisar mi veh\xEDculo primero"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683345908826112
+    m_Localized: Recoges caja de herramientas!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683522967175168
+    m_Localized: Recibes certificado de ingreso al torneo
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

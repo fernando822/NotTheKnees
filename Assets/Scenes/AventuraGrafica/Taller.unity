@@ -649,7 +649,8 @@ MonoBehaviour:
   dialogos:
     nombre: Amon Gas
     keyWords:
-    - Dialogo.CajaHerramientas
+    - Dialogo.CajaHerramientas001
+    - Dialogo.CajaHerramientas002
 --- !u!65 &323261363
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -677,6 +678,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7071595898322835902, guid: 9c0b15326ac378b46abf5021062346b7, type: 3}
+--- !u!114 &323261365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323261361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913dbe36df4b6da4191b7a05bf4453ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &336001036
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +814,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.85
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3030,7 +3043,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1687725278}
   dialogos:
     nombre: Amon Gas
-    keyWords: []
+    keyWords:
+    - Dialogo.PuertaTaller
 --- !u!1 &1329918602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,6 +4503,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9c0b15326ac378b46abf5021062346b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9c0b15326ac378b46abf5021062346b7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9c0b15326ac378b46abf5021062346b7, type: 3}
       propertyPath: m_Name

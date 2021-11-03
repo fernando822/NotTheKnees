@@ -13,5 +13,9 @@ public class SliderController : MonoBehaviour
     void Update()
     {
         sliderTurbo.value = Turbo.turboRestante;
+        if (Estados.DevolverEstado("gameOver") && this.gameObject.activeSelf)
+            sliderTurbo.enabled = false;
+        else
+            sliderTurbo.enabled = true;
     }
 }
