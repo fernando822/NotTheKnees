@@ -27,7 +27,7 @@ public class SpawnTurbo : MonoBehaviour
     {
         if (time <= 0)
         {
-            var position = new Vector3(Random.Range(X.x, X.y), 2, Random.Range(Z.x, Z.y));
+            var position = new Vector3(Random.Range(X.x, X.y), 1.5f, Random.Range(Z.x, Z.y));
 
             if(contadorTurbos < 10)
             {
