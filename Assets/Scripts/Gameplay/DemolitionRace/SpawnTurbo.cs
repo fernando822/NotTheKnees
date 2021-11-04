@@ -15,7 +15,7 @@ public class SpawnTurbo : MonoBehaviour
 
     void Start()
     {
-        
+        time = delay;
     }
 
     void FixedUpdate()
@@ -38,14 +38,6 @@ public class SpawnTurbo : MonoBehaviour
             time = delay;
         }
         else
-            time -= Time.deltaTime;
+            time -= Time.fixedDeltaTime;
     }
-
-
-
-
-        
-
-
-
 }
