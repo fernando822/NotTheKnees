@@ -88,5 +88,10 @@ MonoBehaviour:
     m_Localized: Perdiste!
     m_Metadata:
       m_Items: []
+  - m_Id: 783735937531904
+    m_Localized: "Nuevo torneo de carreras de demolici\xF3n\r\n\r\nUNETE YA GRATIS!\r\n\r\nPREMIO:
+      $1.000.000"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

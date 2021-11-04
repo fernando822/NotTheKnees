@@ -79,6 +79,10 @@ MonoBehaviour:
     m_Key: UI.ResultadoCarreraDerrota
     m_Metadata:
       m_Items: []
+  - m_Id: 783735937531904
+    m_Key: UI.Cinematica001
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

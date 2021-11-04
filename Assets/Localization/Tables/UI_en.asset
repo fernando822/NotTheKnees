@@ -86,5 +86,16 @@ MonoBehaviour:
     m_Localized: You lose!
     m_Metadata:
       m_Items: []
+  - m_Id: 783735937531904
+    m_Localized: 'New demolition derby tournament
+
+
+      JOIN NOW FOR FREE!
+
+
+      PRIZE:
+      $ 1,000,000'
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

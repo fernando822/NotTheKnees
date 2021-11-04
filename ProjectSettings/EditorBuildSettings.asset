@@ -18,17 +18,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/PauseMenu.unity
     guid: d96fed541bb8b10468c18aaa31564bd6
   - enabled: 1
-    path: Assets/Scenes/Carrera/CarreraDeDemolicion.unity
-    guid: 84d7d0a4d51107b4ca8224888ae4eab9
-  - enabled: 1
     path: Assets/Scenes/AventuraGrafica/AventuraGrafica.unity
     guid: 639a8a1a6dad00e45949f38432451b3b
+  - enabled: 1
+    path: Assets/Scenes/Cinematicas/PrimeraCinematica.unity
+    guid: 46c1f4f94a0ef904ea6c4af7338c8c3c
   - enabled: 1
     path: Assets/Scenes/AventuraGrafica/Taller.unity
     guid: cb02e1ecab757d34db6f0b75dc7b554d
   - enabled: 1
     path: Assets/Scenes/AventuraGrafica/Torneo.unity
     guid: 62dc72a589e8ce24d9655abad38cb189
+  - enabled: 1
+    path: Assets/Scenes/Carrera/CarreraDeDemolicion.unity
+    guid: 84d7d0a4d51107b4ca8224888ae4eab9
   - enabled: 1
     path: Assets/Scenes/Carrera/SegundaCarreraDemolicion.unity
     guid: f5ecd8c3b499b47499ff6f4ffb7d89a2
