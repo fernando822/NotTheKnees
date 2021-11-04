@@ -38,6 +38,11 @@ public class ControladorVida : MonoBehaviour
         mensajeVictoria = GameObject.Find("VictoriaText").GetComponent<TextMeshProUGUI>();
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
         barraSaludPlayer.value = estadoVehiculoP.vida;
+        if (Estados.DevolverEstado("vehiculoSaboteado"))
+        {
+            estadoVehiculoE.vida /= 2;
+            Estados.ModificarEstado("vehiculoSaboteado", false);
+        }
         barraSaludEnemigo.value = estadoVehiculoE.vida;
     }
     private void Start()

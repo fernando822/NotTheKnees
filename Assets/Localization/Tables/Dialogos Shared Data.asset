@@ -147,6 +147,58 @@ MonoBehaviour:
     m_Key: Dialogo.Recepcionista006
     m_Metadata:
       m_Items: []
+  - m_Id: 1045604027826176
+    m_Key: Dialogo.Oponente2001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047135359827968
+    m_Key: Dialogo.Oponente2002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047143349977088
+    m_Key: Dialogo.Oponente2003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047661422018560
+    m_Key: Dialogo.Oponente2004
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047879391608832
+    m_Key: Dialogo.Oponente2005
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050111268847616
+    m_Key: Dialogo.Oponente3001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050192973889536
+    m_Key: Dialogo.Oponente3002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050565117706240
+    m_Key: Dialogo.Oponente3003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050661389565952
+    m_Key: Dialogo.Oponente3004
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050759502725120
+    m_Key: Dialogo.Oponente3005
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051778903146496
+    m_Key: Dialogo.Recepcionista00
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051834167296000
+    m_Key: Dialogo.Recepcionista007
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1073233837654016
+    m_Key: Dialogo.PuertaEntradaTorneo
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

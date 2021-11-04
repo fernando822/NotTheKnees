@@ -156,9 +156,32 @@ public class DialogueManager : MonoBehaviour
             case "Elevador":
                 Estados.ModificarEstado("checkedCar", true);
                 break;
+            case "Enemigo1(Clone)":
+                Sabotear();
+                break;
+            case "Enemigo2(Clone)":
+                Sabotear();
+                break;
+            case "Enemigo3(Clone)":
+                Sabotear();
+                break;
             default:
 
                 break;
+        }
+
+        
+    }
+
+    public void Sabotear()
+    {
+        if (Estados.DevolverEstado("haveToolBox"))
+        {
+            if (!Estados.DevolverEstado("dialogueOngoing"))
+            {
+                if(!Estados.DevolverEstado("vehiculoSaboteado"))
+                    GameManager.GM.ToggleChoices();
+            }
         }
     }
     /*public void Sounds()

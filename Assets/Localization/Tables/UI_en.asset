@@ -97,5 +97,21 @@ MonoBehaviour:
       $ 1,000,000'
     m_Metadata:
       m_Items: []
+  - m_Id: 1056032032260096
+    m_Localized: Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1091916446269440
+    m_Localized: Do you want to sabotage the vehicle?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1092529389273088
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1092694313500672
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

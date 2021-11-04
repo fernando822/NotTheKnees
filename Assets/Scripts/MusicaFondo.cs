@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MusicaFondo : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource;
+    AudioSource audioSource;
 
     [SerializeField] AudioClip CarreraDeDemolicion;
     [SerializeField] AudioClip SegundaCarreraDemolicion;
@@ -14,17 +13,20 @@ public class MusicaFondo : MonoBehaviour
     [SerializeField] AudioClip Taller;
     [SerializeField] AudioClip Torneo;
     [SerializeField] AudioClip MainMenu;
-    [SerializeField] AudioClip Mochila;
-    [SerializeField] AudioClip OpcionMenu;
 
-    static string nombreDeEscenaActual;
 
-    void Start()
+    public void CambiarMusica(string sceneName)
     {
-        nombreDeEscenaActual = SceneManager.GetActiveScene().name;
-
-        switch (nombreDeEscenaActual)
+        audioSource = GetComponent<AudioSource>();
+        switch (sceneName)
         {
+            case "MainMenu":
+                audioSource.Stop();
+                audioSource.Play();
+                audioSource.clip = MainMenu;
+                audioSource.Play();
+                break;
+
             case "CarreraDeDemolicion":
                 audioSource.Stop();
                 audioSource.clip = CarreraDeDemolicion;
@@ -61,30 +63,13 @@ public class MusicaFondo : MonoBehaviour
                 audioSource.Play();
                 break;
 
-            case "MainMenu":
+            default:
                 audioSource.Stop();
-                audioSource.clip = MainMenu;
-                audioSource.Play();
-                break;
-
-            case "Mochila":
-                audioSource.Stop();
-                audioSource.clip = Mochila;
-                audioSource.Play();
-                break;
-
-            case "OpcionMenu":
-                audioSource.Stop();
-                audioSource.clip = OpcionMenu;
-                audioSource.Play();
+                audioSource.clip = null;
                 break;
         }
 
 
     }
 
-    void Update()
-    {
-        
-    }
 }

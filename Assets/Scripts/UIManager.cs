@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject panelControles;
     [SerializeField] GameObject mochila;
     [SerializeField] GameObject map;
+    [SerializeField] GameObject choices;
     [SerializeField] GameObject turboEffect;
 
 
@@ -18,12 +19,12 @@ public class UIManager : MonoBehaviour
         {
             map.SetActive(false);
             mochila.SetActive(false);
+            choices.SetActive(false);
         }
     }
     private void Update()
     {
         ActualizarEfectoTurbo();
-
 
     }
     public void TogglePanel()
@@ -39,7 +40,26 @@ public class UIManager : MonoBehaviour
     {
         ToggleUI(map);
     }
-    
+    public void ToggleChoices()
+    {
+        ToggleUI(choices);
+        Debug.Log(GameManager.karma);
+    }
+
+    public void ChoicesYes()
+    {
+        GameManager.karma++;
+        Estados.ModificarEstado("vehiculoSaboteado", true);
+        ToggleChoices();
+    }
+
+    public void ChoicesNo()
+    {
+        GameManager.karma--;
+        Estados.ModificarEstado("vehiculoSaboteado", false);
+        ToggleChoices();
+    }
+
     void ActualizarEfectoTurbo()
     {
         if (GameManager.nombreDeEscenaActual.Contains("Carrera"))

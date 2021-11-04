@@ -155,5 +155,63 @@ MonoBehaviour:
     m_Localized: Recibes certificado de ingreso al torneo
     m_Metadata:
       m_Items: []
+  - m_Id: 1045604027826176
+    m_Localized: "Oh, as\xED que t\xFA ser\xE1s mi rival \r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047135359827968
+    m_Localized: "Ganar\xE9 este torneo para poder volver a mi plane\u2026 digo\u2026
+      comprar muchas skins del lol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047143349977088
+    m_Localized: "\xBFC\xF3mo estoy tan seguro de que voy a ganar, preguntas?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047661422018560
+    m_Localized: "Pues, porque soy el mejor de los humanos, eso es, \xA1soy un humano!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047879391608832
+    m_Localized: No soy un impostor, juego equivocado!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050111268847616
+    m_Localized: Nos volvemos a encontrar hermanito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050192973889536
+    m_Localized: "Por fin podr\xE9 vengarme, no creas que he olvidado c\xF3mo nos
+      dejaste de lado a mam\xE1 y a mi luego de que nuestro padre recibi\xF3 ese
+      flechazo en la rodilla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050565117706240
+    m_Localized: No recordaste que la familia lo es todo y vas a pagar por ello
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050661389565952
+    m_Localized: "Terminar\xE9 esto r\xE1pidamente para poder ir a disfrutar una
+      Corona bien fr\xEDa acompa\xF1ada del sabor de la venganza!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050759502725120
+    m_Localized: See you again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051778903146496
+    m_Localized: "\xA1Felicidades por ganar tu primera carrera!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051834167296000
+    m_Localized: 'Felicidades por ganar, la final te espera. Buena suerte
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1073233837654016
+    m_Localized: "Deber\xEDa participar en el torneo"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

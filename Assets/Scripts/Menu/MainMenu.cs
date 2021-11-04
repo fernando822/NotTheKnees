@@ -17,10 +17,11 @@ public class MainMenu : MonoBehaviour
         sceneController.CargarEscena("LoadGame");
     }
     public void OptionsButton(){
-        sceneController.CargarEscena("OptionMenu");
+        sceneController.CargarEscenaAsync("OptionMenu");
     }
     public void CreditsButton(){
-        sceneController.CargarEscena("CinematicaInicial");
+        sceneController.CargarEscenaAsync("CinematicaInicial");
+        //sceneController.CargarEscena("CinematicaInicial");
     }
      public void QuitGameButton(){
         Application.Quit();

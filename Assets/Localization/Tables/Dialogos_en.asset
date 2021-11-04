@@ -154,5 +154,62 @@ MonoBehaviour:
     m_Localized: You receive a certificate of entry to the tournament
     m_Metadata:
       m_Items: []
+  - m_Id: 1045604027826176
+    m_Localized: Oh so you will be my rival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047135359827968
+    m_Localized: "I will win this tournament so I can go back to my plane\u2026 I
+      mean\u2026 buy a lot of skins from lol."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047143349977088
+    m_Localized: How am I so sure I'm going to win you ask?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047661422018560
+    m_Localized: Well, because I am the best of humans, that is, I am a human!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1047879391608832
+    m_Localized: I am not an imposter, wrong game!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050111268847616
+    m_Localized: We meet again little brother
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050192973889536
+    m_Localized: I will finally be able to take revenge, do not think that I have
+      forgotten how you left my mother and me aside after our father received that
+      arrow shot on the knee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050565117706240
+    m_Localized: You didn't remember that family is everything and you're going to
+      pay for it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050661389565952
+    m_Localized: I will finish this quickly so that I can go and enjoy a very cold
+      Corona accompanied by the taste of revenge!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1050759502725120
+    m_Localized: See you again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051778903146496
+    m_Localized: Congratulations on winning your first race!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051834167296000
+    m_Localized: Congratulations on winning, the final awaits you. Good luck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1073233837654016
+    m_Localized: I should participate in the tournament
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

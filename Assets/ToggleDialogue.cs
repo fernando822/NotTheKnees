@@ -9,5 +9,12 @@ public class ToggleDialogue : MonoBehaviour
     {
         if (Estados.DevolverEstado("haveCertificate"))
             this.gameObject.GetComponent<DialogoTrigger>().dialogos.keyWords = new string[] {"Dialogo.Recepcionista005"};
+
+        if(Estados.DevolverEstado("primeraCarreraTerminada"))
+            this.gameObject.GetComponent<DialogoTrigger>().dialogos.keyWords = new string[] {"Dialogo.Recepcionista006"};
+        
+        if (Estados.DevolverEstado("segundaCarreraTerminada"))
+            this.gameObject.GetComponent<DialogoTrigger>().dialogos.keyWords = new string[] {"Dialogo.Recepcionista007"};
+
     }
 }

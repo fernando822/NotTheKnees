@@ -81,11 +81,11 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 853b3ca70b6de3843b2464a4f88a7251, type: 2}
-  - {fileID: 2100000, guid: ffd65543dbacd9c42893033c9312b244, type: 2}
-  - {fileID: 2100000, guid: c96c77c9011f8864a9d0a0627d3de790, type: 2}
-  - {fileID: 2100000, guid: 606aa86a1ea20b541a79f5aa3cf47801, type: 2}
-  - {fileID: 2100000, guid: 606aa86a1ea20b541a79f5aa3cf47801, type: 2}
+  - {fileID: 2100000, guid: 505194de730f4d744a4bbb2145190a65, type: 2}
+  - {fileID: 2100000, guid: fc81249f56774ea428123b2d82f46891, type: 2}
+  - {fileID: 2100000, guid: 505194de730f4d744a4bbb2145190a65, type: 2}
+  - {fileID: 2100000, guid: 505194de730f4d744a4bbb2145190a65, type: 2}
+  - {fileID: 2100000, guid: fc81249f56774ea428123b2d82f46891, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -600,12 +600,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 0}
   dialogos:
-    nombre: Forth Nite 3
+    nombre: Attodo Gas
     keyWords:
-    - Dialogo.Oponente1001
-    - Dialogo.Oponente1002
-    - Dialogo.Oponente1003
-    - Dialogo.Oponente1004
+    - Dialogo.Oponente3001
+    - Dialogo.Oponente3002
+    - Dialogo.Oponente3003
+    - Dialogo.Oponente3004
+    - Dialogo.Oponente3005
 --- !u!1 &2518648161771656737
 GameObject:
   m_ObjectHideFlags: 0

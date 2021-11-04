@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private DemolitionRacePlayer playerDemolitionRace;
     private GameObject playerAdventureGraphic;
     public static string nombreDeEscenaActual;
+    public static int indexLocale;
+    public static int karma;
     private AdventureGraphicPlayer scriptPlayerAdventureGraphic;
     [SerializeField] SceneController sceneController;
     [SerializeField] DialogueManager dialogueManager;
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
     SpawnTurbo spawnTurbo;
     InputPlayerDemolitionRace inputPlayerDemolitionRace;
     InputPlayer inputPlayer;
+    MusicaFondo musicaFondo;
 
 
     private void Awake()
@@ -36,7 +39,8 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {
-        
+        indexLocale = 0;
+        karma = 0;
     }
     private void AgregarEstados()
     {
@@ -53,6 +57,8 @@ public class GameManager : MonoBehaviour
         Estados.AgregarEstado("primeraVezEnPrimeraEscena", true);
         Estados.AgregarEstado("inMenu", true);
         Estados.AgregarEstado("gameOver", false);
+        Estados.AgregarEstado("madeChoice", false);
+        Estados.AgregarEstado("vehiculoSaboteado", false);
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
@@ -62,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAction()
     {
-        if (!Estados.DevolverEstado("isUiOpen"))
+        if (!Estados.DevolverEstado("isUiOpen") && !Estados.DevolverEstado("inMenu"))
         {
             if (PuedeInteractuar.interactuable)
             {
@@ -83,8 +89,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (!Estados.DevolverEstado("inMenu"))
-                    dialogueManager.ClearText();
+                 dialogueManager.ClearText();
             }
         }
     }
@@ -106,6 +111,11 @@ public class GameManager : MonoBehaviour
     public void ToggleMap()
     {
         uiManager.ToggleMap();
+    }
+
+    public void ToggleChoices()
+    {
+        uiManager.ToggleChoices();
     }
     public void ActualizarMochila()
     {
@@ -131,13 +141,17 @@ public class GameManager : MonoBehaviour
         playerDemolitionRace.handBreak.HandBrake();
         Estados.ModificarEstado("isHandbraking", true);
     }
-
+    public void CambiarMusica()
+    {
+        musicaFondo.CambiarMusica(nombreDeEscenaActual);
+    }
     public void ActualizarReferencias()
     {
         nombreDeEscenaActual = SceneManager.GetActiveScene().name;
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
         inputPlayer = GetComponent<InputPlayer>();
         inputPlayerDemolitionRace = GetComponent<InputPlayerDemolitionRace>();
+        musicaFondo = GetComponent<MusicaFondo>();
 
         if (nombreDeEscenaActual.Contains("Carrera"))
         {
@@ -165,4 +179,6 @@ public class GameManager : MonoBehaviour
             scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
         }
     }
+    
+
 }

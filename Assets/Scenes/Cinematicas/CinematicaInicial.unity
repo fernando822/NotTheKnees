@@ -407,7 +407,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1070868601}
   - component: {fileID: 1070868600}
-  - component: {fileID: 1070868599}
   - component: {fileID: 1070868602}
   m_Layer: 0
   m_Name: Main Camera
@@ -416,14 +415,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1070868599
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070868598}
-  m_Enabled: 1
 --- !u!20 &1070868600
 Camera:
   m_ObjectHideFlags: 0
@@ -479,7 +470,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1070868602
 MonoBehaviour:
@@ -776,8 +767,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1666345703
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &2067165187
 RectTransform:
@@ -792,7 +783,7 @@ RectTransform:
   m_Children:
   - {fileID: 1433303151}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

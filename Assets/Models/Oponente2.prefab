@@ -392,12 +392,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 0}
   dialogos:
-    nombre: Forth Nite 2
+    nombre: Ligo Leyen
     keyWords:
-    - Dialogo.Oponente1001
-    - Dialogo.Oponente1002
-    - Dialogo.Oponente1003
-    - Dialogo.Oponente1004
+    - Dialogo.Oponente2001
+    - Dialogo.Oponente2002
+    - Dialogo.Oponente2003
+    - Dialogo.Oponente2004
+    - Dialogo.Oponente2005
 --- !u!1 &1931539269693845664
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,11 +819,11 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 853b3ca70b6de3843b2464a4f88a7251, type: 2}
-  - {fileID: 2100000, guid: ffd65543dbacd9c42893033c9312b244, type: 2}
-  - {fileID: 2100000, guid: c96c77c9011f8864a9d0a0627d3de790, type: 2}
+  - {fileID: 2100000, guid: 0a9eaf363cb5af341832a2977ed43a06, type: 2}
+  - {fileID: 2100000, guid: d22eb96fafb45624f9482c4b610cbcd3, type: 2}
+  - {fileID: 2100000, guid: e9418be1d2396be44b999def6f0dabce, type: 2}
   - {fileID: 2100000, guid: 606aa86a1ea20b541a79f5aa3cf47801, type: 2}
-  - {fileID: 2100000, guid: 606aa86a1ea20b541a79f5aa3cf47801, type: 2}
+  - {fileID: 2100000, guid: 9d92b9e2b6dccb14a9aa4b4297b38084, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

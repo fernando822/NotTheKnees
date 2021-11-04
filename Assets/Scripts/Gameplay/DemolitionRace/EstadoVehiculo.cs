@@ -21,6 +21,7 @@ public class EstadoVehiculo : MonoBehaviour
 
     void Awake()
     {
+        vida = 100;
         contadorVida = GameObject.Find("LifeController").GetComponent<ControladorVida>();
         if(this.gameObject.tag == "Player")
             text = GameObject.Find("NumeroDaño").GetComponent<TextMeshProUGUI>();
@@ -30,7 +31,6 @@ public class EstadoVehiculo : MonoBehaviour
     }
     private void Start()
     {
-        this.vida = 100;
         Estados.ModificarEstado("gameOver", false);
     }
     private void Update()

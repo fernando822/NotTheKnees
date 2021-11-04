@@ -83,6 +83,22 @@ MonoBehaviour:
     m_Key: UI.Cinematica001
     m_Metadata:
       m_Items: []
+  - m_Id: 1056032032260096
+    m_Key: UI.Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1091916446269440
+    m_Key: UI.Choice001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1092529389273088
+    m_Key: UI.ChoiceYes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1092694313500672
+    m_Key: UI.ChoicesNo
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
