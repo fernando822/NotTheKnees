@@ -24,9 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Cinematicas/PrimeraCinematica.unity
     guid: 46c1f4f94a0ef904ea6c4af7338c8c3c
   - enabled: 1
-    path: Assets/Scenes/AventuraGrafica/Taller.unity
-    guid: cb02e1ecab757d34db6f0b75dc7b554d
-  - enabled: 1
     path: Assets/Scenes/AventuraGrafica/Torneo.unity
     guid: 62dc72a589e8ce24d9655abad38cb189
   - enabled: 1
@@ -50,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cinematicas/CinematicaFinalPesimo.unity
     guid: 504cb79ef76a6fb4b97bf231d1d19088
+  - enabled: 1
+    path: Assets/Scenes/AventuraGrafica/Taller.unity
+    guid: ca4b121cc16e9fb48bfb465a19086fa9
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8dad587503480c149910a036bd249d7b, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: eb12435d3e277f5499001cb2a2b7a5b0, type: 2}

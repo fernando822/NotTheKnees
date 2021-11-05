@@ -48,6 +48,14 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(sceneName);
     }
-    
+    public bool CheckearOpciones()
+    {
+        for(int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            if (SceneManager.GetSceneAt(i).name.Contains("Option"))
+                return true;
+        }
+        return false;
+    }
 
 }

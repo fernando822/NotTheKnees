@@ -14,7 +14,7 @@ public class Idioma : MonoBehaviour
     {
         yield return LocalizationSettings.InitializationOperation;
 
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
     }
 
     

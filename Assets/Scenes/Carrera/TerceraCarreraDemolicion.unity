@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 4b31cc5317970bd40aa4af813f481eae, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 721b68b3e948fd940bfe7d893b606834, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ce288ece1d357354e98135ef54c8a040, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -1726,7 +1726,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.8
+  m_fontSize: 45.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.7
+  m_fontSize: 43.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2903,9 +2903,9 @@ AudioSource:
   m_GameObject: {fileID: 694452006}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6a5ad3657a820a84e9fe4fa6b67dad99, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3394,7 +3394,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792540574}
-  m_LocalRotation: {x: 0.25415868, y: -0.004649306, z: 0.0012217967, w: 0.9671506}
+  m_LocalRotation: {x: 0.25415882, y: -0.00454257, z: 0.0011937476, w: 0.9671511}
   m_LocalPosition: {x: -11, y: 9.1, z: -7.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3912,8 +3912,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.0012217964, y: 0.9671506, z: -0.25415862, w: 0.0046493066}
-  m_LocalPosition: {x: -11, y: 20.4, z: 111}
+  m_LocalRotation: {x: 0.25415882, y: -0.00454257, z: 0.0011937476, w: 0.9671511}
+  m_LocalPosition: {x: -11, y: 9.1, z: -7.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 30959345}
@@ -4020,7 +4020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3213924, y: 0.51562506}
   m_AnchorMax: {x: 0.67733973, y: 0.875625}
-  m_AnchoredPosition: {x: -0.9850006, y: -1.2059937}
+  m_AnchoredPosition: {x: -0.98498535, y: -1.2059937}
   m_SizeDelta: {x: 4.0289993, y: -3.4280014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &974598864
@@ -4109,7 +4109,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 130
+  m_fontSize: 96.05
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6232,12 +6232,12 @@ AudioSource:
   m_GameObject: {fileID: 1467369063}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6a5ad3657a820a84e9fe4fa6b67dad99, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6608,6 +6608,7 @@ MonoBehaviour:
   tolZ: 35
   torque: 0
   Turbo: 0
+  turboActual: 0
   ruedaAdelanteIzquierda: {fileID: 763825199}
   ruedaAdelanteDerecha: {fileID: 1451867690}
   ruedaAtrasIzquierda: {fileID: 578870626}

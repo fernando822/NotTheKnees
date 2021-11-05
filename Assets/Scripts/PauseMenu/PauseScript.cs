@@ -24,23 +24,29 @@ public class PauseScript : MonoBehaviour
     
     void Update()
     {
-        if(Estados.DevolverEstado("isPaused")){
-            Time.timeScale = 0;
-            if(adventurePlayer != null)
-                adventurePlayer.enabled = false;
-            if(racePlayer != null)
-                racePlayer.enabled = false;
-            pausePanel.SetActive(true);
-        }
-        else if(!Estados.DevolverEstado("isPaused"))
+        
+        if (!sceneController.CheckearOpciones())
         {
-            Time.timeScale = 1;
-            if (adventurePlayer != null)
-                adventurePlayer.enabled = true;
-            if (racePlayer != null)
-                racePlayer.enabled = true;
-            pausePanel.SetActive(false);
+            if (Estados.DevolverEstado("isPaused"))
+            {
+                Time.timeScale = 0;
+                if (adventurePlayer != null)
+                    adventurePlayer.enabled = false;
+                if (racePlayer != null)
+                    racePlayer.enabled = false;
+                pausePanel.SetActive(true);
+            }
+            else if (!Estados.DevolverEstado("isPaused"))
+            {
+                Time.timeScale = 1;
+                if (adventurePlayer != null)
+                    adventurePlayer.enabled = true;
+                if (racePlayer != null)
+                    racePlayer.enabled = true;
+                pausePanel.SetActive(false);
+            }
         }
+        
     }
 
     public void BotonOpciones(){
