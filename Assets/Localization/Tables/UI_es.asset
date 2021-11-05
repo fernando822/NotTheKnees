@@ -109,5 +109,41 @@ MonoBehaviour:
     m_Localized: No
     m_Metadata:
       m_Items: []
+  - m_Id: 1113759353896960
+    m_Localized: Juego pausado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1123438733787136
+    m_Localized: Salir del juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1133240247615488
+    m_Localized: "Teclado:\nMovimiento: Teclas direccion o WASD\nAcelerar: Shift
+      o W\nFreno de mano: Espacio\nPausa: Esc\n------------------------------------\nJoystick:\nMovimiento:
+      Stick izquierdo\nAcelerar: Gatillo derecho o Stick izquierdo hacia arriba\nFreno
+      de mano: Gatillo izquierdo o Bot\xF3n este\nPausa: Start\n\nPresione F1 o Select
+      para abrir/cerrar este mensaje"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1135706200571904
+    m_Localized: FINAL BUENO!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1137522468421632
+    m_Localized: EL PEOR FINAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1138007300603904
+    m_Localized: FINAL NEUTRO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1138120848801792
+    m_Localized: FINAL MALO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1139074830663680
+    m_Localized: El juego se va a cerrar en 10 segundos
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

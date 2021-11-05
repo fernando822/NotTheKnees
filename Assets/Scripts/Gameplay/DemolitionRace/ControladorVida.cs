@@ -66,7 +66,24 @@ public class ControladorVida : MonoBehaviour
                     break;
                 case "TerceraCarreraDemolicion":
                     Derrota("TerceraCarreraDemolicion");
-                    Victoria("Torneo");
+                    switch (GameManager.karma)
+                    {
+                        case 0:
+                            Victoria("CinematicaFinalBueno");
+                            break;
+                        case 1:
+                            Victoria("CinematicaFinalNeutro");
+                            break;
+                        case 2:
+                            Victoria("CinematicaFinalMalo");
+                            break;
+                        case 3:
+                            Victoria("CinematicaFinalPesimo");
+                            break;
+                        default:
+                            Victoria("CinematicaTorneo");
+                            break;
+                    }
                     break;
             }
         }

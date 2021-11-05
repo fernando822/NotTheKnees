@@ -11,10 +11,10 @@ public class ToggleDialogue : MonoBehaviour
             this.gameObject.GetComponent<DialogoTrigger>().dialogos.keyWords = new string[] {"Dialogo.Recepcionista005"};
 
         if(Estados.DevolverEstado("primeraCarreraTerminada"))
-            this.gameObject.GetComponent<DialogoTrigger>().dialogos.keyWords = new string[] {"Dialogo.Recepcionista006"};
+            this.gameObject.GetComponent<DialogoTrigger>().dialogos.keyWords = new string[] {"Dialogo.Recepcionista007"};
         
         if (Estados.DevolverEstado("segundaCarreraTerminada"))
-            this.gameObject.GetComponent<DialogoTrigger>().dialogos.keyWords = new string[] {"Dialogo.Recepcionista007"};
+            this.gameObject.GetComponent<DialogoTrigger>().dialogos.keyWords = new string[] {"Dialogo.Recepcionista008"};
 
     }
 }

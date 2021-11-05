@@ -16,7 +16,7 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 3c29ff9a6ebb6214f93d69d64460a282
   m_Entries:
   - m_Id: 13780877312
-    m_Key: UI.Controls
+    m_Key: UI.ControlsAdventure
     m_Metadata:
       m_Items: []
   - m_Id: 2471424917504
@@ -97,6 +97,38 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1092694313500672
     m_Key: UI.ChoicesNo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1113759353896960
+    m_Key: UI.JuegoPausado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1123438733787136
+    m_Key: UI.ExitGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1133240247615488
+    m_Key: UI.ControlsDemolition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1135706200571904
+    m_Key: UI.Final001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1137522468421632
+    m_Key: UI.Final004
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1138007300603904
+    m_Key: UI.Final002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1138120848801792
+    m_Key: UI.Final003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1139074830663680
+    m_Key: UI.Closing
     m_Metadata:
       m_Items: []
   m_Metadata:

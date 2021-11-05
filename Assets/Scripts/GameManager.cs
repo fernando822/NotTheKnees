@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         Estados.AgregarEstado("gameOver", false);
         Estados.AgregarEstado("madeChoice", false);
         Estados.AgregarEstado("vehiculoSaboteado", false);
+        Estados.AgregarEstado("isPaused", false);
     }
     public void PlayerMove(Vector2 nuevaPosicion)
     {
@@ -101,7 +102,10 @@ public class GameManager : MonoBehaviour
 
     public void PlayerMenu()
     {
-
+        if(!nombreDeEscenaActual.Contains("Menu") && !nombreDeEscenaActual.Contains("Cinematica"))
+        {
+            Estados.ModificarEstado("isPaused", !Estados.DevolverEstado("isPaused"));
+        }
     }
 
     public void ToggleBackpack()

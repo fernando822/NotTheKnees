@@ -55,7 +55,6 @@ public class UIManager : MonoBehaviour
 
     public void ChoicesNo()
     {
-        GameManager.karma--;
         Estados.ModificarEstado("vehiculoSaboteado", false);
         ToggleChoices();
     }

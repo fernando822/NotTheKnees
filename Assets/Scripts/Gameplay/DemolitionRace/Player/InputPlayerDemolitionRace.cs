@@ -41,7 +41,16 @@ public class InputPlayerDemolitionRace : MonoBehaviour
         input.PlayerDemolitionRace.ShowControls.performed += OnShowControls;
         input.PlayerDemolitionRace.ShowControls.Enable();
 
+        input.PlayerDemolitionRace.Menu.performed += OnMenu;
+        input.PlayerDemolitionRace.Menu.Enable();
 
+
+
+    }
+
+    private void OnMenu(InputAction.CallbackContext obj)
+    {
+        GameManager.GM.PlayerMenu();
     }
 
     private void OnShowControls(InputAction.CallbackContext obj)
@@ -59,7 +68,7 @@ public class InputPlayerDemolitionRace : MonoBehaviour
         if(GameManager.nombreDeEscenaActual.Contains("Carrera"))
             GameManager.GM.PlayerDemolitionRaceHandBrake();
     }
-   
+    
 
     private void OnDisable()
     {
@@ -72,5 +81,8 @@ public class InputPlayerDemolitionRace : MonoBehaviour
 
         input.PlayerDemolitionRace.ShowControls.performed -= OnShowControls;
         input.PlayerDemolitionRace.ShowControls.Disable();
+
+        input.PlayerDemolitionRace.Menu.performed -= OnMenu;
+        input.PlayerDemolitionRace.Menu.Disable();
     }
 }

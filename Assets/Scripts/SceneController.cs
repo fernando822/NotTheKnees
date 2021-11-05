@@ -44,6 +44,10 @@ public class SceneController : MonoBehaviour
         }
     }
 
+    public void CerrarEscena(string sceneName)
+    {
+        SceneManager.UnloadSceneAsync(sceneName);
+    }
     
 
 }

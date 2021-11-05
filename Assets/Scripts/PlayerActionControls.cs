@@ -336,6 +336,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""88b14c90-4528-47e0-b909-4a07963d5cea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -479,6 +487,28 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""ShowControls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""180f1e8d-6a58-41bc-8eb4-b4adb034ea01"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6109b1dd-3922-4d68-8a32-369946cd661d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -765,6 +795,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_PlayerDemolitionRace_HandBrake = m_PlayerDemolitionRace.FindAction("HandBrake", throwIfNotFound: true);
         m_PlayerDemolitionRace_Accelerate = m_PlayerDemolitionRace.FindAction("Accelerate", throwIfNotFound: true);
         m_PlayerDemolitionRace_ShowControls = m_PlayerDemolitionRace.FindAction("ShowControls", throwIfNotFound: true);
+        m_PlayerDemolitionRace_Menu = m_PlayerDemolitionRace.FindAction("Menu", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
@@ -896,6 +927,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDemolitionRace_HandBrake;
     private readonly InputAction m_PlayerDemolitionRace_Accelerate;
     private readonly InputAction m_PlayerDemolitionRace_ShowControls;
+    private readonly InputAction m_PlayerDemolitionRace_Menu;
     public struct PlayerDemolitionRaceActions
     {
         private @PlayerActionControls m_Wrapper;
@@ -904,6 +936,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         public InputAction @HandBrake => m_Wrapper.m_PlayerDemolitionRace_HandBrake;
         public InputAction @Accelerate => m_Wrapper.m_PlayerDemolitionRace_Accelerate;
         public InputAction @ShowControls => m_Wrapper.m_PlayerDemolitionRace_ShowControls;
+        public InputAction @Menu => m_Wrapper.m_PlayerDemolitionRace_Menu;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDemolitionRace; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -925,6 +958,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @ShowControls.started -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnShowControls;
                 @ShowControls.performed -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnShowControls;
                 @ShowControls.canceled -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnShowControls;
+                @Menu.started -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_PlayerDemolitionRaceActionsCallbackInterface = instance;
             if (instance != null)
@@ -941,6 +977,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @ShowControls.started += instance.OnShowControls;
                 @ShowControls.performed += instance.OnShowControls;
                 @ShowControls.canceled += instance.OnShowControls;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
@@ -1027,6 +1066,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         void OnHandBrake(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
         void OnShowControls(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

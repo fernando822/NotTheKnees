@@ -5,43 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
-    private bool pause = false;
-    public GameObject PausePanel;
     [SerializeField] AdventureGraphicMovement adventurePlayer;
     [SerializeField] LogicaMovimientoVehiculo racePlayer;
-    [SerializeField]  SceneController sceneController; 
+    [SerializeField] SceneController sceneController;
+    [SerializeField] GameObject pausePanel;
+
     void Start()
     {
-        adventurePlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<AdventureGraphicMovement>();
-        racePlayer = GameObject.Find("PlayerDemolitionRace").GetComponent<LogicaMovimientoVehiculo>();
+        pausePanel = GameObject.Find("PausePanel");
+        pausePanel.SetActive(false);
+        if (GameManager.nombreDeEscenaActual.Contains("Carrera"))
+            racePlayer = GameObject.Find("PlayerDemolitionRace").GetComponent<LogicaMovimientoVehiculo>();
+        else
+            adventurePlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<AdventureGraphicMovement>();
         sceneController = GameObject.Find("SceneManager").GetComponent<SceneController>();
     }
 
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            pause = !pause;
-        }
-        if(pause){
+        if(Estados.DevolverEstado("isPaused")){
             Time.timeScale = 0;
-            adventurePlayer.enabled = false;
-            racePlayer.enabled = false;
-            PausePanel.SetActive(true);
+            if(adventurePlayer != null)
+                adventurePlayer.enabled = false;
+            if(racePlayer != null)
+                racePlayer.enabled = false;
+            pausePanel.SetActive(true);
         }
-        else if(!pause){
+        else if(!Estados.DevolverEstado("isPaused"))
+        {
             Time.timeScale = 1;
-            adventurePlayer.enabled = true;
-            racePlayer.enabled = true;
-            PausePanel.SetActive(false);
-
+            if (adventurePlayer != null)
+                adventurePlayer.enabled = true;
+            if (racePlayer != null)
+                racePlayer.enabled = true;
+            pausePanel.SetActive(false);
         }
+    }
 
-       }
-       public void botonopciones(){
-           sceneController.CargarEscena("OptionMenu");
-       }
-       public void salir(){
-           Application.Quit();
-       }
+    public void BotonOpciones(){
+        sceneController.CargarEscenaAsync("OptionMenu");
+    }
+    public void Salir(){
+        Application.Quit();
+    }
 }

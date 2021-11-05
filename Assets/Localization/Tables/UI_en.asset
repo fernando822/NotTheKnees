@@ -113,5 +113,41 @@ MonoBehaviour:
     m_Localized: No
     m_Metadata:
       m_Items: []
+  - m_Id: 1113759353896960
+    m_Localized: Game paused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1123438733787136
+    m_Localized: Exit game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1133240247615488
+    m_Localized: "Keyboard:\r\nMovement: Arrow Keys or WASD \r\nAccelerate: Shift
+      or W\r\nHandBrake: Space\r\nPause: Esc\r\n------------------------------------\r\nJoystick:\r\nMovement:
+      Left Stick \r\nAccelerate: Right Trigger or Left Stick up\r\nHandBrake: Left
+      Trigger or Button East\r\nPause: Start\r\n\r\nPress F1 or Select to Toggle
+      this message"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1135706200571904
+    m_Localized: GOOD ENDING!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1137522468421632
+    m_Localized: THE WORST ENDING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1138007300603904
+    m_Localized: NEUTRAL ENDING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1138120848801792
+    m_Localized: BAD ENDING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1139074830663680
+    m_Localized: The game will close in 10 seconds
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
