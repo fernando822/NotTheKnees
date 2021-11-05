@@ -20,7 +20,7 @@ MonoBehaviour:
   m_TableData:
   - m_Id: 13780877312
     m_Localized: "Keyboard:\nMovement: Arrow Keys - WASD \nInteract: F\nConfirm in
-      menu: Spacebar\nToggle bag: E\nToggle map: Q\nPause: Esc\n------------------------------------\nJoystick:\nMovement:
+      menu: Enter\nToggle bag: E\nToggle map: Q\nPause: Esc\n------------------------------------\nJoystick:\nMovement:
       Left Stick\nInteract: Button South\nToggle bag: Button East\nToggle map: Button
       West\nPause: Start\n\nPress F1 or Select to Toggle this message"
     m_Metadata:

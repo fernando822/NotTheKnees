@@ -165,22 +165,25 @@ public class GameManager : MonoBehaviour
 
             controladorVida.ActualizarControladorVida();
             inputPlayerDemolitionRace.enabled = true;
-            inputPlayer.enabled = false;
         }
         else
         {
             inputPlayerDemolitionRace.enabled = false;
-            inputPlayer.enabled = true;
         }
 
         if (nombreDeEscenaActual == "AventuraGrafica" || nombreDeEscenaActual == "Taller" || nombreDeEscenaActual == "Torneo")
         {
+            inputPlayer.enabled = true;
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
             dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
             mochilaManager = GameObject.Find("Mochila").GetComponent<MochilaManager>();
             mapController = GameObject.Find("Map").GetComponent<MapController>();
             playerAdventureGraphic = GameObject.Find("Player");
             scriptPlayerAdventureGraphic = playerAdventureGraphic.GetComponent<AdventureGraphicPlayer>();
+        }
+        else
+        {
+            inputPlayer.enabled = false;
         }
     }
     

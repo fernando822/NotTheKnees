@@ -13,6 +13,8 @@ public class ControladorVida : MonoBehaviour
     public EstadoVehiculo estadoVehiculoE;
     Slider barraSaludPlayer;
     Slider barraSaludEnemigo;
+    EnemyMov2 enemy;
+    LogicaMovimientoVehiculo player;
     int carreraCompletada;
     [SerializeField] TextMeshProUGUI mensajeVictoria;
     [SerializeField] GameObject panelVictoria;
@@ -30,6 +32,8 @@ public class ControladorVida : MonoBehaviour
     }
     public void ActualizarControladorVida()
     {
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyMov2>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<LogicaMovimientoVehiculo>();
         estadoVehiculoP = GameObject.FindGameObjectWithTag("Player").GetComponent<EstadoVehiculo>();
         estadoVehiculoE = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EstadoVehiculo>();
         barraSaludPlayer = GameObject.Find("BarraDeVida").GetComponent<Slider>();
@@ -97,6 +101,8 @@ public class ControladorVida : MonoBehaviour
     {
         if (estadoVehiculoP.vida <= 0 && !Estados.DevolverEstado("gameOver"))
         {
+            player.enabled = false;
+            enemy.enabled = false;
             mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraDerrota"].Value;
             Estados.ModificarEstado("gameOver", true);
             panelVictoria.SetActive(true);
@@ -107,6 +113,8 @@ public class ControladorVida : MonoBehaviour
     {
         if (estadoVehiculoE.vida <= 0 && !Estados.DevolverEstado("gameOver"))
         {
+            player.enabled = false;
+            enemy.enabled = false;
             mensajeVictoria.text = traduccionesUI.GetTable()["UI.ResultadoCarreraVictoria"].Value;
             panelVictoria.SetActive(true);
             switch (GameManager.nombreDeEscenaActual)

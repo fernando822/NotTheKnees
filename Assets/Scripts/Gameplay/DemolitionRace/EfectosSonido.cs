@@ -34,7 +34,7 @@ public class EfectosSonido : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        choque = Mathf.Sqrt(other.relativeVelocity.magnitude * 5);
-        audioSourceImpact.PlayOneShot(impact, choque);
+        /*choque = Mathf.Sqrt(other.relativeVelocity.magnitude * 5);
+        audioSourceImpact.PlayOneShot(impact, choque);*/
     }
 }

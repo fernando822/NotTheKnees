@@ -9,12 +9,13 @@ public class SpawnTurbo : MonoBehaviour
     [SerializeField] Vector2 X;
     [SerializeField] Vector2 Z;
     [SerializeField] float delay = 5;
-    public static int contadorTurbos = 0;
+    public static int contadorTurbos;
 
     float time;
 
     void Start()
     {
+        contadorTurbos = 0;
         time = delay;
     }
 

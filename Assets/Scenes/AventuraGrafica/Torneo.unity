@@ -687,9 +687,9 @@ MonoBehaviour:
   oponente1: {fileID: 7125340446188635317, guid: 828a26396e5da6b42a07ac6b4c8f3431, type: 3}
   oponente2: {fileID: 4952144096483179264, guid: 5b4758c5316a3b4458e0c987510eb066, type: 3}
   oponente3: {fileID: 3838445724163046992, guid: 97b4c6aab093b71449884908325f9a5c, type: 3}
-  oponenteVehiculo1: {fileID: 5037914454786583770, guid: 335292bd233576e469451ce30dbfe186, type: 3}
-  oponenteVehiculo2: {fileID: 1198510292486048385, guid: c767bcf17739aaa4c828484a8267ed07, type: 3}
-  oponenteVehiculo3: {fileID: 4978701234889832749, guid: e5d8ac61f6a2e9e4383fc49bf8073ba2, type: 3}
+  oponenteVehiculo1: {fileID: 1198510292486048385, guid: c767bcf17739aaa4c828484a8267ed07, type: 3}
+  oponenteVehiculo2: {fileID: 4978701234889832749, guid: e5d8ac61f6a2e9e4383fc49bf8073ba2, type: 3}
+  oponenteVehiculo3: {fileID: 5037914454786583770, guid: 335292bd233576e469451ce30dbfe186, type: 3}
   oponenteSpawn: {fileID: 282788611}
   oponenteVehiculoSpawn: {fileID: 1189567598}
 --- !u!4 &282788613
@@ -2293,7 +2293,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 856575242}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2140070707}
+        m_TargetAssemblyTypeName: UIManager, Scripts
+        m_MethodName: ToggleBackpack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &856575242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5663,7 +5675,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2123459507}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2140070707}
+        m_TargetAssemblyTypeName: UIManager, Scripts
+        m_MethodName: ToggleMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2123459507
 MonoBehaviour:
   m_ObjectHideFlags: 0

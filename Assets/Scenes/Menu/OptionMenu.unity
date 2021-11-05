@@ -4490,7 +4490,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1731302365}
         m_TargetAssemblyTypeName: OptionMenu, Scripts
         m_MethodName: SetFullscreen
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

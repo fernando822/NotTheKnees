@@ -1454,7 +1454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473387553}
   m_LocalRotation: {x: 0.05418803, y: -0.011528187, z: 0.0006256507, w: 0.99846405}
-  m_LocalPosition: {x: 38.299046, y: 6.3439155, z: -54.770554}
+  m_LocalPosition: {x: 28.00732, y: 6.3439155, z: -55.00824}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 67372710}
@@ -1885,7 +1885,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 566888711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2067165188}
+        m_TargetAssemblyTypeName: UIManager, Scripts
+        m_MethodName: ToggleMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &566888711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4895,7 +4907,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1525035306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2067165188}
+        m_TargetAssemblyTypeName: UIManager, Scripts
+        m_MethodName: ToggleBackpack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1525035306
 MonoBehaviour:
   m_ObjectHideFlags: 0

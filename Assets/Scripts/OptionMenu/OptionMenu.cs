@@ -101,10 +101,7 @@ public class OptionMenu : MonoBehaviour
     }
 
     public void SetFullscreen(bool fullscreen){
-        if (fullscreen) 
-            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
-        else 
-            Screen.fullScreenMode = FullScreenMode.Windowed;
+        Screen.fullScreen = fullscreen;
     }
 
     public void ExitMenu(){

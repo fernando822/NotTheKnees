@@ -20,7 +20,7 @@ MonoBehaviour:
   m_TableData:
   - m_Id: 13780877312
     m_Localized: "Teclado:\nMovimiento: Flechas direcci\xF3n - WASD \nInteractuar:
-      F\nConfirmar en men\xFA: Espacio\nAbrir/Cerrar mochila: E\nAbrir/Cerrar mapa:
+      F\nConfirmar en men\xFA: Enter\nAbrir/Cerrar mochila: E\nAbrir/Cerrar mapa:
       Q\nPausa: Escape\n------------------------------------\nJoystick:\nMovimiento:
       Stick izquierdo\nInteractuar: Boton sur\nAbrir/Cerrar mochila: Boton este\nAbrir/Cerrar
       mapa: Boton oeste\nPausa: Start\n\nPreciosa F1 o Select para Abrir/Cerrar este

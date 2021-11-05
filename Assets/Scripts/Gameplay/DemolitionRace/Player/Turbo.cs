@@ -10,7 +10,9 @@ public class Turbo : MonoBehaviour
 
     void Start()
     {
+        logicaMovimientoVehiculo = GameObject.FindGameObjectWithTag("Player").GetComponent<LogicaMovimientoVehiculo>();
         rb = GetComponent<Rigidbody>();
+        turboRestante = 0;
     }
 
 

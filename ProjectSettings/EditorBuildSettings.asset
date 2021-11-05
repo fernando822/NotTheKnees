@@ -30,13 +30,13 @@ EditorBuildSettings:
     path: Assets/Scenes/AventuraGrafica/Torneo.unity
     guid: 62dc72a589e8ce24d9655abad38cb189
   - enabled: 1
-    path: Assets/Scenes/Carrera/CarreraDeDemolicion.unity
+    path: Assets/Scenes/Carrera/TerceraCarreraDemolicion.unity
     guid: 84d7d0a4d51107b4ca8224888ae4eab9
   - enabled: 1
-    path: Assets/Scenes/Carrera/SegundaCarreraDemolicion.unity
+    path: Assets/Scenes/Carrera/CarreraDeDemolicion.unity
     guid: f5ecd8c3b499b47499ff6f4ffb7d89a2
   - enabled: 1
-    path: Assets/Scenes/Carrera/TerceraCarreraDemolicion.unity
+    path: Assets/Scenes/Carrera/SegundaCarreraDemolicion.unity
     guid: 603e244f62de8c94fb6c49171809d411
   - enabled: 1
     path: Assets/Scenes/Cinematicas/CinematicaFinalBueno.unity
