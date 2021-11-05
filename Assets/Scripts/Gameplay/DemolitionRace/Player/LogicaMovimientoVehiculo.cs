@@ -18,7 +18,7 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     float rpm, a, b, c, d;
 
     public bool Turbo;
-    float turboActual;
+    public float turboActual;
 
     [SerializeField] WheelCollider ruedaAdelanteIzquierda;
     [SerializeField] WheelCollider ruedaAdelanteDerecha;
