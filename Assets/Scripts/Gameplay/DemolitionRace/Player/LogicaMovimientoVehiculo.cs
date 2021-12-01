@@ -13,9 +13,9 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     [SerializeField] float tolZ = 45;
     
     public float torque;
-    float direccion;
-    float freno;
-    float rpm, a, b, c, d;
+    public float direccion;
+    public float freno;
+    public float rpm, a, b, c, d;
 
     public bool Turbo;
     public float turboActual;

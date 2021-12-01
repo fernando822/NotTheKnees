@@ -24,8 +24,6 @@ public class EnemyMov2 : MonoBehaviour
     float rpm, a, b, c, d;
 
  
-
-
     [SerializeField] WheelCollider ruedaAdelanteIzquierda;
     [SerializeField] WheelCollider ruedaAdelanteDerecha;
     [SerializeField] WheelCollider ruedaAtrasIzquierda;
