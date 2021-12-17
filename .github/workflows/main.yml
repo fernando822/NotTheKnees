@@ -29,11 +29,8 @@ jobs:
         with:
     
            targetPlatform:  WebGL 
-            StandaloneOSX 
-            StandaloneWindows64 
-            StandaloneLinux64 
-            iOS 
-            Android 
+          
+          
             
          # Test
       - name: Run tests
