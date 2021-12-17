@@ -11,9 +11,9 @@ public class MovimietoVheiculoJugadorTest
     [OneTimeSetUp]
     public void LoadScene()
     {
-        SceneManager.LoadScene("CarreraDeDemolicion");
-        GameObject gameManager = new GameObject();
-        GameManager GM = gameManager.AddComponent<GameManager>();
+      //  SceneManager.LoadScene("CarreraDeDemolicion");
+        //GameObject gameManager = new GameObject();
+        //GameManager GM = gameManager.AddComponent<GameManager>();
     }
 
     

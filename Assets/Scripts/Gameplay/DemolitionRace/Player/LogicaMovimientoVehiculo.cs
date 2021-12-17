@@ -20,10 +20,10 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     public bool Turbo;
     public float turboActual;
 
-    [SerializeField] WheelCollider ruedaAdelanteIzquierda;
-    [SerializeField] WheelCollider ruedaAdelanteDerecha;
-    [SerializeField] WheelCollider ruedaAtrasIzquierda;
-    [SerializeField] WheelCollider ruedaAtrasDerecha;
+    //[SerializeField] WheelCollider ruedaAdelanteIzquierda;
+   // [SerializeField] WheelCollider ruedaAdelanteDerecha;
+  //  [SerializeField] WheelCollider ruedaAtrasIzquierda;
+    //[SerializeField] WheelCollider ruedaAtrasDerecha;
 
     public animaciones animaciones;
 
@@ -33,18 +33,18 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
 
     public void ControlRuedas()
     {
-        ruedaAdelanteDerecha.motorTorque = torque;
-        ruedaAdelanteIzquierda.motorTorque = torque;
-        ruedaAtrasDerecha.motorTorque = torque;
-        ruedaAtrasIzquierda.motorTorque = torque;
+        //  ruedaAdelanteDerecha.motorTorque = torque;
+        //  ruedaAdelanteIzquierda.motorTorque = torque;
+        //  ruedaAtrasDerecha.motorTorque = torque;
+        //  ruedaAtrasIzquierda.motorTorque = torque;
+        //
+        //  ruedaAdelanteDerecha.brakeTorque = freno;
+        // ruedaAdelanteIzquierda.brakeTorque = freno;
+        //  ruedaAtrasDerecha.brakeTorque = freno;
+        //  ruedaAtrasIzquierda.brakeTorque = freno;
 
-        ruedaAdelanteDerecha.brakeTorque = freno;
-        ruedaAdelanteIzquierda.brakeTorque = freno;
-        ruedaAtrasDerecha.brakeTorque = freno;
-        ruedaAtrasIzquierda.brakeTorque = freno;
-
-        ruedaAdelanteDerecha.steerAngle = direccion;
-        ruedaAdelanteIzquierda.steerAngle = direccion;
+        // ruedaAdelanteDerecha.steerAngle = direccion;
+        //  ruedaAdelanteIzquierda.steerAngle = direccion;
     }
 
     public void Accelerate(float valorInputVertical)
@@ -58,12 +58,12 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
         else
             freno = 0;
 
-        a = ruedaAdelanteDerecha.rpm;
-        b = ruedaAdelanteIzquierda.rpm;
-        c = ruedaAtrasDerecha.rpm;
-        d = ruedaAtrasIzquierda.rpm;
-        rpm = (float)(a + b + c + d) / 4;
-        player.animaciones.rotacion(rpm);
+        //  a = ruedaAdelanteDerecha.rpm;
+        //  b = ruedaAdelanteIzquierda.rpm;
+        //  c = ruedaAtrasDerecha.rpm;
+        //d = ruedaAtrasIzquierda.rpm;
+        //rpm = (float)(a + b + c + d) / 4;
+      //  player.animaciones.rotacion(rpm);
     }
     public void SetRotation(float valorInputHorizontal)
     {
@@ -88,8 +88,8 @@ public class LogicaMovimientoVehiculo : MonoBehaviour
     } 
     public void FixedUpdate()
     {
-        ControlRuedas();
-        antibuelco();
+       // ControlRuedas();
+       // antibuelco();
     }
 
     public void SetSpeed(float speed) => this.torque = speed; 
