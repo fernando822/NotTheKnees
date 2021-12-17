@@ -24,10 +24,11 @@ jobs:
     steps:
     # Build
     - name: Build project
-       - uses: yukiarrr/unity-build-action@v0.6.1
-  - with:
-    unity-version: 2018.4.12f1
-    unity-username: ${{ secrets.UNITY_USERNAME }}
-    unity-password: ${{ secrets.UNITY_PASSWORD }}
-    unity-serial: ${{ secrets.UNITY_SERIAL }}
-    build-target: iOS
+    - uses: yukiarrr/unity-build-action@v0.6.1
+    - with:
+        
+        unity-version: 2020.3.12f1
+        unity-username: ${{ secrets.UNITY_USERNAME }}
+        unity-password: ${{ secrets.UNITY_PASSWORD }}
+        unity-serial: ${{ secrets.UNITY_SERIAL }}
+        build-target: Windows
