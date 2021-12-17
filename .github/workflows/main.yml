@@ -23,18 +23,21 @@ jobs:
 
       # Build
       - name: Build project
-        uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+            - uses: yukiarrr/unity-build-action@v0.6.1
         with:
-    
-           targetPlatform:  WebGL 
-          
+        unity-version: 2018.4.12f1
+       unity-username: ${{ secrets.UNITY_USERNAME }}
+        unity-password: ${{ secrets.UNITY_PASSWORD }}
+        unity-serial: ${{ secrets.UNITY_SERIAL }}
+        build-target: iOS
+      
+      
+      
           
             
          # Test
-      - name: Run tests
-        uses: game-ci/unity-test-runner@v2
+         - name: Run tests
+        - uses: game-ci/unity-test-runner@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
